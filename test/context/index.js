@@ -17,6 +17,28 @@ export default class Context {
     this.key = key
     this.ip = ip
   }
+  get address() {
+    return {
+      Address1: 'Planetary Express',
+      Address2: '57th Street',
+      AddressId: 837703,
+      AddressName: 'Main Address',
+      City: 'New New York',
+      Country: 'US',
+      Default_YN: true,
+      EmailAddress: 'test@adc.sh',
+      FirstName: 'Art',
+      JobTitle: 'Director',
+      LastName: 'Deco',
+      Organization: 'Art Deco Code Limited',
+      Phone: '+1.5417543010',
+      PhoneExt: '',
+      StateProvince: '',
+      StateProvinceChoice: 'P',
+      UserName: 'test',
+      Zip: '10019',
+    }
+  }
   /**
    * Example method.
    */

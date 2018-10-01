@@ -2,6 +2,7 @@ import { equal, ok, deepEqual } from 'zoroaster/assert'
 import Context from '../context'
 import NameCheap from '../../src'
 import SnapshotContext from 'snapshot-context'
+import { getAddressObject } from '../../src/api/domains/create'
 
 /** @type {Object.<string, (c: Context, s: SnapshotContext)>} */
 const T = {
@@ -49,6 +50,26 @@ const T = {
     assertKeys(['CreatedDate', 'ExpiredDate', 'NumYears'], DomainDetails)
     equal(res3.DomainName, domain)
     equal(res3.Status, 'Ok')
+  },
+  'extracts a keyed address from a raw address'({ address }) {
+    const res = getAddressObject(address, 'Registrant')
+    deepEqual(res, {
+      RegistrantOrganizationName: address.Organization,
+      RegistrantJobTitle: address.JobTitle,
+      RegistrantFirstName: address.FirstName,
+      RegistrantLastName: address.LastName,
+      RegistrantAddress1: address.Address1,
+      RegistrantAddress2: address.Address2,
+      RegistrantCity: address.City,
+      RegistrantStateProvince: 'NA',
+      RegistrantStateProvinceChoice: address.StateProvinceChoice,
+      RegistrantPostalCode: address.Zip,
+      RegistrantCountry: address.Country,
+      RegistrantPhone: address.Phone,
+      RegistrantPhoneExt: address.PhoneExt,
+      RegistrantFax: address.Fax,
+      RegistrantEmailAddress: address.EmailAddress,
+    })
   },
 }
 

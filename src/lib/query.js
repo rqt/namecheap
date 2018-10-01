@@ -1,10 +1,7 @@
 import rqt from 'rqt'
 import { stringify } from 'querystring'
-import { debuglog } from 'util'
 import extractTags from 'rexml'
 import { filterEmpty } from '.'
-
-const LOG = debuglog('@rqt/namecheap')
 
 /** @param {string} s */
 const isXml = s => s.startsWith('<?xml version="1.0" encoding="utf-8"?>')
@@ -26,7 +23,6 @@ export default async function query({
     ...opts,
   })
   const url = `${host}/xml.response?${qs}`
-  LOG(url)
   const res = await rqt(url)
   const xml = isXml(res)
   if (!xml) throw new Error('non-xml response')

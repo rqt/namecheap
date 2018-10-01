@@ -15,6 +15,28 @@ const COMMAND = 'namecheap.domains.create'
  * @param {AddressDetail} [options.registrantAddress] An address to use for `Registrant` address details.
  * @param {AddressDetail} [options.techAddress] An address to use for `Tech` address details.
  * @param {Admin} [options.adminAddress] An address to use for `Admin` address details.
+ * @example
+ *
+ * // 0. Find the default account address.
+ * const ad = await nc.users.address.getList()
+ * const { AddressId } = ad.find(({ IsDefault }) => IsDefault)
+ * const address = await nc.users.address.getInfo(AddressId)
+ *
+ * // Register a domain.
+ * await nc.domains.create({
+ *  domain: 'example-test-100.com',
+ *  address,
+ * })
+ * // Result:
+ * { Domain: 'example-test-100.com',
+ *  Registered: true,
+ *  ChargedAmount: '9.0600',
+ *  DomainID: 330037,
+ *  OrderID: 1291740,
+ *  TransactionID: 1828960,
+ *  WhoisguardEnable: true,
+ *  FreePositiveSSL: false,
+ *  NonRealTimeDomain: false }
  */
 async function create(options) {
   const {
@@ -104,6 +126,19 @@ export default create
  * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.
  * @prop {Admin} [adminAddress] An address to use for `Admin` address details.
  *
+ * @typedef {Object} RegistrationResult
+ * @prop {string} ChargedAmount Total amount charged for registration.
+ * @prop {string} Domain Domain name that you are trying to register.
+ * @prop {number} DomainID Unique integer value that represents the domain.
+ * @prop {boolean} NonRealTimeDomain Indicates whether the domain registration is instant (real-time) or not.
+ * @prop {number} OrderID Unique integer value that represents the order.
+ * @prop {boolean} Registered Indicates whether the domain was registered.
+ * @prop {number} TransactionID Unique integer value that represents the transaction.
+ * @prop {boolean} WhoisguardEnable Indicates whether WhoisGuard protection is enabled for the domain.
+ */
+
+/* documentary types/api/users/address/get-info.xml */
+/**
  * @typedef {Object} AddressDetail
  * @prop {string} FirstName
  * @prop {string} LastName
@@ -119,14 +154,4 @@ export default create
  * @prop {string} Phone
  * @prop {string} PhoneExt
  * @prop {string} EmailAddress
- *
- * @typedef {Object} RegistrationResult
- * @prop {string} ChargedAmount Total amount charged for registration.
- * @prop {string} Domain Domain name that you are trying to register.
- * @prop {number} DomainID Unique integer value that represents the domain.
- * @prop {boolean} NonRealTimeDomain Indicates whether the domain registration is instant (real-time) or not.
- * @prop {number} OrderID Unique integer value that represents the order.
- * @prop {boolean} Registered Indicates whether the domain was registered.
- * @prop {number} TransactionID Unique integer value that represents the transaction.
- * @prop {boolean} WhoisguardEnable Indicates whether WhoisGuard protection is enabled for the domain.
  */

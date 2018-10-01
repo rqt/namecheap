@@ -31,7 +31,7 @@
       "name": "Launch Example",
       "program": "${workspaceFolder}/example/index.js",
       "env": {
-        "NODE_DEBUG": "@rqt/namecheap",
+        "NODE_DEBUG": "@rqt/namecheap,aqt",
       },
       "console": "integratedTerminal",
       "args": [

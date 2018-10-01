@@ -1,0 +1,18 @@
+<types>
+  <type name="AddressDetail">
+    <prop string name="FirstName"/>
+    <prop string name="LastName"/>
+    <prop string name="JobTitle"/>
+    <prop string name="Organization"/>
+    <prop string name="Address1"/>
+    <prop string name="Address2"/>
+    <prop string name="City"/>
+    <prop string name="StateProvince"/>
+    <prop string name="StateProvinceChoice"/>
+    <prop string name="Zip"/>
+    <prop string name="Country"/>
+    <prop string name="Phone"/>
+    <prop string name="PhoneExt"/>
+    <prop string name="EmailAddress"/>
+  </type>
+</types>

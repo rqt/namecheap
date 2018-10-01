@@ -1,10 +1,17 @@
 <types>
-  <type name="Config" desc="Options for the program.">
-    <prop boolean name="shouldRun" default="true">
-      A boolean option.
+  <type name="Options" desc="Options for the namecheap client.">
+    <prop string name="user">
+      The username required to access the API.
     </prop>
-    <prop string name="text">
-      A text to return.
+    <prop string name="key">
+      The password required used to access the API.
     </prop>
+    <prop string name="ip">
+      The IP address of the client accessing the application (End-user IP address).
+    </prop>
+    <prop boolean name="sandbox" default="false">
+      Whether to use the sandbox version of the API.
+    </prop>
+  </type>
   </type>
 </types>

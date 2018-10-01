@@ -3,12 +3,22 @@ import api from './api'
 import query from './lib/query'
 
 export default class NameCheap {
-  constructor({
-    user,
-    key,
-    sandbox = false,
-    ip,
-  }) {
+  /**
+   * Create a new instance of the client.
+   * @constructor
+   * @param {Options} options Options for the namecheap client.
+ * @param {string} options.user The username required to access the API.
+ * @param {string} options.key The password required used to access the API.
+ * @param {string} options.ip The IP address of the client accessing the application (End-user IP address).
+ * @param {boolean} [options.sandbox=false] Whether to use the sandbox version of the API. Default `false`.
+   */
+  constructor(options) {
+    const {
+      user,
+      key,
+      sandbox = false,
+      ip,
+    } = options
     this._user = user
     this._key = key
     this._host = `https://api.${sandbox ? 'sandbox.' : ''}namecheap.com`
@@ -56,3 +66,12 @@ export default class NameCheap {
     }
   }
 }
+
+/* documentary types/index.xml */
+/**
+ * @typedef {Object} Options Options for the namecheap client.
+ * @prop {string} user The username required to access the API.
+ * @prop {string} key The password required used to access the API.
+ * @prop {string} ip The IP address of the client accessing the application (End-user IP address).
+ * @prop {boolean} [sandbox=false] Whether to use the sandbox version of the API. Default `false`.
+ */

@@ -22,7 +22,6 @@ const getSort = (sort, desc) => {
 
 /**
  * Returns a list of domains for the particular user.
- * @this {import('../..').default}
  * @param {GetList} options Options to get a list of domains.
  * @param {'ALL'|'EXPIRING'|'EXPIRED'} [options.type="ALL"] The type of domains. Default `ALL`.
  * @param {string} [options.filter] The keyword to look for in the domain list.

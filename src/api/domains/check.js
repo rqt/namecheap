@@ -8,7 +8,6 @@ const COMMAND = 'namecheap.domains.check'
  * @param {string|Check} options
  * @param {string} [options.domain] The domain check.
  * @param {string[]} [options.domains] The domains to check.
- * @this {import('../..').default}
  * @example
  *
  * await nc.domains.check('test.co')

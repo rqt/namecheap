@@ -112,7 +112,6 @@ export const parse = (res) => {
  * Returns information about the requested domain.
  * @param {string|GetInfo} options The domain name, or options to get info about a domain.
  * @param {string} options.domain The domain to get info about.
- * @this {import('../..').default}
  * @example
  *
  * // Obtain information for the testt.cc domain:

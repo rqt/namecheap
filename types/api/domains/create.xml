@@ -1,0 +1,76 @@
+<types>
+  <type name="Create" desc="Options to register a domain.">
+    <prop string name="domain">
+      The domain name to register.
+    </prop>
+    <prop number name="years" default="1">
+      The number of years to register.
+    </prop>
+    <prop string opt name="promo">
+      Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
+    </prop>
+    <prop opt name="nameservers" type="string[]">
+      The comma-separated list of custom nameservers to be associated with the domain name.
+    </prop>
+    <prop boolean name="whois" default="true">
+      Adds free WhoisGuard for the domain.
+    </prop>
+    <prop name="address" type="AddressDetail">
+      A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`.
+    </prop>
+    <prop opt name="billingAddress" type="AddressDetail">
+      An address to use for `AuxBilling` address details.
+    </prop>
+    <prop opt name="registrantAddress" type="AddressDetail">
+      An address to use for `Registrant` address details.
+    </prop>
+    <prop opt name="techAddress" type="AddressDetail">
+      An address to use for `Tech` address details.
+    </prop>
+    <prop opt name="adminAddress" type="Admin">
+      An address to use for `Admin` address details.
+    </prop>
+  </type>
+  <type name="AddressDetail">
+    <prop string name="FirstName"/>
+    <prop string name="LastName"/>
+    <prop string name="JobTitle"/>
+    <prop string name="Organization"/>
+    <prop string name="Address1"/>
+    <prop string name="Address2"/>
+    <prop string name="City"/>
+    <prop string name="StateProvince"/>
+    <prop string name="StateProvinceChoice"/>
+    <prop string name="Zip"/>
+    <prop string name="Country"/>
+    <prop string name="Phone"/>
+    <prop string name="PhoneExt"/>
+    <prop string name="EmailAddress"/>
+  </type>
+  <type name="RegistrationResult">
+    <prop string name="ChargedAmount">
+      Total amount charged for registration.
+    </prop>
+    <prop string name="Domain">
+      Domain name that you are trying to register.
+    </prop>
+    <prop number name="DomainID">
+      Unique integer value that represents the domain.
+    </prop>
+    <prop boolean name="NonRealTimeDomain">
+      Indicates whether the domain registration is instant (real-time) or not.
+    </prop>
+    <prop number name="OrderID">
+      Unique integer value that represents the order.
+    </prop>
+    <prop boolean name="Registered">
+      Indicates whether the domain was registered.
+    </prop>
+    <prop number name="TransactionID">
+      Unique integer value that represents the transaction.
+    </prop>
+    <prop boolean name="WhoisguardEnable">
+      Indicates whether WhoisGuard protection is enabled for the domain.
+    </prop>
+  </type>
+</types>

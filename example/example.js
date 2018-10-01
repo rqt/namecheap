@@ -16,6 +16,9 @@ import bosom from 'bosom'
     const res2 = await namecheap.domains.getInfo('alamode.app')
     const c = await namecheap.domains.check('test.co')
     console.log(c)
+    const r = await namecheap.domains.create({
+      domain: 'example-test.com',
+    })
     debugger
   } catch (err) {
     console.log(err)

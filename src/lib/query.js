@@ -2,28 +2,53 @@ import rqt from 'rqt'
 import { stringify } from 'querystring'
 import extractTags from 'rexml'
 import { filterEmpty } from '.'
+import { version } from '../../package.json'
 
 /** @param {string} s */
 const isXml = s => s.startsWith('<?xml version="1.0" encoding="utf-8"?>')
+
+const UA = [
+  'Mozilla/5.0',
+  `(Node.js; @rqt/namecheap v${version})`,
+  'https://github.com/rqt/namecheap',
+].join(' ')
 
 export default async function query({
   ApiUser,
   ApiKey,
   ClientIp,
   host,
-}, Command, Options = {}) {
+}, Command, Options = {}, method = 'GET') {
   if (!Command) throw new Error('Command must be passed.')
-  const opts = filterEmpty(Options)
-  const qs = stringify({
+  const data = filterEmpty(Options)
+  const authData = {
     ApiUser,
     ApiKey,
     UserName: ApiUser,
     ClientIp,
     Command,
-    ...opts,
-  })
-  const url = `${host}/xml.response?${qs}`
-  const res = await rqt(url)
+  }
+  let res
+  const headers = {
+    'User-Agent': UA,
+  }
+  if (method == 'GET') {
+    const qs = stringify({ ...authData, ...data })
+    const url = `${host}/xml.response?${qs}`
+    res = await rqt(url, {
+      headers,
+    })
+  } else if (method == 'POST') {
+    const qs = stringify(authData)
+    res = await rqt(`${host}/xml.response?${qs}`, {
+      data,
+      headers,
+      type: 'form',
+    })
+  } else {
+    throw new Error('Unknown method.')
+  }
+
   const xml = isXml(res)
   if (!xml) throw new Error('non-xml response')
 
@@ -32,7 +57,7 @@ export default async function query({
 
   const [{ content: CommandResponse }] = extractTags('CommandResponse', res)
 
-  return CommandResponse
+  return CommandResponse.trim()
 }
 
 export const getError = (res) => {

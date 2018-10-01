@@ -38,8 +38,9 @@ export default class NameCheap {
   /**
    * @param {string} endpoint Which method should be queried, e.g., `namecheap.domains.getList`.
    * @param {Object.<string, string>} [params] The map of parameters.
+   * @param {'POST'|'GET'} method
    */
-  async _query(endpoint, params) {
+  async _query(endpoint, params, method) {
     const cb = erotic(true)
     try {
       const res = await query({
@@ -47,7 +48,7 @@ export default class NameCheap {
         ApiUser: this._user,
         host: this._host,
         ClientIp: this._ip,
-      }, endpoint, params)
+      }, endpoint, params, method)
       return res
     } catch (err) {
       const e = cb(err)

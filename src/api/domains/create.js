@@ -67,7 +67,7 @@ async function create(options) {
     Nameservers: nameservers.join(','),
     AddFreeWhoisguard: whois ? 'yes' : 'no',
     WGEnabled: whois ? 'yes' : 'no',
-  })
+  }, 'POST')
   const [{ props }] = extractTags('DomainCreateResult', res)
   /** @type {RegistrationResult} */
   const r = props

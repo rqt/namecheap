@@ -12,4 +12,4 @@ const ts = makeTestSuite('test/result', {
   context: Context,
 })
 
-export default ts
+// export default ts

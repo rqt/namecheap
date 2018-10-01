@@ -11,7 +11,7 @@
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
-    "b": "alamode src -o build",
+    "b": "alamode src -o build -s",
     "d": "yarn-s d1 d2 d3 d4 d5 d6",
     "d1": "NODE_DEBUG=doc doc src/api/domains/get-list.js -g",
     "d2": "NODE_DEBUG=doc doc src/api/domains/get-info.js -g",
@@ -46,6 +46,7 @@
     "bosom": "1.0.0",
     "documentary": "1.20.1",
     "eslint-config-artdeco": "1.0.1",
+    "snapshot-context": "2.0.4",
     "yarn-s": "1.1.0",
     "zoroaster": "3.6.1"
   },

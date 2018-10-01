@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { debuglog } from 'util'
+import bosom from 'bosom'
 
 const LOG = debuglog('@rqt/namecheap')
 
@@ -11,6 +12,10 @@ const FIXTURE = resolve(__dirname, '../fixture')
 export default class Context {
   async _init() {
     LOG('init context')
+    const { user, key, ip } = await bosom('.namecheap.json')
+    this.user = user
+    this.key = key
+    this.ip = ip
   }
   /**
    * Example method.

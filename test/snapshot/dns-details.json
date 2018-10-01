@@ -1,0 +1,12 @@
+{
+  "ProviderType": "FREE",
+  "IsUsingOurDNS": true,
+  "HostCount": 2,
+  "EmailType": "FWD",
+  "DynamicDNSStatus": false,
+  "IsFailover": false,
+  "Nameserver": [
+    "dns1.registrar-servers.com",
+    "dns2.registrar-servers.com"
+  ]
+}

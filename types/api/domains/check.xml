@@ -1,0 +1,23 @@
+<types>
+  <type name="Check">
+    <prop opt string name="domain">
+      The domain check.
+    </prop>
+    <prop opt name="domains" type="string[]">
+      The domains to check.
+    </prop>
+  </type>
+  <type name="DomainCheck">
+    <prop boolean name="Available"/>
+    <prop string name="Description"/>
+    <prop string name="Domain"/>
+    <prop number name="EapFee"/>
+    <prop number name="ErrorNo"/>
+    <prop number name="IcannFee"/>
+    <prop boolean name="IsPremiumName"/>
+    <prop number name="PremiumRegistrationPrice"/>
+    <prop number name="PremiumRenewalPrice"/>
+    <prop number name="PremiumRestorePrice"/>
+    <prop number name="PremiumTransferPrice"/>
+  </type>
+</types>

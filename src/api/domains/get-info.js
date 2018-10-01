@@ -113,7 +113,6 @@ export const parse = (res) => {
  * @param {string|GetInfo} options The domain name, or options to get info about a domain.
  * @param {string} options.domain The domain to get info about.
  * @this {import('../..').default}
- * @returns {DomainInfo}
  * @example
  *
  * // Obtain information for the testt.cc domain:
@@ -171,6 +170,7 @@ async function getInfo(options) {
     HostName: host,
   })
 
+  /** @type {DomainInfo} */
   const d = parse(res)
   return d
 }
@@ -181,7 +181,7 @@ export default getInfo
 /**
  * @typedef {Object} GetInfo Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
  * @prop {string} domain The domain to get info about.
- * @prop {string} host The hosted domain name for which domain information needs to be requested
+ * @prop {string} [host] The hosted domain name for which domain information needs to be requested.
  *
  * @typedef {Object} DomainInfo
  * @prop {string} DomainName Domain name for which the information was requested, e.g., `example.com`.

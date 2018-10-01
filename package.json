@@ -15,6 +15,7 @@
     "d": "yarn-s d1 d2",
     "d1": "NODE_DEBUG=doc doc src/api/domains/get-list.js -g",
     "d2": "NODE_DEBUG=doc doc src/api/domains/get-info.js -g",
+    "d3": "NODE_DEBUG=doc doc src/api/domains/check.js -g",
     "build": "yarn-s d b doc",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
     "e": "node example",

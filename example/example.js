@@ -14,6 +14,8 @@ import bosom from 'bosom'
       .join('\n')
     console.log(s)
     const res2 = await namecheap.domains.getInfo('alamode.app')
+    const c = await namecheap.domains.check('test.co')
+    console.log(c)
     debugger
   } catch (err) {
     console.log(err)

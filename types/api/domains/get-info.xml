@@ -3,8 +3,8 @@
     <prop string name="domain">
       The domain to get info about.
     </prop>
-    <prop string name="host">
-      The hosted domain name for which domain information needs to be requested
+    <prop opt string name="host">
+      The hosted domain name for which domain information needs to be requested.
     </prop>
   </type>
   <type name="DomainInfo">

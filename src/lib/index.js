@@ -6,3 +6,7 @@ export const filterEmpty = (obj) => {
     return acc
   }, {})
 }
+
+export const validateDomains = (arr) => arr.reduce((acc, current) => {
+  return acc && typeof current == 'string'
+}, true)

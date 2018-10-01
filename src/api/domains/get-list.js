@@ -30,6 +30,49 @@ const getSort = (sort, desc) => {
  * @param {number} [options.pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
  * @param {'name'|'expire'|'create'} [options.sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
  * @param {boolean} [options.desc=false] Whether to sort in descending order. Default `false`.
+ * @example
+ *
+  // Get information about domains in the `.app` zone sorted by descending  create date (oldest first)
+  await nc.domains.getList({
+   sort: 'create',
+   desc: true,
+   filter: '.app',
+  })
+
+  // Result:
+  {
+   domains: [
+     {
+       ID: 30071047,
+       Name: 'example.app',
+       User: 'artdeco',
+       Created: '06/05/2018',
+       Expires: '06/05/2019',
+       IsExpired: false,
+       IsLocked: false,
+       AutoRenew: true,
+       WhoisGuard: 'ENABLED',
+       IsPremium: false,
+       IsOurDNS: false
+     },
+     {
+       ID: 30072635,
+       Name: 'test.app',
+       User: 'artdeco',
+       Created: '06/06/2018',
+       Expires: '06/06/2019',
+       IsExpired: false,
+       IsLocked: false,
+       AutoRenew: true,
+       WhoisGuard: 'ENABLED',
+       IsPremium: false,
+       IsOurDNS: false
+     },
+   ],
+   TotalItems: 2,
+   CurrentPage: 1,
+   PageSize: 20,
+  }
  */
 async function getList(options = {}) {
   const {

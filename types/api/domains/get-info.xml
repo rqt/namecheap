@@ -1,0 +1,84 @@
+<types>
+  <type name="GetInfo" desc="Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx">
+    <prop string name="domain">
+      The domain to get info about.
+    </prop>
+    <prop string name="host">
+      The hosted domain name for which domain information needs to be requested
+    </prop>
+  </type>
+  <type name="DomainInfo">
+    <prop string name="DomainName">
+      Domain name for which the information was requested, e.g., `example.com`.
+    </prop>
+    <prop string name="OwnerName">
+      User account under which the domain is registered, e.g., `rqt`.
+    </prop>
+    <prop number name="ID">
+      Unique integer value that represents the domain,e.g., `314928`.
+    </prop>
+    <prop boolean name="IsOwner">
+      Indicates whether the API user is the owner of the domain, e.g., `true`.
+    </prop>
+    <prop boolean name="IsPremium">
+      Indicates whether the domain name is premium, e.g., `false`.
+    </prop>
+    <prop name="Status" type="'Ok'|'Locked'|'Expired'">
+      Indicates the status of the domain, e.g., `OK`.
+    </prop>
+    <prop name="DomainDetails" type="DomainDetails" />
+    <prop name="LockDetails" type="LockDetails" />
+    <prop name="Whoisguard" type="Whoisguard" />
+    <prop name="PremiumDnsSubscription" type="PremiumDnsSubscription" />
+    <prop name="DnsDetails" type="DnsDetails" />
+    <prop name="ModificationRights" type="ModificationRights" />
+  </type>
+  <type name="DomainDetails">
+    <prop string name="CreatedDate">
+      `06/06/2018`
+    </prop>
+    <prop string name="ExpiredDate">
+      `06/06/2019`
+    </prop>
+    <prop number name="NumYears">
+      1
+    </prop>
+  </type>
+  <type name="LockDetails" />
+  <type name="Whoisguard">
+    <prop boolean name="Enabled">`true`</prop>
+    <prop string name="ID">`264991`</prop>
+    <prop string name="ExpiredDate">`06/06/2019`</prop>
+    <prop name="EmailDetails" type="EmailDetails" />
+  </type>
+  <type name="EmailDetails">
+    <prop number name="AutoEmailChangeFrequencyDays">`0`</prop>
+    <prop string name="ForwardedTo">`example@adc.sh`</prop>
+    <prop string name="LastAutoEmailChangeDate" />
+    <prop string name="WhoisGuardEmail">
+      `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com`
+    </prop>
+  </type>
+  <type name="PremiumDnsSubscription">
+    <prop type="Date" name="CreatedDate" />
+    <prop type="Date" name="ExpirationDate" />
+    <prop boolean name="IsActive">`false`</prop>
+    <prop number name="SubscriptionId">-1</prop>
+    <prop boolean name="UseAutoRenew">`false`</prop>
+  </type>
+  <type name="DnsDetails">
+    <prop boolean name="DynamicDNSStatus">`false`</prop>
+    <prop string name="EmailType">`FWD`</prop>
+    <prop number name="HostCount">`2`</prop>
+    <prop boolean name="IsFailover">`false`</prop>
+    <prop boolean name="IsUsingOurDNS">`true`</prop>
+    <prop type="string[]" name="Nameserver">
+      `[dns1.registrar-servers.com, dns2.registrar-servers.com]`
+    </prop>
+    <prop type="'CUSTOM'|'FREE'" name="ProviderType">`FREE`</prop>
+  </type>
+  <type name="ModificationRights">
+    <prop boolean name="All">`true`</prop>
+    <prop opt boolean name="hosts" />
+  </type>
+</types>

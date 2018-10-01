@@ -1,0 +1,35 @@
+<types>
+  <type name="GetList" desc="Options to get a list of domains.">
+    <prop opt name="type" type="'ALL'|'EXPIRING'|'EXPIRED'" default="ALL">
+      The type of domains.
+    </prop>
+    <prop opt string name="filter">
+      The keyword to look for in the domain list.
+    </prop>
+    <prop number name="page" default="1">
+      The page to return.
+    </prop>
+    <prop number name="pageSize" default="20">
+      The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100.
+    </prop>
+    <prop name="sort" type="'name'|'expire'|'create'" default="create">
+      The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date.
+    </prop>
+    <prop boolean name="desc" default="false">
+      Whether to sort in descending order.
+    </prop>
+  </type>
+  <type name="Domain">
+    <prop boolean name="AutoRenew">`false`</prop>
+    <prop string name="Created">`07/23/2018`</prop>
+    <prop string name="Expires">`07/23/2019`</prop>
+    <prop number name="ID">`314928`</prop>
+    <prop boolean name="IsExpired">`false`</prop>
+    <prop boolean name="IsLocked">`false`</prop>
+    <prop boolean name="IsOurDNS">`true`</prop>
+    <prop boolean name="IsPremium">`false`</prop>
+    <prop string name="Name">`domain.app`</prop>
+    <prop string name="User">`user`</prop>
+    <prop string name="WhoisGuard">`ENABLED`</prop>
+  </type>
+</types>

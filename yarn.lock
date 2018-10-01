@@ -20,6 +20,10 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@artdeco/clean-stack/-/clean-stack-1.0.0.tgz#36ff9c9f66e6cb1eb0bfa90341be21cba70c7ea6"
 
+"@rqt/aqt@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@rqt/aqt/-/aqt-1.1.2.tgz#6ee88031222d7a86c0d8be0c5cdb276ccfbcb5e7"
+
 "@wrote/clone@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@wrote/clone/-/clone-1.0.1.tgz#2f6e24f4855467b13cc4d7a2ca9677d07ab40292"
@@ -77,6 +81,10 @@ assert-throws@3.1.1:
   dependencies:
     erotic "2.0.1"
     erte "1.1.4"
+
+bosom@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/bosom/-/bosom-1.0.0.tgz#b3f1f4771f5232c27ccc739a75606eab4fb2aa5f"
 
 catchment@3.0.1:
   version "3.0.1"
@@ -229,6 +237,16 @@ restream@3.2.1:
 rexml@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/rexml/-/rexml-1.1.0.tgz#d005c515528aa0c81a39cd456a0da40321ab3fe8"
+
+rexml@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/rexml/-/rexml-1.2.0.tgz#f78ada4db77b77b5ade1c16ba9e7da6975192438"
+
+rqt@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rqt/-/rqt-3.0.0.tgz#51ef0cd42de03961970a1e27a992ebb1de8838dc"
+  dependencies:
+    "@rqt/aqt" "1.1.2"
 
 source-map@0.7.3:
   version "0.7.3"

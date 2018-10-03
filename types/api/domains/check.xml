@@ -1,5 +1,5 @@
 <types>
-  <type name="Check">
+  <type name="Check" desc="Options to check a domain or domains." noToc>
     <prop opt string name="domain">
       The domain check.
     </prop>
@@ -7,17 +7,33 @@
       The domains to check.
     </prop>
   </type>
-  <type name="DomainCheck">
-    <prop boolean name="Available"/>
-    <prop string name="Description"/>
-    <prop string name="Domain"/>
-    <prop number name="EapFee"/>
-    <prop number name="ErrorNo"/>
-    <prop number name="IcannFee"/>
-    <prop boolean name="IsPremiumName"/>
-    <prop number name="PremiumRegistrationPrice"/>
-    <prop number name="PremiumRenewalPrice"/>
-    <prop number name="PremiumRestorePrice"/>
-    <prop number name="PremiumTransferPrice"/>
+  <type name="DomainCheck" desc="The result of the check." noToc>
+    <prop string name="Domain">
+      The domain name for which you wish to check availability.
+    </prop>
+    <prop boolean name="Available">
+      Indicates whether the domain name is available for registration.
+    </prop>
+    <prop boolean name="IsPremiumName">
+      Indicates whether the domain name is premium.
+    </prop>
+    <prop boolean name="PremiumRegistrationPrice">
+      The registration price for the premium domain.
+    </prop>
+    <prop boolean name="PremiumRenewalPrice">
+      The renewal price for the premium domain.
+    </prop>
+    <prop boolean name="PremiumRestorePrice">
+      The restore price for the premium domain.
+    </prop>
+    <prop boolean name="PremiumTransferPrice">
+      The transfer price for the premium domain.
+    </prop>
+    <prop number name="EapFee">
+      Purchase fee for the premium domain during Early Access Program (EAP)*.
+    </prop>
+    <prop number name="IcannFee">
+      Fee charged by ICANN.
+    </prop>
   </type>
 </types>

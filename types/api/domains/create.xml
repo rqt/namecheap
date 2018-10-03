@@ -1,5 +1,5 @@
 <types>
-  <type name="Create" desc="Options to register a domain.">
+  <type name="Create" desc="Options to register a domain." noToc>
     <prop string name="domain">
       The domain name to register.
     </prop>
@@ -31,7 +31,7 @@
       An address to use for `Admin` address details.
     </prop>
   </type>
-  <type name="RegistrationResult">
+  <type name="RegistrationResult" desc="Registered domain information." noToc>
     <prop string name="ChargedAmount">
       Total amount charged for registration.
     </prop>

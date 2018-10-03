@@ -18,11 +18,7 @@ yarn add -E @rqt/namecheap
   * [`Options`](#type-options)
 - [`domains`](#domains)
   * [`async create(options: Create): RegistrationResult`](#async-createoptions-create-registrationresult)
-    * [`Create`](#type-create)
-    * [`RegistrationResult`](#type-registrationresult)
   * [`async check(options: string|Check): DomainCheck[]`](#async-checkoptions-stringcheck-domaincheck)
-    * [`Check`](#type-check)
-    * [`DomainCheck`](#type-domaincheck)
     * [`GetInfo`](#type-getinfo)
     * [`DomainInfo`](#type-domaininfo)
     * [`DomainDetails`](#type-domaindetails)
@@ -127,19 +123,19 @@ Check: [ { Domain: 'test.co',
 
 Addresses: [ { AddressId: 0, AddressName: 'Primary Address', IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-3-22-21-36.com',
+Registered: { Domain: 'rqt-example-2018-10-3-22-53-24.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330333,
-  OrderID: 1292505,
-  TransactionID: 1829877,
+  DomainID: 330335,
+  OrderID: 1292544,
+  TransactionID: 1829920,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330333,
-  DomainName: 'rqt-example-2018-10-3-22-21-36.com',
+  ID: 330335,
+  DomainName: 'rqt-example-2018-10-3-22-53-24.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -149,10 +145,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 268907,
+     ID: 268909,
      ExpiredDate: '10/03/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '812ac734d108489fb2de6f3a28921cbe.protect@whoisguard.com',
+      { WhoisGuardEmail: '21fcbbecc15d4923bb3918216d4acdc3.protect@whoisguard.com',
         ForwardedTo: 'artdeco@adc.sh',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -173,8 +169,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 330333,
-       Name: 'rqt-example-2018-10-3-22-21-36.com',
+   [ { ID: 330335,
+       Name: 'rqt-example-2018-10-3-22-53-24.com',
        User: 'zavr',
        Created: '10/03/2018',
        Expires: '10/03/2019',
@@ -237,7 +233,7 @@ __<a name="type-create">`Create`</a>__: Options to register a domain.
 | techAddress       | _AddressDetail_ | An address to use for `Tech` address details.                                                                                                                                               | -       |
 | adminAddress      | _Admin_         | An address to use for `Admin` address details.                                                                                                                                              | -       |
 
-__<a name="type-registrationresult">`RegistrationResult`</a>__
+__<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domain information.
 
 |          Name          |   Type    |                               Description                                |
 | ---------------------- | --------- | ------------------------------------------------------------------------ |
@@ -271,28 +267,26 @@ await nc.domains.check('test.co')
   EapFee: '0.0' } ]
 ```
 
-__<a name="type-check">`Check`</a>__
+__<a name="type-check">`Check`</a>__: Options to check a domain or domains.
 
 |  Name   |    Type    |      Description      |
 | ------- | ---------- | --------------------- |
 | domain  | _string_   | The domain check.     |
 | domains | _string[]_ | The domains to check. |
 
-__<a name="type-domaincheck">`DomainCheck`</a>__
+__<a name="type-domaincheck">`DomainCheck`</a>__: The result of the check.
 
-|             Name              |   Type    | Description |
-| ----------------------------- | --------- | ----------- |
-| __Available*__                | _boolean_ |             |
-| __Description*__              | _string_  |             |
-| __Domain*__                   | _string_  |             |
-| __EapFee*__                   | _number_  |             |
-| __ErrorNo*__                  | _number_  |             |
-| __IcannFee*__                 | _number_  |             |
-| __IsPremiumName*__            | _boolean_ |             |
-| __PremiumRegistrationPrice*__ | _number_  |             |
-| __PremiumRenewalPrice*__      | _number_  |             |
-| __PremiumRestorePrice*__      | _number_  |             |
-| __PremiumTransferPrice*__     | _number_  |             |
+|             Name              |   Type    |                               Description                               |
+| ----------------------------- | --------- | ----------------------------------------------------------------------- |
+| __Domain*__                   | _string_  | The domain name for which you wish to check availability.               |
+| __Available*__                | _boolean_ | Indicates whether the domain name is available for registration.        |
+| __IsPremiumName*__            | _boolean_ | Indicates whether the domain name is premium.                           |
+| __PremiumRegistrationPrice*__ | _boolean_ | The registration price for the premium domain.                          |
+| __PremiumRenewalPrice*__      | _boolean_ | The renewal price for the premium domain.                               |
+| __PremiumRestorePrice*__      | _boolean_ | The restore price for the premium domain.                               |
+| __PremiumTransferPrice*__     | _boolean_ | The transfer price for the premium domain.                              |
+| __EapFee*__                   | _number_  | Purchase fee for the premium domain during Early Access Program (EAP)*. |
+| __IcannFee*__                 | _number_  | Fee charged by ICANN.                                                   |
 
 ### `async getInfo(`<br/>&nbsp;&nbsp;`options: string|GetInfo,`<br/>`): DomainInfo`
 

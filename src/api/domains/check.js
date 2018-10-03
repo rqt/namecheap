@@ -50,7 +50,7 @@ export default check
 
 /* documentary types/api/domains/check.xml */
 /**
- * @typedef {Object} Check Options to check a domain or domains.
+ * @typedef {Object} Check Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
  * @prop {string} [domain] The domain check.
  * @prop {string[]} [domains] The domains to check.
  *

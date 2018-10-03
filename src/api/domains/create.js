@@ -126,7 +126,7 @@ export default create
  * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.
  * @prop {Admin} [adminAddress] An address to use for `Admin` address details.
  *
- * @typedef {Object} RegistrationResult
+ * @typedef {Object} RegistrationResult Registered domain information.
  * @prop {string} ChargedAmount Total amount charged for registration.
  * @prop {string} Domain Domain name that you are trying to register.
  * @prop {number} DomainID Unique integer value that represents the domain.

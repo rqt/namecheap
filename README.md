@@ -112,10 +112,66 @@ Check: [ { Domain: 'test.co',
 
 Addresses: [ { AddressId: 0, AddressName: 'Primary Address', IsDefault: true } ] 
 
-{ Error: No free connections to registry.
-    at NameCheap.create (/Users/zavr/rqt/namecheap/src/api/domains/create.js:59:26)
-    at /Users/zavr/rqt/namecheap/example/example.js:28:39
-    at <anonymous> props: { Number: 3028166 } }
+Registered: { Domain: 'rqt-example-2018-10-4-00-12-28.com',
+  Registered: true,
+  ChargedAmount: '9.0600',
+  DomainID: 330352,
+  OrderID: 1292665,
+  TransactionID: 1830060,
+  WhoisguardEnable: true,
+  FreePositiveSSL: false,
+  NonRealTimeDomain: false } 
+
+Info: { Status: 'Ok',
+  ID: 330352,
+  DomainName: 'rqt-example-2018-10-4-00-12-28.com',
+  OwnerName: 'zavr',
+  IsOwner: true,
+  IsPremium: false,
+  DomainDetails: 
+   { CreatedDate: '10/03/2018',
+     ExpiredDate: '10/03/2019',
+     NumYears: 0 },
+  Whoisguard: 
+   { Enabled: 'True',
+     ID: 268926,
+     ExpiredDate: '10/03/2019',
+     EmailDetails: 
+      { WhoisGuardEmail: 'd95196d843754835ab057c456f0f5f4e.protect@whoisguard.com',
+        ForwardedTo: 'artdeco@adc.sh',
+        LastAutoEmailChangeDate: '',
+        AutoEmailChangeFrequencyDays: 0 } },
+  PremiumDnsSubscription: 
+   { UseAutoRenew: false,
+     SubscriptionId: -1,
+     CreatedDate: 0000-12-31T21:00:00.000Z,
+     ExpirationDate: 0000-12-31T21:00:00.000Z,
+     IsActive: false },
+  DnsDetails: 
+   { ProviderType: 'FREE',
+     IsUsingOurDNS: true,
+     HostCount: 2,
+     EmailType: 'FWD',
+     DynamicDNSStatus: false,
+     IsFailover: false,
+     Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
+  Modificationrights: { All: true } } 
+
+List: { domains: 
+   [ { ID: 330352,
+       Name: 'rqt-example-2018-10-4-00-12-28.com',
+       User: 'zavr',
+       Created: '10/03/2018',
+       Expires: '10/03/2019',
+       IsExpired: false,
+       IsLocked: false,
+       AutoRenew: false,
+       WhoisGuard: 'ENABLED',
+       IsPremium: false,
+       IsOurDNS: true } ],
+  TotalItems: 1,
+  CurrentPage: 1,
+  PageSize: 20 }
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
@@ -177,8 +233,16 @@ const Create = async (domain, client) => {
   return res
 }
 ```
-```
-
+```js
+{ Domain: 'rqt-example-2018-10-4-00-12-40.com',
+  Registered: true,
+  ChargedAmount: '9.0600',
+  DomainID: 330353,
+  OrderID: 1292666,
+  TransactionID: 1830061,
+  WhoisguardEnable: true,
+  FreePositiveSSL: false,
+  NonRealTimeDomain: false }
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true" width="15"></a></p>
@@ -237,7 +301,7 @@ const Check = async (domain, client) => {
   }
 }
 ```
-```
+```js
 { options: 
    [ { Domain: 'example.com',
        Available: false,
@@ -388,10 +452,10 @@ const GetInfo = async (domain, client) => {
   return res
 }
 ```
-```
+```js
 { Status: 'Ok',
-  ID: 330348,
-  DomainName: 'rqt-example-2018-10-4-00-02-20.com',
+  ID: 330354,
+  DomainName: 'rqt-example-2018-10-4-00-12-54.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -401,10 +465,10 @@ const GetInfo = async (domain, client) => {
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 268922,
+     ID: 268928,
      ExpiredDate: '10/03/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '451cc5ae66f84444b3fdbf6a63f3b964.protect@whoisguard.com',
+      { WhoisGuardEmail: 'bec6c2beb0bc439c93c558309a7df745.protect@whoisguard.com',
         ForwardedTo: 'artdeco@adc.sh',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -470,8 +534,22 @@ const GetList = async (domain, client) => {
   return res
 }
 ```
-```
-
+```js
+{ domains: 
+   [ { ID: 330355,
+       Name: 'rqt-example-2018-10-4-00-13-06.com',
+       User: 'zavr',
+       Created: '10/03/2018',
+       Expires: '10/03/2019',
+       IsExpired: false,
+       IsLocked: false,
+       AutoRenew: false,
+       WhoisGuard: 'ENABLED',
+       IsPremium: false,
+       IsOurDNS: true } ],
+  TotalItems: 1,
+  CurrentPage: 1,
+  PageSize: 20 }
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>

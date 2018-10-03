@@ -43,6 +43,7 @@
   },
   "homepage": "https://github.com/rqt/namecheap#readme",
   "devDependencies": {
+    "@wrote/read": "1.0.0",
     "alamode": "1.5.1",
     "bosom": "1.0.0",
     "documentary": "1.20.1",

@@ -44,6 +44,12 @@
   dependencies:
     makepromise "2.0.0"
 
+"@wrote/read@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@wrote/read/-/read-1.0.0.tgz#ab57de1def7af1ec0b63853b63147ed641ba0db0"
+  dependencies:
+    catchment "3.1.1"
+
 alamode@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/alamode/-/alamode-1.5.1.tgz#416fce8b8a01fcfd91985361d86484b36e9a1e46"

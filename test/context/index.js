@@ -1,10 +1,11 @@
-import { resolve } from 'path'
+import { resolve, join } from 'path'
 import { debuglog } from 'util'
 import bosom from 'bosom'
+import read from '@wrote/read'
 
 const LOG = debuglog('@rqt/namecheap')
 
-const FIXTURE = resolve(__dirname, '../fixture')
+const FIXTURE = resolve('test/fixture')
 
 /**
  * A testing context for the package.
@@ -38,6 +39,14 @@ export default class Context {
       UserName: 'test',
       Zip: '10019',
     }
+  }
+  async readInvalidRequestIp() {
+    const res = await read(join(FIXTURE, 'InvalidRequestIp.xml'))
+    return res
+  }
+  async readAddresses() {
+    const res = await read(join(FIXTURE, 'Addresses.xml'))
+    return res
   }
   /**
    * Example method.

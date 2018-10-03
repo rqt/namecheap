@@ -3,6 +3,7 @@ import Context from '../context'
 import NameCheap from '../../src'
 import SnapshotContext from 'snapshot-context'
 import { getAddressObject } from '../../src/api/domains/create'
+import { getError } from '../../src/lib/query'
 
 /** @type {Object.<string, (c: Context, s: SnapshotContext)>} */
 const T = {
@@ -70,6 +71,20 @@ const T = {
       RegistrantFax: address.Fax,
       RegistrantEmailAddress: address.EmailAddress,
     })
+  },
+  async '!extracts an error'({ readInvalidRequestIp }) {
+    const InvalidRequestIp = await readInvalidRequestIp()
+    const error = getError(InvalidRequestIp)
+    ok(error instanceof Error)
+    equal(error.message, 'Invalid request IP: 82.132.224.85')
+    deepEqual(error.props, {
+      Number: 1011150,
+    })
+  },
+  async '!does not extract an error'({ readAddresses }) {
+    const Addresses = await readAddresses()
+    const error = getError(Addresses)
+    equal(error, undefined)
   },
 }
 

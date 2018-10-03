@@ -5,7 +5,7 @@
   "main": "build",
   "scripts": {
     "t": "zoroaster -a",
-    "test": "yarn t test/spec test/mask",
+    "test": "yarn t test/spec test/mask -t 20000",
     "spec": "yarn t test/spec",
     "mask": "yarn t test/mask",
     "test-build": "ALAMODE_ENV=test-build yarn test",

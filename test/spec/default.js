@@ -72,7 +72,7 @@ const T = {
       RegistrantEmailAddress: address.EmailAddress,
     })
   },
-  async '!extracts an error'({ readInvalidRequestIp }) {
+  async 'extracts an error'({ readInvalidRequestIp }) {
     const InvalidRequestIp = await readInvalidRequestIp()
     const error = getError(InvalidRequestIp)
     ok(error instanceof Error)
@@ -81,7 +81,7 @@ const T = {
       Number: 1011150,
     })
   },
-  async '!does not extract an error'({ readAddresses }) {
+  async 'does not extract an error'({ readAddresses }) {
     const Addresses = await readAddresses()
     const error = getError(Addresses)
     equal(error, undefined)

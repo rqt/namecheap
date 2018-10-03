@@ -3,19 +3,18 @@
 The package is available by importing its default function:
 
 ```js
-import namecheap from '@rqt/namecheap'
+import NameCheap from '@rqt/namecheap'
 ```
 
 %~%
 
-```## namecheap
+```## constructor
 [
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
+  ["options", "Options"]
 ]
 ```
 
-Call this function to get the result you want.
+Create a new instance of the _NameCheap_ class.
 
 %TYPEDEF types/index.xml%
 

@@ -34,7 +34,12 @@
   },
   "keywords": [
     "namecheap",
-    "rqt"
+    "rqt",
+    "api",
+    "domain",
+    "register",
+    "registration",
+    "domains"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",

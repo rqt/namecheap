@@ -1,5 +1,5 @@
 <types>
-  <type name="GetInfo" desc="Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx">
+  <type name="GetInfo" desc="Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx" noToc>
     <prop string name="domain">
       The domain to get info about.
     </prop>
@@ -7,7 +7,7 @@
       The hosted domain name for which domain information needs to be requested.
     </prop>
   </type>
-  <type name="DomainInfo">
+  <type name="DomainInfo" noToc>
     <prop string name="DomainName">
       Domain name for which the information was requested, e.g., `example.com`.
     </prop>
@@ -33,7 +33,7 @@
     <prop name="DnsDetails" type="DnsDetails" />
     <prop name="ModificationRights" type="ModificationRights" />
   </type>
-  <type name="DomainDetails">
+  <type name="DomainDetails" noToc>
     <prop string name="CreatedDate">
       `06/06/2018`
     </prop>
@@ -44,14 +44,14 @@
       1
     </prop>
   </type>
-  <type name="LockDetails" />
-  <type name="Whoisguard">
+  <type name="LockDetails"  noToc/>
+  <type name="Whoisguard" noToc>
     <prop boolean name="Enabled">`true`</prop>
     <prop string name="ID">`264991`</prop>
     <prop string name="ExpiredDate">`06/06/2019`</prop>
     <prop name="EmailDetails" type="EmailDetails" />
   </type>
-  <type name="EmailDetails">
+  <type name="EmailDetails" noToc>
     <prop number name="AutoEmailChangeFrequencyDays">`0`</prop>
     <prop string name="ForwardedTo">`example@adc.sh`</prop>
     <prop string name="LastAutoEmailChangeDate" />
@@ -59,14 +59,14 @@
       `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com`
     </prop>
   </type>
-  <type name="PremiumDnsSubscription">
+  <type name="PremiumDnsSubscription" noToc>
     <prop type="Date" name="CreatedDate" />
     <prop type="Date" name="ExpirationDate" />
     <prop boolean name="IsActive">`false`</prop>
     <prop number name="SubscriptionId">-1</prop>
     <prop boolean name="UseAutoRenew">`false`</prop>
   </type>
-  <type name="DnsDetails">
+  <type name="DnsDetails" noToc>
     <prop boolean name="DynamicDNSStatus">`false`</prop>
     <prop string name="EmailType">`FWD`</prop>
     <prop number name="HostCount">`2`</prop>
@@ -77,7 +77,7 @@
     </prop>
     <prop type="'CUSTOM'|'FREE'" name="ProviderType">`FREE`</prop>
   </type>
-  <type name="ModificationRights">
+  <type name="ModificationRights" noToc>
     <prop boolean name="All">`true`</prop>
     <prop opt boolean name="hosts" />
   </type>

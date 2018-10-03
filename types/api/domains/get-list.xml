@@ -1,5 +1,5 @@
 <types>
-  <type name="GetList" desc="Options to get a list of domains.">
+  <type name="GetList" desc="Options to get a list of domains." noToc>
     <prop opt name="type" type="'ALL'|'EXPIRING'|'EXPIRED'" default="ALL">
       The type of domains.
     </prop>
@@ -19,7 +19,7 @@
       Whether to sort in descending order.
     </prop>
   </type>
-  <type name="Domain">
+  <type name="Domain" noToc>
     <prop boolean name="AutoRenew">`false`</prop>
     <prop string name="Created">`07/23/2018`</prop>
     <prop string name="Expires">`07/23/2019`</prop>

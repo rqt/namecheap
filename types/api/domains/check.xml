@@ -1,5 +1,5 @@
 <types>
-  <type name="Check" desc="Options to check a domain or domains." noToc>
+  <type name="Check" desc="Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx" noToc>
     <prop opt string name="domain">
       The domain check.
     </prop>

@@ -19,18 +19,7 @@ yarn add -E @rqt/namecheap
 - [`domains`](#domains)
   * [`async create(options: Create): RegistrationResult`](#async-createoptions-create-registrationresult)
   * [`async check(options: string|Check): DomainCheck[]`](#async-checkoptions-stringcheck-domaincheck)
-    * [`GetInfo`](#type-getinfo)
-    * [`DomainInfo`](#type-domaininfo)
-    * [`DomainDetails`](#type-domaindetails)
   * [`async getInfo(options: string|GetInfo): DomainInfo`](#async-getinfooptions-stringgetinfo-domaininfo)
-    * [`LockDetails`](#type-lockdetails)
-    * [`Whoisguard`](#type-whoisguard)
-    * [`EmailDetails`](#type-emaildetails)
-    * [`PremiumDnsSubscription`](#type-premiumdnssubscription)
-    * [`DnsDetails`](#type-dnsdetails)
-    * [`ModificationRights`](#type-modificationrights)
-    * [`GetList`](#type-getlist)
-    * [`Domain`](#type-domain)
   * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
 - [Copyright](#copyright)
 
@@ -123,100 +112,23 @@ Check: [ { Domain: 'test.co',
 
 Addresses: [ { AddressId: 0, AddressName: 'Primary Address', IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-3-22-53-24.com',
-  Registered: true,
-  ChargedAmount: '9.0600',
-  DomainID: 330335,
-  OrderID: 1292544,
-  TransactionID: 1829920,
-  WhoisguardEnable: true,
-  FreePositiveSSL: false,
-  NonRealTimeDomain: false } 
-
-Info: { Status: 'Ok',
-  ID: 330335,
-  DomainName: 'rqt-example-2018-10-3-22-53-24.com',
-  OwnerName: 'zavr',
-  IsOwner: true,
-  IsPremium: false,
-  DomainDetails: 
-   { CreatedDate: '10/03/2018',
-     ExpiredDate: '10/03/2019',
-     NumYears: 0 },
-  Whoisguard: 
-   { Enabled: 'True',
-     ID: 268909,
-     ExpiredDate: '10/03/2019',
-     EmailDetails: 
-      { WhoisGuardEmail: '21fcbbecc15d4923bb3918216d4acdc3.protect@whoisguard.com',
-        ForwardedTo: 'artdeco@adc.sh',
-        LastAutoEmailChangeDate: '',
-        AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription: 
-   { UseAutoRenew: false,
-     SubscriptionId: -1,
-     CreatedDate: 0000-12-31T21:00:00.000Z,
-     ExpirationDate: 0000-12-31T21:00:00.000Z,
-     IsActive: false },
-  DnsDetails: 
-   { ProviderType: 'FREE',
-     IsUsingOurDNS: true,
-     HostCount: 2,
-     EmailType: 'FWD',
-     DynamicDNSStatus: false,
-     IsFailover: false,
-     Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
-  Modificationrights: { All: true } } 
-
-List: { domains: 
-   [ { ID: 330335,
-       Name: 'rqt-example-2018-10-3-22-53-24.com',
-       User: 'zavr',
-       Created: '10/03/2018',
-       Expires: '10/03/2019',
-       IsExpired: false,
-       IsLocked: false,
-       AutoRenew: false,
-       WhoisGuard: 'ENABLED',
-       IsPremium: false,
-       IsOurDNS: true } ],
-  TotalItems: 1,
-  CurrentPage: 1,
-  PageSize: 20 }
+{ Error: No free connections to registry.
+    at NameCheap.create (/Users/zavr/rqt/namecheap/src/api/domains/create.js:59:26)
+    at /Users/zavr/rqt/namecheap/example/example.js:28:39
+    at <anonymous> props: { Number: 3028166 } }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
 ## `domains`
 
 Methods to register and retrieve domains' info.
 
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true" width="15"></a></p>
+
 ### `async create(`<br/>&nbsp;&nbsp;`options: Create,`<br/>`): RegistrationResult`
 
 Register a domain.
-
-```js
-// Find the default account address.
-const ad = await nc.users.address.getList()
-const { AddressId } = ad.find(({ IsDefault }) => IsDefault)
-const address = await nc.users.address.getInfo(AddressId)
-
-// Register a domain.
-await nc.domains.create({
-  domain: 'example-test-100.com',
-  address,
-})
-// Result:
-{ Domain: 'example-test-100.com',
-  Registered: true,
-  ChargedAmount: '9.0600',
-  DomainID: 330037,
-  OrderID: 1291740,
-  TransactionID: 1828960,
-  WhoisguardEnable: true,
-  FreePositiveSSL: false,
-  NonRealTimeDomain: false }
-```
 
 __<a name="type-create">`Create`</a>__: Options to register a domain.
 
@@ -246,28 +158,36 @@ __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domai
 | __TransactionID*__     | _number_  | Unique integer value that represents the transaction.                    |
 | __WhoisguardEnable*__  | _boolean_ | Indicates whether WhoisGuard protection is enabled for the domain.       |
 
+```js
+/**
+ * @param {string} domain The domain to register.
+ * @param {NameCheap} client
+ */
+const Create = async (domain, client) => {
+  // Find the default address.
+  const ad = await client.users.address.getList()
+  const { AddressId } = ad.find(({ IsDefault }) => IsDefault)
+  const address = await client.users.address.getInfo(AddressId)
+
+  // Register a domain.
+  const res = await client.domains.create({
+    domain,
+    address,
+  })
+  return res
+}
+```
+```
+
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true" width="15"></a></p>
+
 ### `async check(`<br/>&nbsp;&nbsp;`options: string|Check,`<br/>`): DomainCheck[]`
 
 Check a domain or domains for availability.
 
-```js
-await nc.domains.check('test.co')
-
-// Result:
-[ { Domain: 'test.co',
-  Available: false,
-  ErrorNo: 0,
-  Description: '',
-  IsPremiumName: false,
-  PremiumRegistrationPrice: 0,
-  PremiumRenewalPrice: 0,
-  PremiumRestorePrice: 0,
-  PremiumTransferPrice: 0,
-  IcannFee: 0,
-  EapFee: '0.0' } ]
-```
-
-__<a name="type-check">`Check`</a>__: Options to check a domain or domains.
+__<a name="type-check">`Check`</a>__: Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
 
 |  Name   |    Type    |      Description      |
 | ------- | ---------- | --------------------- |
@@ -287,6 +207,87 @@ __<a name="type-domaincheck">`DomainCheck`</a>__: The result of the check.
 | __PremiumTransferPrice*__     | _boolean_ | The transfer price for the premium domain.                              |
 | __EapFee*__                   | _number_  | Purchase fee for the premium domain during Early Access Program (EAP)*. |
 | __IcannFee*__                 | _number_  | Fee charged by ICANN.                                                   |
+
+```js
+/**
+ * @param {string} domain The domain to check.
+ * @param {NameCheap} client
+ */
+const Check = async (domain, client) => {
+  // Check a domain with options.
+  const options = await client.domains.check({
+    domain,
+  })
+
+  // Simplified checking of a domain with a string.
+  const string = await client.domains.check(domain)
+
+  // Check multiple domains.
+  const array = await client.domains.check({
+    domains: [
+      domain,
+      domain.replace('.com', '.net'),
+    ],
+  })
+
+  return {
+    options,
+    string,
+    array,
+  }
+}
+```
+```
+{ options: 
+   [ { Domain: 'example.com',
+       Available: false,
+       ErrorNo: 0,
+       Description: '',
+       IsPremiumName: false,
+       PremiumRegistrationPrice: 0,
+       PremiumRenewalPrice: 0,
+       PremiumRestorePrice: 0,
+       PremiumTransferPrice: 0,
+       IcannFee: 0,
+       EapFee: '0.0' } ],
+  string: 
+   [ { Domain: 'example.com',
+       Available: false,
+       ErrorNo: 0,
+       Description: '',
+       IsPremiumName: false,
+       PremiumRegistrationPrice: 0,
+       PremiumRenewalPrice: 0,
+       PremiumRestorePrice: 0,
+       PremiumTransferPrice: 0,
+       IcannFee: 0,
+       EapFee: '0.0' } ],
+  array: 
+   [ { Domain: 'example.com',
+       Available: false,
+       ErrorNo: 0,
+       Description: '',
+       IsPremiumName: false,
+       PremiumRegistrationPrice: 0,
+       PremiumRenewalPrice: 0,
+       PremiumRestorePrice: 0,
+       PremiumTransferPrice: 0,
+       IcannFee: 0,
+       EapFee: '0.0' },
+     { Domain: 'example.net',
+       Available: false,
+       ErrorNo: 0,
+       Description: '',
+       IsPremiumName: false,
+       PremiumRegistrationPrice: 0,
+       PremiumRenewalPrice: 0,
+       PremiumRestorePrice: 0,
+       PremiumTransferPrice: 0,
+       IcannFee: 0,
+       EapFee: '0.0' } ] }
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true" width="15"></a></p>
 
 ### `async getInfo(`<br/>&nbsp;&nbsp;`options: string|GetInfo,`<br/>`): DomainInfo`
 
@@ -374,99 +375,61 @@ __<a name="type-modificationrights">`ModificationRights`</a>__
 | hosts    | _boolean_ |             |
 
 ```js
-// Obtain information for the testt.cc domain:
-await nc.domains.getInfo({ domain: 'testt.cc' })
-await nc.domains.getInfo('testt.cc')
+/**
+ * @param {string} domain The domain to get info about.
+ * @param {NameCheap} client
+ */
+const GetInfo = async (domain, client) => {
+  // Info with options.
+  await client.domains.getInfo({ domain })
 
-// Result:
+  // Simplified info with a string.
+  const res = await client.domains.getInfo(domain)
+  return res
+}
+```
+```
 { Status: 'Ok',
-  ID: 30072635,
-  DomainName: 'testt.cc',
-  OwnerName: 'artdeco',
+  ID: 330348,
+  DomainName: 'rqt-example-2018-10-4-00-02-20.com',
+  OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails:
-  { CreatedDate: '06/06/2018',
-    ExpiredDate: '06/06/2019',
-    NumYears: 0 },
-  Whoisguard:
-  { Enabled: 'True',
-    ID: 23996873,
-    ExpiredDate: '06/05/2019',
-    EmailDetails:
-      { WhoisGuardEmail: 'ff474db8ad3b4c3b95a2b0f3b3a73acc.protect[at]whoisguard.com',
-        ForwardedTo: 'example[at]adc.sh',
+  DomainDetails: 
+   { CreatedDate: '10/03/2018',
+     ExpiredDate: '10/03/2019',
+     NumYears: 0 },
+  Whoisguard: 
+   { Enabled: 'True',
+     ID: 268922,
+     ExpiredDate: '10/03/2019',
+     EmailDetails: 
+      { WhoisGuardEmail: '451cc5ae66f84444b3fdbf6a63f3b964.protect@whoisguard.com',
+        ForwardedTo: 'artdeco@adc.sh',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription:
-  { UseAutoRenew: false,
-    SubscriptionId: -1,
-    CreatedDate: 0001-01-01T00:00:00.000Z,
-    ExpirationDate: 0001-01-01T00:00:00.000Z,
-    IsActive: false },
-  DnsDetails:
-  { ProviderType: 'CUSTOM',
-    IsUsingOurDNS: false,
-    HostCount: 2,
-    EmailType: 'FWD',
-    DynamicDNSStatus: false,
-    IsFailover: false,
-    Nameserver:
-      [ 'ns-1013.awsdns-62.net',
-        'ns-1311.awsdns-35.org',
-        'ns-1616.awsdns-10.co.uk',
-        'ns-355.awsdns-44.com' ] },
+  PremiumDnsSubscription: 
+   { UseAutoRenew: false,
+     SubscriptionId: -1,
+     CreatedDate: 0000-12-31T21:00:00.000Z,
+     ExpirationDate: 0000-12-31T21:00:00.000Z,
+     IsActive: false },
+  DnsDetails: 
+   { ProviderType: 'FREE',
+     IsUsingOurDNS: true,
+     HostCount: 2,
+     EmailType: 'FWD',
+     DynamicDNSStatus: false,
+     IsFailover: false,
+     Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
   Modificationrights: { All: true } }
 ```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true" width="15"></a></p>
 
 ### `async getList(`<br/>&nbsp;&nbsp;`options?: GetList,`<br/>`): { domains, TotalItems, CurrentPage, PageSize }`
 
 Returns a list of domains for the particular user.
-
-```js
-// Get information about domains in the `.app` zone
-// sorted by descending  create date (oldest first)
-await nc.domains.getList({
-  sort: 'create',
-  desc: true,
-  filter: '.app',
-})
-
-// Result:
-{
-  domains: [
-    {
-      ID: 30071047,
-      Name: 'example.app',
-      User: 'artdeco',
-      Created: '06/05/2018',
-      Expires: '06/05/2019',
-      IsExpired: false,
-      IsLocked: false,
-      AutoRenew: true,
-      WhoisGuard: 'ENABLED',
-      IsPremium: false,
-      IsOurDNS: false
-    },
-    {
-      ID: 30072635,
-      Name: 'test.app',
-      User: 'artdeco',
-      Created: '06/06/2018',
-      Expires: '06/06/2019',
-      IsExpired: false,
-      IsLocked: false,
-      AutoRenew: true,
-      WhoisGuard: 'ENABLED',
-      IsPremium: false,
-      IsOurDNS: false
-    },
-  ],
-  TotalItems: 2,
-  CurrentPage: 1,
-  PageSize: 20,
-}
-```
 
 __<a name="type-getlist">`GetList`</a>__: Options to get a list of domains.
 
@@ -495,7 +458,23 @@ __<a name="type-domain">`Domain`</a>__
 | __User*__       | _string_  | `user`       |
 | __WhoisGuard*__ | _string_  | `ENABLED`    |
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+```js
+/**
+ * @param {string} domain The domain to filter by.
+ * @param {NameCheap} client
+ */
+const GetList = async (domain, client) => {
+  const res = await client.domains.getList({
+    filter: domain,
+  })
+  return res
+}
+```
+```
+
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
 
 ## Copyright
 

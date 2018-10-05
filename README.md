@@ -112,51 +112,51 @@ Check: [ { Domain: 'test.co',
     PremiumRestorePrice: 0,
     PremiumTransferPrice: 0,
     IcannFee: 0,
-    EapFee: '0.0' } ] 
+    EapFee: '0.0' } ]
 
 Addresses: [ { AddressId: 0,
     AddressName: 'Primary Address',
     IsDefault: false },
   { AddressId: 101235,
     AddressName: 'Planet Express',
-    IsDefault: true } ] 
+    IsDefault: true } ]
 
-Registered: { Domain: 'rqt-example-2018-10-5-18-05-29.com',
+Registered: { Domain: 'rqt-example-2018-10-5-23-04-19.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330569,
-  OrderID: 1293340,
-  TransactionID: 1830868,
+  DomainID: 330606,
+  OrderID: 1293490,
+  TransactionID: 1831024,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
-  NonRealTimeDomain: false } 
+  NonRealTimeDomain: false }
 
 Info: { Status: 'Ok',
-  ID: 330569,
-  DomainName: 'rqt-example-2018-10-5-18-05-29.com',
+  ID: 330606,
+  DomainName: 'rqt-example-2018-10-5-23-04-19.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails: 
+  DomainDetails:
    { CreatedDate: '10/05/2018',
      ExpiredDate: '10/05/2019',
      NumYears: 0 },
-  Whoisguard: 
+  Whoisguard:
    { Enabled: 'True',
-     ID: 269098,
+     ID: 269128,
      ExpiredDate: '10/05/2019',
-     EmailDetails: 
-      { WhoisGuardEmail: '67a07c27d9c24c0281c8da3bde63ac4c.protect@whoisguard.com',
+     EmailDetails:
+      { WhoisGuardEmail: '2c005f2573ee4d399151c9a8b29d5369.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription: 
+  PremiumDnsSubscription:
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails: 
+  DnsDetails:
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -164,11 +164,11 @@ Info: { Status: 'Ok',
      DynamicDNSStatus: false,
      IsFailover: false,
      Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
-  Modificationrights: { All: true } } 
+  Modificationrights: { All: true } }
 
-List: { domains: 
-   [ { ID: 330569,
-       Name: 'rqt-example-2018-10-5-18-05-29.com',
+List: { domains:
+   [ { ID: 330606,
+       Name: 'rqt-example-2018-10-5-23-04-19.com',
        User: 'zavr',
        Created: '10/05/2018',
        Expires: '10/05/2019',
@@ -243,12 +243,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-5-18-05-50.com',
+{ Domain: 'rqt-example-2018-10-5-23-04-32.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330570,
-  OrderID: 1293341,
-  TransactionID: 1830869,
+  DomainID: 330607,
+  OrderID: 1293492,
+  TransactionID: 1831026,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -287,13 +287,13 @@ __<a name="type-domaincheck">`DomainCheck`</a>__: The result of the check.
  * @param {NameCheap} client
  */
 const Check = async (domain, client) => {
-  // Check a domain with options.
-  const options = await client.domains.check({
+  // Check a domain with options (returned in an array).
+  await client.domains.check({
     domain,
   })
 
-  // Simplified checking of a domain with a string.
-  const string = await client.domains.check(domain)
+  // Check a domain with string (returned in an array).
+  await client.domains.check(domain)
 
   // Check multiple domains.
   const array = await client.domains.check({
@@ -303,61 +303,32 @@ const Check = async (domain, client) => {
     ],
   })
 
-  return {
-    options,
-    string,
-    array,
-  }
+  return array
 }
 ```
 ```js
-{ options: 
-   [ { Domain: 'example.com',
-       Available: false,
-       ErrorNo: 0,
-       Description: '',
-       IsPremiumName: false,
-       PremiumRegistrationPrice: 0,
-       PremiumRenewalPrice: 0,
-       PremiumRestorePrice: 0,
-       PremiumTransferPrice: 0,
-       IcannFee: 0,
-       EapFee: '0.0' } ],
-  string: 
-   [ { Domain: 'example.com',
-       Available: false,
-       ErrorNo: 0,
-       Description: '',
-       IsPremiumName: false,
-       PremiumRegistrationPrice: 0,
-       PremiumRenewalPrice: 0,
-       PremiumRestorePrice: 0,
-       PremiumTransferPrice: 0,
-       IcannFee: 0,
-       EapFee: '0.0' } ],
-  array: 
-   [ { Domain: 'example.com',
-       Available: false,
-       ErrorNo: 0,
-       Description: '',
-       IsPremiumName: false,
-       PremiumRegistrationPrice: 0,
-       PremiumRenewalPrice: 0,
-       PremiumRestorePrice: 0,
-       PremiumTransferPrice: 0,
-       IcannFee: 0,
-       EapFee: '0.0' },
-     { Domain: 'example.net',
-       Available: false,
-       ErrorNo: 0,
-       Description: '',
-       IsPremiumName: false,
-       PremiumRegistrationPrice: 0,
-       PremiumRenewalPrice: 0,
-       PremiumRestorePrice: 0,
-       PremiumTransferPrice: 0,
-       IcannFee: 0,
-       EapFee: '0.0' } ] }
+[ { Domain: 'example.com',
+    Available: false,
+    ErrorNo: 0,
+    Description: '',
+    IsPremiumName: false,
+    PremiumRegistrationPrice: 0,
+    PremiumRenewalPrice: 0,
+    PremiumRestorePrice: 0,
+    PremiumTransferPrice: 0,
+    IcannFee: 0,
+    EapFee: '0.0' },
+  { Domain: 'example.net',
+    Available: false,
+    ErrorNo: 0,
+    Description: '',
+    IsPremiumName: false,
+    PremiumRegistrationPrice: 0,
+    PremiumRenewalPrice: 0,
+    PremiumRestorePrice: 0,
+    PremiumTransferPrice: 0,
+    IcannFee: 0,
+    EapFee: '0.0' } ]
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true" width="15"></a></p>
@@ -463,31 +434,31 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330571,
-  DomainName: 'rqt-example-2018-10-5-18-06-15.com',
+  ID: 330608,
+  DomainName: 'rqt-example-2018-10-5-23-04-47.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails: 
+  DomainDetails:
    { CreatedDate: '10/05/2018',
      ExpiredDate: '10/05/2019',
      NumYears: 0 },
-  Whoisguard: 
+  Whoisguard:
    { Enabled: 'True',
-     ID: 269100,
+     ID: 269130,
      ExpiredDate: '10/05/2019',
-     EmailDetails: 
-      { WhoisGuardEmail: '9663af3bce3040aab19742ce6f77b50f.protect@whoisguard.com',
+     EmailDetails:
+      { WhoisGuardEmail: '3dc919c4f6014118ad8f6bcaa2acce04.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription: 
+  PremiumDnsSubscription:
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails: 
+  DnsDetails:
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -544,9 +515,9 @@ const GetList = async (domain, client) => {
 }
 ```
 ```js
-{ domains: 
-   [ { ID: 330572,
-       Name: 'rqt-example-2018-10-5-18-06-28.com',
+{ domains:
+   [ { ID: 330609,
+       Name: 'rqt-example-2018-10-5-23-05-13.com',
        User: 'zavr',
        Created: '10/05/2018',
        Expires: '10/05/2019',

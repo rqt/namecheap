@@ -1,16 +1,19 @@
+/**
+ * @typedef {import('../../../src').default} NameCheap
+ */
 /* start example */
 /**
  * @param {string} domain The domain to check.
  * @param {NameCheap} client
  */
 const Check = async (domain, client) => {
-  // Check a domain with options.
-  const options = await client.domains.check({
+  // Check a domain with options (returned in an array).
+  await client.domains.check({
     domain,
   })
 
-  // Simplified checking of a domain with a string.
-  const string = await client.domains.check(domain)
+  // Check a domain with string (returned in an array).
+  await client.domains.check(domain)
 
   // Check multiple domains.
   const array = await client.domains.check({
@@ -20,11 +23,7 @@ const Check = async (domain, client) => {
     ],
   })
 
-  return {
-    options,
-    string,
-    array,
-  }
+  return array
 }
 /* end example */
 

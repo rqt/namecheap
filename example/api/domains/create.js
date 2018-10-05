@@ -1,3 +1,6 @@
+/**
+ * @typedef {import('../../../src').default} NameCheap
+ */
 /* start example */
 /**
  * @param {string} domain The domain to register.

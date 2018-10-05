@@ -22,6 +22,7 @@ const getSort = (sort, desc) => {
 
 /**
  * Returns a list of domains for the particular user.
+ * @param {Function} query
  * @param {GetList} options Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
  * @param {'ALL'|'EXPIRING'|'EXPIRED'} [options.type="ALL"] The type of domains. Default `ALL`.
  * @param {string} [options.filter] The keyword to look for in the domain list.
@@ -73,7 +74,7 @@ const getSort = (sort, desc) => {
    PageSize: 20,
   }
  */
-async function getList(options = {}) {
+async function getList(query, options = {}) {
   const {
     page,
     sort,
@@ -89,7 +90,7 @@ async function getList(options = {}) {
     SearchTerm: filter,
     ListType: type,
   }
-  const res = await this._query(GET_LIST, reqOpts)
+  const res = await query(GET_LIST, reqOpts)
   const domain = extractTag('Domain', res)
   const domains = domain.map(({ props }) => {
     /** @type {Domain} */

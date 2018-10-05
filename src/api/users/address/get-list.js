@@ -4,6 +4,7 @@ const COMMAND = 'namecheap.users.address.getList'
 
 /**
  * Gets a list of address IDs and address names associated with the user account.
+ * @param {Function} query
  * @example
  *
  * // Get the list of addresses added to the account.
@@ -17,8 +18,8 @@ const COMMAND = 'namecheap.users.address.getList'
  *  }
  * ]
  */
-async function getList() {
-  const res = await this._query(COMMAND)
+async function getList(query) {
+  const res = await query(COMMAND)
   const [{
     content: AddressGetListResult,
   }] = extractTags('AddressGetListResult', res)

@@ -51,7 +51,7 @@ export default class NameCheap {
    * @param {'POST'|'GET'} method
    */
   async _query(endpoint, params, method) {
-    const cb = erotic(true)
+    // const cb = erotic(true)
     try {
       const res = await query({
         ApiKey: this._key,
@@ -61,8 +61,8 @@ export default class NameCheap {
       }, endpoint, params, method)
       return res
     } catch (err) {
-      const e = cb(err)
-      throw e
+      // const e = cb(err)
+      throw err
     }
   }
 }

@@ -4,6 +4,7 @@ const COMMAND = 'namecheap.domains.create'
 
 /**
  * Register a domain.
+ * @param {Function} query
  * @param {Create} options Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
  * @param {string} options.domain The domain name to register.
  * @param {number} [options.years=1] The number of years to register. Default `1`.
@@ -38,7 +39,7 @@ const COMMAND = 'namecheap.domains.create'
  *  FreePositiveSSL: false,
  *  NonRealTimeDomain: false }
  */
-async function create(options) {
+async function create(query, options) {
   const {
     domain,
     years = 1,
@@ -56,7 +57,7 @@ async function create(options) {
   const AdminAddress = getAddressObject(adminAddress, 'Admin')
   const AuxAddress = getAddressObject(billingAddress, 'AuxBilling')
 
-  const res = await this._query(COMMAND, {
+  const res = await query(COMMAND, {
     DomainName: domain,
     Years: years,
     PromotionCode: promo,

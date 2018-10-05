@@ -7,6 +7,7 @@ const COMMAND = 'namecheap.users.address.getInfo'
 
 /**
  * Gets information for the requested address ID.
+ * @param {Function} query
  * @param {string|number} id The address id to get info about.
  * @example
  *
@@ -33,8 +34,8 @@ const COMMAND = 'namecheap.users.address.getInfo'
  *  PhoneExt: '',
  *  EmailAddress: 'artdeco[at]adc.sh' }
  */
-async function getInfo(id) {
-  const res = await this._query(COMMAND, {
+async function getInfo(query, id) {
+  const res = await query(COMMAND, {
     AddressId: id,
   })
   const [{

@@ -6,7 +6,7 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
   /**
    * Create a new instance of the client.
    * @constructor
-   * @param {Options} options Options for the namecheap client.
+   * @param {Options} options Options for the NameCheap client.
  * @param {string} options.user The username required to access the API.
  * @param {string} options.key The password required used to access the API.
  * @param {string} options.ip The IP address of the client accessing the application (End-user IP address).
@@ -69,7 +69,7 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
 
 /* documentary types/index.xml */
 /**
- * @typedef {Object} Options Options for the namecheap client.
+ * @typedef {Object} Options Options for the NameCheap client.
  * @prop {string} user The username required to access the API.
  * @prop {string} key The password required used to access the API.
  * @prop {string} ip The IP address of the client accessing the application (End-user IP address).

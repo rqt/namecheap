@@ -1,5 +1,9 @@
 ## 5 October 2018
 
+### 1.0.1
+
+- [doc] Embed readable _JSDoc_.
+
 ### 1.0.0
 
 - [feature] 10% progress.

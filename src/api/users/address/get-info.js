@@ -79,18 +79,19 @@ export default getInfo
 /* documentary types/api/users/address/get-info.xml */
 /**
  * @typedef {Object} AddressDetail
- * @prop {string} FirstName
- * @prop {string} LastName
- * @prop {string} JobTitle
- * @prop {string} Organization
- * @prop {string} Address1
- * @prop {string} Address2
- * @prop {string} City
- * @prop {string} StateProvince
- * @prop {string} StateProvinceChoice
- * @prop {string} Zip
- * @prop {string} Country
- * @prop {string} Phone
- * @prop {string} PhoneExt
- * @prop {string} EmailAddress
+ * @prop {string} EmailAddress Email address of the user.
+ * @prop {string} FirstName First name of the user.
+ * @prop {string} LastName Last name of the user.
+ * @prop {string} [JobTitle] Job designation of the user
+ * @prop {string} [Organization] Organization of the user.
+ * @prop {string} Address1 StreetAddress1 of the user.
+ * @prop {string} [Address2] StreetAddress2 of the user.
+ * @prop {string} City City of the user.
+ * @prop {string} StateProvince State/Province of the user.
+ * @prop {'S'|'P'} StateProvinceChoice State/Province choice of the user.
+ * @prop {string} Zip Zip/Postal code of the user.
+ * @prop {string} Country Two letter country code of the user.
+ * @prop {string} Phone Phone number in the format `+NNN.NNNNNNNNNN`.
+ * @prop {string} [PhoneExt] PhoneExt of the user.
+ * @prop {string} [Fax] Fax number in the format `+NNN.NNNNNNNNNN`.
  */

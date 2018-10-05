@@ -22,7 +22,7 @@ const getSort = (sort, desc) => {
 
 /**
  * Returns a list of domains for the particular user.
- * @param {GetList} options Options to get a list of domains.
+ * @param {GetList} options Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
  * @param {'ALL'|'EXPIRING'|'EXPIRED'} [options.type="ALL"] The type of domains. Default `ALL`.
  * @param {string} [options.filter] The keyword to look for in the domain list.
  * @param {number} [options.page=1] The page to return. Default `1`.
@@ -112,7 +112,7 @@ export default getList
 
 /* documentary types/api/domains/get-list.xml */
 /**
- * @typedef {Object} GetList Options to get a list of domains.
+ * @typedef {Object} GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
  * @prop {'ALL'|'EXPIRING'|'EXPIRED'} [type="ALL"] The type of domains. Default `ALL`.
  * @prop {string} [filter] The keyword to look for in the domain list.
  * @prop {number} [page=1] The page to return. Default `1`.

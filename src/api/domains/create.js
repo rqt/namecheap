@@ -4,7 +4,7 @@ const COMMAND = 'namecheap.domains.create'
 
 /**
  * Register a domain.
- * @param {Create} options Options to register a domain.
+ * @param {Create} options Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
  * @param {string} options.domain The domain name to register.
  * @param {number} [options.years=1] The number of years to register. Default `1`.
  * @param {string} [options.promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
@@ -14,7 +14,7 @@ const COMMAND = 'namecheap.domains.create'
  * @param {AddressDetail} [options.billingAddress] An address to use for `AuxBilling` address details.
  * @param {AddressDetail} [options.registrantAddress] An address to use for `Registrant` address details.
  * @param {AddressDetail} [options.techAddress] An address to use for `Tech` address details.
- * @param {Admin} [options.adminAddress] An address to use for `Admin` address details.
+ * @param {AddressDetail} [options.adminAddress] An address to use for `Admin` address details.
  * @example
  *
  * // 0. Find the default account address.
@@ -80,20 +80,21 @@ const keys = ['JobTitle', 'FirstName', 'LastName', 'Address1', 'Address2',
 
 /**
  * @param {AddressDetail} address
- * @param {string} address.FirstName
- * @param {string} address.LastName
- * @param {string} address.JobTitle
- * @param {string} address.Organization
- * @param {string} address.Address1
- * @param {string} address.Address2
- * @param {string} address.City
- * @param {string} address.StateProvince
- * @param {string} address.StateProvinceChoice
- * @param {string} address.Zip
- * @param {string} address.Country
- * @param {string} address.Phone
- * @param {string} address.PhoneExt
- * @param {string} address.EmailAddress
+ * @param {string} address.EmailAddress Email address of the user.
+ * @param {string} address.FirstName First name of the user.
+ * @param {string} address.LastName Last name of the user.
+ * @param {string} [address.JobTitle] Job designation of the user
+ * @param {string} [address.Organization] Organization of the user.
+ * @param {string} address.Address1 StreetAddress1 of the user.
+ * @param {string} [address.Address2] StreetAddress2 of the user.
+ * @param {string} address.City City of the user.
+ * @param {string} address.StateProvince State/Province of the user.
+ * @param {'S'|'P'} address.StateProvinceChoice State/Province choice of the user.
+ * @param {string} address.Zip Zip/Postal code of the user.
+ * @param {string} address.Country Two letter country code of the user.
+ * @param {string} address.Phone Phone number in the format `+NNN.NNNNNNNNNN`.
+ * @param {string} [address.PhoneExt] PhoneExt of the user.
+ * @param {string} [address.Fax] Fax number in the format `+NNN.NNNNNNNNNN`.
  */
 export const getAddressObject = (address, key) => {
   const res = keys
@@ -114,7 +115,7 @@ export default create
 
 /* documentary types/api/domains/create.xml */
 /**
- * @typedef {Object} Create Options to register a domain.
+ * @typedef {Object} Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
  * @prop {string} domain The domain name to register.
  * @prop {number} [years=1] The number of years to register. Default `1`.
  * @prop {string} [promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
@@ -124,7 +125,7 @@ export default create
  * @prop {AddressDetail} [billingAddress] An address to use for `AuxBilling` address details.
  * @prop {AddressDetail} [registrantAddress] An address to use for `Registrant` address details.
  * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.
- * @prop {Admin} [adminAddress] An address to use for `Admin` address details.
+ * @prop {AddressDetail} [adminAddress] An address to use for `Admin` address details.
  *
  * @typedef {Object} RegistrationResult Registered domain information.
  * @prop {string} ChargedAmount Total amount charged for registration.
@@ -140,18 +141,19 @@ export default create
 /* documentary types/api/users/address/get-info.xml */
 /**
  * @typedef {Object} AddressDetail
- * @prop {string} FirstName
- * @prop {string} LastName
- * @prop {string} JobTitle
- * @prop {string} Organization
- * @prop {string} Address1
- * @prop {string} Address2
- * @prop {string} City
- * @prop {string} StateProvince
- * @prop {string} StateProvinceChoice
- * @prop {string} Zip
- * @prop {string} Country
- * @prop {string} Phone
- * @prop {string} PhoneExt
- * @prop {string} EmailAddress
+ * @prop {string} EmailAddress Email address of the user.
+ * @prop {string} FirstName First name of the user.
+ * @prop {string} LastName Last name of the user.
+ * @prop {string} [JobTitle] Job designation of the user
+ * @prop {string} [Organization] Organization of the user.
+ * @prop {string} Address1 StreetAddress1 of the user.
+ * @prop {string} [Address2] StreetAddress2 of the user.
+ * @prop {string} City City of the user.
+ * @prop {string} StateProvince State/Province of the user.
+ * @prop {'S'|'P'} StateProvinceChoice State/Province choice of the user.
+ * @prop {string} Zip Zip/Postal code of the user.
+ * @prop {string} Country Two letter country code of the user.
+ * @prop {string} Phone Phone number in the format `+NNN.NNNNNNNNNN`.
+ * @prop {string} [PhoneExt] PhoneExt of the user.
+ * @prop {string} [Fax] Fax number in the format `+NNN.NNNNNNNNNN`.
  */

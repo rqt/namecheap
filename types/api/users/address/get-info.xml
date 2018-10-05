@@ -1,5 +1,5 @@
 <types>
-  <type name="AddressDetail">
+  <type name="AddressDetail" noToc>
     <prop string name="FirstName"/>
     <prop string name="LastName"/>
     <prop string name="JobTitle"/>

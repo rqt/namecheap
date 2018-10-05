@@ -21,6 +21,10 @@ yarn add -E @rqt/namecheap
   * [`async check(options: string|Check): DomainCheck[]`](#async-checkoptions-stringcheck-domaincheck)
   * [`async getInfo(options: string|GetInfo): DomainInfo`](#async-getinfooptions-stringgetinfo-domaininfo)
   * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
+- [`users.address`](#usersaddress)
+  * [`async getInfo(id: string|number): AddressDetail`](#async-getinfoid-stringnumber-addressdetail)
+  * [`async getList(): Address[]`](#async-getlist-address)
+- [Progress](#progress)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -110,35 +114,40 @@ Check: [ { Domain: 'test.co',
     IcannFee: 0,
     EapFee: '0.0' } ] 
 
-Addresses: [ { AddressId: 0, AddressName: 'Primary Address', IsDefault: true } ] 
+Addresses: [ { AddressId: 0,
+    AddressName: 'Primary Address',
+    IsDefault: false },
+  { AddressId: 101235,
+    AddressName: 'Planet Express',
+    IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-4-00-12-28.com',
+Registered: { Domain: 'rqt-example-2018-10-5-17-45-29.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330352,
-  OrderID: 1292665,
-  TransactionID: 1830060,
+  DomainID: 330558,
+  OrderID: 1293325,
+  TransactionID: 1830850,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330352,
-  DomainName: 'rqt-example-2018-10-4-00-12-28.com',
+  ID: 330558,
+  DomainName: 'rqt-example-2018-10-5-17-45-29.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
   DomainDetails: 
-   { CreatedDate: '10/03/2018',
-     ExpiredDate: '10/03/2019',
+   { CreatedDate: '10/05/2018',
+     ExpiredDate: '10/05/2019',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 268926,
-     ExpiredDate: '10/03/2019',
+     ID: 269088,
+     ExpiredDate: '10/05/2019',
      EmailDetails: 
-      { WhoisGuardEmail: 'd95196d843754835ab057c456f0f5f4e.protect@whoisguard.com',
-        ForwardedTo: 'artdeco@adc.sh',
+      { WhoisGuardEmail: '1f03c95acb564a8f86173a67f7dc1cab.protect@whoisguard.com',
+        ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
   PremiumDnsSubscription: 
@@ -158,11 +167,11 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 330352,
-       Name: 'rqt-example-2018-10-4-00-12-28.com',
+   [ { ID: 330558,
+       Name: 'rqt-example-2018-10-5-17-45-29.com',
        User: 'zavr',
-       Created: '10/03/2018',
-       Expires: '10/03/2019',
+       Created: '10/05/2018',
+       Expires: '10/05/2019',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -188,18 +197,18 @@ Register a domain.
 
 __<a name="type-create">`Create`</a>__: Options to register a domain.
 
-|       Name        |      Type       |                                                                                         Description                                                                                         | Default |
-| ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| __domain*__       | _string_        | The domain name to register.                                                                                                                                                                | -       |
-| years             | _number_        | The number of years to register.                                                                                                                                                            | `1`     |
-| promo             | _string_        | Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.                                                                          | -       |
-| nameservers       | _string[]_      | The comma-separated list of custom nameservers to be associated with the domain name.                                                                                                       | -       |
-| whois             | _boolean_       | Adds free WhoisGuard for the domain.                                                                                                                                                        | `true`  |
-| __address*__      | _AddressDetail_ | A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`. | -       |
-| billingAddress    | _AddressDetail_ | An address to use for `AuxBilling` address details.                                                                                                                                         | -       |
-| registrantAddress | _AddressDetail_ | An address to use for `Registrant` address details.                                                                                                                                         | -       |
-| techAddress       | _AddressDetail_ | An address to use for `Tech` address details.                                                                                                                                               | -       |
-| adminAddress      | _Admin_         | An address to use for `Admin` address details.                                                                                                                                              | -       |
+|       Name        |                  Type                  |                                                                                         Description                                                                                         | Default |
+| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| __domain*__       | _string_                               | The domain name to register.                                                                                                                                                                | -       |
+| years             | _number_                               | The number of years to register.                                                                                                                                                            | `1`     |
+| promo             | _string_                               | Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.                                                                          | -       |
+| nameservers       | _string[]_                             | The comma-separated list of custom nameservers to be associated with the domain name.                                                                                                       | -       |
+| whois             | _boolean_                              | Adds free WhoisGuard for the domain.                                                                                                                                                        | `true`  |
+| __address*__      | _[AddressDetail](#type-addressdetail)_ | A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`. | -       |
+| billingAddress    | _[AddressDetail](#type-addressdetail)_ | An address to use for `AuxBilling` address details.                                                                                                                                         | -       |
+| registrantAddress | _[AddressDetail](#type-addressdetail)_ | An address to use for `Registrant` address details.                                                                                                                                         | -       |
+| techAddress       | _[AddressDetail](#type-addressdetail)_ | An address to use for `Tech` address details.                                                                                                                                               | -       |
+| adminAddress      | _Admin_                                | An address to use for `Admin` address details.                                                                                                                                              | -       |
 
 __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domain information.
 
@@ -234,12 +243,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-4-00-12-40.com',
+{ Domain: 'rqt-example-2018-10-5-17-45-40.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330353,
-  OrderID: 1292666,
-  TransactionID: 1830061,
+  DomainID: 330559,
+  OrderID: 1293326,
+  TransactionID: 1830851,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -454,22 +463,22 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330354,
-  DomainName: 'rqt-example-2018-10-4-00-12-54.com',
+  ID: 330560,
+  DomainName: 'rqt-example-2018-10-5-17-45-54.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
   DomainDetails: 
-   { CreatedDate: '10/03/2018',
-     ExpiredDate: '10/03/2019',
+   { CreatedDate: '10/05/2018',
+     ExpiredDate: '10/05/2019',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 268928,
-     ExpiredDate: '10/03/2019',
+     ID: 269090,
+     ExpiredDate: '10/05/2019',
      EmailDetails: 
-      { WhoisGuardEmail: 'bec6c2beb0bc439c93c558309a7df745.protect@whoisguard.com',
-        ForwardedTo: 'artdeco@adc.sh',
+      { WhoisGuardEmail: '374ff7feeff740c8ac51da1eb2083581.protect@whoisguard.com',
+        ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
   PremiumDnsSubscription: 
@@ -536,11 +545,11 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 330355,
-       Name: 'rqt-example-2018-10-4-00-13-06.com',
+   [ { ID: 330561,
+       Name: 'rqt-example-2018-10-5-17-46-08.com',
        User: 'zavr',
-       Created: '10/03/2018',
-       Expires: '10/03/2019',
+       Created: '10/05/2018',
+       Expires: '10/05/2019',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -553,6 +562,123 @@ const GetList = async (domain, client) => {
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
+
+## `users.address`
+
+Methods to manipulate addresses.
+
+
+
+
+
+### `async getInfo(`<br/>&nbsp;&nbsp;`id: string|number,`<br/>`): AddressDetail`
+
+Gets information for the requested address ID.
+
+__<a name="type-addressdetail">`AddressDetail`</a>__
+
+|           Name           |   Type   | Description |
+| ------------------------ | -------- | ----------- |
+| __FirstName*__           | _string_ |             |
+| __LastName*__            | _string_ |             |
+| __JobTitle*__            | _string_ |             |
+| __Organization*__        | _string_ |             |
+| __Address1*__            | _string_ |             |
+| __Address2*__            | _string_ |             |
+| __City*__                | _string_ |             |
+| __StateProvince*__       | _string_ |             |
+| __StateProvinceChoice*__ | _string_ |             |
+| __Zip*__                 | _string_ |             |
+| __Country*__             | _string_ |             |
+| __Phone*__               | _string_ |             |
+| __PhoneExt*__            | _string_ |             |
+| __EmailAddress*__        | _string_ |             |
+
+```js
+/**
+ * @param {string|number} id The address to get info about.
+ * @param {NameCheap} client
+ */
+const GetInfo = async (id, client) => {
+  const res = await client.users.address.getInfo(id)
+  return res
+}
+```
+```js
+{ AddressId: 101235,
+  UserName: 'zavr',
+  AddressName: 'Planet Express',
+  Default_YN: true,
+  FirstName: 'John',
+  LastName: 'Zoidberg',
+  JobTitle: 'Doctor',
+  Organization: 'Planet Express',
+  Address1: 'Planet Express',
+  Address2: '57th Street',
+  City: 'New New York',
+  StateProvince: 'NY',
+  StateProvinceChoice: 'S',
+  Zip: '10019',
+  Country: 'US',
+  Phone: '+1.5417543010',
+  PhoneExt: '',
+  EmailAddress: 'zoidberg@futurama.bz' }
+```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true" width="15"></a></p>
+
+### `async getList(): Address[]`
+
+Gets a list of address IDs and address names associated with the user account.
+
+__<a name="type-address">`Address`</a>__
+
+|       Name       |   Type    |                         Description                         |
+| ---------------- | --------- | ----------------------------------------------------------- |
+| __AddressId*__   | _number_  | A unique integer value that represents the address profile. |
+| __AddressName*__ | _number_  | The name of the address profile.                            |
+| __IsDefault*__   | _boolean_ | Whether it is a default address.                            |
+
+```js
+/**
+ * @param {NameCheap} client
+ */
+const GetList = async (client) => {
+  const res = await client.users.address.getList()
+  return res
+}
+```
+```js
+[ { AddressId: 0,
+    AddressName: 'Primary Address',
+    IsDefault: false },
+  { AddressId: 101235,
+    AddressName: 'Planet Express',
+    IsDefault: true } ]
+```
+
+
+
+
+
+
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true"></a></p>
+
+## Progress
+
+`domains`: 4/11
+`domains.dns`: 0/7
+`domains.ns`: 0/4
+`domains.transfer`: 0/4
+`ssl`: 0/13
+`users`: 0/9
+`users.address`: 2/6
+`whoisguard`: 0/8
+
+---
+
+6/62 = 10%
 
 ## Copyright
 

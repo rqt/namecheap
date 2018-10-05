@@ -121,19 +121,19 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-5-17-45-29.com',
+Registered: { Domain: 'rqt-example-2018-10-5-18-05-29.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330558,
-  OrderID: 1293325,
-  TransactionID: 1830850,
+  DomainID: 330569,
+  OrderID: 1293340,
+  TransactionID: 1830868,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330558,
-  DomainName: 'rqt-example-2018-10-5-17-45-29.com',
+  ID: 330569,
+  DomainName: 'rqt-example-2018-10-5-18-05-29.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -143,10 +143,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269088,
+     ID: 269098,
      ExpiredDate: '10/05/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '1f03c95acb564a8f86173a67f7dc1cab.protect@whoisguard.com',
+      { WhoisGuardEmail: '67a07c27d9c24c0281c8da3bde63ac4c.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -167,8 +167,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 330558,
-       Name: 'rqt-example-2018-10-5-17-45-29.com',
+   [ { ID: 330569,
+       Name: 'rqt-example-2018-10-5-18-05-29.com',
        User: 'zavr',
        Created: '10/05/2018',
        Expires: '10/05/2019',
@@ -195,7 +195,7 @@ Methods to register and retrieve domains' info.
 
 Register a domain.
 
-__<a name="type-create">`Create`</a>__: Options to register a domain.
+__<a name="type-create">`Create`</a>__: Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
 
 |       Name        |                  Type                  |                                                                                         Description                                                                                         | Default |
 | ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
@@ -208,7 +208,7 @@ __<a name="type-create">`Create`</a>__: Options to register a domain.
 | billingAddress    | _[AddressDetail](#type-addressdetail)_ | An address to use for `AuxBilling` address details.                                                                                                                                         | -       |
 | registrantAddress | _[AddressDetail](#type-addressdetail)_ | An address to use for `Registrant` address details.                                                                                                                                         | -       |
 | techAddress       | _[AddressDetail](#type-addressdetail)_ | An address to use for `Tech` address details.                                                                                                                                               | -       |
-| adminAddress      | _Admin_                                | An address to use for `Admin` address details.                                                                                                                                              | -       |
+| adminAddress      | _[AddressDetail](#type-addressdetail)_ | An address to use for `Admin` address details.                                                                                                                                              | -       |
 
 __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domain information.
 
@@ -243,12 +243,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-5-17-45-40.com',
+{ Domain: 'rqt-example-2018-10-5-18-05-50.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330559,
-  OrderID: 1293326,
-  TransactionID: 1830851,
+  DomainID: 330570,
+  OrderID: 1293341,
+  TransactionID: 1830869,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -463,8 +463,8 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330560,
-  DomainName: 'rqt-example-2018-10-5-17-45-54.com',
+  ID: 330571,
+  DomainName: 'rqt-example-2018-10-5-18-06-15.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -474,10 +474,10 @@ const GetInfo = async (domain, client) => {
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269090,
+     ID: 269100,
      ExpiredDate: '10/05/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '374ff7feeff740c8ac51da1eb2083581.protect@whoisguard.com',
+      { WhoisGuardEmail: '9663af3bce3040aab19742ce6f77b50f.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -504,7 +504,7 @@ const GetInfo = async (domain, client) => {
 
 Returns a list of domains for the particular user.
 
-__<a name="type-getlist">`GetList`</a>__: Options to get a list of domains.
+__<a name="type-getlist">`GetList`</a>__: Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
 
 |   Name   |              Type              |                                                     Description                                                      | Default  |
 | -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -545,8 +545,8 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 330561,
-       Name: 'rqt-example-2018-10-5-17-46-08.com',
+   [ { ID: 330572,
+       Name: 'rqt-example-2018-10-5-18-06-28.com',
        User: 'zavr',
        Created: '10/05/2018',
        Expires: '10/05/2019',
@@ -577,22 +577,23 @@ Gets information for the requested address ID.
 
 __<a name="type-addressdetail">`AddressDetail`</a>__
 
-|           Name           |   Type   | Description |
-| ------------------------ | -------- | ----------- |
-| __FirstName*__           | _string_ |             |
-| __LastName*__            | _string_ |             |
-| __JobTitle*__            | _string_ |             |
-| __Organization*__        | _string_ |             |
-| __Address1*__            | _string_ |             |
-| __Address2*__            | _string_ |             |
-| __City*__                | _string_ |             |
-| __StateProvince*__       | _string_ |             |
-| __StateProvinceChoice*__ | _string_ |             |
-| __Zip*__                 | _string_ |             |
-| __Country*__             | _string_ |             |
-| __Phone*__               | _string_ |             |
-| __PhoneExt*__            | _string_ |             |
-| __EmailAddress*__        | _string_ |             |
+|           Name           |    Type    |                  Description                  |
+| ------------------------ | ---------- | --------------------------------------------- |
+| __EmailAddress*__        | _string_   | Email address of the user.                    |
+| __FirstName*__           | _string_   | First name of the user.                       |
+| __LastName*__            | _string_   | Last name of the user.                        |
+| JobTitle                 | _string_   | Job designation of the user                   |
+| Organization             | _string_   | Organization of the user.                     |
+| __Address1*__            | _string_   | StreetAddress1 of the user.                   |
+| Address2                 | _string_   | StreetAddress2 of the user.                   |
+| __City*__                | _string_   | City of the user.                             |
+| __StateProvince*__       | _string_   | State/Province of the user.                   |
+| __StateProvinceChoice*__ | _'S'\|'P'_ | State/Province choice of the user.            |
+| __Zip*__                 | _string_   | Zip/Postal code of the user.                  |
+| __Country*__             | _string_   | Two letter country code of the user.          |
+| __Phone*__               | _string_   | Phone number in the format `+NNN.NNNNNNNNNN`. |
+| PhoneExt                 | _string_   | PhoneExt of the user.                         |
+| Fax                      | _string_   | Fax number in the format `+NNN.NNNNNNNNNN`.   |
 
 ```js
 /**
@@ -667,14 +668,14 @@ const GetList = async (client) => {
 
 ## Progress
 
-`domains`: 4/11
-`domains.dns`: 0/7
-`domains.ns`: 0/4
-`domains.transfer`: 0/4
-`ssl`: 0/13
-`users`: 0/9
-`users.address`: 2/6
-`whoisguard`: 0/8
+* `domains`: 4/11
+* `domains.dns`: 0/7
+* `domains.ns`: 0/4
+* `domains.transfer`: 0/4
+* `ssl`: 0/13
+* `users`: 0/9
+* `users.address`: 2/6
+* `whoisguard`: 0/8
 
 ---
 

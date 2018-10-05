@@ -1,5 +1,5 @@
 <types>
-  <type name="GetList" desc="Options to get a list of domains." noToc>
+  <type name="GetList" desc="Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx" noToc>
     <prop opt name="type" type="'ALL'|'EXPIRING'|'EXPIRED'" default="ALL">
       The type of domains.
     </prop>

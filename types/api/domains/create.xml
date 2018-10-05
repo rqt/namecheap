@@ -1,5 +1,5 @@
 <types>
-  <type name="Create" desc="Options to register a domain." noToc>
+  <type name="Create" desc="Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx" noToc>
     <prop string name="domain">
       The domain name to register.
     </prop>
@@ -27,7 +27,7 @@
     <prop opt name="techAddress" type="AddressDetail">
       An address to use for `Tech` address details.
     </prop>
-    <prop opt name="adminAddress" type="Admin">
+    <prop opt name="adminAddress" type="AddressDetail">
       An address to use for `Admin` address details.
     </prop>
   </type>

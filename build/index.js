@@ -51,7 +51,7 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
    * @param {'POST'|'GET'} method
    */
   async _query(endpoint, params, method) {
-    const cb = erotic(true)
+    // const cb = erotic(true)
     try {
       const res = await query({
         ApiKey: this._key,
@@ -61,8 +61,8 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
       }, endpoint, params, method)
       return res
     } catch (err) {
-      const e = cb(err)
-      throw e
+      // const e = cb(err)
+      throw err
     }
   }
 }

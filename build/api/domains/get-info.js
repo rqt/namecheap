@@ -110,6 +110,7 @@ const parsePremiumDNS = (dns) => {
 
 /**
  * Returns information about the requested domain.
+ * @param {Function} query
  * @param {string|GetInfo} options The domain name, or options to get info about a domain.
  * @param {string} options.domain The domain to get info about.
  * @example
@@ -158,13 +159,13 @@ const parsePremiumDNS = (dns) => {
  *        'ns-355.awsdns-44.com' ] },
  *  Modificationrights: { All: true } }
  */
-async function getInfo(options) {
+async function getInfo(query, options) {
   const opts = typeof options == 'string' ? { domain: options } : options
   const {
     domain,
     host,
   } = opts
-  const res = await this._query(COMMAND, {
+  const res = await query(COMMAND, {
     DomainName: domain,
     HostName: host,
   })

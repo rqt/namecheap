@@ -101,11 +101,6 @@ const users = {
  * @param {string} [options.promoCode] Promotional (coupon) code for the user.
  * @param {'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'} [options.action] Specific action within a product type.
  * @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
-* @param {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} options.type Product Type to get pricing information.
-* @param {'DOMAINS'|'COMODO'|'WHOISGUARD'} [options.category] Specific category within a product type.
-* @param {string} [options.promoCode] Promotional (coupon) code for the user.
-* @param {'REGISTER','RENEW','REACTIVATE','TRANSFER'} [options.action] Specific action within a product type.
-* @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
    */
   async getPricing(options) {
     /** @type {Pricing} */
@@ -286,12 +281,12 @@ module.exports=api
  * @prop {'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'} [action] Specific action within a product type.
  * @prop {string} [product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
  *
- * @typedef {Object} Pricing The pricing information in an object.
+ * @typedef {Object} Pricing The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`.
  * @prop {DomainPricing} domain The pricing of domains.
  * @prop {SSLPricing} ssl The pricing of certificates.
  * @prop {WhoisPricing} whoisguard The pricing of the Whois Guard.
  *
- * @typedef {Object} DomainPricing The pricing of domains.
+ * @typedef {Object} DomainPricing The pricing of domains as an object, where the requested zone is a key.
  * @prop {Object.<string, Product>} register The pricing to register domains.
  * @prop {Object.<string, Product>} renew The pricing to renew domains.
  * @prop {Object.<string, Product>} reactivate The pricing to reactivate domains.
@@ -305,9 +300,9 @@ module.exports=api
  * @prop {WhoisPurchase} purchase The pricing to purchase WHOIS guards.
  * @prop {WhoisRenew} renew The pricing to renew WHOIS guards.
  *
- * @typedef {Price[]} Product
+ * @typedef {Price[]} Product A product consists of an array of prices for different durations.
  *
- * @typedef {Object} Price Price data for a product.
+ * @typedef {Object} Price Price data for a product accoding to the duration of an action.
  * @prop {number} Duration The duration of the product, e.g., `1`.
  * @prop {string} DurationType The duration type of the product, e.g., `YEAR`.
  * @prop {string} Price Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.

@@ -21,7 +21,9 @@ yarn add -E @rqt/namecheap
   * [`async check(options: string|Check): DomainCheck[]`](#async-checkoptions-stringcheck-domaincheck)
   * [`async getInfo(options: string|GetInfo): DomainInfo`](#async-getinfooptions-stringgetinfo-domaininfo)
   * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
-- [`users.address`](#usersaddress)
+- [`users`](#users)
+  * [`async getPricing(options: GetPricing): Pricing`](#async-getpricingoptions-getpricing-pricing)
+- [`address`](#address)
   * [`async getInfo(id: string|number): AddressDetail`](#async-getinfoid-stringnumber-addressdetail)
   * [`async getList(): Address[]`](#async-getlist-address)
 - [Progress](#progress)
@@ -70,12 +72,12 @@ import bosom from 'bosom'
     console.log('Check:', c, '\n')
 
     // 2. Get list of addresses on the account.
-    const cc = await namecheap.users.address.getList()
+    const cc = await namecheap.address.getList()
     console.log('Addresses:', cc, '\n')
 
     // 3. Find the default address and get its info.
     const { AddressId } = cc.find(({ IsDefault }) => IsDefault)
-    const address = await namecheap.users.address.getInfo(AddressId)
+    const address = await namecheap.address.getInfo(AddressId)
 
     // 4. Register the domain using the address.
     const d = new Date().toLocaleString().replace(/[ :]/g, '-')
@@ -85,7 +87,6 @@ import bosom from 'bosom'
       address,
     })
     console.log('Registered:', r, '\n')
-
 
     // 5. Retrieve info about domain.
     const info = await namecheap.domains.getInfo(domain)
@@ -112,51 +113,51 @@ Check: [ { Domain: 'test.co',
     PremiumRestorePrice: 0,
     PremiumTransferPrice: 0,
     IcannFee: 0,
-    EapFee: '0.0' } ]
+    EapFee: '0.0' } ] 
 
 Addresses: [ { AddressId: 0,
     AddressName: 'Primary Address',
     IsDefault: false },
   { AddressId: 101235,
     AddressName: 'Planet Express',
-    IsDefault: true } ]
+    IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-5-23-04-19.com',
+Registered: { Domain: 'rqt-example-2018-10-6-08-03-05.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330606,
-  OrderID: 1293490,
-  TransactionID: 1831024,
+  DomainID: 330627,
+  OrderID: 1293595,
+  TransactionID: 1831132,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
-  NonRealTimeDomain: false }
+  NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330606,
-  DomainName: 'rqt-example-2018-10-5-23-04-19.com',
+  ID: 330627,
+  DomainName: 'rqt-example-2018-10-6-08-03-05.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails:
-   { CreatedDate: '10/05/2018',
-     ExpiredDate: '10/05/2019',
+  DomainDetails: 
+   { CreatedDate: '10/06/2018',
+     ExpiredDate: '10/06/2019',
      NumYears: 0 },
-  Whoisguard:
+  Whoisguard: 
    { Enabled: 'True',
-     ID: 269128,
-     ExpiredDate: '10/05/2019',
-     EmailDetails:
-      { WhoisGuardEmail: '2c005f2573ee4d399151c9a8b29d5369.protect@whoisguard.com',
+     ID: 269141,
+     ExpiredDate: '10/06/2019',
+     EmailDetails: 
+      { WhoisGuardEmail: '5ef05b37a702415bb9821acd7df65d89.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription:
+  PremiumDnsSubscription: 
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails:
+  DnsDetails: 
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -164,14 +165,14 @@ Info: { Status: 'Ok',
      DynamicDNSStatus: false,
      IsFailover: false,
      Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
-  Modificationrights: { All: true } }
+  Modificationrights: { All: true } } 
 
-List: { domains:
-   [ { ID: 330606,
-       Name: 'rqt-example-2018-10-5-23-04-19.com',
+List: { domains: 
+   [ { ID: 330627,
+       Name: 'rqt-example-2018-10-6-08-03-05.com',
        User: 'zavr',
-       Created: '10/05/2018',
-       Expires: '10/05/2019',
+       Created: '10/06/2018',
+       Expires: '10/06/2019',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -197,18 +198,18 @@ Register a domain.
 
 __<a name="type-create">`Create`</a>__: Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
 
-|       Name        |                  Type                  |                                                                                         Description                                                                                         | Default |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| __domain*__       | _string_                               | The domain name to register.                                                                                                                                                                | -       |
-| years             | _number_                               | The number of years to register.                                                                                                                                                            | `1`     |
-| promo             | _string_                               | Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.                                                                          | -       |
-| nameservers       | _string[]_                             | The comma-separated list of custom nameservers to be associated with the domain name.                                                                                                       | -       |
-| whois             | _boolean_                              | Adds free WhoisGuard for the domain.                                                                                                                                                        | `true`  |
-| __address*__      | _[AddressDetail](#type-addressdetail)_ | A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`. | -       |
-| billingAddress    | _[AddressDetail](#type-addressdetail)_ | An address to use for `AuxBilling` address details.                                                                                                                                         | -       |
-| registrantAddress | _[AddressDetail](#type-addressdetail)_ | An address to use for `Registrant` address details.                                                                                                                                         | -       |
-| techAddress       | _[AddressDetail](#type-addressdetail)_ | An address to use for `Tech` address details.                                                                                                                                               | -       |
-| adminAddress      | _[AddressDetail](#type-addressdetail)_ | An address to use for `Admin` address details.                                                                                                                                              | -       |
+|       Name        |                  Type                  |                                                                                   Description                                                                                   | Default |
+| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| __domain*__       | _string_                               | The domain name to register.                                                                                                                                                    | -       |
+| years             | _number_                               | The number of years to register.                                                                                                                                                | `1`     |
+| promo             | _string_                               | Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.                                                              | -       |
+| nameservers       | _string[]_                             | The comma-separated list of custom nameservers to be associated with the domain name.                                                                                           | -       |
+| whois             | _boolean_                              | Adds free WhoisGuard for the domain.                                                                                                                                            | `true`  |
+| __address*__      | _[AddressDetail](#type-addressdetail)_ | A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`. | -       |
+| billingAddress    | _[AddressDetail](#type-addressdetail)_ | An address to use for `AuxBilling` address details.                                                                                                                             | -       |
+| registrantAddress | _[AddressDetail](#type-addressdetail)_ | An address to use for `Registrant` address details.                                                                                                                             | -       |
+| techAddress       | _[AddressDetail](#type-addressdetail)_ | An address to use for `Tech` address details.                                                                                                                                   | -       |
+| adminAddress      | _[AddressDetail](#type-addressdetail)_ | An address to use for `Admin` address details.                                                                                                                                  | -       |
 
 __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domain information.
 
@@ -230,9 +231,9 @@ __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domai
  */
 const Create = async (domain, client) => {
   // Find the default address.
-  const ad = await client.users.address.getList()
+  const ad = await client.address.getList()
   const { AddressId } = ad.find(({ IsDefault }) => IsDefault)
-  const address = await client.users.address.getInfo(AddressId)
+  const address = await client.address.getInfo(AddressId)
 
   // Register a domain.
   const res = await client.domains.create({
@@ -243,12 +244,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-5-23-04-32.com',
+{ Domain: 'rqt-example-2018-10-6-08-03-15.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330607,
-  OrderID: 1293492,
-  TransactionID: 1831026,
+  DomainID: 330628,
+  OrderID: 1293596,
+  TransactionID: 1831133,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -434,31 +435,31 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330608,
-  DomainName: 'rqt-example-2018-10-5-23-04-47.com',
+  ID: 330629,
+  DomainName: 'rqt-example-2018-10-6-08-03-34.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails:
-   { CreatedDate: '10/05/2018',
-     ExpiredDate: '10/05/2019',
+  DomainDetails: 
+   { CreatedDate: '10/06/2018',
+     ExpiredDate: '10/06/2019',
      NumYears: 0 },
-  Whoisguard:
+  Whoisguard: 
    { Enabled: 'True',
-     ID: 269130,
-     ExpiredDate: '10/05/2019',
-     EmailDetails:
-      { WhoisGuardEmail: '3dc919c4f6014118ad8f6bcaa2acce04.protect@whoisguard.com',
+     ID: 269143,
+     ExpiredDate: '10/06/2019',
+     EmailDetails: 
+      { WhoisGuardEmail: '02382ef9b41548b19dee9b90613b2687.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription:
+  PremiumDnsSubscription: 
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails:
+  DnsDetails: 
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -515,12 +516,12 @@ const GetList = async (domain, client) => {
 }
 ```
 ```js
-{ domains:
-   [ { ID: 330609,
-       Name: 'rqt-example-2018-10-5-23-05-13.com',
+{ domains: 
+   [ { ID: 330630,
+       Name: 'rqt-example-2018-10-6-08-03-47.com',
        User: 'zavr',
-       Created: '10/05/2018',
-       Expires: '10/05/2019',
+       Created: '10/06/2018',
+       Expires: '10/06/2019',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -534,7 +535,228 @@ const GetList = async (domain, client) => {
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/7.svg?sanitize=true"></a></p>
 
-## `users.address`
+## `users`
+
+Methods related to the user.
+
+### `async getPricing(`<br/>&nbsp;&nbsp;`options: GetPricing,`<br/>`): Pricing`
+
+Returns pricing information for a requested product type.
+
+__<a name="type-getpricing">`GetPricing`</a>__: Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
+
+|   Name    |                      Type                       |                                             Description                                             |
+| --------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| __type*__ | _'DOMAIN'\|'SSLCERTIFICATE'\|'WHOISGUARD'_      | Product Type to get pricing information.                                                            |
+| category  | _'DOMAINS'\|'COMODO'\|'WHOISGUARD'_             | Specific category within a product type.                                                            |
+| promoCode | _string_                                        | Promotional (coupon) code for the user.                                                             |
+| action    | _'REGISTER'\|'RENEW'\|'REACTIVATE'\|'TRANSFER'_ | Specific action within a product type.                                                              |
+| product   | _string_                                        | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`. |
+
+```js
+/**
+ * @param {NameCheap} client
+ */
+const GetPricing = async (client) => {
+  const res = await client.users.getPricing({
+    type: 'DOMAIN',
+    action: 'REGISTER',
+    product: 'COM',
+  })
+  return res
+}
+```
+
+<details>
+<summary>Show Pricing Output</summary>
+
+```json5
+{
+  "domains": {
+    "register": {
+      "com": [
+        {
+          "Duration": 1,
+          "DurationType": "YEAR",
+          "Price": "8.88",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.98",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "8.88",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 2,
+          "DurationType": "YEAR",
+          "Price": "10.88",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.88",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.88",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 3,
+          "DurationType": "YEAR",
+          "Price": "10.78",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.78",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.78",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 4,
+          "DurationType": "YEAR",
+          "Price": "10.68",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.68",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.68",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 5,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 6,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 7,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 8,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 9,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 10,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        }
+      ]
+    }
+  }
+}
+```
+</details>
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true" width="15"></a></p>
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true"></a></p>
+
+## `address`
 
 Methods to manipulate addresses.
 
@@ -572,7 +794,7 @@ __<a name="type-addressdetail">`AddressDetail`</a>__
  * @param {NameCheap} client
  */
 const GetInfo = async (id, client) => {
-  const res = await client.users.address.getInfo(id)
+  const res = await client.address.getInfo(id)
   return res
 }
 ```
@@ -597,7 +819,7 @@ const GetInfo = async (id, client) => {
   EmailAddress: 'zoidberg@futurama.bz' }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/10.svg?sanitize=true" width="15"></a></p>
 
 ### `async getList(): Address[]`
 
@@ -616,7 +838,7 @@ __<a name="type-address">`Address`</a>__
  * @param {NameCheap} client
  */
 const GetList = async (client) => {
-  const res = await client.users.address.getList()
+  const res = await client.address.getList()
   return res
 }
 ```
@@ -635,7 +857,7 @@ const GetList = async (client) => {
 
 
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/11.svg?sanitize=true"></a></p>
 
 ## Progress
 

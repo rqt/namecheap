@@ -9,7 +9,7 @@ import GetPricing from '../../api/users/get-pricing'
       user, key, sandbox: true, ip,
     })
     const res = await GetPricing(namecheap)
-    console.log(res)
+    console.log(JSON.stringify(res, null, 2))
   } catch ({ message, props }) {
     console.log(message)
   }

@@ -7,7 +7,7 @@
  * @param {NameCheap} client
  */
 const GetInfo = async (id, client) => {
-  const res = await client.users.address.getInfo(id)
+  const res = await client.address.getInfo(id)
   return res
 }
 /* end example */

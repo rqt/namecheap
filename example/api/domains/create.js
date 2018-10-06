@@ -8,9 +8,9 @@
  */
 const Create = async (domain, client) => {
   // Find the default address.
-  const ad = await client.users.address.getList()
+  const ad = await client.address.getList()
   const { AddressId } = ad.find(({ IsDefault }) => IsDefault)
-  const address = await client.users.address.getInfo(AddressId)
+  const address = await client.address.getInfo(AddressId)
 
   // Register a domain.
   const res = await client.domains.create({

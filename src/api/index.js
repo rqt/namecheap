@@ -53,7 +53,7 @@ const domains = {
  * @param {string} [options.promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
  * @param {string[]} [options.nameservers] The comma-separated list of custom nameservers to be associated with the domain name.
  * @param {boolean} [options.whois=true] Adds free WhoisGuard for the domain. Default `true`.
- * @param {AddressDetail} options.address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`.
+ * @param {AddressDetail} options.address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
  * @param {AddressDetail} [options.billingAddress] An address to use for `AuxBilling` address details.
  * @param {AddressDetail} [options.registrantAddress] An address to use for `Registrant` address details.
  * @param {AddressDetail} [options.techAddress] An address to use for `Tech` address details.
@@ -244,7 +244,7 @@ export default api
  * @prop {string} [promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
  * @prop {string[]} [nameservers] The comma-separated list of custom nameservers to be associated with the domain name.
  * @prop {boolean} [whois=true] Adds free WhoisGuard for the domain. Default `true`.
- * @prop {AddressDetail} address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`.
+ * @prop {AddressDetail} address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
  * @prop {AddressDetail} [billingAddress] An address to use for `AuxBilling` address details.
  * @prop {AddressDetail} [registrantAddress] An address to use for `Registrant` address details.
  * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.

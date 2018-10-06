@@ -16,7 +16,7 @@
       Adds free WhoisGuard for the domain.
     </prop>
     <prop name="address" type="AddressDetail">
-      A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`.
+      A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
     </prop>
     <prop opt name="billingAddress" type="AddressDetail">
       An address to use for `AuxBilling` address details.

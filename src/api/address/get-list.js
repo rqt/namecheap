@@ -8,7 +8,7 @@ const COMMAND = 'namecheap.users.address.getList'
  * @example
  *
  * // Get the list of addresses added to the account.
- * await nc.users.address.getList()
+ * await nc.address.getList()
  * // Result:
  * [
  *  {

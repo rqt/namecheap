@@ -18,9 +18,9 @@ const T = {
     const free = await namecheap.domains.check(domain)
     ok(free[0].Available)
 
-    const cc = await namecheap.users.address.getList()
+    const cc = await namecheap.address.getList()
     const { AddressId } = cc.find(({ IsDefault }) => IsDefault)
-    const address = await namecheap.users.address.getInfo(AddressId)
+    const address = await namecheap.address.getInfo(AddressId)
     assertKeys(['AddressId', 'UserName', 'AddressName', 'Default_YN', 'FirstName', 'LastName', 'JobTitle', 'Organization', 'Address1', 'Address2', 'City', 'StateProvince', 'StateProvinceChoice', 'Zip', 'Country', 'Phone', 'PhoneExt', 'EmailAddress',
     ], address)
 

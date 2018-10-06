@@ -6,7 +6,7 @@
  * @param {NameCheap} client
  */
 const GetList = async (client) => {
-  const res = await client.users.address.getList()
+  const res = await client.address.getList()
   return res
 }
 /* end example */

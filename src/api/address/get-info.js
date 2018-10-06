@@ -12,7 +12,7 @@ const COMMAND = 'namecheap.users.address.getInfo'
  * @example
  *
  * // Find the address info.
- * await nc.users.address.getInfo(0)
+ * await nc.address.getInfo(0)
  *
  * // Result:
  * { AddressId: 0,

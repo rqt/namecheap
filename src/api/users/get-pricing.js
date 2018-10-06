@@ -43,7 +43,8 @@ const getProduct = (categoryContent) => {
   }) => {
     const price = extractTags('Price', content)
     const prices = price.map(({ props: ppprops }) => ppprops)
-    acc[Name] = prices
+    const n = Name.replace(/-(.)/g, (match, l) => l.toUpperCase())
+    acc[n] = prices
     return acc
   }, {})
   return product

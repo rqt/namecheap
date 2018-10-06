@@ -3,17 +3,108 @@
     <prop name="type" type="'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'">
       Product Type to get pricing information.
     </prop>
-    <prop opt name="category" type="'DOMAINS'|'COMODO'|'WHOISGUARD'">
-      Specific category within a product type.
+    <prop opt string name="category">
+      Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
     </prop>
     <prop opt string name="promoCode">
       Promotional (coupon) code for the user.
     </prop>
-    <prop opt name="action" type="'REGISTER'|'RENEW'|'REACTIVATE'|'TRANSFER'">
+    <prop opt name="action"
+      type="'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'">
       Specific action within a product type.
     </prop>
     <prop opt string name="product">
       The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
+    </prop>
+  </type>
+  <type name="Pricing" desc="The pricing information in an object." noToc>
+    <prop type="DomainPricing" name="domain">
+      The pricing of domains.
+    </prop>
+    <prop type="SSLPricing" name="ssl">
+      The pricing of certificates.
+    </prop>
+    <prop type="WhoisPricing" name="whoisguard">
+      The pricing of the Whois Guard.
+    </prop>
+  </type>
+  <type name="DomainPricing" desc="The pricing of domains.">
+    <prop name="register" type="Object.<string, Product>">
+      The pricing to register domains.
+    </prop>
+    <prop name="renew" type="Object.<string, Product>">
+      The pricing to renew domains.
+    </prop>
+    <prop name="reactivate" type="Object.<string, Product>">
+      The pricing to reactivate domains.
+    </prop>
+    <prop name="transfer" type="Object.<string, Product>">
+      The pricing to transfer domains.
+    </prop>
+  </type>
+  <type name="SSLPricing" desc="The pricing of certificates.">
+    <prop name="purchase" type="SSLPurchase">
+      The pricing to purchase certificates.
+    </prop>
+    <prop name="renew" type="SSLRenew">
+      The pricing to renew certificates.
+    </prop>
+  </type>
+  <type name="WhoisPricing" desc="The pricing of the Whois Guard.">
+    <prop name="purchase" type="WhoisPurchase">
+      The pricing to purchase a whois guard.
+    </prop>
+    <prop name="renew" type="WhoisRenew">
+      The pricing to renew a whois guard.
+    </prop>
+  </type>
+  <type name="Product" type="Price[]" noToc>
+  </type>
+  <type name="Price" desc="Price data for a product." noToc>
+    <prop number name="Duration">
+      The duration of the product, e.g., `1`.
+    </prop>
+    <prop string name="DurationType">
+      The duration type of the product, e.g., `YEAR`.
+    </prop>
+    <prop string name="Price">
+      Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.
+    </prop>
+    <prop name="PricingType" type="'MULTIPLE'">
+      Always set to `MULTIPLE`.
+    </prop>
+    <prop opt string name="AdditionalCost">
+      Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
+    </prop>
+    <prop string name="RegularPrice">
+      Indicates regular price, e.g., `39.00`.
+    </prop>
+    <prop name="RegularPriceType" type="'MULTIPLE'">
+      Always set to `MULTIPLE`.
+    </prop>
+    <prop opt string name="RegularAdditionalCost">
+      Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
+    </prop>
+    <prop opt name="RegularAdditionalCostType" type="'MULTIPLE'">
+      Always set to `MULTIPLE`.
+    </prop>
+    <prop string name="YourPrice">
+      The user’s price for the product, e.g., `20.88`.
+    </prop>
+    <prop name="YourPriceType" type="'MULTIPLE'">
+      Always set to `MULTIPLE`.
+    </prop>
+    <prop opt string name="YourAdditonalCost">
+      Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
+    </prop>
+    <prop opt name="YourAdditonalCostType" type="'MULTIPLE'">
+      Always set to `MULTIPLE`.
+    </prop>
+    <prop string name="PromotionPrice">
+      Price with coupon enabled.
+    </prop>
+    <prop string name="Currency">
+      Currency in which the price is listed, e.g., `USD`.
     </prop>
   </type>
 </types>

@@ -17,6 +17,7 @@
     "d1": "NODE_DEBUG=doc doc src/api/index.js -g",
     "build": "yarn-s d b doc",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
+    "p": "node price",
     "e": "node example",
     "example/": "yarn e example/example.js"
   },
@@ -44,6 +45,7 @@
   "homepage": "https://github.com/rqt/namecheap#readme",
   "devDependencies": {
     "@wrote/read": "1.0.0",
+    "@wrote/write": "1.0.0",
     "alamode": "1.5.1",
     "bosom": "1.0.0",
     "documentary": "1.20.1",

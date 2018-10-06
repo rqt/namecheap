@@ -17,6 +17,12 @@ const domains = {
  * @param {number} [options.pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
  * @param {'name'|'expire'|'create'} [options.sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
  * @param {boolean} [options.desc=false] Whether to sort in descending order. Default `false`.
+   * @param {'ALL'|'EXPIRING'|'EXPIRED'} [options.type="ALL"] The type of domains. Default `ALL`.
+   * @param {string} [options.filter] The keyword to look for in the domain list.
+   * @param {number} [options.page=1] The page to return. Default `1`.
+   * @param {number} [options.pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
+ * @param {'name'|'expire'|'create'} [options.sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
+ * @param {boolean} [options.desc=false] Whether to sort in descending order. Default `false`.
    */
   async getList(options = {}) {
     /** @type {{domains: Domain[], TotalItems: number, CurrentPage: number, PageSize: number}} */
@@ -91,9 +97,9 @@ const users = {
    * Returns pricing information for a requested product type.
    * @param {GetPricing} options Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
  * @param {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} options.type Product Type to get pricing information.
- * @param {'DOMAINS'|'COMODO'|'WHOISGUARD'} [options.category] Specific category within a product type.
+ * @param {string} [options.category] Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
  * @param {string} [options.promoCode] Promotional (coupon) code for the user.
- * @param {'REGISTER'|'RENEW'|'REACTIVATE'|'TRANSFER'} [options.action] Specific action within a product type.
+ * @param {'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'} [options.action] Specific action within a product type.
  * @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
 * @param {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} options.type Product Type to get pricing information.
 * @param {'DOMAINS'|'COMODO'|'WHOISGUARD'} [options.category] Specific category within a product type.
@@ -102,7 +108,9 @@ const users = {
 * @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
    */
   async getPricing(options) {
-    return getPricing(this._query.bind(this), options)
+    /** @type {Pricing} */
+    const res = await getPricing(this._query.bind(this), options)
+    return res
   },
 }
 
@@ -273,8 +281,121 @@ export default api
 /**
  * @typedef {Object} GetPricing Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
  * @prop {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} type Product Type to get pricing information.
- * @prop {'DOMAINS'|'COMODO'|'WHOISGUARD'} [category] Specific category within a product type.
+ * @prop {string} [category] Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
  * @prop {string} [promoCode] Promotional (coupon) code for the user.
- * @prop {'REGISTER'|'RENEW'|'REACTIVATE'|'TRANSFER'} [action] Specific action within a product type.
+ * @prop {'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'} [action] Specific action within a product type.
  * @prop {string} [product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
+ *
+ * @typedef {Object} Pricing The pricing information in an object.
+ * @prop {DomainPricing} domain The pricing of domains.
+ * @prop {SSLPricing} ssl The pricing of certificates.
+ *
+ * @typedef {Object} DomainPricing The pricing of domains.
+ * @prop {Object.<string, Product>} register The pricing to register domains.
+ * @prop {Object.<string, Product>} renew The pricing to renew domains.
+ * @prop {Object.<string, Product>} reactivate The pricing to reactivate domains.
+ * @prop {Object.<string, Product>} transfer The pricing to transfer domains.
+ *
+ * @typedef {Object} SSLPricing The pricing of certificates.
+ * @prop {SSLPurchase} purchase The pricing to purchase cetificates.
+ * @prop {SSLRenew} renew The pricing to renew cetificates.
+ *
+ * @typedef {Price[]} Product
+ *
+ * @typedef {Object} Price Price data for a product.
+ * @prop {number} Duration The duration of the product, e.g., `1`.
+ * @prop {string} DurationType The duration type of the product, e.g., `YEAR`.
+ * @prop {string} Price Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.
+ * @prop {'MULTIPLE'} PricingType Always set to `MULTIPLE`.
+ * @prop {string} [AdditionalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
+ * @prop {string} RegularPrice Indicates regular price, e.g., `39.00`.
+ * @prop {'MULTIPLE'} RegularPriceType Always set to `MULTIPLE`.
+ * @prop {string} [RegularAdditionalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
+ * @prop {'MULTIPLE'} [RegularAdditionalCostType] Always set to `MULTIPLE`.
+ * @prop {string} YourPrice The user’s price for the product, e.g., `20.88`.
+ * @prop {'MULTIPLE'} YourPriceType Always set to `MULTIPLE`.
+ * @prop {string} [YourAdditonalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
+ * @prop {'MULTIPLE'} [YourAdditonalCostType] Always set to `MULTIPLE`.
+ * @prop {string} PromotionPrice Price with coupon enabled.
+ * @prop {string} Currency Currency in which the price is listed, e.g., `USD`.
+ */
+
+/* documentary types/api/users/pricing/ssl.xml */
+/**
+ * @typedef {Object} SSLPurchase
+ * @prop {Product} instantssl _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year registration: `20.88 USD`
+ * @prop {Product} positivessl _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year registration: `8.88 USD`
+ * @prop {Product} positivesslWildcard _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year registration: `76.88 USD`
+ * @prop {Product} premiumssl _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year registration: `79.00 USD`
+ * @prop {Product} quicksslPremium 1-year registration: `56.88 USD`
+ * @prop {Product} rapidssl 1-year registration: `10.95 USD`
+ * @prop {Product} rapidsslWildcard 1-year registration: `148.88 USD`
+ * @prop {Product} secureSite 1-year registration: `285.88 USD`
+ * @prop {Product} secureSitePro 1-year registration: `675.88 USD`
+ * @prop {Product} secureSiteProWithEv 1-year registration: `961.88 USD`
+ * @prop {Product} secureSiteWithEv 1-year registration: `666.88 USD`
+ * @prop {Product} trueBusinessid 1-year registration: `98.00 USD`
+ * @prop {Product} trueBusinessidWildcard 1-year registration: `389.00 USD`
+ * @prop {Product} trueBusinessidWithEv 1-year registration: `179.00 USD`
+ * @prop {Product} premiumsslWildcard _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year registration: `169.00 USD`
+ * @prop {Product} essentialssl _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year registration: `18.88 USD`
+ * @prop {Product} essentialsslWildcard _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year registration: `74.88 USD`
+ * @prop {Product} evSsl _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year registration: `78.88 USD`
+ * @prop {Product} instantsslPro _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year registration: `38.88 USD`
+ * @prop {Product} ssl123 1-year registration: `39.00 USD`
+ * @prop {Product} sslWebServer 1-year registration: `88.88 USD`
+ * @prop {Product} sslWebserverEv 1-year registration: `163.88 USD`
+ * @prop {Product} comodossl 1-year registration: `35.00 USD`
+ * @prop {Product} comodosslWildcard 1-year registration: `170.00 USD`
+ * @prop {Product} comodosslMultiDomainSsl _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year registration: `89.88 USD`
+ * @prop {Product} comodosslMultiDomainSslMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} comodosslEvMultiDomainSsl _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year registration: `168.88 USD`
+ * @prop {Product} comodosslEvMultiDomainSslMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} positivesslMultiDomain _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year registration: `29.88 USD`
+ * @prop {Product} positivesslMultiDomainMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} trueBusinessidMultiDomain 1-year registration: `179.88 USD`
+ * @prop {Product} trueBusinessidMultiDomainMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} trueBusinessidWithEvMultiDomain 1-year registration: `237.88 USD`
+ * @prop {Product} trueBusinessidWithEvMultiDomainMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} unifiedCommunications _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year registration: `89.88 USD`
+ * @prop {Product} unifiedCommunicationsMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} secureSiteMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} quicksslPremiumMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} secureSiteProMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} secureSiteProWithEvMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} secureSiteWithEvMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} sgcSuperCertsMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} sslWebServerMoresans 1-year registration: `0.00 USD`
+ * @prop {Product} sslWebserverEvMoresans 1-year registration: `0.00 USD`
+ *
+ * @typedef {Object} SSLRenew
+ * @prop {Product} instantssl _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`
+ * @prop {Product} positivessl _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year renewal: `7.28 USD`
+ * @prop {Product} positivesslWildcard _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year renewal: `77.08 USD`
+ * @prop {Product} premiumssl _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year renewal: `64.78 USD`
+ * @prop {Product} quicksslPremium 1-year renewal: `46.64 USD`
+ * @prop {Product} rapidssl 1-year renewal: `8.98 USD`
+ * @prop {Product} rapidsslWildcard 1-year renewal: `122.08 USD`
+ * @prop {Product} secureSite 1-year renewal: `234.42 USD`
+ * @prop {Product} secureSitePro 1-year renewal: `554.22 USD`
+ * @prop {Product} secureSiteProWithEv 1-year renewal: `788.74 USD`
+ * @prop {Product} secureSiteWithEv 1-year renewal: `546.84 USD`
+ * @prop {Product} trueBusinessid 1-year renewal: `80.36 USD`
+ * @prop {Product} trueBusinessidWildcard 1-year renewal: `318.98 USD`
+ * @prop {Product} trueBusinessidWithEv 1-year renewal: `146.78 USD`
+ * @prop {Product} ssl123 1-year renewal: `31.98 USD`
+ * @prop {Product} sslWebServer 1-year renewal: `72.88 USD`
+ * @prop {Product} sslWebserverEv 1-year renewal: `134.38 USD`
+ * @prop {Product} essentialssl _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year renewal: `18.88 USD`
+ * @prop {Product} essentialsslWildcard _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year renewal: `74.88 USD`
+ * @prop {Product} evSsl _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year renewal: `118.90 USD`
+ * @prop {Product} instantsslPro _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year renewal: `48.38 USD`
+ * @prop {Product} premiumsslWildcard _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year renewal: `138.58 USD`
+ * @prop {Product} comodossl 1-year renewal: `28.70 USD`
+ * @prop {Product} comodosslMultiDomainSsl _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year renewal: `73.70 USD`
+ * @prop {Product} comodosslEvMultiDomainSsl _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year renewal: `203.26 USD`
+ * @prop {Product} positivesslMultiDomain _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year renewal: `24.50 USD`
+ * @prop {Product} trueBusinessidMultiDomain 1-year renewal: `147.50 USD`
+ * @prop {Product} trueBusinessidWithEvMultiDomain 1-year renewal: `195.06 USD`
+ * @prop {Product} unifiedCommunications _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year renewal: `73.70 USD`
  */

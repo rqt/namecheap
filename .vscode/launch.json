@@ -40,6 +40,19 @@
       "skipFiles": [
         "<node_internals>/**/*.js"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Price",
+      "program": "${workspaceFolder}/price/index.js",
+      "env": {
+        "NODE_DEBUG": "@rqt/namecheap,aqt",
+      },
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
     }
   ]
 }

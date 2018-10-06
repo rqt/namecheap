@@ -59,6 +59,13 @@
   dependencies:
     catchment "3.1.1"
 
+"@wrote/write@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@wrote/write/-/write-1.0.0.tgz#4f8d5339d0bd46d71f2f5997ed786a6e9ed88941"
+  integrity sha512-7aS/tolrw6M7uMZ9iERDXVFkGUu3YyGFJ7R/b+G/YZrhC3+M5HpeGGSf5RZNBSCdFqNgXxjV6c7BTYY1Mj79UA==
+  dependencies:
+    erotic "2.0.1"
+
 alamode@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/alamode/-/alamode-1.5.1.tgz#416fce8b8a01fcfd91985361d86484b36e9a1e46"

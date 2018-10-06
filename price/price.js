@@ -3,11 +3,12 @@ import write from '@wrote/write'
 import NameCheap from '../src'
 
 const types = (s) => {
-  return `<types>${s}
+  return `<types>
+${s}
 </types>`
 }
 const type = (s, name, desc) => {
-  return `  <type type="Product" name="${name}" desc="${desc}">${s}
+  return `  <type name="${name}" desc="${desc}">${s}
   </type>`
 }
 
@@ -55,10 +56,10 @@ const Whois = async (client) => {
   const namecheap = new NameCheap({
     user, key, sandbox: true, ip,
   })
-  // const ssl = await SSL(namecheap)
-  // await write('types/api/users/pricing/ssl.xml', ssl)
-  const whois = await Whois(namecheap)
-  await write('types/api/users/pricing/whois.xml', whois)
+  const ssl = await SSL(namecheap)
+  await write('types/api/users/pricing/ssl.xml', ssl)
+  // const whois = await Whois(namecheap)
+  // await write('types/api/users/pricing/whois.xml', whois)
 })()
 
 const getDesc = (d) => {

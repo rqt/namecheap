@@ -1,5 +1,5 @@
 <types>
-  <type name="SSLPurchase">
+  <type name="SSLPurchase" desc="The pricing to purchase certificates.">
     <prop type="Product" name="instantssl">
       _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year registration: `20.88 USD`
     </prop>
@@ -133,7 +133,7 @@
       1-year registration: `0.00 USD`
     </prop>
   </type>
-  <type name="SSLRenew">
+  <type name="SSLRenew" desc="The pricing to renew certificates.">undefined
     <prop type="Product" name="instantssl">
       _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`
     </prop>

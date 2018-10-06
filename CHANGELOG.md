@@ -1,4 +1,8 @@
-## 6 October 2018
+## 7 October 2018
+
+### 2.0.2
+
+- [doc] Fix `JSDoc`, add copyright to NPM doc.
 
 ### 2.0.1
 

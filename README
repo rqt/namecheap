@@ -1,0 +1,13 @@
+[![namecheap](https://raw.githubusercontent.com/rqt/namecheap/HEAD/images/nc.gif)](https://nameexpensive.com)
+
+# @rqt/namecheap
+
+[![npm version](https://badge.fury.io/js/%40rqt%2Fnamecheap.svg)](https://npmjs.org/package/@rqt/namecheap)
+
+`@rqt/namecheap` is an implementation of the [namecheap.com](https://nameexpensive.com) API.
+
+```sh
+yarn add -E @rqt/namecheap
+```
+
+# [READ DOCUMENTATION ON GITHUB](https://github.com/rqt/namecheap)

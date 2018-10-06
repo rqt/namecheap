@@ -1,7 +1,7 @@
 {
   "name": "@rqt/namecheap",
   "version": "1.0.1",
-  "description": "An implementation of the namecheap.com API.",
+  "description": "An Implementation Of The Namecheap.com API.",
   "main": "build",
   "scripts": {
     "t": "zoroaster -a",
@@ -31,11 +31,18 @@
   "keywords": [
     "namecheap",
     "rqt",
+    "request",
+    "godaddy",
+    "gandi",
     "api",
     "domain",
+    "domains",
     "register",
     "registration",
-    "domains"
+    "registrar",
+    "whois",
+    "certificate",
+    "ssl"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",

@@ -282,7 +282,7 @@ export default api
  * @prop {string} [product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
  *
  * @typedef {Object} Pricing The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`.
- * @prop {DomainPricing} domain The pricing of domains.
+ * @prop {DomainPricing} domains The pricing of domains.
  * @prop {SSLPricing} ssl The pricing of certificates.
  * @prop {WhoisPricing} whoisguard The pricing of the Whois Guard.
  *

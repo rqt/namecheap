@@ -573,7 +573,7 @@ __<a name="type-pricing">`Pricing`</a>__: The pricing information returned as an
 
 |      Name       |                  Type                  |           Description           |
 | --------------- | -------------------------------------- | ------------------------------- |
-| __domain*__     | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
+| __domains*__     | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
 | __ssl*__        | _[SSLPricing](#type-sslpricing)_       | The pricing of certificates.    |
 | __whoisguard*__ | _[WhoisPricing](#type-whoispricing)_   | The pricing of the Whois Guard. |
 

@@ -18,7 +18,7 @@
     </prop>
   </type>
   <type name="Pricing" desc="The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`." noToc>
-    <prop type="DomainPricing" name="domain">
+    <prop type="DomainPricing" name="domains">
       The pricing of domains.
     </prop>
     <prop type="SSLPricing" name="ssl">

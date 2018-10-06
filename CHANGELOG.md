@@ -1,3 +1,10 @@
+## 6 October 2018
+
+### 2.0.0
+
+- [feature] (breaking) Decouple `address` from `users` methods.
+- [feature] Implement and document `users.getPricing`.
+
 ## 5 October 2018
 
 ### 1.0.1

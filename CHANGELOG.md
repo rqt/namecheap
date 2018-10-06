@@ -1,5 +1,9 @@
 ## 6 October 2018
 
+### 2.0.1
+
+- [package] Don't show documentation on `NPM`.
+
 ### 2.0.0
 
 - [feature] (breaking) Decouple `address` from `users` methods.

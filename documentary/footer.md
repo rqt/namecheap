@@ -5,13 +5,13 @@
 * `domains.ns`: 0/4
 * `domains.transfer`: 0/4
 * `ssl`: 0/13
-* `users`: 0/9
+* `users`: 1/9
 * `users.address`: 2/6
 * `whoisguard`: 0/8
 
 ---
 
-6/62 = 10%
+7/62 = 11%
 
 ## Copyright
 

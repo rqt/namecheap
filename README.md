@@ -113,14 +113,14 @@ Check: [ { Domain: 'test.co',
     PremiumRestorePrice: 0,
     PremiumTransferPrice: 0,
     IcannFee: 0,
-    EapFee: '0.0' } ] 
+    EapFee: '0.0' } ]
 
 Addresses: [ { AddressId: 0,
     AddressName: 'Primary Address',
     IsDefault: false },
   { AddressId: 101235,
     AddressName: 'Planet Express',
-    IsDefault: true } ] 
+    IsDefault: true } ]
 
 Registered: { Domain: 'rqt-example-2018-10-6-22-49-04.com',
   Registered: true,
@@ -130,7 +130,7 @@ Registered: { Domain: 'rqt-example-2018-10-6-22-49-04.com',
   TransactionID: 1831272,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
-  NonRealTimeDomain: false } 
+  NonRealTimeDomain: false }
 
 Info: { Status: 'Ok',
   ID: 330665,
@@ -138,26 +138,26 @@ Info: { Status: 'Ok',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails: 
+  DomainDetails:
    { CreatedDate: '10/06/2018',
      ExpiredDate: '10/06/2019',
      NumYears: 0 },
-  Whoisguard: 
+  Whoisguard:
    { Enabled: 'True',
      ID: 269176,
      ExpiredDate: '10/06/2019',
-     EmailDetails: 
+     EmailDetails:
       { WhoisGuardEmail: '68c19235241b4d878ed1bf75e709d4c5.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription: 
+  PremiumDnsSubscription:
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails: 
+  DnsDetails:
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -165,9 +165,9 @@ Info: { Status: 'Ok',
      DynamicDNSStatus: false,
      IsFailover: false,
      Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
-  Modificationrights: { All: true } } 
+  Modificationrights: { All: true } }
 
-List: { domains: 
+List: { domains:
    [ { ID: 330665,
        Name: 'rqt-example-2018-10-6-22-49-04.com',
        User: 'zavr',
@@ -440,26 +440,26 @@ const GetInfo = async (domain, client) => {
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails: 
+  DomainDetails:
    { CreatedDate: '10/06/2018',
      ExpiredDate: '10/06/2019',
      NumYears: 0 },
-  Whoisguard: 
+  Whoisguard:
    { Enabled: 'True',
      ID: 269178,
      ExpiredDate: '10/06/2019',
-     EmailDetails: 
+     EmailDetails:
       { WhoisGuardEmail: 'b4328857744543919dd30217b9bcdee6.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription: 
+  PremiumDnsSubscription:
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails: 
+  DnsDetails:
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -516,7 +516,7 @@ const GetList = async (domain, client) => {
 }
 ```
 ```js
-{ domains: 
+{ domains:
    [ { ID: 330668,
        Name: 'rqt-example-2018-10-6-22-49-41.com',
        User: 'zavr',
@@ -1036,7 +1036,7 @@ const GetList = async (client) => {
 
 ---
 
-6/62 = 10%
+7/62 = 11%
 
 ## Copyright
 

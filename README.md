@@ -23,10 +23,6 @@ yarn add -E @rqt/namecheap
   * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
 - [`users`](#users)
   * [`async getPricing(options: GetPricing): Pricing`](#async-getpricingoptions-getpricing-pricing)
-    * [`SSLPurchase`](#type-sslpurchase)
-    * [`SSLRenew`](#type-sslrenew)
-    * [`WhoisPurchase`](#type-whoispurchase)
-    * [`WhoisRenew`](#type-whoisrenew)
 - [`address`](#address)
   * [`async getInfo(id: string|number): AddressDetail`](#async-getinfoid-stringnumber-addressdetail)
   * [`async getList(): Address[]`](#async-getlist-address)
@@ -126,19 +122,19 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-6-22-35-57.com',
+Registered: { Domain: 'rqt-example-2018-10-6-22-49-04.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330658,
-  OrderID: 1293683,
-  TransactionID: 1831263,
+  DomainID: 330665,
+  OrderID: 1293691,
+  TransactionID: 1831272,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330658,
-  DomainName: 'rqt-example-2018-10-6-22-35-57.com',
+  ID: 330665,
+  DomainName: 'rqt-example-2018-10-6-22-49-04.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -148,10 +144,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269169,
+     ID: 269176,
      ExpiredDate: '10/06/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '3ce193c0b9ff4bf684f5bbad67fc0b6c.protect@whoisguard.com',
+      { WhoisGuardEmail: '68c19235241b4d878ed1bf75e709d4c5.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -172,8 +168,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 330658,
-       Name: 'rqt-example-2018-10-6-22-35-57.com',
+   [ { ID: 330665,
+       Name: 'rqt-example-2018-10-6-22-49-04.com',
        User: 'zavr',
        Created: '10/06/2018',
        Expires: '10/06/2019',
@@ -248,12 +244,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-6-22-36-09.com',
+{ Domain: 'rqt-example-2018-10-6-22-49-14.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330659,
-  OrderID: 1293684,
-  TransactionID: 1831264,
+  DomainID: 330666,
+  OrderID: 1293692,
+  TransactionID: 1831273,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -439,8 +435,8 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330660,
-  DomainName: 'rqt-example-2018-10-6-22-36-23.com',
+  ID: 330667,
+  DomainName: 'rqt-example-2018-10-6-22-49-29.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -450,10 +446,10 @@ const GetInfo = async (domain, client) => {
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269171,
+     ID: 269178,
      ExpiredDate: '10/06/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '7a53e9c9ec4a416299620da873fa0e60.protect@whoisguard.com',
+      { WhoisGuardEmail: 'b4328857744543919dd30217b9bcdee6.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -521,8 +517,8 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 330661,
-       Name: 'rqt-example-2018-10-6-22-36-37.com',
+   [ { ID: 330668,
+       Name: 'rqt-example-2018-10-6-22-49-41.com',
        User: 'zavr',
        Created: '10/06/2018',
        Expires: '10/06/2019',
@@ -573,19 +569,17 @@ const GetPricing = async (client, options = {
 }
 ```
 
-__<a name="type-pricing">`Pricing`</a>__: The pricing information in an object.
+__<a name="type-pricing">`Pricing`</a>__: The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`.
 
 |      Name       |                  Type                  |           Description           |
 | --------------- | -------------------------------------- | ------------------------------- |
 | __domain*__     | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
 | __ssl*__        | _[SSLPricing](#type-sslpricing)_       | The pricing of certificates.    |
 | __whoisguard*__ | _[WhoisPricing](#type-whoispricing)_   | The pricing of the Whois Guard. |
-All pricing info is split into 3 types: `Domain`, `SSL` and `Whois`.
 
-`Price[]` __<a name="type-product">`Product`</a>__
-A product consists of an array of prices.
+`Price[]` __<a name="type-product">`Product`</a>__: A product consists of an array of prices for different durations.
 
-__<a name="type-price">`Price`</a>__: Price data for a product.
+__<a name="type-price">`Price`</a>__: Price data for a product accoding to the duration of an action.
 
 |           Name            |     Type     |                                                   Description                                                    |
 | ------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
@@ -604,9 +598,8 @@ __<a name="type-price">`Price`</a>__: Price data for a product.
 | YourAdditonalCostType     | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
 | __PromotionPrice*__       | _string_     | Price with coupon enabled.                                                                                       |
 | __Currency*__             | _string_     | Currency in which the price is listed, e.g., `USD`.                                                              |
-A price is given for each product according to the duration of action.
 
-__<a name="type-domainpricing">`DomainPricing`</a>__: The pricing of domains.
+__<a name="type-domainpricing">`DomainPricing`</a>__: The pricing of domains as an object, where the requested zone is a key.
 
 |      Name       |                       Type                        |            Description             |
 | --------------- | ------------------------------------------------- | ---------------------------------- |
@@ -614,18 +607,13 @@ __<a name="type-domainpricing">`DomainPricing`</a>__: The pricing of domains.
 | __renew*__      | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to renew domains.      |
 | __reactivate*__ | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to reactivate domains. |
 | __transfer*__   | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to transfer domains.   |
+
 __<a name="type-sslpricing">`SSLPricing`</a>__: The pricing of certificates.
 
 |     Name      |                Type                |              Description              |
 | ------------- | ---------------------------------- | ------------------------------------- |
 | __purchase*__ | _[SSLPurchase](#type-sslpurchase)_ | The pricing to purchase certificates. |
 | __renew*__    | _[SSLRenew](#type-sslrenew)_       | The pricing to renew certificates.    |
-__<a name="type-whoispricing">`WhoisPricing`</a>__: The pricing of the Whois Guard.
-
-|     Name      |                  Type                  |              Description              |
-| ------------- | -------------------------------------- | ------------------------------------- |
-| __purchase*__ | _[WhoisPurchase](#type-whoispurchase)_ | The pricing to purchase WHOIS guards. |
-| __renew*__    | _[WhoisRenew](#type-whoisrenew)_       | The pricing to renew WHOIS guards.    |
 
 <details>
 <summary>Show SSL Product Pricing</summary>
@@ -713,6 +701,14 @@ __<a name="type-sslrenew">`SSLRenew`</a>__: The pricing to renew certificates.
 | __trueBusinessidWithEvMultiDomain*__ | _[Product](#type-product)_ | 1-year renewal: `195.06 USD`                                                                                                                     |
 | __unifiedCommunications*__           | _[Product](#type-product)_ | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year renewal: `73.70 USD`     |
 </details>
+<br/>
+
+__<a name="type-whoispricing">`WhoisPricing`</a>__: The pricing of the Whois Guard.
+
+|     Name      |                  Type                  |              Description              |
+| ------------- | -------------------------------------- | ------------------------------------- |
+| __purchase*__ | _[WhoisPurchase](#type-whoispurchase)_ | The pricing to purchase WHOIS guards. |
+| __renew*__    | _[WhoisRenew](#type-whoisrenew)_       | The pricing to renew WHOIS guards.    |
 
 <details>
 <summary>Show Whois Product Pricing</summary>
@@ -731,10 +727,10 @@ __<a name="type-whoisrenew">`WhoisRenew`</a>__: The pricing to renew WHOIS guard
 | ------------------------- | -------------------------- | -------------------------- |
 | __whoisguardProtectOne*__ | _[Product](#type-product)_ | 1-year renewal: `0.00 USD` |
 </details>
-
+<br/>
 
 <details>
-<summary>Show COM Domain Registration Pricing Output</summary>
+<summary>Show Example COM Domain Registration Pricing Output</summary>
 
 ```json5
 {
@@ -918,9 +914,7 @@ __<a name="type-whoisrenew">`WhoisRenew`</a>__: The pricing to renew WHOIS guard
 ```
 </details>
 
-[Show SSL Purchase Pricing](https://github.com/rqt/namecheap/blob/master/ssl-pricing.md)
-
-> When checking certificates pricing, the product names are returned in `camelCase` rather than `hyphen-case` received from NameCheap (e.g., `positivesslWildcard` instead of `positivessl-wildcard`) because some IDEs do not support JSDoc with properties containing hyphens.
+[Show Example SSL Purchase Pricing Output](https://github.com/rqt/namecheap/blob/master/doc/ssl-pricing.md)
 
 
 

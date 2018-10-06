@@ -17,7 +17,7 @@
       The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
     </prop>
   </type>
-  <type name="Pricing" desc="The pricing information in an object." noToc>
+  <type name="Pricing" desc="The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`." noToc>
     <prop type="DomainPricing" name="domain">
       The pricing of domains.
     </prop>
@@ -28,7 +28,7 @@
       The pricing of the Whois Guard.
     </prop>
   </type>
-  <type name="DomainPricing" desc="The pricing of domains." noToc>
+  <type name="DomainPricing" desc="The pricing of domains as an object, where the requested zone is a key." noToc>
     <prop name="register" type="Object.<string, Product>">
       The pricing to register domains.
     </prop>
@@ -58,9 +58,9 @@
       The pricing to renew WHOIS guards.
     </prop>
   </type>
-  <type name="Product" type="Price[]" noToc>
+  <type name="Product" type="Price[]" desc="A product consists of an array of prices for different durations." noToc>
   </type>
-  <type name="Price" desc="Price data for a product." noToc>
+  <type name="Price" desc="Price data for a product accoding to the duration of an action." noToc>
     <prop number name="Duration">
       The duration of the product, e.g., `1`.
     </prop>

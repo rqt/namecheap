@@ -10,7 +10,7 @@
       1-year purchase: `0.00 USD`
     </prop>
   </type>
-  <type name="WhoisRenew" desc="The pricing to renew WHOIS guards.">undefined
+  <type name="WhoisRenew" desc="The pricing to renew WHOIS guards." noToc>
     <prop type="Product" name="whoisguardProtectOne">
       1-year renewal: `0.00 USD`
     </prop>

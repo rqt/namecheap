@@ -27,7 +27,7 @@ const SSL = async (client) => {
     </prop>`
   })
   purchase = type(purchase, 'SSLPurchase', 'The pricing to purchase certificates.')
-  let renew
+  let renew = ''
   Object.keys(res.ssl.renew).forEach((p) => {
     const v = res.ssl.renew[p]
     const d = getDesc(desc[p])
@@ -56,7 +56,7 @@ const Whois = async (client) => {
     </prop>`
   })
   purchase = type(purchase, 'WhoisPurchase', 'The pricing to purchase WHOIS guards.')
-  let renew
+  let renew = ''
   Object.keys(whoisguard.renew).forEach((p) => {
     const v = whoisguard.renew[p]
     renew += `

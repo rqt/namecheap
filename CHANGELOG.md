@@ -1,5 +1,9 @@
 ## 7 October 2018
 
+### 2.0.3
+
+- [doc] Fix `Pricing` type: rename `domain` to `domains` category property.
+
 ### 2.0.2
 
 - [doc] Fix `JSDoc`, add copyright to NPM doc.

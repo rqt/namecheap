@@ -1,5 +1,5 @@
 ## `domains`
 
-Methods to register and retrieve domains' info.
+Methods to check availability, register and retrieve account domains' info.
 
 %~ width="15"%

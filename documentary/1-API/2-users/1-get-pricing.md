@@ -11,9 +11,10 @@ Returns pricing information for a requested product type.
 %EXAMPLE: example/api/users/get-pricing.js%
 
 <details>
-<summary>Show Pricing Output</summary>
+<summary>Show COM Domain Registration Pricing Output</summary>
 
 %FORK-json5 example example/run/users/get-pricing%
 </details>
 
-%~ width="15"%
+[Show SSL Purchase Pricing](https://github.com/rqt/namecheap/blob/master/ssl-pricing.md)
+<!-- %~ width="15"% -->

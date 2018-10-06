@@ -7,13 +7,15 @@ const LOG = debuglog('@rqt/namecheap')
 
 const FIXTURE = resolve('test/fixture')
 
+const rc = bosom('.namecheap.json')
+
 /**
  * A testing context for the package.
  */
 export default class Context {
   async _init() {
     LOG('init context')
-    const { user, key, ip } = await bosom('.namecheap.json')
+    const { user, key, ip } = await rc
     this.user = user
     this.key = key
     this.ip = ip

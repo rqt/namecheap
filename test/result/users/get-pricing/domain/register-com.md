@@ -1,0 +1,187 @@
+// retrieves com register pricing
+["users.getPricing", {
+  "type": "DOMAIN",
+  "action": "REGISTER",
+  "product": "COM"
+}]
+
+/* expected */
+{
+  "domains": {
+    "register": {
+      "com": [
+        {
+          "Duration": 1,
+          "DurationType": "YEAR",
+          "Price": "8.88",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.98",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "8.88",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 2,
+          "DurationType": "YEAR",
+          "Price": "10.88",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.88",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.88",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 3,
+          "DurationType": "YEAR",
+          "Price": "10.78",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.78",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.78",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 4,
+          "DurationType": "YEAR",
+          "Price": "10.68",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.68",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.68",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 5,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 6,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 7,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 8,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 9,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        },
+        {
+          "Duration": 10,
+          "DurationType": "YEAR",
+          "Price": "10.58",
+          "PricingType": "MULTIPLE",
+          "AdditionalCost": "0.18",
+          "RegularPrice": "10.58",
+          "RegularPriceType": "MULTIPLE",
+          "RegularAdditionalCost": "0.18",
+          "RegularAdditionalCostType": "MULTIPLE",
+          "YourPrice": "10.58",
+          "YourPriceType": "MULTIPLE",
+          "YourAdditonalCost": "0.18",
+          "YourAdditonalCostType": "MULTIPLE",
+          "PromotionPrice": "0.0",
+          "Currency": "USD"
+        }
+      ]
+    }
+  }
+}
+/**/

@@ -5,12 +5,12 @@
 /**
  * @param {NameCheap} client
  */
-const GetPricing = async (client) => {
-  const res = await client.users.getPricing({
-    type: 'DOMAIN',
-    action: 'REGISTER',
-    product: 'COM',
-  })
+const GetPricing = async (client, options = {
+  type: 'DOMAIN',
+  action: 'REGISTER',
+  product: 'COM',
+}) => {
+  const res = await client.users.getPricing(options)
   return res
 }
 /* end example */

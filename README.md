@@ -1,10 +1,10 @@
-[![namecheap](https://raw.githubusercontent.com/rqt/namecheap/HEAD/images/nc.gif)](https://affiliate.namecheap.com/?affId=70782)
+[![namecheap](https://raw.githubusercontent.com/rqt/namecheap/HEAD/images/nc.gif)](https://nameexpensive.com)
 
 # @rqt/namecheap
 
 [![npm version](https://badge.fury.io/js/%40rqt%2Fnamecheap.svg)](https://npmjs.org/package/@rqt/namecheap)
 
-`@rqt/namecheap` is an implementation of the [namecheap.com](https://affiliate.namecheap.com/?affId=70782) API.
+`@rqt/namecheap` is an implementation of the [namecheap.com](https://nameexpensive.com) API.
 
 ```sh
 yarn add -E @rqt/namecheap
@@ -102,7 +102,7 @@ import bosom from 'bosom'
   }
 })()
 ```
-```
+```js
 Check: [ { Domain: 'test.co',
     Available: false,
     ErrorNo: 0,
@@ -122,19 +122,19 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-6-08-03-05.com',
+Registered: { Domain: 'rqt-example-2018-10-6-17-58-07.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330627,
-  OrderID: 1293595,
-  TransactionID: 1831132,
+  DomainID: 330648,
+  OrderID: 1293663,
+  TransactionID: 1831233,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330627,
-  DomainName: 'rqt-example-2018-10-6-08-03-05.com',
+  ID: 330648,
+  DomainName: 'rqt-example-2018-10-6-17-58-07.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -144,10 +144,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269141,
+     ID: 269159,
      ExpiredDate: '10/06/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '5ef05b37a702415bb9821acd7df65d89.protect@whoisguard.com',
+      { WhoisGuardEmail: 'a9456332f1fd41c5a8eacfc261a9cf6f.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -168,8 +168,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 330627,
-       Name: 'rqt-example-2018-10-6-08-03-05.com',
+   [ { ID: 330648,
+       Name: 'rqt-example-2018-10-6-17-58-07.com',
        User: 'zavr',
        Created: '10/06/2018',
        Expires: '10/06/2019',
@@ -188,7 +188,7 @@ List: { domains:
 
 ## `domains`
 
-Methods to register and retrieve domains' info.
+Methods to check availability, register and retrieve account domains' info.
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true" width="15"></a></p>
 
@@ -244,12 +244,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-6-08-03-15.com',
+{ Domain: 'rqt-example-2018-10-6-17-58-16.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330628,
-  OrderID: 1293596,
-  TransactionID: 1831133,
+  DomainID: 330649,
+  OrderID: 1293664,
+  TransactionID: 1831234,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -435,8 +435,8 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330629,
-  DomainName: 'rqt-example-2018-10-6-08-03-34.com',
+  ID: 330650,
+  DomainName: 'rqt-example-2018-10-6-17-58-30.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -446,10 +446,10 @@ const GetInfo = async (domain, client) => {
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269143,
+     ID: 269161,
      ExpiredDate: '10/06/2019',
      EmailDetails: 
-      { WhoisGuardEmail: '02382ef9b41548b19dee9b90613b2687.protect@whoisguard.com',
+      { WhoisGuardEmail: 'afc40483605a4f1484cbc885bbeeb569.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -517,8 +517,8 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 330630,
-       Name: 'rqt-example-2018-10-6-08-03-47.com',
+   [ { ID: 330651,
+       Name: 'rqt-example-2018-10-6-17-58-42.com',
        User: 'zavr',
        Created: '10/06/2018',
        Expires: '10/06/2019',
@@ -557,18 +557,18 @@ __<a name="type-getpricing">`GetPricing`</a>__: Options to get pricing info. htt
 /**
  * @param {NameCheap} client
  */
-const GetPricing = async (client) => {
-  const res = await client.users.getPricing({
-    type: 'DOMAIN',
-    action: 'REGISTER',
-    product: 'COM',
-  })
+const GetPricing = async (client, options = {
+  type: 'DOMAIN',
+  action: 'REGISTER',
+  product: 'COM',
+}) => {
+  const res = await client.users.getPricing(options)
   return res
 }
 ```
 
 <details>
-<summary>Show Pricing Output</summary>
+<summary>Show COM Domain Registration Pricing Output</summary>
 
 ```json5
 {
@@ -752,13 +752,14 @@ const GetPricing = async (client) => {
 ```
 </details>
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true" width="15"></a></p>
+[Show SSL Purchase Pricing](https://github.com/rqt/namecheap/blob/master/ssl-pricing.md)
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true"></a></p>
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true"></a></p>
 
 ## `address`
 
-Methods to manipulate addresses.
+Methods to manipulate addresses. In contrast to the NameCheap API, it does not fall under the group `users`.
 
 
 
@@ -819,7 +820,7 @@ const GetInfo = async (id, client) => {
   EmailAddress: 'zoidberg@futurama.bz' }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/10.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/9.svg?sanitize=true" width="15"></a></p>
 
 ### `async getList(): Address[]`
 
@@ -857,7 +858,7 @@ const GetList = async (client) => {
 
 
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/11.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/10.svg?sanitize=true"></a></p>
 
 ## Progress
 

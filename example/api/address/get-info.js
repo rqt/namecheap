@@ -1,5 +1,5 @@
 /**
- * @typedef {import('../../../../src').default} NameCheap
+ * @typedef {import('../../../src').default} NameCheap
  */
 /* start example */
 /**

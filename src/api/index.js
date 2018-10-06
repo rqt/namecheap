@@ -3,8 +3,9 @@ import getInfo from './domains/get-info'
 import check from './domains/check'
 import create from './domains/create'
 
-import getAddressList from './users/address/get-list'
-import getAddressInfo from './users/address/get-info'
+import getAddressList from './address/get-list'
+import getAddressInfo from './address/get-info'
+import getPricing from './users/get-pricing'
 
 const domains = {
   /**
@@ -24,8 +25,9 @@ const domains = {
   },
   /**
    * Returns information about the requested domain.
- * @param {string|GetInfo} options The domain name, or options to get info about a domain.
+ * @param {string|GetInfo} options Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
  * @param {string} options.domain The domain to get info about.
+ * @param {string} [options.host] The hosted domain name for which domain information needs to be requested.
    */
   async getInfo(options) {
     /** @type {DomainInfo} */
@@ -34,7 +36,7 @@ const domains = {
   },
   /**
    * Check if the domain name is taken.
- * @param {string|Check} options
+ * @param {string|Check} options Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
  * @param {string} [options.domain] The domain check.
  * @param {string[]} [options.domains] The domains to check.
    */
@@ -64,29 +66,50 @@ const domains = {
   },
 }
 
+const address = {
+  /**
+   * Gets a list of address IDs and address names associated with the user account.
+   */
+  async getList() {
+    /** @type {Address[]} */
+    const res = await getAddressList(this._query.bind(this))
+    return res
+  },
+  /**
+   * Gets information for the requested address ID.
+   * @param {string|number} id The address id to get info about.
+   */
+  async getInfo(id) {
+    /** @type {AddressDetail} */
+    const res = await getAddressInfo(this._query.bind(this), id)
+    return res
+  },
+}
+
+const users = {
+  /**
+   * Returns pricing information for a requested product type.
+   * @param {GetPricing} options Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
+ * @param {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} options.type Product Type to get pricing information.
+ * @param {'DOMAINS'|'COMODO'|'WHOISGUARD'} [options.category] Specific category within a product type.
+ * @param {string} [options.promoCode] Promotional (coupon) code for the user.
+ * @param {'REGISTER'|'RENEW'|'REACTIVATE'|'TRANSFER'} [options.action] Specific action within a product type.
+ * @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
+* @param {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} options.type Product Type to get pricing information.
+* @param {'DOMAINS'|'COMODO'|'WHOISGUARD'} [options.category] Specific category within a product type.
+* @param {string} [options.promoCode] Promotional (coupon) code for the user.
+* @param {'REGISTER','RENEW','REACTIVATE','TRANSFER'} [options.action] Specific action within a product type.
+* @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
+   */
+  async getPricing(options) {
+    return getPricing(this._query.bind(this), options)
+  },
+}
+
 const api = {
   domains,
-  users: {
-    address: {
-      /**
-       * Gets a list of address IDs and address names associated with the user account.
-       */
-      async getList() {
-        /** @type {Address[]} */
-        const res = await getAddressList(this._query.bind(this))
-        return res
-      },
-      /**
-       * Gets information for the requested address ID.
- * @param {string|number} id The address id to get info about.
-       */
-      async getInfo(id) {
-        /** @type {AddressDetail} */
-        const res = await getAddressInfo(this._query.bind(this), id)
-        return res
-      },
-    },
-  },
+  address,
+  users,
 }
 
 export default api
@@ -193,7 +216,7 @@ export default api
  * @prop {string} WhoisGuard `ENABLED`
  */
 
-/* documentary types/api/users/address/get-info.xml */
+/* documentary types/api/address/get-info.xml */
 /**
  * @typedef {Object} AddressDetail
  * @prop {string} EmailAddress Email address of the user.
@@ -238,10 +261,20 @@ export default api
  * @prop {boolean} WhoisguardEnable Indicates whether WhoisGuard protection is enabled for the domain.
  */
 
-/* documentary types/api/users/address/get-list.xml */
+/* documentary types/api/address/get-list.xml */
 /**
  * @typedef {Object} Address
  * @prop {number} AddressId A unique integer value that represents the address profile.
  * @prop {number} AddressName The name of the address profile.
  * @prop {boolean} IsDefault Whether it is a default address.
+ */
+
+/* documentary types/api/users/get-pricing.xml */
+/**
+ * @typedef {Object} GetPricing Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
+ * @prop {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} type Product Type to get pricing information.
+ * @prop {'DOMAINS'|'COMODO'|'WHOISGUARD'} [category] Specific category within a product type.
+ * @prop {string} [promoCode] Promotional (coupon) code for the user.
+ * @prop {'REGISTER'|'RENEW'|'REACTIVATE'|'TRANSFER'} [action] Specific action within a product type.
+ * @prop {string} [product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
  */

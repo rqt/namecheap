@@ -1,7 +1,7 @@
 import bosom from 'bosom'
-import NameCheap from '../../../../src'
-import GetList from '../../../api/users/address/get-list'
-import GetInfo from '../../../api/users/address/get-info'
+import NameCheap from '../../../src'
+import GetList from '../../api/address/get-list'
+import GetInfo from '../../api/address/get-info'
 
 (async () => {
   try {

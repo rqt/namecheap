@@ -15,12 +15,12 @@ import bosom from 'bosom'
     console.log('Check:', c, '\n')
 
     // 2. Get list of addresses on the account.
-    const cc = await namecheap.users.address.getList()
+    const cc = await namecheap.address.getList()
     console.log('Addresses:', cc, '\n')
 
     // 3. Find the default address and get its info.
     const { AddressId } = cc.find(({ IsDefault }) => IsDefault)
-    const address = await namecheap.users.address.getInfo(AddressId)
+    const address = await namecheap.address.getInfo(AddressId)
 
     // 4. Register the domain using the address.
     const d = new Date().toLocaleString().replace(/[ :]/g, '-')
@@ -30,7 +30,6 @@ import bosom from 'bosom'
       address,
     })
     console.log('Registered:', r, '\n')
-
 
     // 5. Retrieve info about domain.
     const info = await namecheap.domains.getInfo(domain)

@@ -1,0 +1,19 @@
+<types>
+  <type name="GetPricing" desc="Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx" noToc>
+    <prop name="type" type="'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'">
+      Product Type to get pricing information.
+    </prop>
+    <prop opt name="category" type="'DOMAINS'|'COMODO'|'WHOISGUARD'">
+      Specific category within a product type.
+    </prop>
+    <prop opt string name="promoCode">
+      Promotional (coupon) code for the user.
+    </prop>
+    <prop opt name="action" type="'REGISTER'|'RENEW'|'REACTIVATE'|'TRANSFER'">
+      Specific action within a product type.
+    </prop>
+    <prop opt string name="product">
+      The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
+    </prop>
+  </type>
+</types>

@@ -33,11 +33,3 @@ async function getList(query) {
 }
 
 export default getList
-
-/* documentary types/api/users/address/get-list.xml */
-/**
- * @typedef {Object} Address
- * @prop {number} AddressId A unique integer value that represents the address profile.
- * @prop {number} AddressName The name of the address profile.
- * @prop {boolean} IsDefault Whether it is a default address.
- */

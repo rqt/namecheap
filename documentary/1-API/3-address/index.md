@@ -1,3 +1,3 @@
-## `users.address`
+## `address`
 
 Methods to manipulate addresses.

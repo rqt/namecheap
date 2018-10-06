@@ -32,7 +32,7 @@ export default class NameCheap {
         return v
       },
     })
-    const address = new Proxy(api.users.address, {
+    this.address = new Proxy(api.address, {
       get: (target, k) => {
         const v = target[k]
         if (typeof v == 'function') {
@@ -41,9 +41,26 @@ export default class NameCheap {
         return v
       },
     })
-    this.users = {
-      address,
-    }
+    this.users = new Proxy(api.users, {
+      get: (target, k) => {
+        const v = target[k]
+        if (typeof v == 'function') {
+          return v.bind(this)
+        }
+        return v
+      },
+    })
+    // this.users = new Proxy(api.users, {
+    //   get: (target, k) => {
+    //     if (k == 'address') return address
+    //     const v = target[k]
+    //     if (typeof v == 'function') {
+    //       return v.bind(this)
+    //     }
+    //     return v
+    //   },
+    // })
+    // this.users.address = address
   }
   /**
    * @param {string} endpoint Which method should be queried, e.g., `namecheap.domains.getList`.

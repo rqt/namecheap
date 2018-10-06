@@ -79,24 +79,6 @@ const keys = ['JobTitle', 'FirstName', 'LastName', 'Address1', 'Address2',
   'City', 'StateProvince', 'StateProvinceChoice', 'Country',
   'Phone', 'PhoneExt', 'Fax', 'EmailAddress']
 
-/**
- * @param {AddressDetail} address
- * @param {string} address.EmailAddress Email address of the user.
- * @param {string} address.FirstName First name of the user.
- * @param {string} address.LastName Last name of the user.
- * @param {string} [address.JobTitle] Job designation of the user
- * @param {string} [address.Organization] Organization of the user.
- * @param {string} address.Address1 StreetAddress1 of the user.
- * @param {string} [address.Address2] StreetAddress2 of the user.
- * @param {string} address.City City of the user.
- * @param {string} address.StateProvince State/Province of the user.
- * @param {'S'|'P'} address.StateProvinceChoice State/Province choice of the user.
- * @param {string} address.Zip Zip/Postal code of the user.
- * @param {string} address.Country Two letter country code of the user.
- * @param {string} address.Phone Phone number in the format `+NNN.NNNNNNNNNN`.
- * @param {string} [address.PhoneExt] PhoneExt of the user.
- * @param {string} [address.Fax] Fax number in the format `+NNN.NNNNNNNNNN`.
- */
 export const getAddressObject = (address, key) => {
   const res = keys
     .reduce((acc, current) => {
@@ -113,48 +95,3 @@ export const getAddressObject = (address, key) => {
 }
 
 export default create
-
-/* documentary types/api/domains/create.xml */
-/**
- * @typedef {Object} Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
- * @prop {string} domain The domain name to register.
- * @prop {number} [years=1] The number of years to register. Default `1`.
- * @prop {string} [promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
- * @prop {string[]} [nameservers] The comma-separated list of custom nameservers to be associated with the domain name.
- * @prop {boolean} [whois=true] Adds free WhoisGuard for the domain. Default `true`.
- * @prop {AddressDetail} address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.users.address.getList` and `namecheap.users.address.getInfo`.
- * @prop {AddressDetail} [billingAddress] An address to use for `AuxBilling` address details.
- * @prop {AddressDetail} [registrantAddress] An address to use for `Registrant` address details.
- * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.
- * @prop {AddressDetail} [adminAddress] An address to use for `Admin` address details.
- *
- * @typedef {Object} RegistrationResult Registered domain information.
- * @prop {string} ChargedAmount Total amount charged for registration.
- * @prop {string} Domain Domain name that you are trying to register.
- * @prop {number} DomainID Unique integer value that represents the domain.
- * @prop {boolean} NonRealTimeDomain Indicates whether the domain registration is instant (real-time) or not.
- * @prop {number} OrderID Unique integer value that represents the order.
- * @prop {boolean} Registered Indicates whether the domain was registered.
- * @prop {number} TransactionID Unique integer value that represents the transaction.
- * @prop {boolean} WhoisguardEnable Indicates whether WhoisGuard protection is enabled for the domain.
- */
-
-/* documentary types/api/users/address/get-info.xml */
-/**
- * @typedef {Object} AddressDetail
- * @prop {string} EmailAddress Email address of the user.
- * @prop {string} FirstName First name of the user.
- * @prop {string} LastName Last name of the user.
- * @prop {string} [JobTitle] Job designation of the user
- * @prop {string} [Organization] Organization of the user.
- * @prop {string} Address1 StreetAddress1 of the user.
- * @prop {string} [Address2] StreetAddress2 of the user.
- * @prop {string} City City of the user.
- * @prop {string} StateProvince State/Province of the user.
- * @prop {'S'|'P'} StateProvinceChoice State/Province choice of the user.
- * @prop {string} Zip Zip/Postal code of the user.
- * @prop {string} Country Two letter country code of the user.
- * @prop {string} Phone Phone number in the format `+NNN.NNNNNNNNNN`.
- * @prop {string} [PhoneExt] PhoneExt of the user.
- * @prop {string} [Fax] Fax number in the format `+NNN.NNNNNNNNNN`.
- */

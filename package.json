@@ -1,6 +1,6 @@
 {
   "name": "@rqt/namecheap",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An Implementation Of The Namecheap.com API.",
   "main": "build",
   "scripts": {

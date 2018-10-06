@@ -28,7 +28,7 @@
       The pricing of the Whois Guard.
     </prop>
   </type>
-  <type name="DomainPricing" desc="The pricing of domains.">
+  <type name="DomainPricing" desc="The pricing of domains." noToc>
     <prop name="register" type="Object.<string, Product>">
       The pricing to register domains.
     </prop>
@@ -42,7 +42,7 @@
       The pricing to transfer domains.
     </prop>
   </type>
-  <type name="SSLPricing" desc="The pricing of certificates.">
+  <type name="SSLPricing" desc="The pricing of certificates." noToc>
     <prop name="purchase" type="SSLPurchase">
       The pricing to purchase certificates.
     </prop>
@@ -50,7 +50,7 @@
       The pricing to renew certificates.
     </prop>
   </type>
-  <type name="WhoisPricing" desc="The pricing of the Whois Guard.">
+  <type name="WhoisPricing" desc="The pricing of the Whois Guard." noToc>
     <prop name="purchase" type="WhoisPurchase">
       The pricing to purchase WHOIS guards.
     </prop>

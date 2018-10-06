@@ -23,6 +23,10 @@ yarn add -E @rqt/namecheap
   * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
 - [`users`](#users)
   * [`async getPricing(options: GetPricing): Pricing`](#async-getpricingoptions-getpricing-pricing)
+    * [`SSLPurchase`](#type-sslpurchase)
+    * [`SSLRenew`](#type-sslrenew)
+    * [`WhoisPurchase`](#type-whoispurchase)
+    * [`WhoisRenew`](#type-whoisrenew)
 - [`address`](#address)
   * [`async getInfo(id: string|number): AddressDetail`](#async-getinfoid-stringnumber-addressdetail)
   * [`async getList(): Address[]`](#async-getlist-address)
@@ -122,19 +126,19 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-6-17-58-07.com',
+Registered: { Domain: 'rqt-example-2018-10-6-22-35-57.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330648,
-  OrderID: 1293663,
-  TransactionID: 1831233,
+  DomainID: 330658,
+  OrderID: 1293683,
+  TransactionID: 1831263,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330648,
-  DomainName: 'rqt-example-2018-10-6-17-58-07.com',
+  ID: 330658,
+  DomainName: 'rqt-example-2018-10-6-22-35-57.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -144,10 +148,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269159,
+     ID: 269169,
      ExpiredDate: '10/06/2019',
      EmailDetails: 
-      { WhoisGuardEmail: 'a9456332f1fd41c5a8eacfc261a9cf6f.protect@whoisguard.com',
+      { WhoisGuardEmail: '3ce193c0b9ff4bf684f5bbad67fc0b6c.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -168,8 +172,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 330648,
-       Name: 'rqt-example-2018-10-6-17-58-07.com',
+   [ { ID: 330658,
+       Name: 'rqt-example-2018-10-6-22-35-57.com',
        User: 'zavr',
        Created: '10/06/2018',
        Expires: '10/06/2019',
@@ -244,12 +248,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-6-17-58-16.com',
+{ Domain: 'rqt-example-2018-10-6-22-36-09.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330649,
-  OrderID: 1293664,
-  TransactionID: 1831234,
+  DomainID: 330659,
+  OrderID: 1293684,
+  TransactionID: 1831264,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -435,8 +439,8 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330650,
-  DomainName: 'rqt-example-2018-10-6-17-58-30.com',
+  ID: 330660,
+  DomainName: 'rqt-example-2018-10-6-22-36-23.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -446,10 +450,10 @@ const GetInfo = async (domain, client) => {
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269161,
+     ID: 269171,
      ExpiredDate: '10/06/2019',
      EmailDetails: 
-      { WhoisGuardEmail: 'afc40483605a4f1484cbc885bbeeb569.protect@whoisguard.com',
+      { WhoisGuardEmail: '7a53e9c9ec4a416299620da873fa0e60.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
@@ -517,8 +521,8 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 330651,
-       Name: 'rqt-example-2018-10-6-17-58-42.com',
+   [ { ID: 330661,
+       Name: 'rqt-example-2018-10-6-22-36-37.com',
        User: 'zavr',
        Created: '10/06/2018',
        Expires: '10/06/2019',
@@ -545,13 +549,15 @@ Returns pricing information for a requested product type.
 
 __<a name="type-getpricing">`GetPricing`</a>__: Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
 
-|   Name    |                      Type                       |                                             Description                                             |
-| --------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| __type*__ | _'DOMAIN'\|'SSLCERTIFICATE'\|'WHOISGUARD'_      | Product Type to get pricing information.                                                            |
-| category  | _'DOMAINS'\|'COMODO'\|'WHOISGUARD'_             | Specific category within a product type.                                                            |
-| promoCode | _string_                                        | Promotional (coupon) code for the user.                                                             |
-| action    | _'REGISTER'\|'RENEW'\|'REACTIVATE'\|'TRANSFER'_ | Specific action within a product type.                                                              |
-| product   | _string_                                        | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`. |
+|   Name    |                            Type                             |                                             Description                                             |
+| --------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| __type*__ | _'DOMAIN'\|'SSLCERTIFICATE'\|'WHOISGUARD'_                  | Product Type to get pricing information.                                                            |
+| category  | _string_                                                    | Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.                   |
+| promoCode | _string_                                                    | Promotional (coupon) code for the user.                                                             |
+| action    | _'REGISTER'\|'PURCHASE'\|'RENEW'\|'REACTIVATE'\|'TRANSFER'_ | Specific action within a product type.                                                              |
+| product   | _string_                                                    | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`. |
+
+The returned object will contain data according to requested types, categories, actions and products.
 
 ```js
 /**
@@ -566,6 +572,166 @@ const GetPricing = async (client, options = {
   return res
 }
 ```
+
+__<a name="type-pricing">`Pricing`</a>__: The pricing information in an object.
+
+|      Name       |                  Type                  |           Description           |
+| --------------- | -------------------------------------- | ------------------------------- |
+| __domain*__     | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
+| __ssl*__        | _[SSLPricing](#type-sslpricing)_       | The pricing of certificates.    |
+| __whoisguard*__ | _[WhoisPricing](#type-whoispricing)_   | The pricing of the Whois Guard. |
+All pricing info is split into 3 types: `Domain`, `SSL` and `Whois`.
+
+`Price[]` __<a name="type-product">`Product`</a>__
+A product consists of an array of prices.
+
+__<a name="type-price">`Price`</a>__: Price data for a product.
+
+|           Name            |     Type     |                                                   Description                                                    |
+| ------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
+| __Duration*__             | _number_     | The duration of the product, e.g., `1`.                                                                          |
+| __DurationType*__         | _string_     | The duration type of the product, e.g., `YEAR`.                                                                  |
+| __Price*__                | _string_     | Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`. |
+| __PricingType*__          | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
+| AdditionalCost            | _string_     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| __RegularPrice*__         | _string_     | Indicates regular price, e.g., `39.00`.                                                                          |
+| __RegularPriceType*__     | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
+| RegularAdditionalCost     | _string_     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| RegularAdditionalCostType | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
+| __YourPrice*__            | _string_     | The user’s price for the product, e.g., `20.88`.                                                                 |
+| __YourPriceType*__        | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
+| YourAdditonalCost         | _string_     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| YourAdditonalCostType     | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
+| __PromotionPrice*__       | _string_     | Price with coupon enabled.                                                                                       |
+| __Currency*__             | _string_     | Currency in which the price is listed, e.g., `USD`.                                                              |
+A price is given for each product according to the duration of action.
+
+__<a name="type-domainpricing">`DomainPricing`</a>__: The pricing of domains.
+
+|      Name       |                       Type                        |            Description             |
+| --------------- | ------------------------------------------------- | ---------------------------------- |
+| __register*__   | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to register domains.   |
+| __renew*__      | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to renew domains.      |
+| __reactivate*__ | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to reactivate domains. |
+| __transfer*__   | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to transfer domains.   |
+__<a name="type-sslpricing">`SSLPricing`</a>__: The pricing of certificates.
+
+|     Name      |                Type                |              Description              |
+| ------------- | ---------------------------------- | ------------------------------------- |
+| __purchase*__ | _[SSLPurchase](#type-sslpurchase)_ | The pricing to purchase certificates. |
+| __renew*__    | _[SSLRenew](#type-sslrenew)_       | The pricing to renew certificates.    |
+__<a name="type-whoispricing">`WhoisPricing`</a>__: The pricing of the Whois Guard.
+
+|     Name      |                  Type                  |              Description              |
+| ------------- | -------------------------------------- | ------------------------------------- |
+| __purchase*__ | _[WhoisPurchase](#type-whoispurchase)_ | The pricing to purchase WHOIS guards. |
+| __renew*__    | _[WhoisRenew](#type-whoisrenew)_       | The pricing to renew WHOIS guards.    |
+
+<details>
+<summary>Show SSL Product Pricing</summary>
+
+__<a name="type-sslpurchase">`SSLPurchase`</a>__: The pricing to purchase certificates.
+
+|                     Name                     |            Type            |                                                                    Description                                                                    |
+| -------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| __instantssl*__                              | _[Product](#type-product)_ | _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year purchase: `20.88 USD`                             |
+| __positivessl*__                             | _[Product](#type-product)_ | _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year purchase: `8.88 USD`                            |
+| __positivesslWildcard*__                     | _[Product](#type-product)_ | _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year purchase: `76.88 USD`         |
+| __premiumssl*__                              | _[Product](#type-product)_ | _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year purchase: `79.00 USD`                             |
+| __quicksslPremium*__                         | _[Product](#type-product)_ | 1-year purchase: `56.88 USD`                                                                                                                      |
+| __rapidssl*__                                | _[Product](#type-product)_ | 1-year purchase: `10.95 USD`                                                                                                                      |
+| __rapidsslWildcard*__                        | _[Product](#type-product)_ | 1-year purchase: `148.88 USD`                                                                                                                     |
+| __secureSite*__                              | _[Product](#type-product)_ | 1-year purchase: `285.88 USD`                                                                                                                     |
+| __secureSitePro*__                           | _[Product](#type-product)_ | 1-year purchase: `675.88 USD`                                                                                                                     |
+| __secureSiteProWithEv*__                     | _[Product](#type-product)_ | 1-year purchase: `961.88 USD`                                                                                                                     |
+| __secureSiteWithEv*__                        | _[Product](#type-product)_ | 1-year purchase: `666.88 USD`                                                                                                                     |
+| __trueBusinessid*__                          | _[Product](#type-product)_ | 1-year purchase: `98.00 USD`                                                                                                                      |
+| __trueBusinessidWildcard*__                  | _[Product](#type-product)_ | 1-year purchase: `389.00 USD`                                                                                                                     |
+| __trueBusinessidWithEv*__                    | _[Product](#type-product)_ | 1-year purchase: `179.00 USD`                                                                                                                     |
+| __premiumsslWildcard*__                      | _[Product](#type-product)_ | _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year purchase: `169.00 USD`          |
+| __essentialssl*__                            | _[Product](#type-product)_ | _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year purchase: `18.88 USD`                         |
+| __essentialsslWildcard*__                    | _[Product](#type-product)_ | _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year purchase: `74.88 USD`       |
+| __evSsl*__                                   | _[Product](#type-product)_ | _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year purchase: `78.88 USD`                                         |
+| __instantsslPro*__                           | _[Product](#type-product)_ | _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year purchase: `38.88 USD`                     |
+| __ssl123*__                                  | _[Product](#type-product)_ | 1-year purchase: `39.00 USD`                                                                                                                      |
+| __sslWebServer*__                            | _[Product](#type-product)_ | 1-year purchase: `88.88 USD`                                                                                                                      |
+| __sslWebserverEv*__                          | _[Product](#type-product)_ | 1-year purchase: `163.88 USD`                                                                                                                     |
+| __comodossl*__                               | _[Product](#type-product)_ | 1-year purchase: `35.00 USD`                                                                                                                      |
+| __comodosslWildcard*__                       | _[Product](#type-product)_ | 1-year purchase: `170.00 USD`                                                                                                                     |
+| __comodosslMultiDomainSsl*__                 | _[Product](#type-product)_ | _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year purchase: `89.88 USD`                 |
+| __comodosslMultiDomainSslMoresans*__         | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __comodosslEvMultiDomainSsl*__               | _[Product](#type-product)_ | _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year purchase: `168.88 USD`          |
+| __comodosslEvMultiDomainSslMoresans*__       | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __positivesslMultiDomain*__                  | _[Product](#type-product)_ | _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year purchase: `29.88 USD` |
+| __positivesslMultiDomainMoresans*__          | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __trueBusinessidMultiDomain*__               | _[Product](#type-product)_ | 1-year purchase: `179.88 USD`                                                                                                                     |
+| __trueBusinessidMultiDomainMoresans*__       | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __trueBusinessidWithEvMultiDomain*__         | _[Product](#type-product)_ | 1-year purchase: `237.88 USD`                                                                                                                     |
+| __trueBusinessidWithEvMultiDomainMoresans*__ | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __unifiedCommunications*__                   | _[Product](#type-product)_ | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year purchase: `89.88 USD`     |
+| __unifiedCommunicationsMoresans*__           | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteMoresans*__                      | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __quicksslPremiumMoresans*__                 | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteProMoresans*__                   | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteProWithEvMoresans*__             | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteWithEvMoresans*__                | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __sgcSuperCertsMoresans*__                   | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __sslWebServerMoresans*__                    | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __sslWebserverEvMoresans*__                  | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+
+__<a name="type-sslrenew">`SSLRenew`</a>__: The pricing to renew certificates.
+
+|                 Name                 |            Type            |                                                                   Description                                                                    |
+| ------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| __instantssl*__                      | _[Product](#type-product)_ | _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`                             |
+| __positivessl*__                     | _[Product](#type-product)_ | _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year renewal: `7.28 USD`                            |
+| __positivesslWildcard*__             | _[Product](#type-product)_ | _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year renewal: `77.08 USD`         |
+| __premiumssl*__                      | _[Product](#type-product)_ | _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year renewal: `64.78 USD`                             |
+| __quicksslPremium*__                 | _[Product](#type-product)_ | 1-year renewal: `46.64 USD`                                                                                                                      |
+| __rapidssl*__                        | _[Product](#type-product)_ | 1-year renewal: `8.98 USD`                                                                                                                       |
+| __rapidsslWildcard*__                | _[Product](#type-product)_ | 1-year renewal: `122.08 USD`                                                                                                                     |
+| __secureSite*__                      | _[Product](#type-product)_ | 1-year renewal: `234.42 USD`                                                                                                                     |
+| __secureSitePro*__                   | _[Product](#type-product)_ | 1-year renewal: `554.22 USD`                                                                                                                     |
+| __secureSiteProWithEv*__             | _[Product](#type-product)_ | 1-year renewal: `788.74 USD`                                                                                                                     |
+| __secureSiteWithEv*__                | _[Product](#type-product)_ | 1-year renewal: `546.84 USD`                                                                                                                     |
+| __trueBusinessid*__                  | _[Product](#type-product)_ | 1-year renewal: `80.36 USD`                                                                                                                      |
+| __trueBusinessidWildcard*__          | _[Product](#type-product)_ | 1-year renewal: `318.98 USD`                                                                                                                     |
+| __trueBusinessidWithEv*__            | _[Product](#type-product)_ | 1-year renewal: `146.78 USD`                                                                                                                     |
+| __ssl123*__                          | _[Product](#type-product)_ | 1-year renewal: `31.98 USD`                                                                                                                      |
+| __sslWebServer*__                    | _[Product](#type-product)_ | 1-year renewal: `72.88 USD`                                                                                                                      |
+| __sslWebserverEv*__                  | _[Product](#type-product)_ | 1-year renewal: `134.38 USD`                                                                                                                     |
+| __essentialssl*__                    | _[Product](#type-product)_ | _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year renewal: `18.88 USD`                         |
+| __essentialsslWildcard*__            | _[Product](#type-product)_ | _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year renewal: `74.88 USD`       |
+| __evSsl*__                           | _[Product](#type-product)_ | _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year renewal: `118.90 USD`                                        |
+| __instantsslPro*__                   | _[Product](#type-product)_ | _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year renewal: `48.38 USD`                     |
+| __premiumsslWildcard*__              | _[Product](#type-product)_ | _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year renewal: `138.58 USD`          |
+| __comodossl*__                       | _[Product](#type-product)_ | 1-year renewal: `28.70 USD`                                                                                                                      |
+| __comodosslMultiDomainSsl*__         | _[Product](#type-product)_ | _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year renewal: `73.70 USD`                 |
+| __comodosslEvMultiDomainSsl*__       | _[Product](#type-product)_ | _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year renewal: `203.26 USD`          |
+| __positivesslMultiDomain*__          | _[Product](#type-product)_ | _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year renewal: `24.50 USD` |
+| __trueBusinessidMultiDomain*__       | _[Product](#type-product)_ | 1-year renewal: `147.50 USD`                                                                                                                     |
+| __trueBusinessidWithEvMultiDomain*__ | _[Product](#type-product)_ | 1-year renewal: `195.06 USD`                                                                                                                     |
+| __unifiedCommunications*__           | _[Product](#type-product)_ | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year renewal: `73.70 USD`     |
+</details>
+
+<details>
+<summary>Show Whois Product Pricing</summary>
+
+__<a name="type-whoispurchase">`WhoisPurchase`</a>__: The pricing to purchase WHOIS guards.
+
+|           Name            |            Type            |         Description         |
+| ------------------------- | -------------------------- | --------------------------- |
+| __whoisguard5Pack*__      | _[Product](#type-product)_ | 1-year purchase: `7.88 USD` |
+| __whoisguardDualPack*__   | _[Product](#type-product)_ | 1-year purchase: `4.88 USD` |
+| __whoisguardProtectOne*__ | _[Product](#type-product)_ | 1-year purchase: `0.00 USD` |
+
+__<a name="type-whoisrenew">`WhoisRenew`</a>__: The pricing to renew WHOIS guards.
+
+|           Name            |            Type            |        Description         |
+| ------------------------- | -------------------------- | -------------------------- |
+| __whoisguardProtectOne*__ | _[Product](#type-product)_ | 1-year renewal: `0.00 USD` |
+</details>
+
 
 <details>
 <summary>Show COM Domain Registration Pricing Output</summary>
@@ -753,6 +919,9 @@ const GetPricing = async (client, options = {
 </details>
 
 [Show SSL Purchase Pricing](https://github.com/rqt/namecheap/blob/master/ssl-pricing.md)
+
+> When checking certificates pricing, the product names are returned in `camelCase` rather than `hyphen-case` received from NameCheap (e.g., `positivesslWildcard` instead of `positivessl-wildcard`) because some IDEs do not support JSDoc with properties containing hyphens.
+
 
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/8.svg?sanitize=true"></a></p>

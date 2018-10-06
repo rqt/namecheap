@@ -48,21 +48,3 @@ async function check(query, options) {
 }
 
 module.exports=check
-
-/* documentary types/api/domains/check.xml */
-/**
- * @typedef {Object} Check Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
- * @prop {string} [domain] The domain check.
- * @prop {string[]} [domains] The domains to check.
- *
- * @typedef {Object} DomainCheck The result of the check.
- * @prop {string} Domain The domain name for which you wish to check availability.
- * @prop {boolean} Available Indicates whether the domain name is available for registration.
- * @prop {boolean} IsPremiumName Indicates whether the domain name is premium.
- * @prop {boolean} PremiumRegistrationPrice The registration price for the premium domain.
- * @prop {boolean} PremiumRenewalPrice The renewal price for the premium domain.
- * @prop {boolean} PremiumRestorePrice The restore price for the premium domain.
- * @prop {boolean} PremiumTransferPrice The transfer price for the premium domain.
- * @prop {number} EapFee Purchase fee for the premium domain during Early Access Program (EAP)*.
- * @prop {number} IcannFee Fee charged by ICANN.
- */

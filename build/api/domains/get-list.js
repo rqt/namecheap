@@ -110,27 +110,3 @@ async function getList(query, options = {}) {
 }
 
 module.exports=getList
-
-/* documentary types/api/domains/get-list.xml */
-/**
- * @typedef {Object} GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
- * @prop {'ALL'|'EXPIRING'|'EXPIRED'} [type="ALL"] The type of domains. Default `ALL`.
- * @prop {string} [filter] The keyword to look for in the domain list.
- * @prop {number} [page=1] The page to return. Default `1`.
- * @prop {number} [pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
- * @prop {'name'|'expire'|'create'} [sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
- * @prop {boolean} [desc=false] Whether to sort in descending order. Default `false`.
- *
- * @typedef {Object} Domain
- * @prop {boolean} AutoRenew `false`
- * @prop {string} Created `07/23/2018`
- * @prop {string} Expires `07/23/2019`
- * @prop {number} ID `314928`
- * @prop {boolean} IsExpired `false`
- * @prop {boolean} IsLocked `false`
- * @prop {boolean} IsOurDNS `true`
- * @prop {boolean} IsPremium `false`
- * @prop {string} Name `domain.app`
- * @prop {string} User `user`
- * @prop {string} WhoisGuard `ENABLED`
- */

@@ -32,7 +32,7 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
         return v
       },
     })
-    const address = new Proxy(api.users.address, {
+    this.address = new Proxy(api.address, {
       get: (target, k) => {
         const v = target[k]
         if (typeof v == 'function') {
@@ -41,9 +41,15 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
         return v
       },
     })
-    this.users = {
-      address,
-    }
+    this.users = new Proxy(api.users, {
+      get: (target, k) => {
+        const v = target[k]
+        if (typeof v == 'function') {
+          return v.bind(this)
+        }
+        return v
+      },
+    })
   }
   /**
    * @param {string} endpoint Which method should be queried, e.g., `namecheap.domains.getList`.

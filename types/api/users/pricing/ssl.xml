@@ -1,136 +1,136 @@
 <types>
   <type name="SSLPurchase" desc="The pricing to purchase certificates.">
     <prop type="Product" name="instantssl">
-      _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year registration: `20.88 USD`
+      _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year purchase: `20.88 USD`
     </prop>
     <prop type="Product" name="positivessl">
-      _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year registration: `8.88 USD`
+      _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year purchase: `8.88 USD`
     </prop>
     <prop type="Product" name="positivesslWildcard">
-      _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year registration: `76.88 USD`
+      _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year purchase: `76.88 USD`
     </prop>
     <prop type="Product" name="premiumssl">
-      _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year registration: `79.00 USD`
+      _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year purchase: `79.00 USD`
     </prop>
     <prop type="Product" name="quicksslPremium">
-      1-year registration: `56.88 USD`
+      1-year purchase: `56.88 USD`
     </prop>
     <prop type="Product" name="rapidssl">
-      1-year registration: `10.95 USD`
+      1-year purchase: `10.95 USD`
     </prop>
     <prop type="Product" name="rapidsslWildcard">
-      1-year registration: `148.88 USD`
+      1-year purchase: `148.88 USD`
     </prop>
     <prop type="Product" name="secureSite">
-      1-year registration: `285.88 USD`
+      1-year purchase: `285.88 USD`
     </prop>
     <prop type="Product" name="secureSitePro">
-      1-year registration: `675.88 USD`
+      1-year purchase: `675.88 USD`
     </prop>
     <prop type="Product" name="secureSiteProWithEv">
-      1-year registration: `961.88 USD`
+      1-year purchase: `961.88 USD`
     </prop>
     <prop type="Product" name="secureSiteWithEv">
-      1-year registration: `666.88 USD`
+      1-year purchase: `666.88 USD`
     </prop>
     <prop type="Product" name="trueBusinessid">
-      1-year registration: `98.00 USD`
+      1-year purchase: `98.00 USD`
     </prop>
     <prop type="Product" name="trueBusinessidWildcard">
-      1-year registration: `389.00 USD`
+      1-year purchase: `389.00 USD`
     </prop>
     <prop type="Product" name="trueBusinessidWithEv">
-      1-year registration: `179.00 USD`
+      1-year purchase: `179.00 USD`
     </prop>
     <prop type="Product" name="premiumsslWildcard">
-      _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year registration: `169.00 USD`
+      _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year purchase: `169.00 USD`
     </prop>
     <prop type="Product" name="essentialssl">
-      _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year registration: `18.88 USD`
+      _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year purchase: `18.88 USD`
     </prop>
     <prop type="Product" name="essentialsslWildcard">
-      _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year registration: `74.88 USD`
+      _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year purchase: `74.88 USD`
     </prop>
     <prop type="Product" name="evSsl">
-      _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year registration: `78.88 USD`
+      _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year purchase: `78.88 USD`
     </prop>
     <prop type="Product" name="instantsslPro">
-      _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year registration: `38.88 USD`
+      _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year purchase: `38.88 USD`
     </prop>
     <prop type="Product" name="ssl123">
-      1-year registration: `39.00 USD`
+      1-year purchase: `39.00 USD`
     </prop>
     <prop type="Product" name="sslWebServer">
-      1-year registration: `88.88 USD`
+      1-year purchase: `88.88 USD`
     </prop>
     <prop type="Product" name="sslWebserverEv">
-      1-year registration: `163.88 USD`
+      1-year purchase: `163.88 USD`
     </prop>
     <prop type="Product" name="comodossl">
-      1-year registration: `35.00 USD`
+      1-year purchase: `35.00 USD`
     </prop>
     <prop type="Product" name="comodosslWildcard">
-      1-year registration: `170.00 USD`
+      1-year purchase: `170.00 USD`
     </prop>
     <prop type="Product" name="comodosslMultiDomainSsl">
-      _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year registration: `89.88 USD`
+      _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year purchase: `89.88 USD`
     </prop>
     <prop type="Product" name="comodosslMultiDomainSslMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="comodosslEvMultiDomainSsl">
-      _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year registration: `168.88 USD`
+      _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year purchase: `168.88 USD`
     </prop>
     <prop type="Product" name="comodosslEvMultiDomainSslMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="positivesslMultiDomain">
-      _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year registration: `29.88 USD`
+      _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year purchase: `29.88 USD`
     </prop>
     <prop type="Product" name="positivesslMultiDomainMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="trueBusinessidMultiDomain">
-      1-year registration: `179.88 USD`
+      1-year purchase: `179.88 USD`
     </prop>
     <prop type="Product" name="trueBusinessidMultiDomainMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="trueBusinessidWithEvMultiDomain">
-      1-year registration: `237.88 USD`
+      1-year purchase: `237.88 USD`
     </prop>
     <prop type="Product" name="trueBusinessidWithEvMultiDomainMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="unifiedCommunications">
-      _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year registration: `89.88 USD`
+      _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year purchase: `89.88 USD`
     </prop>
     <prop type="Product" name="unifiedCommunicationsMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="secureSiteMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="quicksslPremiumMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="secureSiteProMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="secureSiteProWithEvMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="secureSiteWithEvMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="sgcSuperCertsMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="sslWebServerMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
     <prop type="Product" name="sslWebserverEvMoresans">
-      1-year registration: `0.00 USD`
+      1-year purchase: `0.00 USD`
     </prop>
   </type>
   <type name="SSLRenew" desc="The pricing to renew certificates.">undefined

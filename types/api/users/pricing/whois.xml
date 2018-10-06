@@ -1,0 +1,18 @@
+<types>
+  <type name="WhoisPurchase" desc="The pricing to purchase WHOIS guards.">
+    <prop type="Product" name="whoisguard5Pack">
+      1-year purchase: `7.88 USD`
+    </prop>
+    <prop type="Product" name="whoisguardDualPack">
+      1-year purchase: `4.88 USD`
+    </prop>
+    <prop type="Product" name="whoisguardProtectOne">
+      1-year purchase: `0.00 USD`
+    </prop>
+  </type>
+  <type name="WhoisRenew" desc="The pricing to renew WHOIS guards.">undefined
+    <prop type="Product" name="whoisguardProtectOne">
+      1-year renewal: `0.00 USD`
+    </prop>
+  </type>
+</types>

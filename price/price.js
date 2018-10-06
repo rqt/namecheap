@@ -23,12 +23,11 @@ const SSL = async (client) => {
     const d = getDesc(desc[p])
     purchase += `
     <prop type="Product" name="${p}">
-      ${d}1-year registration: \`${v[0].Price} USD\`
+      ${d}1-year purchase: \`${v[0].Price} USD\`
     </prop>`
   })
   purchase = type(purchase, 'SSLPurchase', 'The pricing to purchase certificates.')
   let renew
-  // <type name="SSLRenew">`
   Object.keys(res.ssl.renew).forEach((p) => {
     const v = res.ssl.renew[p]
     const d = getDesc(desc[p])
@@ -45,10 +44,30 @@ const SSL = async (client) => {
 
 /** @param {NameCheap} client */
 const Whois = async (client) => {
-  const res = await client.users.getPricing({
+  const { whoisguard } = await client.users.getPricing({
     type: 'WHOISGUARD',
   })
-  debugger
+  let purchase = ''
+  Object.keys(whoisguard.purchase).forEach((p) => {
+    const v = whoisguard.purchase[p]
+    purchase += `
+    <prop type="Product" name="${p}">
+      1-year purchase: \`${v[0].Price} USD\`
+    </prop>`
+  })
+  purchase = type(purchase, 'WhoisPurchase', 'The pricing to purchase WHOIS guards.')
+  let renew
+  Object.keys(whoisguard.renew).forEach((p) => {
+    const v = whoisguard.renew[p]
+    renew += `
+    <prop type="Product" name="${p}">
+      1-year renewal: \`${v[0].Price} USD\`
+    </prop>`
+  })
+  renew = type(renew, 'WhoisRenew', 'The pricing to renew WHOIS guards.')
+  const tt = [purchase, renew].join('\n')
+  const s = types(tt)
+  return s
 }
 
 (async () => {
@@ -58,8 +77,8 @@ const Whois = async (client) => {
   })
   const ssl = await SSL(namecheap)
   await write('types/api/users/pricing/ssl.xml', ssl)
-  // const whois = await Whois(namecheap)
-  // await write('types/api/users/pricing/whois.xml', whois)
+  const whois = await Whois(namecheap)
+  await write('types/api/users/pricing/whois.xml', whois)
 })()
 
 const getDesc = (d) => {

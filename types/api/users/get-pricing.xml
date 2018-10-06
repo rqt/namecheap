@@ -52,10 +52,10 @@
   </type>
   <type name="WhoisPricing" desc="The pricing of the Whois Guard.">
     <prop name="purchase" type="WhoisPurchase">
-      The pricing to purchase a whois guard.
+      The pricing to purchase WHOIS guards.
     </prop>
     <prop name="renew" type="WhoisRenew">
-      The pricing to renew a whois guard.
+      The pricing to renew WHOIS guards.
     </prop>
   </type>
   <type name="Product" type="Price[]" noToc>

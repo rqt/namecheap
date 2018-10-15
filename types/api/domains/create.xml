@@ -30,6 +30,20 @@
     <prop opt name="adminAddress" type="AddressDetail">
       An address to use for `Admin` address details.
     </prop>
+    <prop opt name="premium" type="PremiumInfo">
+      Information about a premium domain.
+    </prop>
+  </type>
+  <type name="PremiumInfo" desc="Information about a premium domain." noToc>
+    <prop boolean name="IsPremiumName">
+      Indicates whether the domain name is premium.
+    </prop>
+    <prop boolean name="PremiumRegistrationPrice">
+      The registration price for the premium domain.
+    </prop>
+    <prop opt number name="EapFee">
+      The purchase fee for the premium domain during Early Access Program (EAP).
+    </prop>
   </type>
   <type name="RegistrationResult" desc="Registered domain information." noToc>
     <prop string name="ChargedAmount">

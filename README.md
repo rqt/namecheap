@@ -113,51 +113,51 @@ Check: [ { Domain: 'test.co',
     PremiumRestorePrice: 0,
     PremiumTransferPrice: 0,
     IcannFee: 0,
-    EapFee: '0.0' } ]
+    EapFee: '0.0' } ] 
 
 Addresses: [ { AddressId: 0,
     AddressName: 'Primary Address',
     IsDefault: false },
   { AddressId: 101235,
     AddressName: 'Planet Express',
-    IsDefault: true } ]
+    IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-6-22-49-04.com',
+Registered: { Domain: 'rqt-example-2018-10-15-03-22-58.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330665,
-  OrderID: 1293691,
-  TransactionID: 1831272,
+  DomainID: 331127,
+  OrderID: 1296667,
+  TransactionID: 1834937,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
-  NonRealTimeDomain: false }
+  NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 330665,
-  DomainName: 'rqt-example-2018-10-6-22-49-04.com',
+  ID: 331127,
+  DomainName: 'rqt-example-2018-10-15-03-22-58.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails:
-   { CreatedDate: '10/06/2018',
-     ExpiredDate: '10/06/2019',
+  DomainDetails: 
+   { CreatedDate: '10/14/2018',
+     ExpiredDate: '10/15/2019',
      NumYears: 0 },
-  Whoisguard:
+  Whoisguard: 
    { Enabled: 'True',
-     ID: 269176,
-     ExpiredDate: '10/06/2019',
-     EmailDetails:
-      { WhoisGuardEmail: '68c19235241b4d878ed1bf75e709d4c5.protect@whoisguard.com',
+     ID: 269540,
+     ExpiredDate: '10/14/2019',
+     EmailDetails: 
+      { WhoisGuardEmail: 'a8e021e7618345d2aedd242b1f111608.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription:
+  PremiumDnsSubscription: 
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails:
+  DnsDetails: 
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -165,14 +165,14 @@ Info: { Status: 'Ok',
      DynamicDNSStatus: false,
      IsFailover: false,
      Nameserver: [ 'dns1.registrar-servers.com', 'dns2.registrar-servers.com' ] },
-  Modificationrights: { All: true } }
+  Modificationrights: { All: true } } 
 
-List: { domains:
-   [ { ID: 330665,
-       Name: 'rqt-example-2018-10-6-22-49-04.com',
+List: { domains: 
+   [ { ID: 331127,
+       Name: 'rqt-example-2018-10-15-03-22-58.com',
        User: 'zavr',
-       Created: '10/06/2018',
-       Expires: '10/06/2019',
+       Created: '10/14/2018',
+       Expires: '10/15/2019',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -210,6 +210,15 @@ __<a name="type-create">`Create`</a>__: Options to register a domain. https://ww
 | registrantAddress | _[AddressDetail](#type-addressdetail)_ | An address to use for `Registrant` address details.                                                                                                                             | -       |
 | techAddress       | _[AddressDetail](#type-addressdetail)_ | An address to use for `Tech` address details.                                                                                                                                   | -       |
 | adminAddress      | _[AddressDetail](#type-addressdetail)_ | An address to use for `Admin` address details.                                                                                                                                  | -       |
+| premium           | _[PremiumInfo](#type-premiuminfo)_     | Information about a premium domain.                                                                                                                                             | -       |
+
+__<a name="type-premiuminfo">`PremiumInfo`</a>__: Information about a premium domain.
+
+|             Name              |   Type    |                                Description                                 |
+| ----------------------------- | --------- | -------------------------------------------------------------------------- |
+| __IsPremiumName*__            | _boolean_ | Indicates whether the domain name is premium.                              |
+| __PremiumRegistrationPrice*__ | _boolean_ | The registration price for the premium domain.                             |
+| EapFee                        | _number_  | The purchase fee for the premium domain during Early Access Program (EAP). |
 
 __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domain information.
 
@@ -244,12 +253,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-6-22-49-14.com',
+{ Domain: 'rqt-example-2018-10-15-03-23-10.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 330666,
-  OrderID: 1293692,
-  TransactionID: 1831273,
+  DomainID: 331128,
+  OrderID: 1296668,
+  TransactionID: 1834938,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -435,31 +444,31 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 330667,
-  DomainName: 'rqt-example-2018-10-6-22-49-29.com',
+  ID: 331129,
+  DomainName: 'rqt-example-2018-10-15-03-23-32.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
-  DomainDetails:
-   { CreatedDate: '10/06/2018',
-     ExpiredDate: '10/06/2019',
+  DomainDetails: 
+   { CreatedDate: '10/14/2018',
+     ExpiredDate: '10/15/2019',
      NumYears: 0 },
-  Whoisguard:
+  Whoisguard: 
    { Enabled: 'True',
-     ID: 269178,
-     ExpiredDate: '10/06/2019',
-     EmailDetails:
-      { WhoisGuardEmail: 'b4328857744543919dd30217b9bcdee6.protect@whoisguard.com',
+     ID: 269542,
+     ExpiredDate: '10/14/2019',
+     EmailDetails: 
+      { WhoisGuardEmail: '7af75c96630b4b36bc7dc69c01848125.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 0 } },
-  PremiumDnsSubscription:
+  PremiumDnsSubscription: 
    { UseAutoRenew: false,
      SubscriptionId: -1,
      CreatedDate: 0000-12-31T21:00:00.000Z,
      ExpirationDate: 0000-12-31T21:00:00.000Z,
      IsActive: false },
-  DnsDetails:
+  DnsDetails: 
    { ProviderType: 'FREE',
      IsUsingOurDNS: true,
      HostCount: 2,
@@ -516,12 +525,12 @@ const GetList = async (domain, client) => {
 }
 ```
 ```js
-{ domains:
-   [ { ID: 330668,
-       Name: 'rqt-example-2018-10-6-22-49-41.com',
+{ domains: 
+   [ { ID: 331130,
+       Name: 'rqt-example-2018-10-15-03-23-48.com',
        User: 'zavr',
-       Created: '10/06/2018',
-       Expires: '10/06/2019',
+       Created: '10/14/2018',
+       Expires: '10/15/2019',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -573,7 +582,7 @@ __<a name="type-pricing">`Pricing`</a>__: The pricing information returned as an
 
 |      Name       |                  Type                  |           Description           |
 | --------------- | -------------------------------------- | ------------------------------- |
-| __domains*__     | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
+| __domains*__    | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
 | __ssl*__        | _[SSLPricing](#type-sslpricing)_       | The pricing of certificates.    |
 | __whoisguard*__ | _[WhoisPricing](#type-whoispricing)_   | The pricing of the Whois Guard. |
 
@@ -1030,7 +1039,7 @@ const GetList = async (client) => {
 * `domains.ns`: 0/4
 * `domains.transfer`: 0/4
 * `ssl`: 0/13
-* `users`: 0/9
+* `users`: 1/9
 * `users.address`: 2/6
 * `whoisguard`: 0/8
 

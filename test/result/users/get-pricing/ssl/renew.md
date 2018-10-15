@@ -13,11 +13,11 @@
         {
           "Duration": 1,
           "DurationType": "YEAR",
-          "Price": "31.98",
+          "Price": "39.00",
           "PricingType": "MULTIPLE",
           "RegularPrice": "39.00",
           "RegularPriceType": "MULTIPLE",
-          "YourPrice": "31.98",
+          "YourPrice": "39.00",
           "YourPriceType": "MULTIPLE",
           "PromotionPrice": "0.0",
           "Currency": "USD"
@@ -25,11 +25,11 @@
         {
           "Duration": 2,
           "DurationType": "YEAR",
-          "Price": "30.75",
+          "Price": "37.50",
           "PricingType": "MULTIPLE",
           "RegularPrice": "37.50",
           "RegularPriceType": "MULTIPLE",
-          "YourPrice": "30.75",
+          "YourPrice": "37.50",
           "YourPriceType": "MULTIPLE",
           "PromotionPrice": "0.0",
           "Currency": "USD"

@@ -64,6 +64,7 @@ const domains = {
  * @param {AddressDetail} [options.registrantAddress] An address to use for `Registrant` address details.
  * @param {AddressDetail} [options.techAddress] An address to use for `Tech` address details.
  * @param {AddressDetail} [options.adminAddress] An address to use for `Admin` address details.
+ * @param {PremiumInfo} [options.premium] Information about a premium domain.
    */
   async create(options) {
     /** @type {RegistrationResult} */
@@ -252,6 +253,12 @@ module.exports=api
  * @prop {AddressDetail} [registrantAddress] An address to use for `Registrant` address details.
  * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.
  * @prop {AddressDetail} [adminAddress] An address to use for `Admin` address details.
+ * @prop {PremiumInfo} [premium] Information about a premium domain.
+ *
+ * @typedef {Object} PremiumInfo Information about a premium domain.
+ * @prop {boolean} IsPremiumName Indicates whether the domain name is premium.
+ * @prop {boolean} PremiumRegistrationPrice The registration price for the premium domain.
+ * @prop {number} [EapFee] The purchase fee for the premium domain during Early Access Program (EAP).
  *
  * @typedef {Object} RegistrationResult Registered domain information.
  * @prop {string} ChargedAmount Total amount charged for registration.

@@ -5,17 +5,7 @@ const COMMAND = 'namecheap.domains.create'
 /**
  * Register a domain.
  * @param {Function} query
- * @param {Create} options Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
- * @param {string} options.domain The domain name to register.
- * @param {number} [options.years=1] The number of years to register. Default `1`.
- * @param {string} [options.promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
- * @param {string[]} [options.nameservers] The comma-separated list of custom nameservers to be associated with the domain name.
- * @param {boolean} [options.whois=true] Adds free WhoisGuard for the domain. Default `true`.
- * @param {AddressDetail} options.address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
- * @param {AddressDetail} [options.billingAddress] An address to use for `AuxBilling` address details.
- * @param {AddressDetail} [options.registrantAddress] An address to use for `Registrant` address details.
- * @param {AddressDetail} [options.techAddress] An address to use for `Tech` address details.
- * @param {AddressDetail} [options.adminAddress] An address to use for `Admin` address details.
+ * @param {import('../index').Create} options
  * @example
  *
  * // 0. Find the default account address.
@@ -51,6 +41,7 @@ async function create(query, options) {
     billingAddress = address,
     nameservers = [],
     whois = true,
+    premium = {},
   } = options
   const RegistrantAddress = getAddressObject(registrantAddress, 'Registrant')
   const TechAddress = getAddressObject(techAddress, 'Tech')
@@ -68,6 +59,7 @@ async function create(query, options) {
     Nameservers: nameservers.join(','),
     AddFreeWhoisguard: whois ? 'yes' : 'no',
     WGEnabled: whois ? 'yes' : 'no',
+    ...premium,
   }, 'POST')
   const [{ props }] = extractTags('DomainCreateResult', res)
   /** @type {RegistrationResult} */

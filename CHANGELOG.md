@@ -1,3 +1,9 @@
+## 15 October 2018
+
+### 2.1.0
+
+- [feature] Register premium domains.
+
 ## 7 October 2018
 
 ### 2.0.3

@@ -1,3 +1,10 @@
+## 16 November 2018
+
+### 2.1.1
+
+- [deps] Up deps.
+- [package] Change homepage.
+
 ## 15 October 2018
 
 ### 2.1.0

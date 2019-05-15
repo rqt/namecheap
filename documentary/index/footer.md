@@ -1,7 +1,7 @@
 ## Progress
 
 * `domains`: 4/11
-* `domains.dns`: 0/7
+* `domains.dns`: 1/7
 * `domains.ns`: 0/4
 * `domains.transfer`: 0/4
 * `ssl`: 0/13
@@ -11,11 +11,11 @@
 
 ---
 
-7/62 = 11%
+8/62 = 13%
 
 ## Copyright
 
-(c) [Rqt][1] 2018
+(c) [Rqt][1] 2019
 
 [1]: https://rqt.biz
 

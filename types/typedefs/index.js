@@ -12,4 +12,5 @@ export {}
  * @typedef {import('./domains').Domain} Domain
  * @typedef {import('./address').Address} Address
  * @typedef {import('./address').AddressDetail} AddressDetail
+ * @typedef {import('./dns').Host} Host
  */

@@ -8,7 +8,7 @@ const isXml = s => s.startsWith('<?xml version="1.0" encoding="utf-8"?>')
 
 const UA = [
   'Mozilla/5.0',
-  '(Node.js; @rqt/namecheap v2.1.1)',
+  '(Node.js; @rqt/namecheap v2.1.2)',
   'https://github.com/rqt/namecheap',
 ].join(' ')
 

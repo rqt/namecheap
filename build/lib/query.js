@@ -1,15 +1,14 @@
 let rqt = require('rqt'); if (rqt && rqt.__esModule) rqt = rqt.default;
 const { stringify } = require('querystring');
 let extractTags = require('rexml'); if (extractTags && extractTags.__esModule) extractTags = extractTags.default;
-const { filterEmpty } = require('.');
-const { version } = require('../../package.json');
+const { filterEmpty } = require('./');
 
 /** @param {string} s */
 const isXml = s => s.startsWith('<?xml version="1.0" encoding="utf-8"?>')
 
 const UA = [
   'Mozilla/5.0',
-  `(Node.js; @rqt/namecheap v${version})`,
+  '(Node.js; @rqt/namecheap v2.1.2)',
   'https://github.com/rqt/namecheap',
 ].join(' ')
 

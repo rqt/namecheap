@@ -1,16 +1,16 @@
 let erotic = require('erotic'); if (erotic && erotic.__esModule) erotic = erotic.default;
-let api = require('./api'); if (api && api.__esModule) api = api.default;
-let query = require('./lib/query'); if (query && query.__esModule) query = query.default;
+const api = require('./api');
+const query = require('./lib/query');
 
                class NameCheap {
   /**
    * Create a new instance of the client.
    * @constructor
-   * @param {Options} options Options for the NameCheap client.
- * @param {string} options.user The username required to access the API.
- * @param {string} options.key The password required used to access the API.
- * @param {string} options.ip The IP address of the client accessing the application (End-user IP address).
- * @param {boolean} [options.sandbox=false] Whether to use the sandbox version of the API. Default `false`.
+   * @param {!_namecheap.Options} options Options for the NameCheap client.
+   * @param {string} options.user The username required to access the API.
+   * @param {string} options.key The password required used to access the API.
+   * @param {string} options.ip The IP address of the client accessing the application (End-user IP address).
+   * @param {boolean} [options.sandbox=false] Whether to use the sandbox version of the API. Default `false`.
    */
   constructor(options) {
     const {
@@ -50,6 +50,15 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
         return v
       },
     })
+    this.dns = new Proxy(api.dns, {
+      get: (target, k) => {
+        const v = target[k]
+        if (typeof v == 'function') {
+          return v.bind(this)
+        }
+        return v
+      },
+    })
   }
   /**
    * @param {string} endpoint Which method should be queried, e.g., `namecheap.domains.getList`.
@@ -75,7 +84,12 @@ let query = require('./lib/query'); if (query && query.__esModule) query = query
 
 /* documentary types/index.xml */
 /**
- * @typedef {Object} Options Options for the NameCheap client.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Options} Options Options for the NameCheap client.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.Options Options for the NameCheap client.
  * @prop {string} user The username required to access the API.
  * @prop {string} key The password required used to access the API.
  * @prop {string} ip The IP address of the client accessing the application (End-user IP address).

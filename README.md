@@ -19,6 +19,7 @@ yarn add @rqt/namecheap
 - [`domains`](#domains)
 - [`users`](#users)
 - [`address`](#address)
+- [`dns`](#dns)
 - [Progress](#progress)
 - [Copyright](#copyright)
 
@@ -115,19 +116,19 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2019-5-15-16-54-57.com',
+Registered: { Domain: 'rqt-example-2019-5-15-20-17-00.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 404080,
-  OrderID: 1483671,
-  TransactionID: 2041540,
+  DomainID: 404223,
+  OrderID: 1483961,
+  TransactionID: 2041916,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 404080,
-  DomainName: 'rqt-example-2019-5-15-16-54-57.com',
+  ID: 404223,
+  DomainName: 'rqt-example-2019-5-15-20-17-00.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -137,10 +138,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 328528,
+     ID: 328596,
      ExpiredDate: '05/15/2020',
      EmailDetails: 
-      { WhoisGuardEmail: 'a5a9f3d9583743b88af45a456c1cc3a0.protect@whoisguard.com',
+      { WhoisGuardEmail: '9f0ae75419da451baacd29eb8da508c1.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 3 } },
@@ -161,8 +162,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 404080,
-       Name: 'rqt-example-2019-5-15-16-54-57.com',
+   [ { ID: 404223,
+       Name: 'rqt-example-2019-5-15-20-17-00.com',
        User: 'zavr',
        Created: '05/15/2019',
        Expires: '05/15/2020',
@@ -197,10 +198,16 @@ Methods to manipulate addresses. In contrast to the NameCheap API, it does not f
 
 <p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/5.svg?sanitize=true"></a></p>
 
+## `dns`
+
+Methods to work with DNS records. <kbd><a href="/doc/DNS.md">Read Doc</a></kbd>
+
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/6.svg?sanitize=true"></a></p>
+
 ## Progress
 
 * `domains`: 4/11
-* `domains.dns`: 0/7
+* `domains.dns`: 1/7
 * `domains.ns`: 0/4
 * `domains.transfer`: 0/4
 * `ssl`: 0/13
@@ -210,11 +217,11 @@ Methods to manipulate addresses. In contrast to the NameCheap API, it does not f
 
 ---
 
-7/62 = 11%
+8/62 = 13%
 
 ## Copyright
 
-(c) [Rqt][1] 2018
+(c) [Rqt][1] 2019
 
 [1]: https://rqt.biz
 

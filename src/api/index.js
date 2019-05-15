@@ -3,6 +3,8 @@ import getInfo from './domains/get-info'
 import check from './domains/check'
 import create from './domains/create'
 
+import getHosts from './domains/dns/get-hosts'
+
 import getAddressList from './address/get-list'
 import getAddressInfo from './address/get-info'
 import getPricing from './users/get-pricing'
@@ -78,10 +80,24 @@ const users = {
   },
 }
 
+const dns = {
+  /**
+   * Retrieves DNS host record settings for the requested domain.
+   * @param {string} domain
+   */
+  async getHosts(domain) {
+    const [sld, ...rest] = domain.split('.')
+    const tld = rest.join('.')
+    const res = await getHosts(this._query.bind(this), { sld, tld })
+    return res
+  },
+}
+
 const api = {
   domains,
   address,
   users,
+  dns,
 }
 
 export default api

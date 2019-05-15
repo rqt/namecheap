@@ -11,4 +11,4 @@ Register a domain.
 %EXAMPLE: example/api/domains/create%
 %FORK-js example/run/domains/create%
 
-%~ width="15"%
+%~ width="25"%

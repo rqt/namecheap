@@ -11,4 +11,4 @@ Returns information about the requested domain.
 %EXAMPLE: example/api/domains/get-info%
 %FORK-js example/run/domains/get-info%
 
-%~ width="15"%
+%~ width="25"%

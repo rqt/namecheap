@@ -7,7 +7,7 @@ Methods to check availability, register and retrieve account domains' info.
   * [`async getInfo(options: string|GetInfo): DomainInfo`](#async-getinfooptions-stringgetinfo-domaininfo)
   * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/0.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/0.svg?sanitize=true" width="25"></a></p>
 
 ### `async create(`<br/>&nbsp;&nbsp;`options: Create,`<br/>`): RegistrationResult`
 
@@ -81,7 +81,7 @@ const Create = async (domain, client) => {
   NonRealTimeDomain: false }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/1.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/1.svg?sanitize=true" width="25"></a></p>
 
 ### `async check(`<br/>&nbsp;&nbsp;`options: string|Check,`<br/>`): DomainCheck[]`
 
@@ -158,7 +158,7 @@ const Check = async (domain, client) => {
     EapFee: '0.0' } ]
 ```
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/2.svg?sanitize=true" width="25"></a></p>
 
 ### `async getInfo(`<br/>&nbsp;&nbsp;`options: string|GetInfo,`<br/>`): DomainInfo`
 
@@ -296,7 +296,7 @@ const GetInfo = async (domain, client) => {
   Modificationrights: { All: true } }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true" width="25"></a></p>
 
 ### `async getList(`<br/>&nbsp;&nbsp;`options?: GetList,`<br/>`): { domains, TotalItems, CurrentPage, PageSize }`
 
@@ -359,4 +359,4 @@ const GetList = async (domain, client) => {
   PageSize: 20 }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/4.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/-1.svg?sanitize=true"></a></p>

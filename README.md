@@ -25,7 +25,7 @@ yarn add @rqt/namecheap
 - [Progress](#progress)
 - [Copyright](#copyright)
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/0.svg?sanitize=true"></a></p>
 
 ## API
 
@@ -35,7 +35,7 @@ The package is available by importing its default function:
 import NameCheap from '@rqt/namecheap'
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
 ## `constructor(`<br/>&nbsp;&nbsp;`options: Options,`<br/>`): void`
 
@@ -180,7 +180,7 @@ List: { domains:
   PageSize: 20 }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/2.svg?sanitize=true" width="15"></a></p>
 
 ## `domains`
 
@@ -188,7 +188,7 @@ Methods to check availability, register and retrieve account domains' info.
 
 <kbd><a href="/doc/DOMAINS.md">Read Doc</a></kbd>
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true"></a></p>
 
 ## `users`
 
@@ -573,7 +573,7 @@ __<a name="type-whoisrenew">`WhoisRenew`</a>__: The pricing to renew WHOIS guard
 
 
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/4.svg?sanitize=true"></a></p>
 
 ## `address`
 
@@ -638,7 +638,7 @@ const GetInfo = async (id, client) => {
   EmailAddress: 'zoidberg@futurama.bz' }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true" width="15"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/5.svg?sanitize=true" width="15"></a></p>
 
 ### `async getList(): Address[]`
 
@@ -676,7 +676,7 @@ const GetList = async (client) => {
 
 
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/6.svg?sanitize=true"></a></p>
 
 ## Progress
 
@@ -699,4 +699,4 @@ const GetList = async (client) => {
 
 [1]: https://rqt.biz
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/-1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/-1.svg?sanitize=true"></a></p>

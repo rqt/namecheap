@@ -11,4 +11,4 @@ Check a domain or domains for availability.
 %EXAMPLE: example/api/domains/check%
 %FORK-js example/run/domains/check%
 
-%~ width="15"%
+%~ width="25"%

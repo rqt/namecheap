@@ -11,4 +11,4 @@ Gets information for the requested address ID.
 %EXAMPLE: example/api/address/get-info%
 %FORK-js example/run/address/get-info%
 
-%~ width="15"%
+%~ width="25"%

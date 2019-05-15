@@ -1,5 +1,9 @@
 ## 15 May 2019
 
+### [2.2.2](https://github.com/rqt/namecheap/compare/v2.2.1...v2.2.2)
+
+- [types] Place typedefs in the `src/index.js` file in an attempt to fix JSDoc.
+
 ### [2.2.1](https://github.com/rqt/namecheap/compare/v2.2.0...v2.2.1)
 
 - [fix] Publish types.

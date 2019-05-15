@@ -1,15 +1,14 @@
 import rqt from 'rqt'
 import { stringify } from 'querystring'
 import extractTags from 'rexml'
-import { filterEmpty } from '.'
-import { version } from '../../package.json'
+import { filterEmpty } from './'
 
 /** @param {string} s */
 const isXml = s => s.startsWith('<?xml version="1.0" encoding="utf-8"?>')
 
 const UA = [
   'Mozilla/5.0',
-  `(Node.js; @rqt/namecheap v${version})`,
+  '(Node.js; @rqt/namecheap v2.1.1)',
   'https://github.com/rqt/namecheap',
 ].join(' ')
 

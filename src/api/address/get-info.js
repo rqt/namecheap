@@ -7,7 +7,7 @@ const COMMAND = 'namecheap.users.address.getInfo'
 
 /**
  * Gets information for the requested address ID.
- * @param {Function} query
+ * @param {!Function} query
  * @param {string|number} id The address id to get info about.
  * @example
  *
@@ -53,7 +53,7 @@ const keys = [
 ]
 
 const parse = (add) => {
-  /** @type {AddressDetail} */
+  /** @type {!_namecheap.AddressDetail} */
   const res = keys
     .reduce((acc, key) => {
       try {
@@ -76,3 +76,8 @@ const parse = (add) => {
 }
 
 export default getInfo
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../').AddressDetail} _namecheap.AddressDetail
+ */

@@ -96,5 +96,21 @@ const query = require('./lib/query');
  * @prop {boolean} [sandbox=false] Whether to use the sandbox version of the API. Default `false`.
  */
 
+/**
+ * @typedef {import('../types/typedefs/users').GetPricing} GetPricing
+ * @typedef {import('../types/typedefs/users').Pricing} Pricing
+ * @typedef {import('../types/typedefs/domains').GetList} GetList
+ * @typedef {import('../types/typedefs/domains').GetInfo} GetInfo
+ * @typedef {import('../types/typedefs/domains').DomainInfo} DomainInfo
+ * @typedef {import('../types/typedefs/domains').DomainCheck} DomainCheck
+ * @typedef {import('../types/typedefs/domains').Check} Check
+ * @typedef {import('../types/typedefs/domains').Create} Create
+ * @typedef {import('../types/typedefs/domains').RegistrationResult} RegistrationResult
+ * @typedef {import('../types/typedefs/domains').Domain} Domain
+ * @typedef {import('../types/typedefs/address').Address} Address
+ * @typedef {import('../types/typedefs/address').AddressDetail} AddressDetail
+ * @typedef {import('../types/typedefs/dns').Host} Host
+ */
+
 
 module.exports = NameCheap

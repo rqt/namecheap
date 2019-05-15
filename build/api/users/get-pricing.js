@@ -17,6 +17,7 @@ const getPricing = async (query, options) => {
     ActionName,
     ProductName,
   })
+  /** @type {!_namecheap.Pricing} */
   const productType = extractTags('ProductType', res)
     .reduce((acc, { content, props: { Name } }) => {
       const category = getCategory(content)
@@ -51,3 +52,8 @@ const getProduct = (categoryContent) => {
 }
 
 module.exports=getPricing
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../').Pricing} _namecheap.Pricing
+ */

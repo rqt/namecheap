@@ -53,7 +53,6 @@ const address = {
    * Gets a list of address IDs and address names associated with the user account.
    */
   async getList() {
-    /** @type {!Array<_namecheap.Address>} */
     const res = await getAddressList(this._query.bind(this))
     return res
   },
@@ -62,7 +61,6 @@ const address = {
    * @param {string|number} id The address id to get info about.
    */
   async getInfo(id) {
-    /** @type {_namecheap.AddressDetail} */
     const res = await getAddressInfo(this._query.bind(this), id)
     return res
   },
@@ -74,7 +72,6 @@ const users = {
    * @param {!_namecheap.GetPricing} options
    */
   async getPricing(options) {
-    /** @type {!_namecheap.Pricing} */
     const res = await getPricing(this._query.bind(this), options)
     return res
   },
@@ -104,49 +101,37 @@ module.exports=api
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').GetPricing} _namecheap.GetPricing
+ * @typedef {import('../').GetPricing} _namecheap.GetPricing
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').Pricing} _namecheap.Pricing
+ * @typedef {import('../').GetList} _namecheap.GetList
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').GetList} _namecheap.GetList
+ * @typedef {import('../').GetInfo} _namecheap.GetInfo
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').GetInfo} _namecheap.GetInfo
+ * @typedef {import('../').Domain} _namecheap.Domain
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').Domain} _namecheap.Domain
+ * @typedef {import('../').DomainInfo} _namecheap.DomainInfo
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').DomainInfo} _namecheap.DomainInfo
+ * @typedef {import('../').DomainCheck} _namecheap.DomainCheck
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').DomainCheck} _namecheap.DomainCheck
+ * @typedef {import('../').Check} _namecheap.Check
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').Check} _namecheap.Check
+ * @typedef {import('../').Create} _namecheap.Create
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').Create} _namecheap.Create
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').RegistrationResult} _namecheap.RegistrationResult
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').Address} _namecheap.Address
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../../types/typedefs').AddressDetail} _namecheap.AddressDetail
+ * @typedef {import('../').RegistrationResult} _namecheap.RegistrationResult
  */

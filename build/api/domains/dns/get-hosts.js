@@ -21,9 +21,12 @@ async function getList(query, { sld, tld }) {
   return r
 }
 
+/**
+ * @returns {!Array<!_namecheap.Host>}
+ */
 const getHosts = (content, tag) => {
   return extractTag(tag, content).map(({ props }) => {
-    return /** @type {_namecheap.Host} */ (props)
+    return props
   })
 }
 

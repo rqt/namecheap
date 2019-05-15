@@ -28,7 +28,7 @@
   },
   "files": [
     "build",
-    "externs.js"
+    "types/typedefs"
   ],
   "externs": "externs.js",
   "repository": {

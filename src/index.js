@@ -6,7 +6,7 @@ export default class NameCheap {
   /**
    * Create a new instance of the client.
    * @constructor
-   * @param {_namecheap.Options} options Options for the NameCheap client.
+   * @param {!_namecheap.Options} options Options for the NameCheap client.
    * @param {string} options.user The username required to access the API.
    * @param {string} options.key The password required used to access the API.
    * @param {string} options.ip The IP address of the client accessing the application (End-user IP address).

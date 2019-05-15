@@ -1,7 +1,7 @@
 <types namespace="_namecheap">
   <type name="GetPricing" desc="Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx" noToc>
-    <prop name="type" type="'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'">
-      Product Type to get pricing information.
+    <prop name="type" string>
+      Product Type to get pricing information. One of `('DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD')`
     </prop>
     <prop opt string name="category">
       Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
@@ -9,56 +9,55 @@
     <prop opt string name="promoCode">
       Promotional (coupon) code for the user.
     </prop>
-    <prop opt name="action"
-      type="'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'">
-      Specific action within a product type.
+    <prop opt name="action" string>
+      Specific action within a product type. One of `('REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER')`.
     </prop>
     <prop opt string name="product">
       The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
     </prop>
   </type>
   <type name="Pricing" desc="The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`." noToc>
-    <prop type="DomainPricing" name="domains">
+    <prop type="_namecheap.DomainPricing" name="domains">
       The pricing of domains.
     </prop>
-    <prop type="SSLPricing" name="ssl">
+    <prop type="_namecheap.SSLPricing" name="ssl">
       The pricing of certificates.
     </prop>
-    <prop type="WhoisPricing" name="whoisguard">
+    <prop type="_namecheap.WhoisPricing" name="whoisguard">
       The pricing of the Whois Guard.
     </prop>
   </type>
   <type name="DomainPricing" desc="The pricing of domains as an object, where the requested zone is a key." noToc>
-    <prop name="register" type="Object.<string, Product>">
+    <prop name="register" type="Object<string, _namecheap.Product>">
       The pricing to register domains.
     </prop>
-    <prop name="renew" type="Object.<string, Product>">
+    <prop name="renew" type="Object<string, _namecheap.Product>">
       The pricing to renew domains.
     </prop>
-    <prop name="reactivate" type="Object.<string, Product>">
+    <prop name="reactivate" type="Object<string, _namecheap.Product>">
       The pricing to reactivate domains.
     </prop>
-    <prop name="transfer" type="Object.<string, Product>">
+    <prop name="transfer" type="Object<string, _namecheap.Product>">
       The pricing to transfer domains.
     </prop>
   </type>
   <type name="SSLPricing" desc="The pricing of certificates." noToc>
-    <prop name="purchase" type="SSLPurchase">
+    <prop name="purchase" type="_namecheap.SSLPurchase">
       The pricing to purchase certificates.
     </prop>
-    <prop name="renew" type="SSLRenew">
+    <prop name="renew" type="_namecheap.SSLRenew">
       The pricing to renew certificates.
     </prop>
   </type>
   <type name="WhoisPricing" desc="The pricing of the Whois Guard." noToc>
-    <prop name="purchase" type="WhoisPurchase">
+    <prop name="purchase" type="_namecheap.WhoisPurchase">
       The pricing to purchase WHOIS guards.
     </prop>
-    <prop name="renew" type="WhoisRenew">
+    <prop name="renew" type="_namecheap.WhoisRenew">
       The pricing to renew WHOIS guards.
     </prop>
   </type>
-  <type name="Product" type="Price[]" desc="A product consists of an array of prices for different durations." noToc>
+  <type name="Product" type="!Array<!_namecheap.Price>" desc="A product consists of an array of prices for different durations." noToc>
   </type>
   <type name="Price" desc="Price data for a product accoding to the duration of an action." noToc>
     <prop number name="Duration">
@@ -70,7 +69,7 @@
     <prop string name="Price">
       Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.
     </prop>
-    <prop name="PricingType" type="'MULTIPLE'">
+    <prop name="PricingType" string>
       Always set to `MULTIPLE`.
     </prop>
     <prop opt string name="AdditionalCost">
@@ -79,25 +78,25 @@
     <prop string name="RegularPrice">
       Indicates regular price, e.g., `39.00`.
     </prop>
-    <prop name="RegularPriceType" type="'MULTIPLE'">
+    <prop name="RegularPriceType" string>
       Always set to `MULTIPLE`.
     </prop>
     <prop opt string name="RegularAdditionalCost">
       Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
     </prop>
-    <prop opt name="RegularAdditionalCostType" type="'MULTIPLE'">
+    <prop opt name="RegularAdditionalCostType" string>
       Always set to `MULTIPLE`.
     </prop>
     <prop string name="YourPrice">
       The user’s price for the product, e.g., `20.88`.
     </prop>
-    <prop name="YourPriceType" type="'MULTIPLE'">
+    <prop name="YourPriceType" string>
       Always set to `MULTIPLE`.
     </prop>
     <prop opt string name="YourAdditonalCost">
       Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
     </prop>
-    <prop opt name="YourAdditonalCostType" type="'MULTIPLE'">
+    <prop opt name="YourAdditonalCostType" string>
       Always set to `MULTIPLE`.
     </prop>
     <prop string name="PromotionPrice">

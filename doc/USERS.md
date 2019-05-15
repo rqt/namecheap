@@ -13,13 +13,13 @@ Returns pricing information for a requested product type.
 
 __<a name="type-getpricing">`GetPricing`</a>__: Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
 
-|   Name    |                                     Type                                     |                                             Description                                             |
-| --------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| __type*__ | <em>('DOMAIN' \| 'SSLCERTIFICATE' \| 'WHOISGUARD')</em>                      | Product Type to get pricing information.                                                            |
-| category  | <em>string</em>                                                              | Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.                   |
-| promoCode | <em>string</em>                                                              | Promotional (coupon) code for the user.                                                             |
-| action    | <em>('REGISTER' \| 'PURCHASE' \| 'RENEW' \| 'REACTIVATE' \| 'TRANSFER')</em> | Specific action within a product type.                                                              |
-| product   | <em>string</em>                                                              | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`. |
+|   Name    |      Type       |                                                 Description                                                  |
+| --------- | --------------- | ------------------------------------------------------------------------------------------------------------ |
+| __type*__ | <em>string</em> | Product Type to get pricing information. One of `('DOMAIN'\|'SSLCERTIFICATE'\|'WHOISGUARD')`                 |
+| category  | <em>string</em> | Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.                            |
+| promoCode | <em>string</em> | Promotional (coupon) code for the user.                                                                      |
+| action    | <em>string</em> | Specific action within a product type. One of `('REGISTER'\|'PURCHASE'\|'RENEW'\|'REACTIVATE'\|'TRANSFER')`. |
+| product   | <em>string</em> | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.          |
 
 The returned object will contain data according to requested types, categories, actions and products.
 
@@ -45,27 +45,27 @@ __<a name="type-pricing">`Pricing`</a>__: The pricing information returned as an
 | __ssl*__        | <em><a href="#type-sslpricing" title="The pricing of certificates.">SSLPricing</a></em>                                                  | The pricing of certificates.    |
 | __whoisguard*__ | <em><a href="#type-whoispricing" title="The pricing of the Whois Guard.">WhoisPricing</a></em>                                           | The pricing of the Whois Guard. |
 
-`Price[]` __<a name="type-product">`Product`</a>__: A product consists of an array of prices for different durations.
+`!Array<!Price>` __<a name="type-product">`Product`</a>__: A product consists of an array of prices for different durations.
 
 __<a name="type-price">`Price`</a>__: Price data for a product accoding to the duration of an action.
 
-|           Name            |        Type         |                                                   Description                                                    |
-| ------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| __Duration*__             | <em>number</em>     | The duration of the product, e.g., `1`.                                                                          |
-| __DurationType*__         | <em>string</em>     | The duration type of the product, e.g., `YEAR`.                                                                  |
-| __Price*__                | <em>string</em>     | Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`. |
-| __PricingType*__          | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
-| AdditionalCost            | <em>string</em>     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
-| __RegularPrice*__         | <em>string</em>     | Indicates regular price, e.g., `39.00`.                                                                          |
-| __RegularPriceType*__     | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
-| RegularAdditionalCost     | <em>string</em>     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
-| RegularAdditionalCostType | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
-| __YourPrice*__            | <em>string</em>     | The user’s price for the product, e.g., `20.88`.                                                                 |
-| __YourPriceType*__        | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
-| YourAdditonalCost         | <em>string</em>     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
-| YourAdditonalCostType     | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
-| __PromotionPrice*__       | <em>string</em>     | Price with coupon enabled.                                                                                       |
-| __Currency*__             | <em>string</em>     | Currency in which the price is listed, e.g., `USD`.                                                              |
+|           Name            |      Type       |                                                   Description                                                    |
+| ------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------- |
+| __Duration*__             | <em>number</em> | The duration of the product, e.g., `1`.                                                                          |
+| __DurationType*__         | <em>string</em> | The duration type of the product, e.g., `YEAR`.                                                                  |
+| __Price*__                | <em>string</em> | Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`. |
+| __PricingType*__          | <em>string</em> | Always set to `MULTIPLE`.                                                                                        |
+| AdditionalCost            | <em>string</em> | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| __RegularPrice*__         | <em>string</em> | Indicates regular price, e.g., `39.00`.                                                                          |
+| __RegularPriceType*__     | <em>string</em> | Always set to `MULTIPLE`.                                                                                        |
+| RegularAdditionalCost     | <em>string</em> | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| RegularAdditionalCostType | <em>string</em> | Always set to `MULTIPLE`.                                                                                        |
+| __YourPrice*__            | <em>string</em> | The user’s price for the product, e.g., `20.88`.                                                                 |
+| __YourPriceType*__        | <em>string</em> | Always set to `MULTIPLE`.                                                                                        |
+| YourAdditonalCost         | <em>string</em> | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| YourAdditonalCostType     | <em>string</em> | Always set to `MULTIPLE`.                                                                                        |
+| __PromotionPrice*__       | <em>string</em> | Price with coupon enabled.                                                                                       |
+| __Currency*__             | <em>string</em> | Currency in which the price is listed, e.g., `USD`.                                                              |
 
 __<a name="type-domainpricing">`DomainPricing`</a>__: The pricing of domains as an object, where the requested zone is a key.
 

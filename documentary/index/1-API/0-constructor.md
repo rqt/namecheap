@@ -11,4 +11,4 @@ Create a new instance of the _NameCheap_ class.
 %EXAMPLE: example, ../src => @rqt/namecheap%
 %FORK-js example%
 
-%~ width="15"%
+%~%

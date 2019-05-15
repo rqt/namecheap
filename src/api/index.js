@@ -96,15 +96,10 @@ const address = {
 const users = {
   /**
    * Returns pricing information for a requested product type.
-   * @param {GetPricing} options Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
- * @param {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} options.type Product Type to get pricing information.
- * @param {string} [options.category] Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
- * @param {string} [options.promoCode] Promotional (coupon) code for the user.
- * @param {'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'} [options.action] Specific action within a product type.
- * @param {string} [options.product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
+   * @param {!_namecheap.GetPricing} options
    */
   async getPricing(options) {
-    /** @type {Pricing} */
+    /** @type {!_namecheap.Pricing} */
     const res = await getPricing(this._query.bind(this), options)
     return res
   },
@@ -118,13 +113,33 @@ const api = {
 
 export default api
 
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../types/typedefs').GetPricing} _namecheap.GetPricing
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../types/typedefs').Pricing} _namecheap.Pricing
+ */
+
 /* documentary types/api/domains/check.xml */
 /**
- * @typedef {Object} Check Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Check} Check Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.Check Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
  * @prop {string} [domain] The domain check.
- * @prop {string[]} [domains] The domains to check.
- *
- * @typedef {Object} DomainCheck The result of the check.
+ * @prop {!Array<string>} [domains] The domains to check.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.DomainCheck} DomainCheck The result of the check.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.DomainCheck The result of the check.
  * @prop {string} Domain The domain name for which you wish to check availability.
  * @prop {boolean} Available Indicates whether the domain name is available for registration.
  * @prop {boolean} IsPremiumName Indicates whether the domain name is premium.
@@ -138,11 +153,22 @@ export default api
 
 /* documentary types/api/domains/get-info.xml */
 /**
- * @typedef {Object} GetInfo Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.GetInfo} GetInfo Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.GetInfo Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
  * @prop {string} domain The domain to get info about.
  * @prop {string} [host] The hosted domain name for which domain information needs to be requested.
- *
- * @typedef {Object} DomainInfo
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.DomainInfo} DomainInfo
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.DomainInfo
  * @prop {string} DomainName Domain name for which the information was requested, e.g., `example.com`.
  * @prop {string} OwnerName User account under which the domain is registered, e.g., `rqt`.
  * @prop {number} ID Unique integer value that represents the domain,e.g., `314928`.
@@ -155,58 +181,111 @@ export default api
  * @prop {PremiumDnsSubscription} PremiumDnsSubscription
  * @prop {DnsDetails} DnsDetails
  * @prop {ModificationRights} ModificationRights
- *
- * @typedef {Object} DomainDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.DomainDetails} DomainDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.DomainDetails
  * @prop {string} CreatedDate `06/06/2018`
  * @prop {string} ExpiredDate `06/06/2019`
  * @prop {number} NumYears 1
- *
- * @typedef {Object} LockDetails
- *
- * @typedef {Object} Whoisguard
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.LockDetails} LockDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.LockDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Whoisguard} Whoisguard
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.Whoisguard
  * @prop {boolean} Enabled `true`
  * @prop {string} ID `264991`
  * @prop {string} ExpiredDate `06/06/2019`
  * @prop {EmailDetails} EmailDetails
- *
- * @typedef {Object} EmailDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.EmailDetails} EmailDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.EmailDetails
  * @prop {number} AutoEmailChangeFrequencyDays `0`
  * @prop {string} ForwardedTo `example@adc.sh`
  * @prop {string} LastAutoEmailChangeDate
  * @prop {string} WhoisGuardEmail `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com`
- *
- * @typedef {Object} PremiumDnsSubscription
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.PremiumDnsSubscription} PremiumDnsSubscription
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.PremiumDnsSubscription
  * @prop {Date} CreatedDate
  * @prop {Date} ExpirationDate
  * @prop {boolean} IsActive `false`
  * @prop {number} SubscriptionId -1
  * @prop {boolean} UseAutoRenew `false`
- *
- * @typedef {Object} DnsDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.DnsDetails} DnsDetails
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.DnsDetails
  * @prop {boolean} DynamicDNSStatus `false`
  * @prop {string} EmailType `FWD`
  * @prop {number} HostCount `2`
  * @prop {boolean} IsFailover `false`
  * @prop {boolean} IsUsingOurDNS `true`
- * @prop {string[]} Nameserver `[dns1.registrar-servers.com, dns2.registrar-servers.com]`
- * @prop {'CUSTOM'|'FREE'} ProviderType `FREE`
- *
- * @typedef {Object} ModificationRights
+ * @prop {!Array<string>} Nameserver `[dns1.registrar-servers.com, dns2.registrar-servers.com]`
+ * @prop {string} ProviderType `CUSTOM` or `FREE`.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.ModificationRights} ModificationRights
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.ModificationRights
  * @prop {boolean} All `true`
  * @prop {boolean} [hosts]
  */
 
 /* documentary types/api/domains/get-list.xml */
 /**
- * @typedef {Object} GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.GetList} GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
  * @prop {'ALL'|'EXPIRING'|'EXPIRED'} [type="ALL"] The type of domains. Default `ALL`.
  * @prop {string} [filter] The keyword to look for in the domain list.
  * @prop {number} [page=1] The page to return. Default `1`.
  * @prop {number} [pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
  * @prop {'name'|'expire'|'create'} [sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
  * @prop {boolean} [desc=false] Whether to sort in descending order. Default `false`.
- *
- * @typedef {Object} Domain
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Domain} Domain
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.Domain
  * @prop {boolean} AutoRenew `false`
  * @prop {string} Created `07/23/2018`
  * @prop {string} Expires `07/23/2019`
@@ -222,7 +301,12 @@ export default api
 
 /* documentary types/api/address/get-info.xml */
 /**
- * @typedef {Object} AddressDetail
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.AddressDetail} AddressDetail
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.AddressDetail
  * @prop {string} EmailAddress Email address of the user.
  * @prop {string} FirstName First name of the user.
  * @prop {string} LastName Last name of the user.
@@ -232,7 +316,7 @@ export default api
  * @prop {string} [Address2] StreetAddress2 of the user.
  * @prop {string} City City of the user.
  * @prop {string} StateProvince State/Province of the user.
- * @prop {'S'|'P'} StateProvinceChoice State/Province choice of the user.
+ * @prop {string} StateProvinceChoice State/Province choice of the user. Either `'S'` or `'P'`.
  * @prop {string} Zip Zip/Postal code of the user.
  * @prop {string} Country Two letter country code of the user.
  * @prop {string} Phone Phone number in the format `+NNN.NNNNNNNNNN`.
@@ -242,25 +326,42 @@ export default api
 
 /* documentary types/api/domains/create.xml */
 /**
- * @typedef {Object} Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Create} Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
  * @prop {string} domain The domain name to register.
  * @prop {number} [years=1] The number of years to register. Default `1`.
  * @prop {string} [promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
- * @prop {string[]} [nameservers] The comma-separated list of custom nameservers to be associated with the domain name.
+ * @prop {!Array<string>} [nameservers] The comma-separated list of custom nameservers to be associated with the domain name.
  * @prop {boolean} [whois=true] Adds free WhoisGuard for the domain. Default `true`.
- * @prop {AddressDetail} address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
- * @prop {AddressDetail} [billingAddress] An address to use for `AuxBilling` address details.
- * @prop {AddressDetail} [registrantAddress] An address to use for `Registrant` address details.
- * @prop {AddressDetail} [techAddress] An address to use for `Tech` address details.
- * @prop {AddressDetail} [adminAddress] An address to use for `Admin` address details.
- * @prop {PremiumInfo} [premium] Information about a premium domain.
- *
- * @typedef {Object} PremiumInfo Information about a premium domain.
+ * @prop {!_namecheap.AddressDetail} address A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
+ * @prop {!_namecheap.AddressDetail} [billingAddress] An address to use for `AuxBilling` address details.
+ * @prop {!_namecheap.AddressDetail} [registrantAddress] An address to use for `Registrant` address details.
+ * @prop {!_namecheap.AddressDetail} [techAddress] An address to use for `Tech` address details.
+ * @prop {!_namecheap.AddressDetail} [adminAddress] An address to use for `Admin` address details.
+ * @prop {!_namecheap.PremiumInfo} [premium] Information about a premium domain.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.PremiumInfo} PremiumInfo Information about a premium domain.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.PremiumInfo Information about a premium domain.
  * @prop {boolean} IsPremiumName Indicates whether the domain name is premium.
  * @prop {boolean} PremiumRegistrationPrice The registration price for the premium domain.
  * @prop {number} [EapFee] The purchase fee for the premium domain during Early Access Program (EAP).
- *
- * @typedef {Object} RegistrationResult Registered domain information.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.RegistrationResult} RegistrationResult Registered domain information.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.RegistrationResult Registered domain information.
  * @prop {string} ChargedAmount Total amount charged for registration.
  * @prop {string} Domain Domain name that you are trying to register.
  * @prop {number} DomainID Unique integer value that represents the domain.
@@ -273,63 +374,25 @@ export default api
 
 /* documentary types/api/address/get-list.xml */
 /**
- * @typedef {Object} Address
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Address} Address
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.Address
  * @prop {number} AddressId A unique integer value that represents the address profile.
  * @prop {number} AddressName The name of the address profile.
  * @prop {boolean} IsDefault Whether it is a default address.
  */
 
-/* documentary types/api/users/get-pricing.xml */
-/**
- * @typedef {Object} GetPricing Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
- * @prop {'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'} type Product Type to get pricing information.
- * @prop {string} [category] Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
- * @prop {string} [promoCode] Promotional (coupon) code for the user.
- * @prop {'REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER'} [action] Specific action within a product type.
- * @prop {string} [product] The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
- *
- * @typedef {Object} Pricing The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`.
- * @prop {DomainPricing} domains The pricing of domains.
- * @prop {SSLPricing} ssl The pricing of certificates.
- * @prop {WhoisPricing} whoisguard The pricing of the Whois Guard.
- *
- * @typedef {Object} DomainPricing The pricing of domains as an object, where the requested zone is a key.
- * @prop {Object.<string, Product>} register The pricing to register domains.
- * @prop {Object.<string, Product>} renew The pricing to renew domains.
- * @prop {Object.<string, Product>} reactivate The pricing to reactivate domains.
- * @prop {Object.<string, Product>} transfer The pricing to transfer domains.
- *
- * @typedef {Object} SSLPricing The pricing of certificates.
- * @prop {SSLPurchase} purchase The pricing to purchase certificates.
- * @prop {SSLRenew} renew The pricing to renew certificates.
- *
- * @typedef {Object} WhoisPricing The pricing of the Whois Guard.
- * @prop {WhoisPurchase} purchase The pricing to purchase WHOIS guards.
- * @prop {WhoisRenew} renew The pricing to renew WHOIS guards.
- *
- * @typedef {Price[]} Product A product consists of an array of prices for different durations.
- *
- * @typedef {Object} Price Price data for a product accoding to the duration of an action.
- * @prop {number} Duration The duration of the product, e.g., `1`.
- * @prop {string} DurationType The duration type of the product, e.g., `YEAR`.
- * @prop {string} Price Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.
- * @prop {'MULTIPLE'} PricingType Always set to `MULTIPLE`.
- * @prop {string} [AdditionalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
- * @prop {string} RegularPrice Indicates regular price, e.g., `39.00`.
- * @prop {'MULTIPLE'} RegularPriceType Always set to `MULTIPLE`.
- * @prop {string} [RegularAdditionalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
- * @prop {'MULTIPLE'} [RegularAdditionalCostType] Always set to `MULTIPLE`.
- * @prop {string} YourPrice The user’s price for the product, e.g., `20.88`.
- * @prop {'MULTIPLE'} YourPriceType Always set to `MULTIPLE`.
- * @prop {string} [YourAdditonalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
- * @prop {'MULTIPLE'} [YourAdditonalCostType] Always set to `MULTIPLE`.
- * @prop {string} PromotionPrice Price with coupon enabled.
- * @prop {string} Currency Currency in which the price is listed, e.g., `USD`.
- */
-
 /* documentary types/api/users/pricing/ssl.xml */
 /**
- * @typedef {Object} SSLPurchase The pricing to purchase certificates.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.SSLPurchase} SSLPurchase The pricing to purchase certificates.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.SSLPurchase The pricing to purchase certificates.
  * @prop {Product} instantssl _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year purchase: `20.88 USD`
  * @prop {Product} positivessl _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year purchase: `8.88 USD`
  * @prop {Product} positivesslWildcard _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year purchase: `76.88 USD`
@@ -374,8 +437,14 @@ export default api
  * @prop {Product} sgcSuperCertsMoresans 1-year purchase: `0.00 USD`
  * @prop {Product} sslWebServerMoresans 1-year purchase: `0.00 USD`
  * @prop {Product} sslWebserverEvMoresans 1-year purchase: `0.00 USD`
- *
- * @typedef {Object} SSLRenew The pricing to renew certificates.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.SSLRenew} SSLRenew The pricing to renew certificates.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.SSLRenew The pricing to renew certificates.
  * @prop {Product} instantssl _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`
  * @prop {Product} positivessl _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year renewal: `7.28 USD`
  * @prop {Product} positivesslWildcard _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year renewal: `77.08 USD`
@@ -409,11 +478,22 @@ export default api
 
 /* documentary types/api/users/pricing/whois.xml */
 /**
- * @typedef {Object} WhoisPurchase The pricing to purchase WHOIS guards.
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.WhoisPurchase} WhoisPurchase The pricing to purchase WHOIS guards.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.WhoisPurchase The pricing to purchase WHOIS guards.
  * @prop {Product} whoisguard5Pack 1-year purchase: `7.88 USD`
  * @prop {Product} whoisguardDualPack 1-year purchase: `4.88 USD`
  * @prop {Product} whoisguardProtectOne 1-year purchase: `0.00 USD`
- *
- * @typedef {Object} WhoisRenew The pricing to renew WHOIS guards.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.WhoisRenew} WhoisRenew The pricing to renew WHOIS guards.
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {Object} _namecheap.WhoisRenew The pricing to renew WHOIS guards.
  * @prop {Product} whoisguardProtectOne 1-year renewal: `0.00 USD`
  */

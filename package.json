@@ -16,9 +16,9 @@
     "doc3": "NODE_DEBUG=doc doc documentary/2-users -o doc/USERS.md -n _namecheap",
     "doc4": "NODE_DEBUG=doc doc documentary/3-address -o doc/ADDRESS.md -n _namecheap",
     "b": "alamode src -o build -s",
-    "d": "yarn-s d1 externs",
-    "d0": "NODE_DEBUG=doc doc src/index.js -g",
+    "d": "yarn-s d1 d2 externs",
     "d1": "typal src -c",
+    "d2": "typal types/typedefs -c",
     "build": "yarn-s d b doc",
     "p": "node price",
     "e": "alanode",
@@ -57,18 +57,17 @@
   },
   "homepage": "https://nameexpensive.com",
   "devDependencies": {
-    "@wrote/read": "1.0.4",
-    "@wrote/write": "1.0.4",
-    "alamode": "2.2.0",
-    "bosom": "1.0.0",
-    "documentary": "1.27.3",
+    "@wrote/read": "^1.0.4",
+    "@wrote/write": "^1.0.4",
+    "alamode": "^2.2.0",
+    "bosom": "^1.0.0",
+    "documentary": "^1.27.3",
     "eslint-config-artdeco": "1.0.1",
-    "snapshot-context": "2.4.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "4.1.1-alpha"
+    "zoroaster": "^4.1.1-alpha"
   },
   "dependencies": {
-    "rexml": "1.4.0",
-    "rqt": "3.1.3"
+    "rexml": "^1.4.0",
+    "rqt": "^3.1.3"
   }
 }

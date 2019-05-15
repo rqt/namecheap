@@ -105,6 +105,8 @@ const GetList = async (client) => {
 
 
 
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/2.svg?sanitize=true"></a></p>
+
 <kbd><a href="/">Back To Readme</a></kbd>
 
 <p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/-1.svg?sanitize=true"></a></p>

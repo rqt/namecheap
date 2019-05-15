@@ -1,15 +1,13 @@
-import { equal, ok, deepEqual } from 'zoroaster/assert'
+import { equal, ok, deepEqual } from '@zoroaster/assert'
 import Context from '../context'
 import NameCheap from '../../src'
-import SnapshotContext from 'snapshot-context'
 import { getAddressObject } from '../../src/api/domains/create'
 import { getError } from '../../src/lib/query'
 
 /** @type {Object.<string, (c: Context, s: SnapshotContext)>} */
 const T = {
-  context: [Context, SnapshotContext],
-  async 'integration'({ ip, user, key, SNAPSHOT_DIR }, { setDir, test }) {
-    setDir(SNAPSHOT_DIR)
+  context: Context,
+  async 'integration'({ ip, user, key }) {
     const namecheap = new NameCheap({
       user, ip, key, sandbox: true,
     })
@@ -47,10 +45,11 @@ const T = {
     const res3 = await namecheap.domains.getInfo({ domain })
     deepEqual(res2, res3)
     const { DnsDetails, DomainDetails } = res3
-    await test('dns-details.json', DnsDetails)
     assertKeys(['CreatedDate', 'ExpiredDate', 'NumYears'], DomainDetails)
     equal(res3.DomainName, domain)
     equal(res3.Status, 'Ok')
+
+    return DnsDetails
   },
   'extracts a keyed address from a raw address'({ address }) {
     const res = getAddressObject(address, 'Registrant')

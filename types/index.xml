@@ -1,4 +1,4 @@
-<types>
+<types namespace="_namecheap">
   <type name="Options" desc="Options for the NameCheap client.">
     <prop string name="user">
       The username required to access the API.

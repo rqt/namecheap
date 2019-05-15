@@ -70,12 +70,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2019-5-15-15-53-55.com',
+{ Domain: 'rqt-example-2019-5-15-16-21-41.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 404038,
-  OrderID: 1483398,
-  TransactionID: 2041138,
+  DomainID: 404051,
+  OrderID: 1483482,
+  TransactionID: 2041242,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -261,8 +261,8 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 404039,
-  DomainName: 'rqt-example-2019-5-15-15-54-11.com',
+  ID: 404053,
+  DomainName: 'rqt-example-2019-5-15-16-21-56.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -272,10 +272,10 @@ const GetInfo = async (domain, client) => {
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 328501,
+     ID: 328514,
      ExpiredDate: '05/15/2020',
      EmailDetails: 
-      { WhoisGuardEmail: 'a7552c7b58dd4d1cb3e99d2faca3df44.protect@whoisguard.com',
+      { WhoisGuardEmail: '10bcdd832a334ef181f443f1db37b91f.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 3 } },
@@ -343,8 +343,8 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 404040,
-       Name: 'rqt-example-2019-5-15-15-54-24.com',
+   [ { ID: 404054,
+       Name: 'rqt-example-2019-5-15-16-22-12.com',
        User: 'zavr',
        Created: '05/15/2019',
        Expires: '05/15/2020',
@@ -358,6 +358,8 @@ const GetList = async (domain, client) => {
   CurrentPage: 1,
   PageSize: 20 }
 ```
+
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/4.svg?sanitize=true"></a></p>
 
 <kbd><a href="/">Back To Readme</a></kbd>
 

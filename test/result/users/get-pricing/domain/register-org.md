@@ -1,4 +1,4 @@
-// retrieves org register pricing
+## retrieves org register pricing
 ["users.getPricing", {
   "type": "DOMAIN",
   "action": "REGISTER",
@@ -30,15 +30,15 @@
         {
           "Duration": 2,
           "DurationType": "YEAR",
-          "Price": "12.88",
-          "PricingType": "MULTIPLE",
+          "Price": "19.38",
+          "PricingType": "ABSOLUTE",
           "AdditionalCost": "0.18",
           "RegularPrice": "12.88",
           "RegularPriceType": "MULTIPLE",
           "RegularAdditionalCost": "0.18",
           "RegularAdditionalCostType": "MULTIPLE",
-          "YourPrice": "12.88",
-          "YourPriceType": "MULTIPLE",
+          "YourPrice": "19.38",
+          "YourPriceType": "ABSOLUTE",
           "YourAdditonalCost": "0.18",
           "YourAdditonalCostType": "MULTIPLE",
           "PromotionPrice": "0.0",

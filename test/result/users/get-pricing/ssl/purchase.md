@@ -1,4 +1,4 @@
-// retrieves SSL purchase price
+## retrieves SSL purchase price
 ["users.getPricing", {
   "type": "SSLCERTIFICATE",
   "action": "PURCHASE",

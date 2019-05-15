@@ -1,4 +1,4 @@
-// retrieves com register pricing
+## retrieves com register pricing
 ["users.getPricing", {
   "type": "DOMAIN",
   "action": "REGISTER",

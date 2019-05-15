@@ -70,7 +70,7 @@
       Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.
     </prop>
     <prop name="PricingType" string>
-      Always set to `MULTIPLE`.
+      Either `MULTIPLE` or `ABSOULTE`.
     </prop>
     <prop opt string name="AdditionalCost">
       Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
@@ -79,25 +79,25 @@
       Indicates regular price, e.g., `39.00`.
     </prop>
     <prop name="RegularPriceType" string>
-      Always set to `MULTIPLE`.
+      Either `MULTIPLE` or `ABSOULTE`.
     </prop>
     <prop opt string name="RegularAdditionalCost">
       Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
     </prop>
     <prop opt name="RegularAdditionalCostType" string>
-      Always set to `MULTIPLE`.
+      Either `MULTIPLE` or `ABSOULTE`.
     </prop>
     <prop string name="YourPrice">
       The user’s price for the product, e.g., `20.88`.
     </prop>
     <prop name="YourPriceType" string>
-      Always set to `MULTIPLE`.
+      Either `MULTIPLE` or `ABSOULTE`.
     </prop>
     <prop opt string name="YourAdditonalCost">
       Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
     </prop>
     <prop opt name="YourAdditonalCostType" string>
-      Always set to `MULTIPLE`.
+      Either `MULTIPLE` or `ABSOULTE`.
     </prop>
     <prop string name="PromotionPrice">
       Price with coupon enabled.

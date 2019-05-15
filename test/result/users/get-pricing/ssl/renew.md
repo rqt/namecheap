@@ -1,4 +1,4 @@
-// retrieves SSL renew price
+## retrieves SSL renew price
 ["users.getPricing", {
   "type": "SSLCERTIFICATE",
   "action": "RENEW",
@@ -13,11 +13,11 @@
         {
           "Duration": 1,
           "DurationType": "YEAR",
-          "Price": "39.00",
+          "Price": "18.88",
           "PricingType": "MULTIPLE",
           "RegularPrice": "39.00",
           "RegularPriceType": "MULTIPLE",
-          "YourPrice": "39.00",
+          "YourPrice": "18.88",
           "YourPriceType": "MULTIPLE",
           "PromotionPrice": "0.0",
           "Currency": "USD"
@@ -25,11 +25,11 @@
         {
           "Duration": 2,
           "DurationType": "YEAR",
-          "Price": "37.50",
+          "Price": "20.88",
           "PricingType": "MULTIPLE",
           "RegularPrice": "37.50",
           "RegularPriceType": "MULTIPLE",
-          "YourPrice": "37.50",
+          "YourPrice": "20.88",
           "YourPriceType": "MULTIPLE",
           "PromotionPrice": "0.0",
           "Currency": "USD"

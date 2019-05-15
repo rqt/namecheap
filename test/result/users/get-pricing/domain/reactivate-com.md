@@ -1,4 +1,4 @@
-// retrieves com reactivate price
+## retrieves com reactivate price
 ["users.getPricing", {
   "type": "DOMAIN",
   "action": "REACTIVATE",

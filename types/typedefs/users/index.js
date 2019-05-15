@@ -60,16 +60,16 @@ export {}
  * @prop {number} Duration The duration of the product, e.g., `1`.
  * @prop {string} DurationType The duration type of the product, e.g., `YEAR`.
  * @prop {string} Price Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`.
- * @prop {string} PricingType Always set to `MULTIPLE`.
+ * @prop {string} PricingType Either `MULTIPLE` or `ABSOULTE`.
  * @prop {string} [AdditionalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
  * @prop {string} RegularPrice Indicates regular price, e.g., `39.00`.
- * @prop {string} RegularPriceType Always set to `MULTIPLE`.
+ * @prop {string} RegularPriceType Either `MULTIPLE` or `ABSOULTE`.
  * @prop {string} [RegularAdditionalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
- * @prop {string} [RegularAdditionalCostType] Always set to `MULTIPLE`.
+ * @prop {string} [RegularAdditionalCostType] Either `MULTIPLE` or `ABSOULTE`.
  * @prop {string} YourPrice The user’s price for the product, e.g., `20.88`.
- * @prop {string} YourPriceType Always set to `MULTIPLE`.
+ * @prop {string} YourPriceType Either `MULTIPLE` or `ABSOULTE`.
  * @prop {string} [YourAdditonalCost] Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.
- * @prop {string} [YourAdditonalCostType] Always set to `MULTIPLE`.
+ * @prop {string} [YourAdditonalCostType] Either `MULTIPLE` or `ABSOULTE`.
  * @prop {string} PromotionPrice Price with coupon enabled.
  * @prop {string} Currency Currency in which the price is listed, e.g., `USD`.
  */

@@ -4,14 +4,13 @@ import NameCheap from '../../src'
 
 const pricing = makeTestSuite('test/result/users/get-pricing', {
   /**
-   * @param {string} input
    * @param {Context} c
    */
-  async getResults(input, { key, user, ip }) {
+  async getResults({ key, user, ip }) {
     const nc = new NameCheap({
       ip, key, user, sandbox: true,
     })
-    const [path, options] = JSON.parse(input)
+    const [path, options] = JSON.parse(this.input)
     const [d, m] = path.split('.')
     const res = await nc[d][m](options)
     return res

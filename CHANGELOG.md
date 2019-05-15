@@ -1,3 +1,9 @@
+## 15 May 2019
+
+### [2.2.0](https://github.com/rqt/namecheap/compare/v2.1.1...v2.2.0)
+
+- [feature] Implement `getHosts` method.
+
 ## 16 November 2018
 
 ### 2.1.1

@@ -1,4 +1,4 @@
-<types>
+<types namespace="_namecheap">
   <type name="Create" desc="Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx" noToc>
     <prop string name="domain">
       The domain name to register.
@@ -9,28 +9,28 @@
     <prop string opt name="promo">
       Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
     </prop>
-    <prop opt name="nameservers" type="string[]">
+    <prop opt name="nameservers" type="!Array<string>">
       The comma-separated list of custom nameservers to be associated with the domain name.
     </prop>
     <prop boolean name="whois" default="true">
       Adds free WhoisGuard for the domain.
     </prop>
-    <prop name="address" type="AddressDetail">
+    <prop name="address" type="!_namecheap.AddressDetail">
       A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`.
     </prop>
-    <prop opt name="billingAddress" type="AddressDetail">
+    <prop opt name="billingAddress" type="!_namecheap.AddressDetail">
       An address to use for `AuxBilling` address details.
     </prop>
-    <prop opt name="registrantAddress" type="AddressDetail">
+    <prop opt name="registrantAddress" type="!_namecheap.AddressDetail">
       An address to use for `Registrant` address details.
     </prop>
-    <prop opt name="techAddress" type="AddressDetail">
+    <prop opt name="techAddress" type="!_namecheap.AddressDetail">
       An address to use for `Tech` address details.
     </prop>
-    <prop opt name="adminAddress" type="AddressDetail">
+    <prop opt name="adminAddress" type="!_namecheap.AddressDetail">
       An address to use for `Admin` address details.
     </prop>
-    <prop opt name="premium" type="PremiumInfo">
+    <prop opt name="premium" type="!_namecheap.PremiumInfo">
       Information about a premium domain.
     </prop>
   </type>

@@ -1,4 +1,4 @@
-<types>
+<types namespace="_namecheap">
   <type name="AddressDetail" noToc>
     <prop string name="EmailAddress">
       Email address of the user.
@@ -27,8 +27,8 @@
     <prop string name="StateProvince">
       State/Province of the user.
     </prop>
-    <prop name="StateProvinceChoice" type="'S'|'P'">
-      State/Province choice of the user.
+    <prop string name="StateProvinceChoice">
+      State/Province choice of the user. Either `'S'` or `'P'`.
     </prop>
     <prop string name="Zip">
       Zip/Postal code of the user.

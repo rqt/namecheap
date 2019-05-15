@@ -10,20 +10,23 @@
     "mask": "yarn t test/mask",
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
-    "doc": "NODE_DEBUG=doc doc documentary -o README.md",
+    "doc": "NODE_DEBUG=doc doc -o README.md -n _namecheap",
     "b": "alamode src -o build -s",
-    "d": "yarn-s d0 d1",
+    "d": "yarn-s d1 externs",
     "d0": "NODE_DEBUG=doc doc src/index.js -g",
-    "d1": "NODE_DEBUG=doc doc src/api/index.js -g",
+    "d1": "typal src -c",
     "build": "yarn-s d b doc",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
     "p": "node price",
-    "e": "node example",
-    "example/": "yarn e example/example.js"
+    "e": "alanode",
+    "example/": "yarn e example/example.js",
+    "externs": "typal externs.js -e"
   },
   "files": [
-    "build"
+    "build",
+    "externs.js"
   ],
+  "externs": "externs.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/rqt/namecheap.git"
@@ -51,18 +54,18 @@
   },
   "homepage": "https://nameexpensive.com",
   "devDependencies": {
-    "@wrote/read": "1.0.0",
-    "@wrote/write": "1.0.0",
-    "alamode": "1.6.0",
+    "@wrote/read": "1.0.4",
+    "@wrote/write": "1.0.4",
+    "alamode": "2.2.0",
     "bosom": "1.0.0",
-    "documentary": "1.20.1",
+    "documentary": "1.27.2",
     "eslint-config-artdeco": "1.0.1",
-    "snapshot-context": "2.0.4",
+    "snapshot-context": "2.4.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.6.6"
+    "zoroaster": "4.1.1-alpha"
   },
   "dependencies": {
-    "rexml": "1.2.0",
-    "rqt": "3.0.1"
+    "rexml": "1.4.0",
+    "rqt": "3.1.3"
   }
 }

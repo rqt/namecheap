@@ -8,7 +8,7 @@ Create a new instance of the _NameCheap_ class.
 
 %TYPEDEF types/index.xml%
 
-%EXAMPLE: example/example.js, ../src => @rqt/namecheap%
-%FORK-js example example/example%
+%EXAMPLE: example, ../src => @rqt/namecheap%
+%FORK-js example%
 
 %~ width="15"%

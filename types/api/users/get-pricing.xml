@@ -1,4 +1,4 @@
-<types>
+<types namespace="_namecheap">
   <type name="GetPricing" desc="Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx" noToc>
     <prop name="type" type="'DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD'">
       Product Type to get pricing information.

@@ -1,9 +1,9 @@
-<types>
+<types namespace="_namecheap">
   <type name="Check" desc="Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx" noToc>
     <prop opt string name="domain">
       The domain check.
     </prop>
-    <prop opt name="domains" type="string[]">
+    <prop opt name="domains" type="!Array<string>">
       The domains to check.
     </prop>
   </type>

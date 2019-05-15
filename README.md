@@ -7,7 +7,7 @@
 `@rqt/namecheap` is an implementation of the [namecheap.com](https://nameexpensive.com) API.
 
 ```sh
-yarn add -E @rqt/namecheap
+yarn add @rqt/namecheap
 ```
 
 ## Table Of Contents
@@ -47,12 +47,12 @@ Create a new instance of the _NameCheap_ class.
 
 __<a name="type-options">`Options`</a>__: Options for the NameCheap client.
 
-|   Name    |   Type    |                                  Description                                  | Default |
-| --------- | --------- | ----------------------------------------------------------------------------- | ------- |
-| __user*__ | _string_  | The username required to access the API.                                      | -       |
-| __key*__  | _string_  | The password required used to access the API.                                 | -       |
-| __ip*__   | _string_  | The IP address of the client accessing the application (End-user IP address). | -       |
-| sandbox   | _boolean_ | Whether to use the sandbox version of the API.                                | `false` |
+|   Name    |       Type       |                                  Description                                  | Default |
+| --------- | ---------------- | ----------------------------------------------------------------------------- | ------- |
+| __user*__ | <em>string</em>  | The username required to access the API.                                      | -       |
+| __key*__  | <em>string</em>  | The password required used to access the API.                                 | -       |
+| __ip*__   | <em>string</em>  | The IP address of the client accessing the application (End-user IP address). | -       |
+| sandbox   | <em>boolean</em> | Whether to use the sandbox version of the API.                                | `false` |
 
 ```js
 /* yarn example/ */
@@ -122,35 +122,35 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2018-10-15-03-22-58.com',
+Registered: { Domain: 'rqt-example-2019-5-15-15-42-48.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 331127,
-  OrderID: 1296667,
-  TransactionID: 1834937,
+  DomainID: 404029,
+  OrderID: 1483391,
+  TransactionID: 2041131,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 331127,
-  DomainName: 'rqt-example-2018-10-15-03-22-58.com',
+  ID: 404029,
+  DomainName: 'rqt-example-2019-5-15-15-42-48.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
   DomainDetails: 
-   { CreatedDate: '10/14/2018',
-     ExpiredDate: '10/15/2019',
+   { CreatedDate: '05/15/2019',
+     ExpiredDate: '05/15/2020',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269540,
-     ExpiredDate: '10/14/2019',
+     ID: 328493,
+     ExpiredDate: '05/15/2020',
      EmailDetails: 
-      { WhoisGuardEmail: 'a8e021e7618345d2aedd242b1f111608.protect@whoisguard.com',
+      { WhoisGuardEmail: '28f39a81ad7d44db97a684aa3f4f1a61.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
-        AutoEmailChangeFrequencyDays: 0 } },
+        AutoEmailChangeFrequencyDays: 3 } },
   PremiumDnsSubscription: 
    { UseAutoRenew: false,
      SubscriptionId: -1,
@@ -168,11 +168,11 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 331127,
-       Name: 'rqt-example-2018-10-15-03-22-58.com',
+   [ { ID: 404029,
+       Name: 'rqt-example-2019-5-15-15-42-48.com',
        User: 'zavr',
-       Created: '10/14/2018',
-       Expires: '10/15/2019',
+       Created: '05/15/2019',
+       Expires: '05/15/2020',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -198,40 +198,40 @@ Register a domain.
 
 __<a name="type-create">`Create`</a>__: Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
 
-|       Name        |                  Type                  |                                                                                   Description                                                                                   | Default |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| __domain*__       | _string_                               | The domain name to register.                                                                                                                                                    | -       |
-| years             | _number_                               | The number of years to register.                                                                                                                                                | `1`     |
-| promo             | _string_                               | Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.                                                              | -       |
-| nameservers       | _string[]_                             | The comma-separated list of custom nameservers to be associated with the domain name.                                                                                           | -       |
-| whois             | _boolean_                              | Adds free WhoisGuard for the domain.                                                                                                                                            | `true`  |
-| __address*__      | _[AddressDetail](#type-addressdetail)_ | A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`. | -       |
-| billingAddress    | _[AddressDetail](#type-addressdetail)_ | An address to use for `AuxBilling` address details.                                                                                                                             | -       |
-| registrantAddress | _[AddressDetail](#type-addressdetail)_ | An address to use for `Registrant` address details.                                                                                                                             | -       |
-| techAddress       | _[AddressDetail](#type-addressdetail)_ | An address to use for `Tech` address details.                                                                                                                                   | -       |
-| adminAddress      | _[AddressDetail](#type-addressdetail)_ | An address to use for `Admin` address details.                                                                                                                                  | -       |
-| premium           | _[PremiumInfo](#type-premiuminfo)_     | Information about a premium domain.                                                                                                                                             | -       |
+|       Name        |                                               Type                                                |                                                                                   Description                                                                                   | Default |
+| ----------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| __domain*__       | <em>string</em>                                                                                   | The domain name to register.                                                                                                                                                    | -       |
+| years             | <em>number</em>                                                                                   | The number of years to register.                                                                                                                                                | `1`     |
+| promo             | <em>string</em>                                                                                   | Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.                                                              | -       |
+| nameservers       | <em>!Array&lt;string&gt;</em>                                                                     | The comma-separated list of custom nameservers to be associated with the domain name.                                                                                           | -       |
+| whois             | <em>boolean</em>                                                                                  | Adds free WhoisGuard for the domain.                                                                                                                                            | `true`  |
+| __address*__      | <em>[!AddressDetail](#type-addressdetail)</em>                                                    | A single address to use for `Registrant`, `Tech`, `Admin`, and `AuxBilling`. Saved addresses can be found out with `namecheap.address.getList` and `namecheap.address.getInfo`. | -       |
+| billingAddress    | <em>[!AddressDetail](#type-addressdetail)</em>                                                    | An address to use for `AuxBilling` address details.                                                                                                                             | -       |
+| registrantAddress | <em>[!AddressDetail](#type-addressdetail)</em>                                                    | An address to use for `Registrant` address details.                                                                                                                             | -       |
+| techAddress       | <em>[!AddressDetail](#type-addressdetail)</em>                                                    | An address to use for `Tech` address details.                                                                                                                                   | -       |
+| adminAddress      | <em>[!AddressDetail](#type-addressdetail)</em>                                                    | An address to use for `Admin` address details.                                                                                                                                  | -       |
+| premium           | <em><a href="#type-premiuminfo" title="Information about a premium domain.">!PremiumInfo</a></em> | Information about a premium domain.                                                                                                                                             | -       |
 
 __<a name="type-premiuminfo">`PremiumInfo`</a>__: Information about a premium domain.
 
-|             Name              |   Type    |                                Description                                 |
-| ----------------------------- | --------- | -------------------------------------------------------------------------- |
-| __IsPremiumName*__            | _boolean_ | Indicates whether the domain name is premium.                              |
-| __PremiumRegistrationPrice*__ | _boolean_ | The registration price for the premium domain.                             |
-| EapFee                        | _number_  | The purchase fee for the premium domain during Early Access Program (EAP). |
+|             Name              |       Type       |                                Description                                 |
+| ----------------------------- | ---------------- | -------------------------------------------------------------------------- |
+| __IsPremiumName*__            | <em>boolean</em> | Indicates whether the domain name is premium.                              |
+| __PremiumRegistrationPrice*__ | <em>boolean</em> | The registration price for the premium domain.                             |
+| EapFee                        | <em>number</em>  | The purchase fee for the premium domain during Early Access Program (EAP). |
 
 __<a name="type-registrationresult">`RegistrationResult`</a>__: Registered domain information.
 
-|          Name          |   Type    |                               Description                                |
-| ---------------------- | --------- | ------------------------------------------------------------------------ |
-| __ChargedAmount*__     | _string_  | Total amount charged for registration.                                   |
-| __Domain*__            | _string_  | Domain name that you are trying to register.                             |
-| __DomainID*__          | _number_  | Unique integer value that represents the domain.                         |
-| __NonRealTimeDomain*__ | _boolean_ | Indicates whether the domain registration is instant (real-time) or not. |
-| __OrderID*__           | _number_  | Unique integer value that represents the order.                          |
-| __Registered*__        | _boolean_ | Indicates whether the domain was registered.                             |
-| __TransactionID*__     | _number_  | Unique integer value that represents the transaction.                    |
-| __WhoisguardEnable*__  | _boolean_ | Indicates whether WhoisGuard protection is enabled for the domain.       |
+|          Name          |       Type       |                               Description                                |
+| ---------------------- | ---------------- | ------------------------------------------------------------------------ |
+| __ChargedAmount*__     | <em>string</em>  | Total amount charged for registration.                                   |
+| __Domain*__            | <em>string</em>  | Domain name that you are trying to register.                             |
+| __DomainID*__          | <em>number</em>  | Unique integer value that represents the domain.                         |
+| __NonRealTimeDomain*__ | <em>boolean</em> | Indicates whether the domain registration is instant (real-time) or not. |
+| __OrderID*__           | <em>number</em>  | Unique integer value that represents the order.                          |
+| __Registered*__        | <em>boolean</em> | Indicates whether the domain was registered.                             |
+| __TransactionID*__     | <em>number</em>  | Unique integer value that represents the transaction.                    |
+| __WhoisguardEnable*__  | <em>boolean</em> | Indicates whether WhoisGuard protection is enabled for the domain.       |
 
 ```js
 /**
@@ -253,12 +253,12 @@ const Create = async (domain, client) => {
 }
 ```
 ```js
-{ Domain: 'rqt-example-2018-10-15-03-23-10.com',
+{ Domain: 'rqt-example-2019-5-15-15-42-59.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 331128,
-  OrderID: 1296668,
-  TransactionID: 1834938,
+  DomainID: 404030,
+  OrderID: 1483392,
+  TransactionID: 2041132,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false }
@@ -272,24 +272,24 @@ Check a domain or domains for availability.
 
 __<a name="type-check">`Check`</a>__: Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
 
-|  Name   |    Type    |      Description      |
-| ------- | ---------- | --------------------- |
-| domain  | _string_   | The domain check.     |
-| domains | _string[]_ | The domains to check. |
+|  Name   |             Type              |      Description      |
+| ------- | ----------------------------- | --------------------- |
+| domain  | <em>string</em>               | The domain check.     |
+| domains | <em>!Array&lt;string&gt;</em> | The domains to check. |
 
 __<a name="type-domaincheck">`DomainCheck`</a>__: The result of the check.
 
-|             Name              |   Type    |                               Description                               |
-| ----------------------------- | --------- | ----------------------------------------------------------------------- |
-| __Domain*__                   | _string_  | The domain name for which you wish to check availability.               |
-| __Available*__                | _boolean_ | Indicates whether the domain name is available for registration.        |
-| __IsPremiumName*__            | _boolean_ | Indicates whether the domain name is premium.                           |
-| __PremiumRegistrationPrice*__ | _boolean_ | The registration price for the premium domain.                          |
-| __PremiumRenewalPrice*__      | _boolean_ | The renewal price for the premium domain.                               |
-| __PremiumRestorePrice*__      | _boolean_ | The restore price for the premium domain.                               |
-| __PremiumTransferPrice*__     | _boolean_ | The transfer price for the premium domain.                              |
-| __EapFee*__                   | _number_  | Purchase fee for the premium domain during Early Access Program (EAP)*. |
-| __IcannFee*__                 | _number_  | Fee charged by ICANN.                                                   |
+|             Name              |       Type       |                               Description                               |
+| ----------------------------- | ---------------- | ----------------------------------------------------------------------- |
+| __Domain*__                   | <em>string</em>  | The domain name for which you wish to check availability.               |
+| __Available*__                | <em>boolean</em> | Indicates whether the domain name is available for registration.        |
+| __IsPremiumName*__            | <em>boolean</em> | Indicates whether the domain name is premium.                           |
+| __PremiumRegistrationPrice*__ | <em>boolean</em> | The registration price for the premium domain.                          |
+| __PremiumRenewalPrice*__      | <em>boolean</em> | The renewal price for the premium domain.                               |
+| __PremiumRestorePrice*__      | <em>boolean</em> | The restore price for the premium domain.                               |
+| __PremiumTransferPrice*__     | <em>boolean</em> | The transfer price for the premium domain.                              |
+| __EapFee*__                   | <em>number</em>  | Purchase fee for the premium domain during Early Access Program (EAP)*. |
+| __IcannFee*__                 | <em>number</em>  | Fee charged by ICANN.                                                   |
 
 ```js
 /**
@@ -349,84 +349,84 @@ Returns information about the requested domain.
 
 __<a name="type-getinfo">`GetInfo`</a>__: Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
 
-|    Name     |   Type   |                                Description                                 |
-| ----------- | -------- | -------------------------------------------------------------------------- |
-| __domain*__ | _string_ | The domain to get info about.                                              |
-| host        | _string_ | The hosted domain name for which domain information needs to be requested. |
+|    Name     |      Type       |                                Description                                 |
+| ----------- | --------------- | -------------------------------------------------------------------------- |
+| __domain*__ | <em>string</em> | The domain to get info about.                                              |
+| host        | <em>string</em> | The hosted domain name for which domain information needs to be requested. |
 
 __<a name="type-domaininfo">`DomainInfo`</a>__
 
-|            Name             |                           Type                           |                                Description                                |
-| --------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------- |
-| __DomainName*__             | _string_                                                 | Domain name for which the information was requested, e.g., `example.com`. |
-| __OwnerName*__              | _string_                                                 | User account under which the domain is registered, e.g., `rqt`.           |
-| __ID*__                     | _number_                                                 | Unique integer value that represents the domain,e.g., `314928`.           |
-| __IsOwner*__                | _boolean_                                                | Indicates whether the API user is the owner of the domain, e.g., `true`.  |
-| __IsPremium*__              | _boolean_                                                | Indicates whether the domain name is premium, e.g., `false`.              |
-| __Status*__                 | _'Ok'\|'Locked'\|'Expired'_                              | Indicates the status of the domain, e.g., `OK`.                           |
-| __DomainDetails*__          | _[DomainDetails](#type-domaindetails)_                   |                                                                           |
-| __LockDetails*__            | _[LockDetails](#type-lockdetails)_                       |                                                                           |
-| __Whoisguard*__             | _[Whoisguard](#type-whoisguard)_                         |                                                                           |
-| __PremiumDnsSubscription*__ | _[PremiumDnsSubscription](#type-premiumdnssubscription)_ |                                                                           |
-| __DnsDetails*__             | _[DnsDetails](#type-dnsdetails)_                         |                                                                           |
-| __ModificationRights*__     | _[ModificationRights](#type-modificationrights)_         |                                                                           |
+|            Name             |                              Type                               |                                Description                                |
+| --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| __DomainName*__             | <em>string</em>                                                 | Domain name for which the information was requested, e.g., `example.com`. |
+| __OwnerName*__              | <em>string</em>                                                 | User account under which the domain is registered, e.g., `rqt`.           |
+| __ID*__                     | <em>number</em>                                                 | Unique integer value that represents the domain,e.g., `314928`.           |
+| __IsOwner*__                | <em>boolean</em>                                                | Indicates whether the API user is the owner of the domain, e.g., `true`.  |
+| __IsPremium*__              | <em>boolean</em>                                                | Indicates whether the domain name is premium, e.g., `false`.              |
+| __Status*__                 | <em>('Ok' \| 'Locked' \| 'Expired')</em>                        | Indicates the status of the domain, e.g., `OK`.                           |
+| __DomainDetails*__          | <em>[DomainDetails](#type-domaindetails)</em>                   |                                                                           |
+| __LockDetails*__            | <em>[LockDetails](#type-lockdetails)</em>                       |                                                                           |
+| __Whoisguard*__             | <em>[Whoisguard](#type-whoisguard)</em>                         |                                                                           |
+| __PremiumDnsSubscription*__ | <em>[PremiumDnsSubscription](#type-premiumdnssubscription)</em> |                                                                           |
+| __DnsDetails*__             | <em>[DnsDetails](#type-dnsdetails)</em>                         |                                                                           |
+| __ModificationRights*__     | <em>[ModificationRights](#type-modificationrights)</em>         |                                                                           |
 
 __<a name="type-domaindetails">`DomainDetails`</a>__
 
-|       Name       |   Type   | Description  |
-| ---------------- | -------- | ------------ |
-| __CreatedDate*__ | _string_ | `06/06/2018` |
-| __ExpiredDate*__ | _string_ | `06/06/2019` |
-| __NumYears*__    | _number_ | 1            |
+|       Name       |      Type       | Description  |
+| ---------------- | --------------- | ------------ |
+| __CreatedDate*__ | <em>string</em> | `06/06/2018` |
+| __ExpiredDate*__ | <em>string</em> | `06/06/2019` |
+| __NumYears*__    | <em>number</em> | 1            |
 
 __<a name="type-lockdetails">`LockDetails`</a>__
 
 __<a name="type-whoisguard">`Whoisguard`</a>__
 
-|       Name        |                 Type                 | Description  |
-| ----------------- | ------------------------------------ | ------------ |
-| __Enabled*__      | _boolean_                            | `true`       |
-| __ID*__           | _string_                             | `264991`     |
-| __ExpiredDate*__  | _string_                             | `06/06/2019` |
-| __EmailDetails*__ | _[EmailDetails](#type-emaildetails)_ |              |
+|       Name        |                    Type                     | Description  |
+| ----------------- | ------------------------------------------- | ------------ |
+| __Enabled*__      | <em>boolean</em>                            | `true`       |
+| __ID*__           | <em>string</em>                             | `264991`     |
+| __ExpiredDate*__  | <em>string</em>                             | `06/06/2019` |
+| __EmailDetails*__ | <em>[EmailDetails](#type-emaildetails)</em> |              |
 
 __<a name="type-emaildetails">`EmailDetails`</a>__
 
-|               Name                |   Type   |                        Description                        |
-| --------------------------------- | -------- | --------------------------------------------------------- |
-| __AutoEmailChangeFrequencyDays*__ | _number_ | `0`                                                       |
-| __ForwardedTo*__                  | _string_ | `example@adc.sh`                                          |
-| __LastAutoEmailChangeDate*__      | _string_ |                                                           |
-| __WhoisGuardEmail*__              | _string_ | `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com` |
+|               Name                |      Type       |                        Description                        |
+| --------------------------------- | --------------- | --------------------------------------------------------- |
+| __AutoEmailChangeFrequencyDays*__ | <em>number</em> | `0`                                                       |
+| __ForwardedTo*__                  | <em>string</em> | `example@adc.sh`                                          |
+| __LastAutoEmailChangeDate*__      | <em>string</em> |                                                           |
+| __WhoisGuardEmail*__              | <em>string</em> | `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com` |
 
 __<a name="type-premiumdnssubscription">`PremiumDnsSubscription`</a>__
 
-|        Name         |   Type    | Description |
-| ------------------- | --------- | ----------- |
-| __CreatedDate*__    | _Date_    |             |
-| __ExpirationDate*__ | _Date_    |             |
-| __IsActive*__       | _boolean_ | `false`     |
-| __SubscriptionId*__ | _number_  | -1          |
-| __UseAutoRenew*__   | _boolean_ | `false`     |
+|        Name         |       Type       | Description |
+| ------------------- | ---------------- | ----------- |
+| __CreatedDate*__    | <em>Date</em>    |             |
+| __ExpirationDate*__ | <em>Date</em>    |             |
+| __IsActive*__       | <em>boolean</em> | `false`     |
+| __SubscriptionId*__ | <em>number</em>  | -1          |
+| __UseAutoRenew*__   | <em>boolean</em> | `false`     |
 
 __<a name="type-dnsdetails">`DnsDetails`</a>__
 
-|         Name          |        Type        |                        Description                         |
-| --------------------- | ------------------ | ---------------------------------------------------------- |
-| __DynamicDNSStatus*__ | _boolean_          | `false`                                                    |
-| __EmailType*__        | _string_           | `FWD`                                                      |
-| __HostCount*__        | _number_           | `2`                                                        |
-| __IsFailover*__       | _boolean_          | `false`                                                    |
-| __IsUsingOurDNS*__    | _boolean_          | `true`                                                     |
-| __Nameserver*__       | _string[]_         | `[dns1.registrar-servers.com, dns2.registrar-servers.com]` |
-| __ProviderType*__     | _'CUSTOM'\|'FREE'_ | `FREE`                                                     |
+|         Name          |             Type              |                        Description                         |
+| --------------------- | ----------------------------- | ---------------------------------------------------------- |
+| __DynamicDNSStatus*__ | <em>boolean</em>              | `false`                                                    |
+| __EmailType*__        | <em>string</em>               | `FWD`                                                      |
+| __HostCount*__        | <em>number</em>               | `2`                                                        |
+| __IsFailover*__       | <em>boolean</em>              | `false`                                                    |
+| __IsUsingOurDNS*__    | <em>boolean</em>              | `true`                                                     |
+| __Nameserver*__       | <em>!Array&lt;string&gt;</em> | `[dns1.registrar-servers.com, dns2.registrar-servers.com]` |
+| __ProviderType*__     | <em>string</em>               | `CUSTOM` or `FREE`.                                        |
 
 __<a name="type-modificationrights">`ModificationRights`</a>__
 
-|   Name   |   Type    | Description |
-| -------- | --------- | ----------- |
-| __All*__ | _boolean_ | `true`      |
-| hosts    | _boolean_ |             |
+|   Name   |       Type       | Description |
+| -------- | ---------------- | ----------- |
+| __All*__ | <em>boolean</em> | `true`      |
+| hosts    | <em>boolean</em> |             |
 
 ```js
 /**
@@ -444,24 +444,24 @@ const GetInfo = async (domain, client) => {
 ```
 ```js
 { Status: 'Ok',
-  ID: 331129,
-  DomainName: 'rqt-example-2018-10-15-03-23-32.com',
+  ID: 404031,
+  DomainName: 'rqt-example-2019-5-15-15-43-16.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
   DomainDetails: 
-   { CreatedDate: '10/14/2018',
-     ExpiredDate: '10/15/2019',
+   { CreatedDate: '05/15/2019',
+     ExpiredDate: '05/15/2020',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 269542,
-     ExpiredDate: '10/14/2019',
+     ID: 328495,
+     ExpiredDate: '05/15/2020',
      EmailDetails: 
-      { WhoisGuardEmail: '7af75c96630b4b36bc7dc69c01848125.protect@whoisguard.com',
+      { WhoisGuardEmail: '2f1cb33dfd214b03a1981b1e3186902d.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
-        AutoEmailChangeFrequencyDays: 0 } },
+        AutoEmailChangeFrequencyDays: 3 } },
   PremiumDnsSubscription: 
    { UseAutoRenew: false,
      SubscriptionId: -1,
@@ -487,30 +487,30 @@ Returns a list of domains for the particular user.
 
 __<a name="type-getlist">`GetList`</a>__: Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
 
-|   Name   |              Type              |                                                     Description                                                      | Default  |
-| -------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------- |
-| type     | _'ALL'\|'EXPIRING'\|'EXPIRED'_ | The type of domains.                                                                                                 | `ALL`    |
-| filter   | _string_                       | The keyword to look for in the domain list.                                                                          | -        |
-| page     | _number_                       | The page to return.                                                                                                  | `1`      |
-| pageSize | _number_                       | The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100.                         | `20`     |
-| sort     | _'name'\|'expire'\|'create'_   | The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. | `create` |
-| desc     | _boolean_                      | Whether to sort in descending order.                                                                                 | `false`  |
+|   Name   |                    Type                     |                                                     Description                                                      | Default  |
+| -------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------- |
+| type     | <em>('ALL' \| 'EXPIRING' \| 'EXPIRED')</em> | The type of domains.                                                                                                 | `ALL`    |
+| filter   | <em>string</em>                             | The keyword to look for in the domain list.                                                                          | -        |
+| page     | <em>number</em>                             | The page to return.                                                                                                  | `1`      |
+| pageSize | <em>number</em>                             | The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100.                         | `20`     |
+| sort     | <em>('name' \| 'expire' \| 'create')</em>   | The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. | `create` |
+| desc     | <em>boolean</em>                            | Whether to sort in descending order.                                                                                 | `false`  |
 
 __<a name="type-domain">`Domain`</a>__
 
-|      Name       |   Type    | Description  |
-| --------------- | --------- | ------------ |
-| __AutoRenew*__  | _boolean_ | `false`      |
-| __Created*__    | _string_  | `07/23/2018` |
-| __Expires*__    | _string_  | `07/23/2019` |
-| __ID*__         | _number_  | `314928`     |
-| __IsExpired*__  | _boolean_ | `false`      |
-| __IsLocked*__   | _boolean_ | `false`      |
-| __IsOurDNS*__   | _boolean_ | `true`       |
-| __IsPremium*__  | _boolean_ | `false`      |
-| __Name*__       | _string_  | `domain.app` |
-| __User*__       | _string_  | `user`       |
-| __WhoisGuard*__ | _string_  | `ENABLED`    |
+|      Name       |       Type       | Description  |
+| --------------- | ---------------- | ------------ |
+| __AutoRenew*__  | <em>boolean</em> | `false`      |
+| __Created*__    | <em>string</em>  | `07/23/2018` |
+| __Expires*__    | <em>string</em>  | `07/23/2019` |
+| __ID*__         | <em>number</em>  | `314928`     |
+| __IsExpired*__  | <em>boolean</em> | `false`      |
+| __IsLocked*__   | <em>boolean</em> | `false`      |
+| __IsOurDNS*__   | <em>boolean</em> | `true`       |
+| __IsPremium*__  | <em>boolean</em> | `false`      |
+| __Name*__       | <em>string</em>  | `domain.app` |
+| __User*__       | <em>string</em>  | `user`       |
+| __WhoisGuard*__ | <em>string</em>  | `ENABLED`    |
 
 ```js
 /**
@@ -526,11 +526,11 @@ const GetList = async (domain, client) => {
 ```
 ```js
 { domains: 
-   [ { ID: 331130,
-       Name: 'rqt-example-2018-10-15-03-23-48.com',
+   [ { ID: 404032,
+       Name: 'rqt-example-2019-5-15-15-43-30.com',
        User: 'zavr',
-       Created: '10/14/2018',
-       Expires: '10/15/2019',
+       Created: '05/15/2019',
+       Expires: '05/15/2020',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -554,13 +554,13 @@ Returns pricing information for a requested product type.
 
 __<a name="type-getpricing">`GetPricing`</a>__: Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx
 
-|   Name    |                            Type                             |                                             Description                                             |
-| --------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| __type*__ | _'DOMAIN'\|'SSLCERTIFICATE'\|'WHOISGUARD'_                  | Product Type to get pricing information.                                                            |
-| category  | _string_                                                    | Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.                   |
-| promoCode | _string_                                                    | Promotional (coupon) code for the user.                                                             |
-| action    | _'REGISTER'\|'PURCHASE'\|'RENEW'\|'REACTIVATE'\|'TRANSFER'_ | Specific action within a product type.                                                              |
-| product   | _string_                                                    | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`. |
+|   Name    |                                     Type                                     |                                             Description                                             |
+| --------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| __type*__ | <em>('DOMAIN' \| 'SSLCERTIFICATE' \| 'WHOISGUARD')</em>                      | Product Type to get pricing information.                                                            |
+| category  | <em>string</em>                                                              | Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.                   |
+| promoCode | <em>string</em>                                                              | Promotional (coupon) code for the user.                                                             |
+| action    | <em>('REGISTER' \| 'PURCHASE' \| 'RENEW' \| 'REACTIVATE' \| 'TRANSFER')</em> | Specific action within a product type.                                                              |
+| product   | <em>string</em>                                                              | The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`. |
 
 The returned object will contain data according to requested types, categories, actions and products.
 
@@ -580,161 +580,161 @@ const GetPricing = async (client, options = {
 
 __<a name="type-pricing">`Pricing`</a>__: The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`.
 
-|      Name       |                  Type                  |           Description           |
-| --------------- | -------------------------------------- | ------------------------------- |
-| __domains*__    | _[DomainPricing](#type-domainpricing)_ | The pricing of domains.         |
-| __ssl*__        | _[SSLPricing](#type-sslpricing)_       | The pricing of certificates.    |
-| __whoisguard*__ | _[WhoisPricing](#type-whoispricing)_   | The pricing of the Whois Guard. |
+|      Name       |                                                                   Type                                                                   |           Description           |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| __domains*__    | <em><a href="#type-domainpricing" title="The pricing of domains as an object, where the requested zone is a key.">DomainPricing</a></em> | The pricing of domains.         |
+| __ssl*__        | <em><a href="#type-sslpricing" title="The pricing of certificates.">SSLPricing</a></em>                                                  | The pricing of certificates.    |
+| __whoisguard*__ | <em><a href="#type-whoispricing" title="The pricing of the Whois Guard.">WhoisPricing</a></em>                                           | The pricing of the Whois Guard. |
 
 `Price[]` __<a name="type-product">`Product`</a>__: A product consists of an array of prices for different durations.
 
 __<a name="type-price">`Price`</a>__: Price data for a product accoding to the duration of an action.
 
-|           Name            |     Type     |                                                   Description                                                    |
-| ------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- |
-| __Duration*__             | _number_     | The duration of the product, e.g., `1`.                                                                          |
-| __DurationType*__         | _string_     | The duration type of the product, e.g., `YEAR`.                                                                  |
-| __Price*__                | _string_     | Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`. |
-| __PricingType*__          | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
-| AdditionalCost            | _string_     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
-| __RegularPrice*__         | _string_     | Indicates regular price, e.g., `39.00`.                                                                          |
-| __RegularPriceType*__     | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
-| RegularAdditionalCost     | _string_     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
-| RegularAdditionalCostType | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
-| __YourPrice*__            | _string_     | The user’s price for the product, e.g., `20.88`.                                                                 |
-| __YourPriceType*__        | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
-| YourAdditonalCost         | _string_     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
-| YourAdditonalCostType     | _'MULTIPLE'_ | Always set to `MULTIPLE`.                                                                                        |
-| __PromotionPrice*__       | _string_     | Price with coupon enabled.                                                                                       |
-| __Currency*__             | _string_     | Currency in which the price is listed, e.g., `USD`.                                                              |
+|           Name            |        Type         |                                                   Description                                                    |
+| ------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| __Duration*__             | <em>number</em>     | The duration of the product, e.g., `1`.                                                                          |
+| __DurationType*__         | <em>string</em>     | The duration type of the product, e.g., `YEAR`.                                                                  |
+| __Price*__                | <em>string</em>     | Indicates Final price (it can be from regular, userprice, special price,promo price, tier price), e.g., `20.88`. |
+| __PricingType*__          | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
+| AdditionalCost            | <em>string</em>     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| __RegularPrice*__         | <em>string</em>     | Indicates regular price, e.g., `39.00`.                                                                          |
+| __RegularPriceType*__     | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
+| RegularAdditionalCost     | <em>string</em>     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| RegularAdditionalCostType | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
+| __YourPrice*__            | <em>string</em>     | The user’s price for the product, e.g., `20.88`.                                                                 |
+| __YourPriceType*__        | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
+| YourAdditonalCost         | <em>string</em>     | Any additional costs, such as ICANN fee for a domain registration, e.g., `0.18`.                                 |
+| YourAdditonalCostType     | <em>'MULTIPLE'</em> | Always set to `MULTIPLE`.                                                                                        |
+| __PromotionPrice*__       | <em>string</em>     | Price with coupon enabled.                                                                                       |
+| __Currency*__             | <em>string</em>     | Currency in which the price is listed, e.g., `USD`.                                                              |
 
 __<a name="type-domainpricing">`DomainPricing`</a>__: The pricing of domains as an object, where the requested zone is a key.
 
-|      Name       |                       Type                        |            Description             |
-| --------------- | ------------------------------------------------- | ---------------------------------- |
-| __register*__   | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to register domains.   |
-| __renew*__      | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to renew domains.      |
-| __reactivate*__ | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to reactivate domains. |
-| __transfer*__   | _Object.&lt;string, [Product](#type-product)&gt;_ | The pricing to transfer domains.   |
+|      Name       |                                                                     Type                                                                     |            Description             |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| __register*__   | <em>Object&lt;string, <a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a>&gt;</em> | The pricing to register domains.   |
+| __renew*__      | <em>Object&lt;string, <a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a>&gt;</em> | The pricing to renew domains.      |
+| __reactivate*__ | <em>Object&lt;string, <a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a>&gt;</em> | The pricing to reactivate domains. |
+| __transfer*__   | <em>Object&lt;string, <a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a>&gt;</em> | The pricing to transfer domains.   |
 
 __<a name="type-sslpricing">`SSLPricing`</a>__: The pricing of certificates.
 
-|     Name      |                Type                |              Description              |
-| ------------- | ---------------------------------- | ------------------------------------- |
-| __purchase*__ | _[SSLPurchase](#type-sslpurchase)_ | The pricing to purchase certificates. |
-| __renew*__    | _[SSLRenew](#type-sslrenew)_       | The pricing to renew certificates.    |
+|     Name      |                                                Type                                                |              Description              |
+| ------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| __purchase*__ | <em><a href="#type-sslpurchase" title="The pricing to purchase certificates.">SSLPurchase</a></em> | The pricing to purchase certificates. |
+| __renew*__    | <em><a href="#type-sslrenew" title="The pricing to renew certificates.">SSLRenew</a></em>          | The pricing to renew certificates.    |
 
 <details>
 <summary>Show SSL Product Pricing</summary>
 
 __<a name="type-sslpurchase">`SSLPurchase`</a>__: The pricing to purchase certificates.
 
-|                     Name                     |            Type            |                                                                    Description                                                                    |
-| -------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| __instantssl*__                              | _[Product](#type-product)_ | _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year purchase: `20.88 USD`                             |
-| __positivessl*__                             | _[Product](#type-product)_ | _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year purchase: `8.88 USD`                            |
-| __positivesslWildcard*__                     | _[Product](#type-product)_ | _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year purchase: `76.88 USD`         |
-| __premiumssl*__                              | _[Product](#type-product)_ | _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year purchase: `79.00 USD`                             |
-| __quicksslPremium*__                         | _[Product](#type-product)_ | 1-year purchase: `56.88 USD`                                                                                                                      |
-| __rapidssl*__                                | _[Product](#type-product)_ | 1-year purchase: `10.95 USD`                                                                                                                      |
-| __rapidsslWildcard*__                        | _[Product](#type-product)_ | 1-year purchase: `148.88 USD`                                                                                                                     |
-| __secureSite*__                              | _[Product](#type-product)_ | 1-year purchase: `285.88 USD`                                                                                                                     |
-| __secureSitePro*__                           | _[Product](#type-product)_ | 1-year purchase: `675.88 USD`                                                                                                                     |
-| __secureSiteProWithEv*__                     | _[Product](#type-product)_ | 1-year purchase: `961.88 USD`                                                                                                                     |
-| __secureSiteWithEv*__                        | _[Product](#type-product)_ | 1-year purchase: `666.88 USD`                                                                                                                     |
-| __trueBusinessid*__                          | _[Product](#type-product)_ | 1-year purchase: `98.00 USD`                                                                                                                      |
-| __trueBusinessidWildcard*__                  | _[Product](#type-product)_ | 1-year purchase: `389.00 USD`                                                                                                                     |
-| __trueBusinessidWithEv*__                    | _[Product](#type-product)_ | 1-year purchase: `179.00 USD`                                                                                                                     |
-| __premiumsslWildcard*__                      | _[Product](#type-product)_ | _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year purchase: `169.00 USD`          |
-| __essentialssl*__                            | _[Product](#type-product)_ | _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year purchase: `18.88 USD`                         |
-| __essentialsslWildcard*__                    | _[Product](#type-product)_ | _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year purchase: `74.88 USD`       |
-| __evSsl*__                                   | _[Product](#type-product)_ | _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year purchase: `78.88 USD`                                         |
-| __instantsslPro*__                           | _[Product](#type-product)_ | _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year purchase: `38.88 USD`                     |
-| __ssl123*__                                  | _[Product](#type-product)_ | 1-year purchase: `39.00 USD`                                                                                                                      |
-| __sslWebServer*__                            | _[Product](#type-product)_ | 1-year purchase: `88.88 USD`                                                                                                                      |
-| __sslWebserverEv*__                          | _[Product](#type-product)_ | 1-year purchase: `163.88 USD`                                                                                                                     |
-| __comodossl*__                               | _[Product](#type-product)_ | 1-year purchase: `35.00 USD`                                                                                                                      |
-| __comodosslWildcard*__                       | _[Product](#type-product)_ | 1-year purchase: `170.00 USD`                                                                                                                     |
-| __comodosslMultiDomainSsl*__                 | _[Product](#type-product)_ | _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year purchase: `89.88 USD`                 |
-| __comodosslMultiDomainSslMoresans*__         | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __comodosslEvMultiDomainSsl*__               | _[Product](#type-product)_ | _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year purchase: `168.88 USD`          |
-| __comodosslEvMultiDomainSslMoresans*__       | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __positivesslMultiDomain*__                  | _[Product](#type-product)_ | _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year purchase: `29.88 USD` |
-| __positivesslMultiDomainMoresans*__          | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __trueBusinessidMultiDomain*__               | _[Product](#type-product)_ | 1-year purchase: `179.88 USD`                                                                                                                     |
-| __trueBusinessidMultiDomainMoresans*__       | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __trueBusinessidWithEvMultiDomain*__         | _[Product](#type-product)_ | 1-year purchase: `237.88 USD`                                                                                                                     |
-| __trueBusinessidWithEvMultiDomainMoresans*__ | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __unifiedCommunications*__                   | _[Product](#type-product)_ | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year purchase: `89.88 USD`     |
-| __unifiedCommunicationsMoresans*__           | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __secureSiteMoresans*__                      | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __quicksslPremiumMoresans*__                 | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __secureSiteProMoresans*__                   | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __secureSiteProWithEvMoresans*__             | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __secureSiteWithEvMoresans*__                | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __sgcSuperCertsMoresans*__                   | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __sslWebServerMoresans*__                    | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
-| __sslWebserverEvMoresans*__                  | _[Product](#type-product)_ | 1-year purchase: `0.00 USD`                                                                                                                       |
+|                     Name                     |                                                          Type                                                          |                                                                    Description                                                                    |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| __instantssl*__                              | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year purchase: `20.88 USD`                             |
+| __positivessl*__                             | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year purchase: `8.88 USD`                            |
+| __positivesslWildcard*__                     | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year purchase: `76.88 USD`         |
+| __premiumssl*__                              | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year purchase: `79.00 USD`                             |
+| __quicksslPremium*__                         | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `56.88 USD`                                                                                                                      |
+| __rapidssl*__                                | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `10.95 USD`                                                                                                                      |
+| __rapidsslWildcard*__                        | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `148.88 USD`                                                                                                                     |
+| __secureSite*__                              | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `285.88 USD`                                                                                                                     |
+| __secureSitePro*__                           | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `675.88 USD`                                                                                                                     |
+| __secureSiteProWithEv*__                     | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `961.88 USD`                                                                                                                     |
+| __secureSiteWithEv*__                        | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `666.88 USD`                                                                                                                     |
+| __trueBusinessid*__                          | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `98.00 USD`                                                                                                                      |
+| __trueBusinessidWildcard*__                  | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `389.00 USD`                                                                                                                     |
+| __trueBusinessidWithEv*__                    | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `179.00 USD`                                                                                                                     |
+| __premiumsslWildcard*__                      | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year purchase: `169.00 USD`          |
+| __essentialssl*__                            | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year purchase: `18.88 USD`                         |
+| __essentialsslWildcard*__                    | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year purchase: `74.88 USD`       |
+| __evSsl*__                                   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year purchase: `78.88 USD`                                         |
+| __instantsslPro*__                           | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year purchase: `38.88 USD`                     |
+| __ssl123*__                                  | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `39.00 USD`                                                                                                                      |
+| __sslWebServer*__                            | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `88.88 USD`                                                                                                                      |
+| __sslWebserverEv*__                          | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `163.88 USD`                                                                                                                     |
+| __comodossl*__                               | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `35.00 USD`                                                                                                                      |
+| __comodosslWildcard*__                       | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `170.00 USD`                                                                                                                     |
+| __comodosslMultiDomainSsl*__                 | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year purchase: `89.88 USD`                 |
+| __comodosslMultiDomainSslMoresans*__         | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __comodosslEvMultiDomainSsl*__               | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year purchase: `168.88 USD`          |
+| __comodosslEvMultiDomainSslMoresans*__       | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __positivesslMultiDomain*__                  | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year purchase: `29.88 USD` |
+| __positivesslMultiDomainMoresans*__          | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __trueBusinessidMultiDomain*__               | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `179.88 USD`                                                                                                                     |
+| __trueBusinessidMultiDomainMoresans*__       | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __trueBusinessidWithEvMultiDomain*__         | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `237.88 USD`                                                                                                                     |
+| __trueBusinessidWithEvMultiDomainMoresans*__ | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __unifiedCommunications*__                   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year purchase: `89.88 USD`     |
+| __unifiedCommunicationsMoresans*__           | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteMoresans*__                      | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __quicksslPremiumMoresans*__                 | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteProMoresans*__                   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteProWithEvMoresans*__             | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __secureSiteWithEvMoresans*__                | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __sgcSuperCertsMoresans*__                   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __sslWebServerMoresans*__                    | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
+| __sslWebserverEvMoresans*__                  | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD`                                                                                                                       |
 
 __<a name="type-sslrenew">`SSLRenew`</a>__: The pricing to renew certificates.
 
-|                 Name                 |            Type            |                                                                   Description                                                                    |
-| ------------------------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| __instantssl*__                      | _[Product](#type-product)_ | _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`                             |
-| __positivessl*__                     | _[Product](#type-product)_ | _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year renewal: `7.28 USD`                            |
-| __positivesslWildcard*__             | _[Product](#type-product)_ | _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year renewal: `77.08 USD`         |
-| __premiumssl*__                      | _[Product](#type-product)_ | _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year renewal: `64.78 USD`                             |
-| __quicksslPremium*__                 | _[Product](#type-product)_ | 1-year renewal: `46.64 USD`                                                                                                                      |
-| __rapidssl*__                        | _[Product](#type-product)_ | 1-year renewal: `8.98 USD`                                                                                                                       |
-| __rapidsslWildcard*__                | _[Product](#type-product)_ | 1-year renewal: `122.08 USD`                                                                                                                     |
-| __secureSite*__                      | _[Product](#type-product)_ | 1-year renewal: `234.42 USD`                                                                                                                     |
-| __secureSitePro*__                   | _[Product](#type-product)_ | 1-year renewal: `554.22 USD`                                                                                                                     |
-| __secureSiteProWithEv*__             | _[Product](#type-product)_ | 1-year renewal: `788.74 USD`                                                                                                                     |
-| __secureSiteWithEv*__                | _[Product](#type-product)_ | 1-year renewal: `546.84 USD`                                                                                                                     |
-| __trueBusinessid*__                  | _[Product](#type-product)_ | 1-year renewal: `80.36 USD`                                                                                                                      |
-| __trueBusinessidWildcard*__          | _[Product](#type-product)_ | 1-year renewal: `318.98 USD`                                                                                                                     |
-| __trueBusinessidWithEv*__            | _[Product](#type-product)_ | 1-year renewal: `146.78 USD`                                                                                                                     |
-| __ssl123*__                          | _[Product](#type-product)_ | 1-year renewal: `31.98 USD`                                                                                                                      |
-| __sslWebServer*__                    | _[Product](#type-product)_ | 1-year renewal: `72.88 USD`                                                                                                                      |
-| __sslWebserverEv*__                  | _[Product](#type-product)_ | 1-year renewal: `134.38 USD`                                                                                                                     |
-| __essentialssl*__                    | _[Product](#type-product)_ | _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year renewal: `18.88 USD`                         |
-| __essentialsslWildcard*__            | _[Product](#type-product)_ | _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year renewal: `74.88 USD`       |
-| __evSsl*__                           | _[Product](#type-product)_ | _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year renewal: `118.90 USD`                                        |
-| __instantsslPro*__                   | _[Product](#type-product)_ | _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year renewal: `48.38 USD`                     |
-| __premiumsslWildcard*__              | _[Product](#type-product)_ | _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year renewal: `138.58 USD`          |
-| __comodossl*__                       | _[Product](#type-product)_ | 1-year renewal: `28.70 USD`                                                                                                                      |
-| __comodosslMultiDomainSsl*__         | _[Product](#type-product)_ | _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year renewal: `73.70 USD`                 |
-| __comodosslEvMultiDomainSsl*__       | _[Product](#type-product)_ | _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year renewal: `203.26 USD`          |
-| __positivesslMultiDomain*__          | _[Product](#type-product)_ | _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year renewal: `24.50 USD` |
-| __trueBusinessidMultiDomain*__       | _[Product](#type-product)_ | 1-year renewal: `147.50 USD`                                                                                                                     |
-| __trueBusinessidWithEvMultiDomain*__ | _[Product](#type-product)_ | 1-year renewal: `195.06 USD`                                                                                                                     |
-| __unifiedCommunications*__           | _[Product](#type-product)_ | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year renewal: `73.70 USD`     |
+|                 Name                 |                                                          Type                                                          |                                                                   Description                                                                    |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| __instantssl*__                      | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`                             |
+| __positivessl*__                     | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PositiveSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl.aspx. 1-year renewal: `7.28 USD`                            |
+| __positivesslWildcard*__             | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PositiveSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-wildcard.aspx. 1-year renewal: `77.08 USD`         |
+| __premiumssl*__                      | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PremiumSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl.aspx. 1-year renewal: `64.78 USD`                             |
+| __quicksslPremium*__                 | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `46.64 USD`                                                                                                                      |
+| __rapidssl*__                        | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `8.98 USD`                                                                                                                       |
+| __rapidsslWildcard*__                | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `122.08 USD`                                                                                                                     |
+| __secureSite*__                      | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `234.42 USD`                                                                                                                     |
+| __secureSitePro*__                   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `554.22 USD`                                                                                                                     |
+| __secureSiteProWithEv*__             | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `788.74 USD`                                                                                                                     |
+| __secureSiteWithEv*__                | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `546.84 USD`                                                                                                                     |
+| __trueBusinessid*__                  | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `80.36 USD`                                                                                                                      |
+| __trueBusinessidWildcard*__          | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `318.98 USD`                                                                                                                     |
+| __trueBusinessidWithEv*__            | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `146.78 USD`                                                                                                                     |
+| __ssl123*__                          | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `31.98 USD`                                                                                                                      |
+| __sslWebServer*__                    | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `72.88 USD`                                                                                                                      |
+| __sslWebserverEv*__                  | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `134.38 USD`                                                                                                                     |
+| __essentialssl*__                    | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EssentialSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl.aspx. 1-year renewal: `18.88 USD`                         |
+| __essentialsslWildcard*__            | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EssentialSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/essentialssl-wildcard.aspx. 1-year renewal: `74.88 USD`       |
+| __evSsl*__                           | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EV SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev.aspx. 1-year renewal: `118.90 USD`                                        |
+| __instantsslPro*__                   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _InstantSSL Pro_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl-pro.aspx. 1-year renewal: `48.38 USD`                     |
+| __premiumsslWildcard*__              | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PremiumSSL Wildcard_ https://www.namecheap.com/security/ssl-certificates/comodo/premiumssl-wildcard.aspx. 1-year renewal: `138.58 USD`          |
+| __comodossl*__                       | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `28.70 USD`                                                                                                                      |
+| __comodosslMultiDomainSsl*__         | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/multi-domain-ssl.aspx. 1-year renewal: `73.70 USD`                 |
+| __comodosslEvMultiDomainSsl*__       | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _EV Multi-Domain SSL_ https://www.namecheap.com/security/ssl-certificates/comodo/ev-multi-domain-ssl.aspx. 1-year renewal: `203.26 USD`          |
+| __positivesslMultiDomain*__          | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _PositiveSSL Multi-Domain_ https://www.namecheap.com/security/ssl-certificates/comodo/positivessl-multi-domain.aspx. 1-year renewal: `24.50 USD` |
+| __trueBusinessidMultiDomain*__       | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `147.50 USD`                                                                                                                     |
+| __trueBusinessidWithEvMultiDomain*__ | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `195.06 USD`                                                                                                                     |
+| __unifiedCommunications*__           | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year renewal: `73.70 USD`     |
 </details>
 <br/>
 
 __<a name="type-whoispricing">`WhoisPricing`</a>__: The pricing of the Whois Guard.
 
-|     Name      |                  Type                  |              Description              |
-| ------------- | -------------------------------------- | ------------------------------------- |
-| __purchase*__ | _[WhoisPurchase](#type-whoispurchase)_ | The pricing to purchase WHOIS guards. |
-| __renew*__    | _[WhoisRenew](#type-whoisrenew)_       | The pricing to renew WHOIS guards.    |
+|     Name      |                                                  Type                                                  |              Description              |
+| ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| __purchase*__ | <em><a href="#type-whoispurchase" title="The pricing to purchase WHOIS guards.">WhoisPurchase</a></em> | The pricing to purchase WHOIS guards. |
+| __renew*__    | <em><a href="#type-whoisrenew" title="The pricing to renew WHOIS guards.">WhoisRenew</a></em>          | The pricing to renew WHOIS guards.    |
 
 <details>
 <summary>Show Whois Product Pricing</summary>
 
 __<a name="type-whoispurchase">`WhoisPurchase`</a>__: The pricing to purchase WHOIS guards.
 
-|           Name            |            Type            |         Description         |
-| ------------------------- | -------------------------- | --------------------------- |
-| __whoisguard5Pack*__      | _[Product](#type-product)_ | 1-year purchase: `7.88 USD` |
-| __whoisguardDualPack*__   | _[Product](#type-product)_ | 1-year purchase: `4.88 USD` |
-| __whoisguardProtectOne*__ | _[Product](#type-product)_ | 1-year purchase: `0.00 USD` |
+|           Name            |                                                          Type                                                          |         Description         |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| __whoisguard5Pack*__      | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `7.88 USD` |
+| __whoisguardDualPack*__   | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `4.88 USD` |
+| __whoisguardProtectOne*__ | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year purchase: `0.00 USD` |
 
 __<a name="type-whoisrenew">`WhoisRenew`</a>__: The pricing to renew WHOIS guards.
 
-|           Name            |            Type            |        Description         |
-| ------------------------- | -------------------------- | -------------------------- |
-| __whoisguardProtectOne*__ | _[Product](#type-product)_ | 1-year renewal: `0.00 USD` |
+|           Name            |                                                          Type                                                          |        Description         |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| __whoisguardProtectOne*__ | <em><a href="#type-product" title="A product consists of an array of prices for different durations.">Product</a></em> | 1-year renewal: `0.00 USD` |
 </details>
 <br/>
 
@@ -943,23 +943,23 @@ Gets information for the requested address ID.
 
 __<a name="type-addressdetail">`AddressDetail`</a>__
 
-|           Name           |    Type    |                  Description                  |
-| ------------------------ | ---------- | --------------------------------------------- |
-| __EmailAddress*__        | _string_   | Email address of the user.                    |
-| __FirstName*__           | _string_   | First name of the user.                       |
-| __LastName*__            | _string_   | Last name of the user.                        |
-| JobTitle                 | _string_   | Job designation of the user                   |
-| Organization             | _string_   | Organization of the user.                     |
-| __Address1*__            | _string_   | StreetAddress1 of the user.                   |
-| Address2                 | _string_   | StreetAddress2 of the user.                   |
-| __City*__                | _string_   | City of the user.                             |
-| __StateProvince*__       | _string_   | State/Province of the user.                   |
-| __StateProvinceChoice*__ | _'S'\|'P'_ | State/Province choice of the user.            |
-| __Zip*__                 | _string_   | Zip/Postal code of the user.                  |
-| __Country*__             | _string_   | Two letter country code of the user.          |
-| __Phone*__               | _string_   | Phone number in the format `+NNN.NNNNNNNNNN`. |
-| PhoneExt                 | _string_   | PhoneExt of the user.                         |
-| Fax                      | _string_   | Fax number in the format `+NNN.NNNNNNNNNN`.   |
+|           Name           |      Type       |                        Description                        |
+| ------------------------ | --------------- | --------------------------------------------------------- |
+| __EmailAddress*__        | <em>string</em> | Email address of the user.                                |
+| __FirstName*__           | <em>string</em> | First name of the user.                                   |
+| __LastName*__            | <em>string</em> | Last name of the user.                                    |
+| JobTitle                 | <em>string</em> | Job designation of the user                               |
+| Organization             | <em>string</em> | Organization of the user.                                 |
+| __Address1*__            | <em>string</em> | StreetAddress1 of the user.                               |
+| Address2                 | <em>string</em> | StreetAddress2 of the user.                               |
+| __City*__                | <em>string</em> | City of the user.                                         |
+| __StateProvince*__       | <em>string</em> | State/Province of the user.                               |
+| __StateProvinceChoice*__ | <em>string</em> | State/Province choice of the user. Either `'S'` or `'P'`. |
+| __Zip*__                 | <em>string</em> | Zip/Postal code of the user.                              |
+| __Country*__             | <em>string</em> | Two letter country code of the user.                      |
+| __Phone*__               | <em>string</em> | Phone number in the format `+NNN.NNNNNNNNNN`.             |
+| PhoneExt                 | <em>string</em> | PhoneExt of the user.                                     |
+| Fax                      | <em>string</em> | Fax number in the format `+NNN.NNNNNNNNNN`.               |
 
 ```js
 /**
@@ -1000,11 +1000,11 @@ Gets a list of address IDs and address names associated with the user account.
 
 __<a name="type-address">`Address`</a>__
 
-|       Name       |   Type    |                         Description                         |
-| ---------------- | --------- | ----------------------------------------------------------- |
-| __AddressId*__   | _number_  | A unique integer value that represents the address profile. |
-| __AddressName*__ | _number_  | The name of the address profile.                            |
-| __IsDefault*__   | _boolean_ | Whether it is a default address.                            |
+|       Name       |       Type       |                         Description                         |
+| ---------------- | ---------------- | ----------------------------------------------------------- |
+| __AddressId*__   | <em>number</em>  | A unique integer value that represents the address profile. |
+| __AddressName*__ | <em>number</em>  | The name of the address profile.                            |
+| __IsDefault*__   | <em>boolean</em> | Whether it is a default address.                            |
 
 ```js
 /**

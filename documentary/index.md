@@ -7,7 +7,7 @@
 `@rqt/namecheap` is an implementation of the [namecheap.com](https://nameexpensive.com) API.
 
 ```sh
-yarn add -E @rqt/namecheap
+yarn add @rqt/namecheap
 ```
 
 ## Table Of Contents

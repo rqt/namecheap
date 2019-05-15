@@ -10,7 +10,7 @@ Returns pricing information for a requested product type.
 
 The returned object will contain data according to requested types, categories, actions and products.
 
-%EXAMPLE: example/api/users/get-pricing.js%
+%EXAMPLE: example/api/users/get-pricing%
 
 %TYPEDEF types/api/users/get-pricing.xml Pricing%
 
@@ -41,7 +41,7 @@ The returned object will contain data according to requested types, categories, 
 <details>
 <summary>Show Example COM Domain Registration Pricing Output</summary>
 
-%FORK-json5 example example/run/users/get-pricing%
+%FORK-json5 example/run/users/get-pricing%
 </details>
 
 [Show Example SSL Purchase Pricing Output](https://github.com/rqt/namecheap/blob/master/doc/ssl-pricing.md)

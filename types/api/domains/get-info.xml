@@ -1,4 +1,4 @@
-<types>
+<types namespace="_namecheap">
   <type name="GetInfo" desc="Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx" noToc>
     <prop string name="domain">
       The domain to get info about.
@@ -72,10 +72,10 @@
     <prop number name="HostCount">`2`</prop>
     <prop boolean name="IsFailover">`false`</prop>
     <prop boolean name="IsUsingOurDNS">`true`</prop>
-    <prop type="string[]" name="Nameserver">
+    <prop type="!Array<string>" name="Nameserver">
       `[dns1.registrar-servers.com, dns2.registrar-servers.com]`
     </prop>
-    <prop type="'CUSTOM'|'FREE'" name="ProviderType">`FREE`</prop>
+    <prop type="string" name="ProviderType">`CUSTOM` or `FREE`.</prop>
   </type>
   <type name="ModificationRights" noToc>
     <prop boolean name="All">`true`</prop>

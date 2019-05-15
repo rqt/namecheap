@@ -1,4 +1,4 @@
-<types>
+<types namespace="_namecheap">
   <type name="WhoisPurchase" desc="The pricing to purchase WHOIS guards." noToc>
     <prop type="Product" name="whoisguard5Pack">
       1-year purchase: `7.88 USD`

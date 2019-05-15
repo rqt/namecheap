@@ -2,6 +2,11 @@
 
 Methods to check availability, register and retrieve account domains' info.
 
+  * [`async create(options: Create): RegistrationResult`](#async-createoptions-create-registrationresult)
+  * [`async check(options: string|Check): DomainCheck[]`](#async-checkoptions-stringcheck-domaincheck)
+  * [`async getInfo(options: string|GetInfo): DomainInfo`](#async-getinfooptions-stringgetinfo-domaininfo)
+  * [`async getList(options?: GetList): { domains, TotalItems, CurrentPage, PageSize }`](#async-getlistoptions-getlist--domains-totalitems-currentpage-pagesize-)
+
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true" width="15"></a></p>
 
 ### `async create(`<br/>&nbsp;&nbsp;`options: Create,`<br/>`): RegistrationResult`

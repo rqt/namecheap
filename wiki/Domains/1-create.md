@@ -1,4 +1,4 @@
-```### async create => RegistrationResult
+```## async create => RegistrationResult
 [
   ["options", "Create"]
 ]
@@ -6,7 +6,7 @@
 
 Register a domain.
 
-%TYPEDEF types/api/domains/create.xml%
+<typedef narrow flatten>types/api/domains/create.xml</typedef>
 
 %EXAMPLE: example/api/domains/create%
 %FORK-js example/run/domains/create%

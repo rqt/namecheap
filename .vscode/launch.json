@@ -55,7 +55,7 @@
       "args": [
         // "example/run/users/get-pricing.js"
         // "example/run/domains/create.js",
-        "wiki", "-o", "../namecheap.wiki", "-n", "_namecheap", "-W"
+        "wiki", "-n", "_namecheap", "-W", "../namecheap.wiki"
       ],
       "skipFiles": [
         "<node_internals>/**/*.js"

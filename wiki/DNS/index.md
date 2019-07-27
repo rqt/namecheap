@@ -1,5 +1,3 @@
-## `dns`
-
 Methods to work with DNS.
 
 %TOC%

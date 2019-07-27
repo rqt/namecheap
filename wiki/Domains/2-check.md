@@ -1,4 +1,4 @@
-```### async check => DomainCheck[]
+```## async check => DomainCheck[]
 [
   ["options", "string|Check"]
 ]
@@ -6,7 +6,7 @@
 
 Check a domain or domains for availability.
 
-%TYPEDEF types/api/domains/check.xml%
+<typedef narrow flatten>types/api/domains/check.xml</typedef>
 
 %EXAMPLE: example/api/domains/check%
 %FORK-js example/run/domains/check%

@@ -1,4 +1,4 @@
-```### async getPricing => Pricing
+```## async getPricing => Pricing
 [
   ["options", "GetPricing"]
 ]
@@ -25,7 +25,7 @@ The returned object will contain data according to requested types, categories, 
 <details>
 <summary>Show SSL Product Pricing</summary>
 
-%TYPEDEF types/api/users/pricing/ssl.xml%
+<typedef narrow flatten>types/api/users/pricing/ssl.xml</typedef>
 </details>
 <br/>
 
@@ -34,7 +34,7 @@ The returned object will contain data according to requested types, categories, 
 <details>
 <summary>Show Whois Product Pricing</summary>
 
-%TYPEDEF types/api/users/pricing/whois.xml%
+<typedef narrow flatten>types/api/users/pricing/whois.xml</typedef>
 </details>
 <br/>
 

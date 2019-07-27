@@ -116,32 +116,32 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2019-5-15-20-17-00.com',
+Registered: { Domain: 'rqt-example-2019-7-27-19-45-12.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 404223,
-  OrderID: 1483961,
-  TransactionID: 2041916,
+  DomainID: 428976,
+  OrderID: 1546512,
+  TransactionID: 2116065,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 404223,
-  DomainName: 'rqt-example-2019-5-15-20-17-00.com',
+  ID: 428976,
+  DomainName: 'rqt-example-2019-7-27-19-45-12.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
   DomainDetails: 
-   { CreatedDate: '05/15/2019',
-     ExpiredDate: '05/15/2020',
+   { CreatedDate: '07/27/2019',
+     ExpiredDate: '07/27/2020',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 328596,
-     ExpiredDate: '05/15/2020',
+     ID: 351549,
+     ExpiredDate: '07/27/2020',
      EmailDetails: 
-      { WhoisGuardEmail: '9f0ae75419da451baacd29eb8da508c1.protect@whoisguard.com',
+      { WhoisGuardEmail: '9f0e5fb0b5494c13bf9b257f08a670a7.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 3 } },
@@ -162,11 +162,11 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 404223,
-       Name: 'rqt-example-2019-5-15-20-17-00.com',
+   [ { ID: 428976,
+       Name: 'rqt-example-2019-7-27-19-45-12.com',
        User: 'zavr',
-       Created: '05/15/2019',
-       Expires: '05/15/2020',
+       Created: '07/27/2019',
+       Expires: '07/27/2020',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -182,27 +182,21 @@ List: { domains:
 
 ## `domains`
 
-Methods to check availability, register and retrieve account domains' info. <kbd><a href="/doc/DOMAINS.md">Read Doc</a></kbd>
-
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true"></a></p>
+Methods to check availability, register and retrieve account domains' info. <kbd>🎟 <a href="/wiki/Domains">Read Domains Wiki</a></kbd>
 
 ## `users`
 
-Methods related to the user. <kbd><a href="/doc/USERS.md">Read Doc</a></kbd>
-
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/4.svg?sanitize=true"></a></p>
+Methods related to the user. <kbd>👩‍💻 <a href="/wiki/Users">Read Users Wiki</a></kbd>
 
 ## `address`
 
-Methods to manipulate addresses. In contrast to the NameCheap API, it does not fall under the group `users`. <kbd><a href="/doc/ADDRESS.md">Read Doc</a></kbd>
-
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/5.svg?sanitize=true"></a></p>
+Methods to manipulate addresses. In contrast to the NameCheap API, it does not fall under the group `users`. <kbd>🏡 <a href="/wiki/Address">Read Address Wiki</a></kbd>
 
 ## `dns`
 
-Methods to work with DNS records. <kbd><a href="/doc/DNS.md">Read Doc</a></kbd>
+Methods to work with DNS records. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a></kbd>
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/6.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true"></a></p>
 
 ## Progress
 

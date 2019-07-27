@@ -101,10 +101,10 @@
   resolved "https://registry.yarnpkg.com/@zoroaster/mask/-/mask-2.2.0.tgz#fecdcb6f863440519b91b51f09549b1e981e84da"
   integrity sha512-/k9B/ofxE4x9Vs6EOjXQjcsltraJzNLg/uxEwzfCZUN+foiJxK/j+YBiyJmN3Gwpnry2D3Qs0D3Qm+SMkLqkTg==
 
-alamode@^2.1.2, alamode@^2.3.4, alamode@^2.3.5:
-  version "2.3.5"
-  resolved "https://registry.yarnpkg.com/alamode/-/alamode-2.3.5.tgz#8f4b2942ceea1e9a298da99b173779bb092ad3dc"
-  integrity sha512-2Z+4YC8YBnb1Btio17gE9ZEW1UcsC8eV3rstwUsw9HdYUMlmu6YbU/rUyQ2tnxfdKgX77rcnNrtyutBZwJbo7w==
+alamode@^2.1.2, alamode@^2.3.4, alamode@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/alamode/-/alamode-2.3.6.tgz#694aec4d7233c2832cc54cbf6c5b8662b2c17ad3"
+  integrity sha512-iHvP3Qic5Zk3I/CjIUlEthqnpwj7MykOn5sDVqXdhURdGhk7fwsykWff1vCurcp+thmMnHyzQ+Nw5T8I6W9LNA==
 
 argufy@^1.7.1:
   version "1.7.1"
@@ -237,10 +237,10 @@ restream@^3.7.1, restream@^3.7.2:
     "@artdeco/clean-stack" "^1.1.1"
     catchment "^3.3.0"
 
-rexml@^2.0.0, rexml@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/rexml/-/rexml-2.0.2.tgz#e1e6b04aab7d26c72f5f732887c1d6abf0a1d92b"
-  integrity sha512-dfMmsI2M5x0xZdT9FhOieHcajXvcGrT9/RRkg/RvWUm055+srQoGuBJwhEYYeBe+zygmtN33lS5hGnxaqwCT4g==
+rexml@^2.0.0, rexml@^2.0.2, rexml@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/rexml/-/rexml-2.0.3.tgz#46094ba42380ffd1a57882169d13d8e9e87dd993"
+  integrity sha512-1jaTvAfuj+Pa72sOcfTJsI8PU2mY64RqCRIRdyGxSSLF5WEWjnFoh3i1BbS7otyh/N+FjalfHAy2NVocA38Low==
   dependencies:
     mismatch "^1.2.0"
 

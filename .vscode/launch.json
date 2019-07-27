@@ -36,7 +36,8 @@
       "console": "integratedTerminal",
       "args": [
         // "example/run/users/get-pricing.js"
-        "example/run/domains/create.js"
+        "example"
+        // "example/run/domains/create.js"
       ],
       "skipFiles": [
         "<node_internals>/**/*.js"

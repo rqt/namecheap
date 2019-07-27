@@ -1,8 +1,7 @@
-let erotic = require('erotic'); if (erotic && erotic.__esModule) erotic = erotic.default;
 const api = require('./api');
 const query = require('./lib/query');
 
-               class NameCheap {
+class NameCheap {
   /**
    * Create a new instance of the client.
    * @constructor
@@ -110,6 +109,8 @@ const query = require('./lib/query');
  * @typedef {import('../types/typedefs/address').Address} Address
  * @typedef {import('../types/typedefs/address').AddressDetail} AddressDetail
  * @typedef {import('../types/typedefs/dns').Host} Host
+ * @typedef {import('../types/typedefs/dns').HostParams} HostParams
+ * @typedef {import('../types/typedefs/dns').DNSSetOptions} DNSSetOptions
  */
 
 

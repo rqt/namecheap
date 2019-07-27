@@ -71,7 +71,7 @@ const keys = ['JobTitle', 'FirstName', 'LastName', 'Address1', 'Address2',
   'City', 'StateProvince', 'StateProvinceChoice', 'Country',
   'Phone', 'PhoneExt', 'Fax', 'EmailAddress']
 
-       const getAddressObject = (address, key) => {
+const getAddressObject = (address, key) => {
   const res = keys
     .reduce((acc, current) => {
       const val = (current == 'StateProvince' && !address[current]) ? 'NA' : address[current]

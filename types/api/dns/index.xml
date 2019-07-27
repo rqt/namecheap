@@ -4,7 +4,7 @@
       UniqueID of the host records, e.g., `151362331`.
     </prop>
     <prop string name="Name">
-      The domain or subdomain for which host record is set, e.g., `*`, `@`.
+      The domain or subdomain for which host record is set, e.g., `*`, `＠`.
     </prop>
     <prop string name="Type">
       The type of host record that is set, e.g., `A`.

@@ -12,7 +12,7 @@ const UA = [
   'https://github.com/rqt/namecheap',
 ].join(' ')
 
-               async function query({
+async function query({
   ApiUser,
   ApiKey,
   ClientIp,
@@ -59,7 +59,7 @@ const UA = [
   return CommandResponse.trim()
 }
 
-       const getError = (res) => {
+const getError = (res) => {
   const [{ content: Errors }] = extractTags('Errors', res)
   if (Errors.length) {
     const errors = extractTags('Error', Errors)

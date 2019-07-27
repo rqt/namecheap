@@ -36,8 +36,8 @@
       "console": "integratedTerminal",
       "args": [
         // "example/run/users/get-pricing.js"
-        "example"
-        // "example/run/domains/create.js"
+        // "example"
+        "example/run/dns/set-hosts"
       ],
       "skipFiles": [
         "<node_internals>/**/*.js"
@@ -56,7 +56,8 @@
       "args": [
         // "example/run/users/get-pricing.js"
         // "example/run/domains/create.js",
-        "wiki", "-n", "_namecheap", "-W", "../namecheap.wiki"
+        "wiki", "-n", "_namecheap", "-W", "../namecheap.wiki",
+        "-f", "DNS"
       ],
       "skipFiles": [
         "<node_internals>/**/*.js"

@@ -1,0 +1,15 @@
+<types namespace="_namecheap">
+  <type record name="HostParams" desc="Parameters for the host record when setting DNS." link="https://www.namecheap.com/support/api/methods/domains-dns/set-hosts/">
+    <prop string name="HostName">Sub-domain/hostname to create the record for.</prop>
+    <prop string name="RecordType">The type of DNS record: `A`, `AAAA`, `ALIAS`, `CAA`, `CNAME`, `MX`, `MXE`, `NS`, `TXT`, `URL`, `URL301`, `FRAME'`.</prop>
+    <prop string name="Address">The IP or URL information.</prop>
+    <prop string name="MXPref" opt>MX preference for host. Applicable for MX records only.</prop>
+    <prop number name="TTL" default="1800">Time to live for all record types.</prop>
+  </type>
+
+  <type record name="DNSSetOptions" desc="Additional options to set DNS records.">
+    <prop string name="EmailType">Possible values are MXE, MX, FWD, OX.</prop>
+    <prop number name="Flag">Is an unsigned integer between 0 and 255. The flag value is an 8-bit number, the most significant bit of which indicates the criticality of understanding of a record by a CA. It's recommended to use '0'.</prop>
+    <prop string name="Tag">A non-zero sequence of US-ASCII letters and numbers in lower case. See namecheap API page for more info.</prop>
+  </type>
+</types>

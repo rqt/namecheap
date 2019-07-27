@@ -4,6 +4,7 @@ const check = require('./domains/check');
 const create = require('./domains/create');
 
 const getHosts = require('./domains/dns/get-hosts');
+const setHosts = require('./domains/dns/set-hosts');
 
 const getAddressList = require('./address/get-list');
 const getAddressInfo = require('./address/get-info');
@@ -88,6 +89,18 @@ const dns = {
     const res = await getHosts(this._query.bind(this), { sld, tld })
     return res
   },
+  /**
+   * Sets the host records.
+   * @param {string} domain The domain name for which to set records.
+   * @param {!Array<_namecheap.HostParams>} hosts An array with hosts to set.
+   * @param {DNSSetOptions} [params] Optional parameters.
+   */
+  async setHosts(domain, hosts, params = {}) {
+    const [sld, ...rest] = domain.split('.')
+    const tld = rest.join('.')
+    const res = await setHosts(this._query.bind(this), { 'SLD': sld, 'TLD': tld, ...params }, hosts)
+    return res
+  },
 }
 
 const api = {
@@ -134,4 +147,11 @@ module.exports=api
 /**
  * @suppress {nonStandardJsDocs}
  * @typedef {import('../').RegistrationResult} _namecheap.RegistrationResult
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../').HostParams} _namecheap.HostParams
+ * @typedef {_namecheap.HostParams} HostParams
+ * @typedef {import('../').DNSSetOptions} _namecheap.DNSSetOptions
+ * @typedef {_namecheap.DNSSetOptions} DNSSetOptions
  */

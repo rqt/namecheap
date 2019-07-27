@@ -53,10 +53,10 @@
   </type>
   <type name="EmailDetails" noToc>
     <prop number name="AutoEmailChangeFrequencyDays">`0`</prop>
-    <prop string name="ForwardedTo">`example@adc.sh`</prop>
+    <prop string name="ForwardedTo">`example＠adc.sh`</prop>
     <prop string name="LastAutoEmailChangeDate" />
     <prop string name="WhoisGuardEmail">
-      `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com`
+      `43b596ee817f451f98eab1d848a4051a.protect＠whoisguard.com`
     </prop>
   </type>
   <type name="PremiumDnsSubscription" noToc>

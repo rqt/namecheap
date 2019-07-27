@@ -39,7 +39,7 @@ const parsePremiumDNS = (dns) => {
   }
 }
 
-       const parse = (res) => {
+const parse = (res) => {
   const [{
     content: DomainGetInfoResult,
     props,

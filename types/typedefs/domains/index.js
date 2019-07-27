@@ -82,9 +82,9 @@ export {}
 /**
  * @typedef {Object} _namecheap.EmailDetails
  * @prop {number} AutoEmailChangeFrequencyDays `0`
- * @prop {string} ForwardedTo `example@adc.sh`
+ * @prop {string} ForwardedTo `example＠adc.sh`
  * @prop {string} LastAutoEmailChangeDate
- * @prop {string} WhoisGuardEmail `43b596ee817f451f98eab1d848a4051a.protect@whoisguard.com`
+ * @prop {string} WhoisGuardEmail `43b596ee817f451f98eab1d848a4051a.protect＠whoisguard.com`
  */
 /**
  * @typedef {_namecheap.PremiumDnsSubscription} PremiumDnsSubscription

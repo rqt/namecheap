@@ -1,4 +1,3 @@
-import erotic from 'erotic'
 import api from './api'
 import query from './lib/query'
 
@@ -110,4 +109,6 @@ export default class NameCheap {
  * @typedef {import('../types/typedefs/address').Address} Address
  * @typedef {import('../types/typedefs/address').AddressDetail} AddressDetail
  * @typedef {import('../types/typedefs/dns').Host} Host
+ * @typedef {import('../types/typedefs/dns').HostParams} HostParams
+ * @typedef {import('../types/typedefs/dns').DNSSetOptions} DNSSetOptions
  */

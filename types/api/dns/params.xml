@@ -1,7 +1,7 @@
 <types namespace="_namecheap">
   <type record name="HostParams" desc="Parameters for the host record when setting DNS." link="https://www.namecheap.com/support/api/methods/domains-dns/set-hosts/">
     <prop string name="HostName">Sub-domain/hostname to create the record for.</prop>
-    <prop string name="RecordType">The type of DNS record: `A`, `AAAA`, `ALIAS`, `CAA`, `CNAME`, `MX`, `MXE`, `NS`, `TXT`, `URL`, `URL301`, `FRAME'`.</prop>
+    <prop string name="RecordType">The type of DNS record: `A`, `AAAA`, `ALIAS`, `CAA`, `CNAME`, `MX`, `MXE`, `NS`, `TXT`, `URL`, `URL301`, `FRAME`.</prop>
     <prop string name="Address">The IP or URL information.</prop>
     <prop string name="MXPref" opt>MX preference for host. Applicable for MX records only.</prop>
     <prop number name="TTL" default="1800">Time to live for all record types.</prop>

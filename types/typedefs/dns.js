@@ -24,7 +24,7 @@ export {}
 /**
  * @typedef {Object} _namecheap.HostParams `＠record` Parameters for the host record when setting DNS.
  * @prop {string} HostName Sub-domain/hostname to create the record for.
- * @prop {string} RecordType The type of DNS record: `A`, `AAAA`, `ALIAS`, `CAA`, `CNAME`, `MX`, `MXE`, `NS`, `TXT`, `URL`, `URL301`, `FRAME'`.
+ * @prop {string} RecordType The type of DNS record: `A`, `AAAA`, `ALIAS`, `CAA`, `CNAME`, `MX`, `MXE`, `NS`, `TXT`, `URL`, `URL301`, `FRAME`.
  * @prop {string} Address The IP or URL information.
  * @prop {string} [MXPref] MX preference for host. Applicable for MX records only.
  * @prop {number} [TTL=1800] Time to live for all record types. Default `1800`.

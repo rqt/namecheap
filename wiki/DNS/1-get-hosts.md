@@ -13,4 +13,4 @@ Returns the information about the hosts.
 %EXAMPLE: example/api/dns/get-hosts%
 %FORK-js example/run/dns/get-hosts%
 
-<!-- %~ width="25"% -->
+%~ width="25"%

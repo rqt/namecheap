@@ -1,3 +1,10 @@
+## 27 July 2019
+
+### [2.3.0](https://github.com/rqt/namecheap/compare/v2.2.3...v2.3.0)
+
+- [feature] Implement the _DNS.setHosts_ method.
+- [doc] Create _Wiki_ pages.
+
 ## 15 May 2019
 
 ### [2.2.3](https://github.com/rqt/namecheap/compare/v2.2.2...v2.2.3)

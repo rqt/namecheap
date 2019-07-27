@@ -45,6 +45,25 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch Wiki",
+      "program": "${workspaceFolder}/node_modules/.bin/doc-dev",
+      "env": {
+        "NODE_DEBUG": "@rqt/namecheap,aqt,doc",
+        "DEBUG": "1",
+      },
+      "console": "integratedTerminal",
+      "args": [
+        // "example/run/users/get-pricing.js"
+        // "example/run/domains/create.js",
+        "wiki", "-o", "../namecheap.wiki", "-n", "_namecheap", "-W"
+      ],
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Price",
       "program": "${workspaceFolder}/price/index.js",
       "env": {

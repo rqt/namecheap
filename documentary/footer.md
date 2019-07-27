@@ -1,7 +1,7 @@
 ## Progress
 
 * `domains`: 4/11
-* `domains.dns`: 1/7
+* `domains.dns`: 2/7
 * `domains.ns`: 0/4
 * `domains.transfer`: 0/4
 * `ssl`: 0/13
@@ -11,7 +11,7 @@
 
 ---
 
-8/62 = 13%
+9/62 = 15%
 
 ## Copyright
 

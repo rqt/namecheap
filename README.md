@@ -116,19 +116,19 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2019-7-27-19-45-12.com',
+Registered: { Domain: 'rqt-example-2019-7-27-22-43-56.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 428976,
-  OrderID: 1546512,
-  TransactionID: 2116065,
+  DomainID: 428997,
+  OrderID: 1546628,
+  TransactionID: 2116275,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 428976,
-  DomainName: 'rqt-example-2019-7-27-19-45-12.com',
+  ID: 428997,
+  DomainName: 'rqt-example-2019-7-27-22-43-56.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
@@ -138,10 +138,10 @@ Info: { Status: 'Ok',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 351549,
+     ID: 351570,
      ExpiredDate: '07/27/2020',
      EmailDetails: 
-      { WhoisGuardEmail: '9f0e5fb0b5494c13bf9b257f08a670a7.protect@whoisguard.com',
+      { WhoisGuardEmail: 'f3997e3ed115441db967fb70f3d76215.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 3 } },
@@ -162,8 +162,8 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 428976,
-       Name: 'rqt-example-2019-7-27-19-45-12.com',
+   [ { ID: 428997,
+       Name: 'rqt-example-2019-7-27-22-43-56.com',
        User: 'zavr',
        Created: '07/27/2019',
        Expires: '07/27/2020',
@@ -194,14 +194,14 @@ Methods to manipulate addresses. In contrast to the NameCheap API, it does not f
 
 ## `dns`
 
-Methods to work with DNS records. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a></kbd>
+Methods to work with DNS records, such as getting a list of current hosts, and setting a new list. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a></kbd>
 
 <p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true"></a></p>
 
 ## Progress
 
 * `domains`: 4/11
-* `domains.dns`: 1/7
+* `domains.dns`: 2/7
 * `domains.ns`: 0/4
 * `domains.transfer`: 0/4
 * `ssl`: 0/13
@@ -211,7 +211,7 @@ Methods to work with DNS records. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a
 
 ---
 
-8/62 = 13%
+9/62 = 15%
 
 ## Copyright
 

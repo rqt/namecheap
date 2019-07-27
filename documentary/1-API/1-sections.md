@@ -18,6 +18,6 @@ Methods to manipulate addresses. In contrast to the NameCheap API, it does not f
 
 ## `dns`
 
-Methods to work with DNS records. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a></kbd>
+Methods to work with DNS records, such as getting a list of current hosts, and setting a new list. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a></kbd>
 
 %~%

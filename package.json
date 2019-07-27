@@ -10,7 +10,7 @@
     "mask": "yarn t test/mask",
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
-    "doc": "NODE_DEBUG=doc doc documentary -o README.md -n _namecheap",
+    "doc": "NODE_DEBUG=doc doc -o README.md -n _namecheap",
     "wiki": "NODE_DEBUG=doc doc wiki -W ../namecheap.wiki -n _namecheap",
     "b": "alamode src -o build -s",
     "d": "yarn-s d1 d2 externs",

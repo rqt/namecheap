@@ -66,6 +66,23 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch Doc",
+      "program": "${workspaceFolder}/node_modules/.bin/doc-dev",
+      "env": {
+        "NODE_DEBUG": "@rqt/namecheap,aqt,doc",
+        "DEBUG": "1",
+      },
+      "console": "integratedTerminal",
+      "args": [
+        "-o", "README.md", "-n", "_namecheap"
+      ],
+      "skipFiles": [
+        "<node_internals>/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Price",
       "program": "${workspaceFolder}/price/index.js",
       "env": {

@@ -74,7 +74,7 @@ export {}
  * @prop {string} Currency Currency in which the price is listed, e.g., `USD`.
  */
 
-/* documentary types/api/users/pricing/ssl.xml noSuppress */
+/* typal types/api/users/pricing/ssl.xml noSuppress */
 /**
  * @typedef {_namecheap.SSLPurchase} SSLPurchase The pricing to purchase certificates.
  */
@@ -161,7 +161,7 @@ export {}
  * @prop {Product} unifiedCommunications _Unified Communications_ https://www.namecheap.com/security/ssl-certificates/comodo/unified-communications.aspx. 1-year renewal: `73.70 USD`
  */
 
-/* documentary types/api/users/pricing/whois.xml noSuppress */
+/* typal types/api/users/pricing/whois.xml noSuppress */
 /**
  * @typedef {_namecheap.WhoisPurchase} WhoisPurchase The pricing to purchase WHOIS guards.
  */

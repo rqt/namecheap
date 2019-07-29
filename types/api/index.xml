@@ -1,0 +1,68 @@
+<types namespace="_namecheap">
+  <type interface name="NameCheap" desc="The client API.">
+    <prop type="_namecheap.Domains" name="domains">
+      Domains operations.
+    </prop>
+    <prop type="_namecheap.Address" name="address">
+      Address operations.
+    </prop>
+    <prop type="_namecheap.Users" name="users">
+      User operations.
+    </prop>
+    <prop type="_namecheap.DNS" name="dns">
+      DNS operations.
+    </prop>
+  </type>
+
+  <type record name="Domains" desc="The domains API.">
+    <fn async args="!_namecheap.GetList" name="getList" return="{
+      domains: !Array<!_namecheap.Domain>,
+      TotalItems: number,
+      CurrentPage: number,
+      PageSize: number
+    }">
+      Returns a list of domains for the particular user.
+    </fn>
+    <fn async args="string|!_namecheap.GetInfo" name="getInfo" return="!_namecheap.DomainInfo">
+      Returns information about the requested domain.
+    </fn>
+    <fn async args="string|!_namecheap.Check" return="!Array<!_namecheap.DomainCheck>" name="check">
+      Check if the domain name is taken.
+    </fn>
+    <fn async args="!_namecheap.Create" return="!_namecheap.RegistrationResult" name="create">
+      Register a domain.
+    </fn>
+  </type>
+
+  <type name="Address" desc="The address API.">
+    <fn async return="!Array<!_namecheap.Address>" name="getList">
+      Gets a list of address IDs and address names associated with the user account.
+    </fn>
+    <fn async args="string|number" return="!_namecheap.AddressDetail" name="getInfo">
+      Gets information for the requested address ID.
+    </fn>
+  </type>
+
+  <type name="Users" desc="The users API.">
+    <fn async args="!_namecheap.GetPricing" return="!_namecheap.Pricing" name="getPricing">
+      Returns pricing information for a requested product type.
+    </fn>
+  </type>
+
+  <type name="DNS" desc="The DNS API.">
+    <fn async args="string" name="getHosts" return="{
+      hosts: !Array<!_namecheap.Host>,
+      IsUsingOurDNS: boolean,
+      Domain: string,
+      EmailType: string
+    }">
+      Retrieves DNS host record settings for the requested domain.
+    </fn>
+    <fn async args="string, !Array<!_namecheap.HostParams>, _namecheap.DNSSetOptions?" name="setHosts" return="{
+      Domain: string,
+      IsSuccess: boolean
+    }">
+      Sets the host records.
+    </fn>
+  </type>
+</types>

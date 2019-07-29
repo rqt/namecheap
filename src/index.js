@@ -1,10 +1,18 @@
-import api from './api'
 import query from './lib/query'
 
+import getList from './api/domains/get-list'
+import getInfo from './api/domains/get-info'
+import check from './api/domains/check'
+import create from './api/domains/create'
+
+import getPricing from './api/users/get-pricing'
+
+/**
+ * @implements {_namecheap.NameCheap}
+ */
 export default class NameCheap {
   /**
    * Create a new instance of the client.
-   * @constructor
    * @param {!_namecheap.Options} options Options for the NameCheap client.
    * @param {string} options.user The username required to access the API.
    * @param {string} options.key The password required used to access the API.
@@ -22,56 +30,67 @@ export default class NameCheap {
     this._key = key
     this._host = `https://api.${sandbox ? 'sandbox.' : ''}namecheap.com`
     this._ip = ip
-    this.domains = new Proxy(api.domains, {
-      get: (target, k) => {
-        const v = target[k]
-        if (typeof v == 'function') {
-          return v.bind(this)
-        }
-        return v
+    const q = this._query.bind(this)
+
+    this.users = {
+      /**
+       * Returns pricing information for a requested product type.
+       * @param {!_namecheap.GetPricing} opts
+       */
+      async getPricing(opts) {
+        const res = await getPricing(q, opts)
+        return res
       },
-    })
-    this.address = new Proxy(api.address, {
-      get: (target, k) => {
-        const v = target[k]
-        if (typeof v == 'function') {
-          return v.bind(this)
-        }
-        return v
+    }
+
+    this.domains = {
+      /**
+       * Returns a list of domains for the particular user.
+       * @param {!_namecheap.GetList} opts Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
+       */
+      async getList(opts = {}) {
+        const res = await getList(q, opts)
+        return res
       },
-    })
-    this.users = new Proxy(api.users, {
-      get: (target, k) => {
-        const v = target[k]
-        if (typeof v == 'function') {
-          return v.bind(this)
-        }
-        return v
+      /**
+       * Returns information about the requested domain.
+       * @param {string|!_namecheap.GetInfo} opts Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
+       */
+      async getInfo(opts) {
+        const res = await getInfo(q, opts)
+        return res
       },
-    })
-    this.dns = new Proxy(api.dns, {
-      get: (target, k) => {
-        const v = target[k]
-        if (typeof v == 'function') {
-          return v.bind(this)
-        }
-        return v
+      /**
+       * Check if the domain name is taken.
+       * @param {string|!_namecheap.Check} opts Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
+       */
+      async check(opts) {
+        const res = await check(q, opts)
+        return res
       },
-    })
+      /**
+       * Register a domain.
+       * @param {!_namecheap.Create} opts Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
+       */
+      async create(opts) {
+        const res = await create(q, opts)
+        return res
+      },
+    }
   }
   /**
    * @param {string} endpoint Which method should be queried, e.g., `namecheap.domains.getList`.
-   * @param {Object.<string, string>} [params] The map of parameters.
-   * @param {'POST'|'GET'} method
+   * @param {!Object<string, string>} [params] The map of parameters.
+   * @param {string} [method] Such as POST or GET.
    */
   async _query(endpoint, params, method) {
     // const cb = erotic(true)
     try {
       const res = await query({
-        ApiKey: this._key,
-        ApiUser: this._user,
-        host: this._host,
-        ClientIp: this._ip,
+        'ApiKey': this._key,
+        'ApiUser': this._user,
+        'host': this._host,
+        'ClientIp': this._ip,
       }, endpoint, params, method)
       return res
     } catch (err) {
@@ -96,19 +115,58 @@ export default class NameCheap {
  */
 
 /**
- * @typedef {import('../types/typedefs/users').GetPricing} GetPricing
- * @typedef {import('../types/typedefs/users').Pricing} Pricing
- * @typedef {import('../types/typedefs/domains').GetList} GetList
- * @typedef {import('../types/typedefs/domains').GetInfo} GetInfo
- * @typedef {import('../types/typedefs/domains').DomainInfo} DomainInfo
- * @typedef {import('../types/typedefs/domains').DomainCheck} DomainCheck
- * @typedef {import('../types/typedefs/domains').Check} Check
- * @typedef {import('../types/typedefs/domains').Create} Create
- * @typedef {import('../types/typedefs/domains').RegistrationResult} RegistrationResult
- * @typedef {import('../types/typedefs/domains').Domain} Domain
- * @typedef {import('../types/typedefs/address').Address} Address
- * @typedef {import('../types/typedefs/address').AddressDetail} AddressDetail
- * @typedef {import('../types/typedefs/dns').Host} Host
- * @typedef {import('../types/typedefs/dns').HostParams} HostParams
- * @typedef {import('../types/typedefs/dns').DNSSetOptions} DNSSetOptions
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/users').GetPricing} _namecheap.GetPricing
+ */
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').GetList} _namecheap.GetList
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').GetInfo} _namecheap.GetInfo
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').Domain} _namecheap.Domain
+ */
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').DomainInfo} _namecheap.DomainInfo
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.DomainCheck} DomainCheck
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').DomainCheck} _namecheap.DomainCheck
+ */
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {_namecheap.Check} Check
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').Check} _namecheap.Check
+ */
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').Create} _namecheap.Create
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/domains').RegistrationResult} _namecheap.RegistrationResult
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/dns').HostParams} _namecheap.HostParams
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../types/typedefs/dns').DNSSetOptions} _namecheap.DNSSetOptions
  */

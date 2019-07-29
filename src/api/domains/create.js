@@ -4,8 +4,8 @@ const COMMAND = 'namecheap.domains.create'
 
 /**
  * Register a domain.
- * @param {Function} query
- * @param {import('../index').Create} options
+ * @param {!Function} query
+ * @param {_namecheap.Create} options
  * @example
  *
  * // 0. Find the default account address.
@@ -49,20 +49,20 @@ async function create(query, options) {
   const AuxAddress = getAddressObject(billingAddress, 'AuxBilling')
 
   const res = await query(COMMAND, {
-    DomainName: domain,
-    Years: years,
-    PromotionCode: promo,
+    'DomainName': domain,
+    'Years': years,
+    'PromotionCode': promo,
     ...RegistrantAddress,
     ...TechAddress,
     ...AdminAddress,
     ...AuxAddress,
-    Nameservers: nameservers.join(','),
-    AddFreeWhoisguard: whois ? 'yes' : 'no',
-    WGEnabled: whois ? 'yes' : 'no',
+    'Nameservers': nameservers.join(','),
+    'AddFreeWhoisguard': whois ? 'yes' : 'no',
+    'WGEnabled': whois ? 'yes' : 'no',
     ...premium,
   }, 'POST')
   const [{ props }] = extractTags('DomainCreateResult', res)
-  /** @type {RegistrationResult} */
+  /** @type {!_namecheap.RegistrationResult} */
   const r = props
   return r
 }
@@ -87,3 +87,12 @@ export const getAddressObject = (address, key) => {
 }
 
 export default create
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').Create} _namecheap.Create
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').RegistrationResult} _namecheap.RegistrationResult
+ */

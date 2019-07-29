@@ -4,7 +4,7 @@ import NameCheap from '../../src'
 import { getAddressObject } from '../../src/api/domains/create'
 import { getError } from '../../src/lib/query'
 
-/** @type {Object.<string, (c: Context, s: SnapshotContext)>} */
+/** @type {Object.<string, (c: Context)>} */
 const T = {
   context: Context,
   async 'integration'({ ip, user, key }) {

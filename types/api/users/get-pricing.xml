@@ -1,7 +1,8 @@
 <types namespace="_namecheap">
-  <type name="GetPricing" desc="Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx" noToc>
+  <type name="GetPricing" desc="Options to get pricing info. https://www.namecheap.com/support/api/methods/users/get-pricing.aspx">
     <prop name="type" string>
-      Product Type to get pricing information. One of `('DOMAIN'|'SSLCERTIFICATE'|'WHOISGUARD')`
+      Product Type to get pricing information.
+      One of `DOMAIN`, `SSLCERTIFICATE`, `WHOISGUARD`.
     </prop>
     <prop opt string name="category">
       Specific category within a product type, e.g., `DOMAINS`, `COMODO`, `WHOISGUARD`.
@@ -10,13 +11,14 @@
       Promotional (coupon) code for the user.
     </prop>
     <prop opt name="action" string>
-      Specific action within a product type. One of `('REGISTER'|'PURCHASE'|'RENEW'|'REACTIVATE'|'TRANSFER')`.
+      Specific action within a product type.
+      One of `REGISTER`, `PURCHASE`, `RENEW`, `REACTIVATE`, `TRANSFER`.
     </prop>
     <prop opt string name="product">
       The name of the product within a product type, e.g., `COM`, `INSTANTSSL`, `WHOISGUARD-PROTECT-ONE`.
     </prop>
   </type>
-  <type name="Pricing" desc="The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`." noToc>
+  <type name="Pricing" desc="The pricing information returned as an object. The data is split into 3 types: `Domain`, `SSL` and `Whois`.">
     <prop type="_namecheap.DomainPricing" name="domains">
       The pricing of domains.
     </prop>
@@ -27,7 +29,7 @@
       The pricing of the Whois Guard.
     </prop>
   </type>
-  <type name="DomainPricing" desc="The pricing of domains as an object, where the requested zone is a key." noToc>
+  <type name="DomainPricing" desc="The pricing of domains as an object, where the requested zone is a key.">
     <prop name="register" type="Object<string, _namecheap.Product>">
       The pricing to register domains.
     </prop>
@@ -41,7 +43,7 @@
       The pricing to transfer domains.
     </prop>
   </type>
-  <type name="SSLPricing" desc="The pricing of certificates." noToc>
+  <type name="SSLPricing" desc="The pricing of certificates.">
     <prop name="purchase" type="_namecheap.SSLPurchase">
       The pricing to purchase certificates.
     </prop>
@@ -49,7 +51,7 @@
       The pricing to renew certificates.
     </prop>
   </type>
-  <type name="WhoisPricing" desc="The pricing of the Whois Guard." noToc>
+  <type name="WhoisPricing" desc="The pricing of the Whois Guard.">
     <prop name="purchase" type="_namecheap.WhoisPurchase">
       The pricing to purchase WHOIS guards.
     </prop>
@@ -57,9 +59,9 @@
       The pricing to renew WHOIS guards.
     </prop>
   </type>
-  <type name="Product" type="!Array<!_namecheap.Price>" desc="A product consists of an array of prices for different durations." noToc>
+  <type name="Product" type="!Array<!_namecheap.Price>" desc="A product consists of an array of prices for different durations.">
   </type>
-  <type name="Price" desc="Price data for a product accoding to the duration of an action." noToc>
+  <type name="Price" desc="Price data for a product accoding to the duration of an action.">
     <prop number name="Duration">
       The duration of the product, e.g., `1`.
     </prop>

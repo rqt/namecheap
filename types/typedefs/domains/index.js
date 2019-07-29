@@ -1,5 +1,5 @@
 export {}
-/* documentary types/api/domains/check.xml noSuppress */
+/* typal types/api/domains/check.xml noSuppress */
 /**
  * @typedef {_namecheap.Check} Check Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
  */
@@ -24,7 +24,7 @@ export {}
  * @prop {number} IcannFee Fee charged by ICANN.
  */
 
-/* documentary types/api/domains/get-info.xml noSuppress */
+/* typal types/api/domains/get-info.xml noSuppress */
 /**
  * @typedef {_namecheap.GetInfo} GetInfo Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
  */
@@ -119,7 +119,7 @@ export {}
  * @prop {boolean} [hosts]
  */
 
-/* documentary types/api/domains/get-list.xml noSuppress */
+/* typal types/api/domains/get-list.xml noSuppress */
 /**
  * @typedef {_namecheap.GetList} GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
  */

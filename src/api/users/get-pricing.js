@@ -2,36 +2,33 @@ import extractTags from 'rexml'
 
 const COMMAND = 'namecheap.users.getPricing'
 
+/**
+ * @param {?} query
+ * @param {_namecheap.GetPricing} options
+ */
 const getPricing = async (query, options) => {
-  const {
-    type: ProductType,
-    category: ProductCategory,
-    promoCode: PromotionCode,
-    action: ActionName,
-    product: ProductName,
-  } = options
+  const { type, category, promoCode, action, product } = options
   const res = await query(COMMAND, {
-    ProductType,
-    ProductCategory,
-    PromotionCode,
-    ActionName,
-    ProductName,
+    'ProductType': type,
+    'ProductCategory': category,
+    'PromotionCode': promoCode,
+    'ActionName': action,
+    'ProductName': product,
   })
-  /** @type {!_namecheap.Pricing} */
-  const productType = extractTags('ProductType', res)
-    .reduce((acc, { content, props: { Name } }) => {
-      const category = getCategory(content)
-      acc[Name] = category
+  const productType = /** @type {!_namecheap.Pricing} */ (extractTags('ProductType', res)
+    .reduce((acc, { content, props: { 'Name': name } }) => {
+      const cat = getCategory(content)
+      acc[name] = cat
       return acc
-    }, {})
+    }, {}))
   return productType
 }
 
 const getCategory = (typeContent) => {
   const category = extractTags('ProductCategory', typeContent)
-    .reduce((acc, { content, props: { Name } }) => {
+    .reduce((acc, { content, props: { 'Name': name } }) => {
       const product = getProduct(content)
-      acc[Name] = product
+      acc[name] = product
       return acc
     }, {})
   return category
@@ -40,11 +37,11 @@ const getCategory = (typeContent) => {
 const getProduct = (categoryContent) => {
   const product = extractTags('Product', categoryContent).reduce((acc, {
     content,
-    props: { Name },
+    props: { 'Name': name },
   }) => {
     const price = extractTags('Price', content)
-    const prices = price.map(({ props: ppprops }) => ppprops)
-    const n = Name.replace(/-(.)/g, (match, l) => l.toUpperCase())
+    const prices = price.map(({ props: p }) => p)
+    const n = name.replace(/-(.)/g, (_, l) => l.toUpperCase())
     acc[n] = prices
     return acc
   }, {})
@@ -55,5 +52,9 @@ export default getPricing
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../').Pricing} _namecheap.Pricing
+ * @typedef {import('../../../types/typedefs/users').Pricing} _namecheap.Pricing
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/users').GetPricing} _namecheap.GetPricing
  */

@@ -2,31 +2,35 @@
   "name": "@rqt/namecheap",
   "version": "2.3.0",
   "description": "An Implementation Of The Namecheap.com API.",
-  "main": "build",
+  "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec test/mask -t 30000",
     "spec": "yarn t test/spec",
     "mask": "yarn t test/mask",
-    "test-build": "ALAMODE_ENV=test-build yarn test",
+    "test-compile": "ALAMODE_ENV=test-compile yarn test",
     "lint": "eslint .",
+    "compile": "depack-dev src/depack -o compile/namecheap.js -c -a -p -s",
     "doc": "NODE_DEBUG=doc doc -o README.md -n _namecheap",
     "wiki": "NODE_DEBUG=doc doc wiki -W ../namecheap.wiki -n _namecheap",
     "b": "alamode src -o build -s",
     "d": "yarn-s d1 d2 externs",
-    "d1": "typal src -c",
+    "d1": "typal src compile/index.js -c",
     "d2": "typal types/typedefs -c",
     "build": "yarn-s d b doc",
     "p": "node price",
     "e": "alanode",
     "example/": "yarn e example/example.js",
-    "externs": "typal externs.js -e"
+    "externs": "typal types/externs/index.js types/externs/users/* types/externs/*"
   },
   "files": [
     "build",
-    "types/typedefs"
+    "src",
+    "types/typedefs",
+    "types/externs"
   ],
-  "externs": "externs.js",
+  "externs": "types/externs.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/rqt/namecheap.git"
@@ -58,13 +62,13 @@
     "@wrote/write": "^1.0.4",
     "alamode": "^2.3.6",
     "bosom": "^1.0.0",
-    "documentary": "^1.28.0",
+    "documentary": "^1.28.1",
     "eslint-config-artdeco": "1.0.1",
     "yarn-s": "1.1.0",
     "zoroaster": "^4.1.1-alpha"
   },
   "dependencies": {
     "rexml": "^2.0.3",
-    "rqt": "^3.1.3"
+    "rqt": "^3.1.4"
   }
 }

@@ -5,10 +5,8 @@ const COMMAND = 'namecheap.domains.check'
 
 /**
  * Check if the domain name is taken.
- * @param {Function} query
- * @param {string|Check} options
- * @param {string} [options.domain] The domain check.
- * @param {string[]} [options.domains] The domains to check.
+ * @param {!Function} query
+ * @param {string|_namecheap.Check} options
  * @example
  *
  * await nc.domains.check('test.co')
@@ -40,11 +38,21 @@ async function check(query, options) {
     throw new Error('Domain must be a string.')
   const d = [...domains, ...(domain ? [domain] : [])]
 
-  const res = await query(COMMAND, { DomainList: d.join(',') })
+  const res = await query(COMMAND, { 'DomainList': d.join(',') })
   const DomainCheckResult = extractTags('DomainCheckResult', res)
-  /** @type {DomainCheck[]} */
+
+  /** @type {!Array<!_namecheap.DomainCheck>} */
   const results = DomainCheckResult.map(({ props }) => props)
   return results
 }
 
 export default check
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').DomainCheck} _namecheap.Domain
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').Check} _namecheap.Check
+ */

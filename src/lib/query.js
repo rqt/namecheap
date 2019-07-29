@@ -1,4 +1,4 @@
-import rqt from 'rqt'
+import aqt from '@rqt/aqt'
 import { stringify } from 'querystring'
 import extractTags from 'rexml'
 import { filterEmpty } from './'
@@ -34,12 +34,12 @@ export default async function query({
   if (method == 'GET') {
     const qs = stringify({ ...authData, ...data })
     const url = `${host}/xml.response?${qs}`
-    res = await rqt(url, {
+    res = await aqt(url, {
       headers,
     })
   } else if (method == 'POST') {
     const qs = stringify(authData)
-    res = await rqt(`${host}/xml.response?${qs}`, {
+    res = await aqt(`${host}/xml.response?${qs}`, {
       data,
       headers,
       type: 'form',
@@ -47,6 +47,7 @@ export default async function query({
   } else {
     throw new Error('Unknown method.')
   }
+  res = res.body
 
   const xml = isXml(res)
   if (!xml) throw new Error('non-xml response')

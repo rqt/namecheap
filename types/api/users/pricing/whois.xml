@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type record name="WhoisPurchase" desc="The pricing to purchase WHOIS guards." noToc>
+  <type record name="WhoisPurchase" desc="The pricing to purchase WHOIS guards.">
     <prop type="_namecheap.Product" name="whoisguard5Pack">
       1-year purchase: `7.88 USD`
     </prop>
@@ -10,7 +10,7 @@
       1-year purchase: `0.00 USD`
     </prop>
   </type>
-  <type record name="WhoisRenew" desc="The pricing to renew WHOIS guards." noToc>
+  <type record name="WhoisRenew" desc="The pricing to renew WHOIS guards.">
     <prop type="_namecheap.Product" name="whoisguardProtectOne">
       1-year renewal: `0.00 USD`
     </prop>

@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type name="AddressDetail" noToc>
+  <type name="AddressDetail">
     <prop string name="EmailAddress">
       Email address of the user.
     </prop>

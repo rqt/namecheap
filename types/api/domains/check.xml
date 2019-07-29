@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type name="Check" desc="Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx" noToc>
+  <type name="Check" desc="Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx">
     <prop opt string name="domain">
       The domain check.
     </prop>
@@ -7,7 +7,7 @@
       The domains to check.
     </prop>
   </type>
-  <type name="DomainCheck" desc="The result of the check." noToc>
+  <type name="DomainCheck" desc="The result of the check.">
     <prop string name="Domain">
       The domain name for which you wish to check availability.
     </prop>

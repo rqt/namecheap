@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type name="GetInfo" desc="Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx" noToc>
+  <type name="GetInfo" desc="Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx">
     <prop string name="domain">
       The domain to get info about.
     </prop>
@@ -7,7 +7,7 @@
       The hosted domain name for which domain information needs to be requested.
     </prop>
   </type>
-  <type name="DomainInfo" noToc>
+  <type name="DomainInfo">
     <prop string name="DomainName">
       Domain name for which the information was requested, e.g., `example.com`.
     </prop>
@@ -23,17 +23,17 @@
     <prop boolean name="IsPremium">
       Indicates whether the domain name is premium, e.g., `false`.
     </prop>
-    <prop name="Status" type="'Ok'|'Locked'|'Expired'">
-      Indicates the status of the domain, e.g., `OK`.
+    <prop name="Status" type="">
+      Indicates the status of the domain, e.g., `OK`. Possible values: `Ok`, `Locked`, `Expired`.
     </prop>
-    <prop name="DomainDetails" type="DomainDetails" />
-    <prop name="LockDetails" type="LockDetails" />
-    <prop name="Whoisguard" type="Whoisguard" />
-    <prop name="PremiumDnsSubscription" type="PremiumDnsSubscription" />
-    <prop name="DnsDetails" type="DnsDetails" />
-    <prop name="ModificationRights" type="ModificationRights" />
+    <prop name="DomainDetails" type="_namecheap.DomainDetails" />
+    <prop name="LockDetails" type="_namecheap.LockDetails" />
+    <prop name="Whoisguard" type="_namecheap.Whoisguard" />
+    <prop name="PremiumDnsSubscription" type="_namecheap.PremiumDnsSubscription" />
+    <prop name="DnsDetails" type="_namecheap.DnsDetails" />
+    <prop name="ModificationRights" type="_namecheap.ModificationRights" />
   </type>
-  <type name="DomainDetails" noToc>
+  <type name="DomainDetails">
     <prop string name="CreatedDate">
       `06/06/2018`
     </prop>
@@ -44,14 +44,14 @@
       1
     </prop>
   </type>
-  <type name="LockDetails"  noToc/>
-  <type name="Whoisguard" noToc>
+  <type type="Object" name="LockDetails" />
+  <type name="Whoisguard">
     <prop boolean name="Enabled">`true`</prop>
     <prop string name="ID">`264991`</prop>
     <prop string name="ExpiredDate">`06/06/2019`</prop>
-    <prop name="EmailDetails" type="EmailDetails" />
+    <prop name="EmailDetails" type="_namecheap.EmailDetails" />
   </type>
-  <type name="EmailDetails" noToc>
+  <type name="EmailDetails">
     <prop number name="AutoEmailChangeFrequencyDays">`0`</prop>
     <prop string name="ForwardedTo">`example＠adc.sh`</prop>
     <prop string name="LastAutoEmailChangeDate" />
@@ -59,14 +59,14 @@
       `43b596ee817f451f98eab1d848a4051a.protect＠whoisguard.com`
     </prop>
   </type>
-  <type name="PremiumDnsSubscription" noToc>
+  <type name="PremiumDnsSubscription">
     <prop type="Date" name="CreatedDate" />
     <prop type="Date" name="ExpirationDate" />
     <prop boolean name="IsActive">`false`</prop>
     <prop number name="SubscriptionId">-1</prop>
     <prop boolean name="UseAutoRenew">`false`</prop>
   </type>
-  <type name="DnsDetails" noToc>
+  <type name="DnsDetails">
     <prop boolean name="DynamicDNSStatus">`false`</prop>
     <prop string name="EmailType">`FWD`</prop>
     <prop number name="HostCount">`2`</prop>
@@ -77,7 +77,7 @@
     </prop>
     <prop type="string" name="ProviderType">`CUSTOM` or `FREE`.</prop>
   </type>
-  <type name="ModificationRights" noToc>
+  <type name="ModificationRights">
     <prop boolean name="All">`true`</prop>
     <prop opt boolean name="hosts" />
   </type>

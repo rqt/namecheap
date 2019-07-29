@@ -22,14 +22,8 @@ const getSort = (sort, desc) => {
 
 /**
  * Returns a list of domains for the particular user.
- * @param {Function} query
- * @param {GetList} options Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
- * @param {'ALL'|'EXPIRING'|'EXPIRED'} [options.type="ALL"] The type of domains. Default `ALL`.
- * @param {string} [options.filter] The keyword to look for in the domain list.
- * @param {number} [options.page=1] The page to return. Default `1`.
- * @param {number} [options.pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
- * @param {'name'|'expire'|'create'} [options.sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
- * @param {boolean} [options.desc=false] Whether to sort in descending order. Default `false`.
+ * @param {!Function} query
+ * @param {!_namecheap.GetList} options Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
  * @example
  *
   // Get information about domains in the `.app` zone sorted by descending  create date (oldest first)
@@ -84,16 +78,16 @@ async function getList(query, options = {}) {
     pageSize,
   } = options
   const reqOpts = {
-    Page: page,
-    PageSize: pageSize,
-    SortBy: sort ? getSort(sort, desc) : getSort('create', 'desc'),
-    SearchTerm: filter,
-    ListType: type,
+    'Page': page,
+    'PageSize': pageSize,
+    'SortBy': sort ? getSort(sort, desc) : getSort('create', 'desc'),
+    'SearchTerm': filter,
+    'ListType': type,
   }
   const res = await query(GET_LIST, reqOpts)
   const domain = extractTag('Domain', res)
   const domains = domain.map(({ props }) => {
-    /** @type {Domain} */
+    /** @type {!_namecheap.Domain} */
     const d = props
     return d
   })
@@ -101,12 +95,22 @@ async function getList(query, options = {}) {
   const [{ content: TotalItems }] = extractTag('TotalItems', Paging)
   const [{ content: CurrentPage }] = extractTag('CurrentPage', Paging)
   const [{ content: PageSize }] = extractTag('PageSize', Paging)
+
   return {
-    domains,
-    TotalItems: parseInt(TotalItems, 10),
-    CurrentPage: parseInt(CurrentPage, 10),
-    PageSize: parseInt(PageSize, 10),
+    'domains': domains,
+    'TotalItems': parseInt(TotalItems, 10),
+    'CurrentPage': parseInt(CurrentPage, 10),
+    'PageSize': parseInt(PageSize, 10),
   }
 }
 
 export default getList
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').Domain} _namecheap.Domain
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').GetList} _namecheap.GetList
+ */

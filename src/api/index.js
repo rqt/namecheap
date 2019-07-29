@@ -1,53 +1,8 @@
-import getList from './domains/get-list'
-import getInfo from './domains/get-info'
-import check from './domains/check'
-import create from './domains/create'
-
 import getHosts from './domains/dns/get-hosts'
 import setHosts from './domains/dns/set-hosts'
 
 import getAddressList from './address/get-list'
 import getAddressInfo from './address/get-info'
-import getPricing from './users/get-pricing'
-
-const domains = {
-  /**
-   * Returns a list of domains for the particular user.
-   * @param {!_namecheap.GetList} options Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
-   */
-  async getList(options = {}) {
-    /** @type {{domains: !Array<!_namecheap.Domain>, TotalItems: number, CurrentPage: number, PageSize: number}} */
-    const res = await getList(this._query.bind(this), options)
-    return res
-  },
-  /**
-   * Returns information about the requested domain.
-   * @param {string|!_namecheap.GetInfo} options Options to get info about a domain. https://www.namecheap.com/support/api/methods/domains/get-info.aspx
-   */
-  async getInfo(options) {
-    /** @type {!_namecheap.DomainInfo} */
-    const res = await getInfo(this._query.bind(this), options)
-    return res
-  },
-  /**
-   * Check if the domain name is taken.
-   * @param {string|!_namecheap.Check} options Options to check a domain or domains. https://www.namecheap.com/support/api/methods/domains/check.aspx
-   */
-  async check(options) {
-    /** @type {!Array<!_namecheap.DomainCheck>} */
-    const res = await check(this._query.bind(this), options)
-    return res
-  },
-  /**
-   * Register a domain.
-   * @param {!_namecheap.Create} options Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
-   */
-  async create(options) {
-    /** @type {!_namecheap.RegistrationResult} */
-    const res = await create(this._query.bind(this), options)
-    return res
-  },
-}
 
 const address = {
   /**
@@ -67,17 +22,6 @@ const address = {
   },
 }
 
-const users = {
-  /**
-   * Returns pricing information for a requested product type.
-   * @param {!_namecheap.GetPricing} options
-   */
-  async getPricing(options) {
-    const res = await getPricing(this._query.bind(this), options)
-    return res
-  },
-}
-
 const dns = {
   /**
    * Retrieves DNS host record settings for the requested domain.
@@ -93,7 +37,7 @@ const dns = {
    * Sets the host records.
    * @param {string} domain The domain name for which to set records.
    * @param {!Array<_namecheap.HostParams>} hosts An array with hosts to set.
-   * @param {DNSSetOptions} [params] Optional parameters.
+   * @param {_namecheap.DNSSetOptions} [params] Optional parameters.
    */
   async setHosts(domain, hosts, params = {}) {
     const [sld, ...rest] = domain.split('.')
@@ -106,52 +50,7 @@ const dns = {
 const api = {
   domains,
   address,
-  users,
   dns,
 }
 
 export default api
-
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').GetPricing} _namecheap.GetPricing
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').GetList} _namecheap.GetList
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').GetInfo} _namecheap.GetInfo
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').Domain} _namecheap.Domain
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').DomainInfo} _namecheap.DomainInfo
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').DomainCheck} _namecheap.DomainCheck
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').Check} _namecheap.Check
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').Create} _namecheap.Create
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').RegistrationResult} _namecheap.RegistrationResult
- */
-/**
- * @suppress {nonStandardJsDocs}
- * @typedef {import('../').HostParams} _namecheap.HostParams
- * @typedef {_namecheap.HostParams} HostParams
- * @typedef {import('../').DNSSetOptions} _namecheap.DNSSetOptions
- * @typedef {_namecheap.DNSSetOptions} DNSSetOptions
- */

@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type name="Address" noToc>
+  <type name="Address">
     <prop number name="AddressId">
       A unique integer value that represents the address profile.
     </prop>

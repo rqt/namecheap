@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type record name="SSLPurchase" desc="The pricing to purchase certificates." noToc>
+  <type record name="SSLPurchase" desc="The pricing to purchase certificates.">
     <prop type="_namecheap.Product" name="instantssl">
       _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year purchase: `20.88 USD`
     </prop>
@@ -133,7 +133,7 @@
       1-year purchase: `0.00 USD`
     </prop>
   </type>
-  <type record name="SSLRenew" desc="The pricing to renew certificates." noToc>
+  <type record name="SSLRenew" desc="The pricing to renew certificates.">
     <prop type="_namecheap.Product" name="instantssl">
       _InstantSSL_ https://www.namecheap.com/security/ssl-certificates/comodo/instantssl.aspx. 1-year renewal: `31.98 USD`
     </prop>

@@ -1,5 +1,5 @@
 <types namespace="_namecheap">
-  <type name="Create" desc="Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx" noToc>
+  <type record name="Create" desc="Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx">
     <prop string name="domain">
       The domain name to register.
     </prop>
@@ -34,7 +34,7 @@
       Information about a premium domain.
     </prop>
   </type>
-  <type name="PremiumInfo" desc="Information about a premium domain." noToc>
+  <type name="PremiumInfo" desc="Information about a premium domain.">
     <prop boolean name="IsPremiumName">
       Indicates whether the domain name is premium.
     </prop>
@@ -45,7 +45,7 @@
       The purchase fee for the premium domain during Early Access Program (EAP).
     </prop>
   </type>
-  <type name="RegistrationResult" desc="Registered domain information." noToc>
+  <type record name="RegistrationResult" desc="Registered domain information.">
     <prop string name="ChargedAmount">
       Total amount charged for registration.
     </prop>

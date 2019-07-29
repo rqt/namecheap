@@ -1,7 +1,7 @@
 <types namespace="_namecheap">
-  <type name="GetList" desc="Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx" noToc>
-    <prop opt name="type" type="'ALL'|'EXPIRING'|'EXPIRED'" default="ALL">
-      The type of domains.
+  <type name="GetList" desc="Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx">
+    <prop opt name="type" type="string" default="ALL">
+      The type of domains. Accepted values: `ALL`, `EXPIRING`, `EXPIRED`.
     </prop>
     <prop opt string name="filter">
       The keyword to look for in the domain list.
@@ -12,14 +12,14 @@
     <prop number name="pageSize" default="20">
       The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100.
     </prop>
-    <prop name="sort" type="'name'|'expire'|'create'" default="create">
-      The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date.
+    <prop name="sort" type="string" default="create">
+      The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. One of: `name`, `expire`, create`.
     </prop>
     <prop boolean name="desc" default="false">
       Whether to sort in descending order.
     </prop>
   </type>
-  <type name="Domain" noToc>
+  <type name="Domain">
     <prop boolean name="AutoRenew">`false`</prop>
     <prop string name="Created">`07/23/2018`</prop>
     <prop string name="Expires">`07/23/2019`</prop>

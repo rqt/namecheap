@@ -32,7 +32,7 @@ const parsePremiumDNS = (dns) => {
   const [{ content: IsActive }] = extractTags('IsActive', dns)
   return {
     UseAutoRenew: UseAutoRenew == 'true',
-    SubscriptionId: parseInt(SubscriptionId),
+    SubscriptionId: parseInt(SubscriptionId, 10),
     CreatedDate: new Date(Date.parse(CreatedDate)),
     ExpirationDate: new Date(Date.parse(ExpirationDate)),
     IsActive: IsActive == true,
@@ -89,7 +89,7 @@ export const parse = (res) => {
     DomainDetails: {
       CreatedDate,
       ExpiredDate,
-      NumYears: parseInt(NumYears),
+      NumYears: parseInt(NumYears, 10),
     },
     Whoisguard: {
       ...WhoisProps,
@@ -110,9 +110,8 @@ export const parse = (res) => {
 
 /**
  * Returns information about the requested domain.
- * @param {Function} query
- * @param {string|GetInfo} options The domain name, or options to get info about a domain.
- * @param {string} options.domain The domain to get info about.
+ * @param {!Function} query
+ * @param {string|_namecheap.GetInfo} options The domain name, or options to get info about a domain.
  * @example
  *
  * // Obtain information for the testt.cc domain:
@@ -166,13 +165,22 @@ async function getInfo(query, options) {
     host,
   } = opts
   const res = await query(COMMAND, {
-    DomainName: domain,
-    HostName: host,
+    'DomainName': domain,
+    'HostName': host,
   })
 
-  /** @type {DomainInfo} */
+  /** @type {!_namecheap.DomainInfo} */
   const d = parse(res)
   return d
 }
 
 export default getInfo
+
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').DomainInfo} _namecheap.DomainInfo
+ */
+/**
+ * @suppress {nonStandardJsDocs}
+ * @typedef {import('../../../types/typedefs/domains').GetInfo} _namecheap.GetInfo
+ */

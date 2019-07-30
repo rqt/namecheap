@@ -13,7 +13,7 @@
     "lint": "eslint .",
     "compile": "depack-dev src/depack -o compile/namecheap.js -c -a -p -s --source_map_include_content --language_out ECMASCRIPT_2018",
     "doc": "NODE_DEBUG=doc doc -o README.md -n _namecheap",
-    "wiki": "NODE_DEBUG=doc doc wiki -W ../namecheap.wiki -n _namecheap",
+    "wiki": "ALAMODE_ENV=test-compile NODE_DEBUG=doc doc wiki -W ../namecheap.wiki -n _namecheap",
     "b": "alamode src -o build -s",
     "d": "yarn-s d1 d2 externs",
     "d1": "typal src compile/index.js -c",

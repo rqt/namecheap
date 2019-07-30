@@ -10,7 +10,7 @@ Returns the information about the hosts.
 
 <typedef narrow flatten>types/api/dns/index.xml</typedef>
 
-%EXAMPLE: example/api/dns/get-hosts%
+%EXAMPLE: example/run/dns/get-hosts%
 %FORK-js example/run/dns/get-hosts%
 
 %~ width="25"%

@@ -1,6 +1,6 @@
 import bosom from 'bosom'
 import NameCheap from '../../../src'
-import GetList from '../../api/address/get-list'
+// import GetList from '../../api/address/get-list'
 
 (async () => {
   try {
@@ -8,7 +8,12 @@ import GetList from '../../api/address/get-list'
     const namecheap = new NameCheap({
       user, key, sandbox: true, ip,
     })
-    const res = await GetList(namecheap)
+    // const res = await GetList(namecheap)
+    // console.log(res)
+    const res =
+    /* start example */
+    await namecheap.address.getList()
+    /* end example */
     console.log(res)
   } catch ({ message }) {
     console.log(message)

@@ -108,8 +108,8 @@ _namecheap.DnsAPI.prototype.getHosts = function(domain) {}
 /**
  * Sets the host records.
  * @param {string} domain The domain name for which to set records.
- * @param {!Array<!_namecheap.HostParams>} params The array of all hosts to set.
+ * @param {!Array<!_namecheap.HostParams>} hosts The array of all hosts to set.
  * @param {!_namecheap.DNSSetOptions=} [options] Optional parameters.
  * @return {!Promise<{ Domain: string, IsSuccess: boolean }>}
  */
-_namecheap.DnsAPI.prototype.setHosts = function(domain, params, options) {}
+_namecheap.DnsAPI.prototype.setHosts = function(domain, hosts, options) {}

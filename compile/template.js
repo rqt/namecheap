@@ -12,7 +12,7 @@ class Namecheap extends _Namecheap {
     super(opts)
     this.users = {
       /**
-       * @type {_namecheap.UsersAPI.getPricing}
+       * @fnType {_namecheap.UsersAPI.getPricing}
        */
       getPricing: (options) => {
         return super.users.getPricing(options)
@@ -20,10 +20,16 @@ class Namecheap extends _Namecheap {
     }
     this.dns = {
       /**
-       * @type {_namecheap.DnsAPI.getHosts}
+       * @fnType {_namecheap.DnsAPI.getHosts}
        */
       getHosts: (domain) => {
         return super.dns.getHosts(domain)
+      },
+      /**
+       * @fnType {_namecheap.DnsAPI.setHosts}
+       */
+      setHosts: (domain, hosts, options) => {
+        return super.dns.setHosts(domain, hosts, options)
       },
     }
   }

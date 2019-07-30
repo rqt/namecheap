@@ -22,6 +22,7 @@
     "p": "node price",
     "e": "alanode",
     "example/": "yarn e example/example.js",
+    "template": "typal-dev compile/template.js -T compile/index.js -t types/api",
     "externs": "typal types/externs/index.js types/externs/users/* types/externs/*"
   },
   "files": [

@@ -78,7 +78,7 @@
       IsSuccess: boolean
     }">
       <arg string name="domain">The domain name for which to set records.</arg>
-      <arg type="!Array<!_namecheap.HostParams>" name="params">
+      <arg type="!Array<!_namecheap.HostParams>" name="hosts">
         The array of all hosts to set.
       </arg>
       <arg opt type="!_namecheap.DNSSetOptions" name="options">

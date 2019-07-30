@@ -13,36 +13,31 @@ class Namecheap extends _Namecheap {
     this.users = {
       /**
        * Returns pricing information for a requested product type.
-       * @param {!_namecheap.GetPricing} opts
+       * @param {!_namecheap.GetPricing} options Options
+       * @return {!Promise<!_namecheap.Pricing>}
        */
-      getPricing: async (options) => {
-        const res = /** @type {_namecheap.Pricing} */
-          (await super.users.getPricing(options))
-        return res
+      getPricing: (options) => {
+        return super.users.getPricing(options)
       },
     }
     this.dns = {
       /**
        * Retrieves DNS host record settings for the requested domain.
-       * @param {string} domain
+       * @param {string} domain The domain name.
+       * @return {!Promise<{ hosts: !Array<!_namecheap.Host>, IsUsingOurDNS: boolean, Domain: string, EmailType: string }>}
        */
-      getHosts: async (domain) => {
-        const res = /** @type {{hosts: _namecheap.Host[],
-          IsUsingOurDNS: boolean,
-          Domain: string,
-          EmailType: string }} */
-          (await super.dns.getHosts(domain))
-        return res
+      getHosts: (domain) => {
+        return super.dns.getHosts(domain)
       },
       /**
        * Sets the host records.
        * @param {string} domain The domain name for which to set records.
-       * @param {!Array<!_namecheap.HostParams>} hosts An array with hosts to set.
-       * @param {!_namecheap.DNSSetOptions} [params] Optional parameters.
-       * @t {_namecheap.DNS}
+       * @param {!Array<!_namecheap.HostParams>} hosts The array of all hosts to set.
+       * @param {!_namecheap.DNSSetOptions=} [options] Optional parameters.
+       * @return {!Promise<{ Domain: string, IsSuccess: boolean }>}
        */
-      setHosts: async () => {
-
+      setHosts: (domain, hosts, options) => {
+        return super.dns.setHosts(domain, hosts, options)
       },
     }
   }
@@ -64,6 +59,8 @@ class Namecheap extends _Namecheap {
  * @typedef {import('../types/typedefs/users').GetPricing} _namecheap.GetPricing
  * @typedef {import('../types/typedefs/users').Pricing} _namecheap.Pricing
  * @typedef {import('../types/typedefs/dns').Host} _namecheap.Host
+ * @typedef {import('../types/typedefs/dns').HostParams} _namecheap.HostParams
+ * @typedef {import('../types/typedefs/dns').DNSSetOptions} _namecheap.DNSSetOptions
  */
 
 module.exports = Namecheap

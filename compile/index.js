@@ -20,6 +20,57 @@ class Namecheap extends _Namecheap {
         return super.users.getPricing(options)
       },
     }
+    this.address = {
+      /**
+       * Gets a list of address IDs and address names associated with the user account.
+       * @return {!Promise<!Array<!_namecheap.Address>>}
+       */
+      getList: () => {
+        return super.address.getList()
+      },
+      /**
+       * Gets information for the requested address ID.
+       * @param {(string|number)} id The address id.
+       * @return {!Promise<!_namecheap.AddressDetail>}
+       */
+      getInfo: (id) => {
+        return super.address.getList(id)
+      },
+    }
+    this.domains = {
+      /**
+       * Returns a list of domains for the particular user.
+       * @param {!_namecheap.GetList} options The options to get the list of domains.
+       * @return {!Promise<{ domains: !Array<!_namecheap.Domain>, TotalItems: number, CurrentPage: number, PageSize: number }>}
+       */
+      getList: (options) => {
+        return super.domains.getList(options)
+      },
+      /**
+       * Returns information about the requested domain.
+       * @param {(string|!_namecheap.GetInfo)} options The domain, or all get-info options.
+       * @return {!Promise<!_namecheap.DomainInfo>}
+       */
+      getInfo: (options) => {
+        return super.domains.getInfo(options)
+      },
+      /**
+       * Check if the domain name is taken.
+       * @param {(string|!_namecheap.Check)} options The domain, or all check options.
+       * @return {!Promise<!Array<!_namecheap.DomainCheck>>}
+       */
+      check: (options) => {
+        return super.domains.check(options)
+      },
+      /**
+       * Register a domain.
+       * @param {!_namecheap.Create} options How to create a domain.
+       * @return {!Promise<!_namecheap.RegistrationResult>}
+       */
+      create: (options) => {
+        return super.domains.create(options)
+      },
+    }
     this.dns = {
       /**
        * Retrieves DNS host record settings for the requested domain.
@@ -61,6 +112,16 @@ class Namecheap extends _Namecheap {
  * @typedef {import('../types/typedefs/dns').Host} _namecheap.Host
  * @typedef {import('../types/typedefs/dns').HostParams} _namecheap.HostParams
  * @typedef {import('../types/typedefs/dns').DNSSetOptions} _namecheap.DNSSetOptions
+ * @typedef {import('../types/typedefs/domains').GetList} _namecheap.GetList
+ * @typedef {import('../types/typedefs/domains').GetInfo} _namecheap.GetInfo
+ * @typedef {import('../types/typedefs/domains').DomainInfo} _namecheap.DomainInfo
+ * @typedef {import('../types/typedefs/domains').Domain} _namecheap.Domain
+ * @typedef {import('../types/typedefs/domains').Check} _namecheap.Check
+ * @typedef {import('../types/typedefs/domains').DomainCheck} _namecheap.DomainCheck
+ * @typedef {import('../types/typedefs/domains').Create} _namecheap.Create
+ * @typedef {import('../types/typedefs/domains').RegistrationResult} _namecheap.RegistrationResult
+ * @typedef {import('../types/typedefs/address').Address} _namecheap.Address
+ * @typedef {import('../types/typedefs/address').AddressDetail} _namecheap.AddressDetail
  */
 
 module.exports = Namecheap

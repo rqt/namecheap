@@ -18,6 +18,46 @@ class Namecheap extends _Namecheap {
         return super.users.getPricing(options)
       },
     }
+    this.address = {
+      /**
+       * @fnType {_namecheap.AddressAPI.getList}
+       */
+      getList: () => {
+        return super.address.getList()
+      },
+      /**
+       * @fnType {_namecheap.AddressAPI.getInfo}
+       */
+      getInfo: (id) => {
+        return super.address.getList(id)
+      },
+    }
+    this.domains = {
+      /**
+       * @fnType {_namecheap.DomainsAPI.getList}
+       */
+      getList: (options) => {
+        return super.domains.getList(options)
+      },
+      /**
+       * @fnType {_namecheap.DomainsAPI.getInfo}
+       */
+      getInfo: (options) => {
+        return super.domains.getInfo(options)
+      },
+      /**
+       * @fnType {_namecheap.DomainsAPI.check}
+       */
+      check: (options) => {
+        return super.domains.check(options)
+      },
+      /**
+       * @fnType {_namecheap.DomainsAPI.create}
+       */
+      create: (options) => {
+        return super.domains.create(options)
+      },
+    }
     this.dns = {
       /**
        * @fnType {_namecheap.DnsAPI.getHosts}
@@ -51,6 +91,18 @@ class Namecheap extends _Namecheap {
  * @typedef {import('../types/typedefs/users').GetPricing} _namecheap.GetPricing
  * @typedef {import('../types/typedefs/users').Pricing} _namecheap.Pricing
  * @typedef {import('../types/typedefs/dns').Host} _namecheap.Host
+ * @typedef {import('../types/typedefs/dns').HostParams} _namecheap.HostParams
+ * @typedef {import('../types/typedefs/dns').DNSSetOptions} _namecheap.DNSSetOptions
+ * @typedef {import('../types/typedefs/domains').GetList} _namecheap.GetList
+ * @typedef {import('../types/typedefs/domains').GetInfo} _namecheap.GetInfo
+ * @typedef {import('../types/typedefs/domains').DomainInfo} _namecheap.DomainInfo
+ * @typedef {import('../types/typedefs/domains').Domain} _namecheap.Domain
+ * @typedef {import('../types/typedefs/domains').Check} _namecheap.Check
+ * @typedef {import('../types/typedefs/domains').DomainCheck} _namecheap.DomainCheck
+ * @typedef {import('../types/typedefs/domains').Create} _namecheap.Create
+ * @typedef {import('../types/typedefs/domains').RegistrationResult} _namecheap.RegistrationResult
+ * @typedef {import('../types/typedefs/address').Address} _namecheap.Address
+ * @typedef {import('../types/typedefs/address').AddressDetail} _namecheap.AddressDetail
  */
 
 module.exports = Namecheap

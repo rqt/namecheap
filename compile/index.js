@@ -10,6 +10,7 @@ class Namecheap extends _Namecheap {
    */
   constructor(opts) {
     super(opts)
+    const { address, domains, dns, users } = this
     this.users = {
       /**
        * Returns pricing information for a requested product type.
@@ -17,7 +18,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!_namecheap.Pricing>}
        */
       getPricing: (options) => {
-        return super.users.getPricing(options)
+        return users.getPricing(options)
       },
     }
     this.address = {
@@ -26,7 +27,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!Array<!_namecheap.Address>>}
        */
       getList: () => {
-        return super.address.getList()
+        return address.getList()
       },
       /**
        * Gets information for the requested address ID.
@@ -34,7 +35,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!_namecheap.AddressDetail>}
        */
       getInfo: (id) => {
-        return super.address.getList(id)
+        return address.getList(id)
       },
     }
     this.domains = {
@@ -44,7 +45,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<{ domains: !Array<!_namecheap.Domain>, TotalItems: number, CurrentPage: number, PageSize: number }>}
        */
       getList: (options) => {
-        return super.domains.getList(options)
+        return domains.getList(options)
       },
       /**
        * Returns information about the requested domain.
@@ -52,7 +53,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!_namecheap.DomainInfo>}
        */
       getInfo: (options) => {
-        return super.domains.getInfo(options)
+        return domains.getInfo(options)
       },
       /**
        * Check if the domain name is taken.
@@ -60,7 +61,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!Array<!_namecheap.DomainCheck>>}
        */
       check: (options) => {
-        return super.domains.check(options)
+        return domains.check(options)
       },
       /**
        * Register a domain.
@@ -68,7 +69,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!_namecheap.RegistrationResult>}
        */
       create: (options) => {
-        return super.domains.create(options)
+        return domains.create(options)
       },
     }
     this.dns = {
@@ -78,7 +79,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<{ hosts: !Array<!_namecheap.Host>, IsUsingOurDNS: boolean, Domain: string, EmailType: string }>}
        */
       getHosts: (domain) => {
-        return super.dns.getHosts(domain)
+        return dns.getHosts(domain)
       },
       /**
        * Sets the host records.
@@ -88,7 +89,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<{ Domain: string, IsSuccess: boolean }>}
        */
       setHosts: (domain, hosts, options) => {
-        return super.dns.setHosts(domain, hosts, options)
+        return dns.setHosts(domain, hosts, options)
       },
     }
   }

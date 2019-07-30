@@ -1,4 +1,3 @@
-/* yarn example/ */
 import NameCheap from '../src'
 import bosom from 'bosom'
 

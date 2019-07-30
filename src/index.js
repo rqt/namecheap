@@ -136,10 +136,10 @@ export default class NameCheap {
     // const cb = erotic(true)
     try {
       const res = await query({
-        'ApiKey': this._key,
-        'ApiUser': this._user,
-        'host': this._host,
-        'ClientIp': this._ip,
+        ApiKey: this._key,
+        ApiUser: this._user,
+        host: this._host,
+        ClientIp: this._ip,
       }, endpoint, params, method)
       return res
     } catch (err) {

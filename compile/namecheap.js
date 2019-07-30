@@ -226,8 +226,8 @@ async function pa(a, b, c, d) {
     throw Error("Command must be passed.");
   }
   a = na(c);
-  c = {l:e, j:g, I:e, m:f, G:b};
-  b = {"User-Agent":"Mozilla/5.0 (Node.js; @rqt/namecheap v2.1.2) https://github.com/rqt/namecheap"};
+  c = {ApiUser:e, ApiKey:g, UserName:e, ClientIp:f, Command:b};
+  b = {"User-Agent":"Mozilla/5.0 (Node.JS; @rqt/namecheap v2.3.0) https://github.com/rqt/namecheap"};
   if ("GET" == d) {
     d = T(Object.assign({}, c, a)), d = await S(`${l}/xml.response?${d}`, {headers:b});
   } else {
@@ -265,11 +265,11 @@ const qa = a => {
       });
     }
     a = Error(a);
-    a.b = b;
+    a.props = b;
     return a;
   }
 };
-const ra = {name:"name", J:"expiredate", create:"createdate"}, X = (a, b) => {
+const ra = {name:"name", expire:"expiredate", create:"createdate"}, X = (a, b) => {
   if (!["name", "expire", "create"].includes(a.toLowerCase())) {
     throw Error(`Unknown sort by option: ${a}.`);
   }
@@ -322,7 +322,7 @@ async function sa(a, b = {}) {
     ({Type:r} = r);
     return Object.assign({}, q, {[r]:!0});
   }, {}));
-  return Object.assign({}, c, {DomainDetails:{CreatedDate:a, ExpiredDate:e, NumYears:parseInt(d, 10)}, Whoisguard:Object.assign({}, f, l), PremiumDnsSubscription:k, DnsDetails:Object.assign({}, m, {Nameserver:u}), H:Object.assign({}, w, n)});
+  return Object.assign({}, c, {DomainDetails:{CreatedDate:a, ExpiredDate:e, NumYears:parseInt(d, 10)}, Whoisguard:Object.assign({}, f, l), PremiumDnsSubscription:k, DnsDetails:Object.assign({}, m, {Nameserver:u}), G:Object.assign({}, w, n)});
 };
 async function wa(a, b) {
   const {domain:c, host:d} = "string" == typeof b ? {domain:b} : b;
@@ -453,7 +453,7 @@ class Ka {
   }
   async v(a, b, c) {
     try {
-      return await pa({ApiKey:this.u, ApiUser:this.w, host:this.f, ClientIp:this.s}, a, b, c);
+      return await pa({j:this.u, l:this.w, host:this.f, m:this.s}, a, b, c);
     } catch (d) {
       throw d;
     }

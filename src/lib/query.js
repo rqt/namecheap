@@ -8,7 +8,7 @@ const isXml = s => s.startsWith('<?xml version="1.0" encoding="utf-8"?>')
 
 const UA = [
   'Mozilla/5.0',
-  '(Node.js; @rqt/namecheap v2.1.2)',
+  '(Node.JS; @rqt/namecheap v2.3.0)',
   'https://github.com/rqt/namecheap',
 ].join(' ')
 
@@ -21,11 +21,11 @@ export default async function query({
   if (!Command) throw new Error('Command must be passed.')
   const data = filterEmpty(Options)
   const authData = {
-    ApiUser,
-    ApiKey,
-    UserName: ApiUser,
-    ClientIp,
-    Command,
+    'ApiUser': ApiUser,
+    'ApiKey': ApiKey,
+    'UserName': ApiUser,
+    'ClientIp': ClientIp,
+    'Command': Command,
   }
   let res
   const headers = {
@@ -76,7 +76,8 @@ export const getError = (res) => {
       p = errors.map(({ props }) => props)
     }
     const er = new Error(c)
-    er.props = p
+    /** @suppress {checkTypes} */
+    er['props'] = p
 
     return er
   }

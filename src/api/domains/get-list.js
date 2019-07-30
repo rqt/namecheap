@@ -3,9 +3,9 @@ import extractTag from 'rexml'
 const GET_LIST = 'namecheap.domains.getList'
 
 const m = {
-  name: 'name',
-  expire: 'expiredate',
-  create: 'createdate',
+  'name': 'name',
+  'expire': 'expiredate',
+  'create': 'createdate',
 }
 
 /**
@@ -97,7 +97,7 @@ async function getList(query, options = {}) {
   const [{ content: PageSize }] = extractTag('PageSize', Paging)
 
   return {
-    domains: domains,
+    domains,
     TotalItems: parseInt(TotalItems, 10),
     CurrentPage: parseInt(CurrentPage, 10),
     PageSize: parseInt(PageSize, 10),

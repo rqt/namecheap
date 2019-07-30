@@ -32,7 +32,10 @@
       "program": "${workspaceFolder}/node_modules/.bin/alanode",
       "env": {
         "NODE_DEBUG": "@rqt/namecheap,aqt",
+        "ALAMODE_ENV": "test-compile",
+        "DEBUG": "1",
       },
+      "sourceMaps": false,
       "console": "integratedTerminal",
       "args": [
         // "example/run/users/get-pricing.js"

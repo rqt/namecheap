@@ -101,15 +101,15 @@ _namecheap.UsersAPI.prototype.getPricing = function(arg0) {}
 _namecheap.DnsAPI
 /**
  * Retrieves DNS host record settings for the requested domain.
- * @param {string} arg0
+ * @param {string} domain The domain name.
  * @return {!Promise<{ hosts: !Array<!_namecheap.Host>, IsUsingOurDNS: boolean, Domain: string, EmailType: string }>}
  */
-_namecheap.DnsAPI.prototype.getHosts = function(arg0) {}
+_namecheap.DnsAPI.prototype.getHosts = function(domain) {}
 /**
  * Sets the host records.
- * @param {string} arg0
- * @param {!Array<!_namecheap.HostParams>} arg1
- * @param {!_namecheap.DNSSetOptions} [arg2]
+ * @param {string} domain The domain name for which to set records.
+ * @param {!Array<!_namecheap.HostParams>} params The array of all hosts to set.
+ * @param {!_namecheap.DNSSetOptions=} [options] Optional parameters.
  * @return {!Promise<{ Domain: string, IsSuccess: boolean }>}
  */
-_namecheap.DnsAPI.prototype.setHosts = function(arg0, arg1, arg2) {}
+_namecheap.DnsAPI.prototype.setHosts = function(domain, params, options) {}

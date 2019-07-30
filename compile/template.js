@@ -12,37 +12,18 @@ class Namecheap extends _Namecheap {
     super(opts)
     this.users = {
       /**
-       * Returns pricing information for a requested product type.
-       * @param {!_namecheap.GetPricing} opts
+       * @type {_namecheap.UsersAPI.getPricing}
        */
-      getPricing: async (options) => {
-        const res = /** @type {_namecheap.Pricing} */
-          (await super.users.getPricing(options))
-        return res
+      getPricing: (options) => {
+        return super.users.getPricing(options)
       },
     }
     this.dns = {
       /**
-       * Retrieves DNS host record settings for the requested domain.
-       * @param {string} domain
+       * @type {_namecheap.DnsAPI.getHosts}
        */
-      getHosts: async (domain) => {
-        const res = /** @type {{hosts: _namecheap.Host[],
-          IsUsingOurDNS: boolean,
-          Domain: string,
-          EmailType: string }} */
-          (await super.dns.getHosts(domain))
-        return res
-      },
-      /**
-       * Sets the host records.
-       * @param {string} domain The domain name for which to set records.
-       * @param {!Array<!_namecheap.HostParams>} hosts An array with hosts to set.
-       * @param {!_namecheap.DNSSetOptions} [params] Optional parameters.
-       * @t {_namecheap.DNS}
-       */
-      setHosts: async () => {
-
+      getHosts: (domain) => {
+        return super.dns.getHosts(domain)
       },
     }
   }

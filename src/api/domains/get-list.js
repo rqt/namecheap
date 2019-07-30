@@ -97,10 +97,10 @@ async function getList(query, options = {}) {
   const [{ content: PageSize }] = extractTag('PageSize', Paging)
 
   return {
-    'domains': domains,
-    'TotalItems': parseInt(TotalItems, 10),
-    'CurrentPage': parseInt(CurrentPage, 10),
-    'PageSize': parseInt(PageSize, 10),
+    domains: domains,
+    TotalItems: parseInt(TotalItems, 10),
+    CurrentPage: parseInt(CurrentPage, 10),
+    PageSize: parseInt(PageSize, 10),
   }
 }
 

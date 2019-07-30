@@ -8,8 +8,14 @@
   </type>
 
   <type record name="DNSSetOptions" desc="Additional options to set DNS records.">
-    <prop string name="EmailType">Possible values are MXE, MX, FWD, OX.</prop>
-    <prop number name="Flag">Is an unsigned integer between 0 and 255. The flag value is an 8-bit number, the most significant bit of which indicates the criticality of understanding of a record by a CA. It's recommended to use '0'.</prop>
-    <prop string name="Tag">A non-zero sequence of US-ASCII letters and numbers in lower case. See namecheap API page for more info.</prop>
+    <prop string name="EmailType" opt>
+      Possible values are `MXE`, `MX`, `FWD`, `OX`.
+    </prop>
+    <prop number name="Flag" opt>
+      Is an unsigned integer between 0 and 255. The flag value is an 8-bit number, the most significant bit of which indicates the criticality of understanding of a record by a CA. It's recommended to use '0'.
+    </prop>
+    <prop string name="Tag" opt>
+      A non-zero sequence of US-ASCII letters and numbers in lower case. See namecheap API page for more info.
+    </prop>
   </type>
 </types>

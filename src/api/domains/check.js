@@ -50,7 +50,7 @@ export default check
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../../types/typedefs/domains').DomainCheck} _namecheap.Domain
+ * @typedef {import('../../../types/typedefs/domains').DomainCheck} _namecheap.DomainCheck
  */
 /**
  * @suppress {nonStandardJsDocs}

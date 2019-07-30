@@ -5,6 +5,12 @@ import getInfo from './api/domains/get-info'
 import check from './api/domains/check'
 import create from './api/domains/create'
 
+import getHosts from './api/domains/dns/get-hosts'
+import setHosts from './api/domains/dns/set-hosts'
+
+import getAddressList from './api/address/get-list'
+import getAddressInfo from './api/address/get-info'
+
 import getPricing from './api/users/get-pricing'
 
 /**
@@ -74,6 +80,49 @@ export default class NameCheap {
        */
       async create(opts) {
         const res = await create(q, opts)
+        return res
+      },
+    }
+
+    this.address = {
+      /**
+       * Gets a list of address IDs and address names associated with the user account.
+       */
+      async getList() {
+        const res = await getAddressList(q)
+        return res
+      },
+      /**
+       * Gets information for the requested address ID.
+       * @param {string|number} id The address id to get info about.
+       */
+      async getInfo(id) {
+        const res = await getAddressInfo(q, id)
+        return res
+      },
+    }
+
+    this.dns = {
+      /**
+       * Retrieves DNS host record settings for the requested domain.
+       * @param {string} domain
+       */
+      async getHosts(domain) {
+        const [sld, ...rest] = domain.split('.')
+        const tld = rest.join('.')
+        const res = await getHosts(q, { sld, tld })
+        return res
+      },
+      /**
+       * Sets the host records.
+       * @param {string} domain The domain name for which to set records.
+       * @param {!Array<!_namecheap.HostParams>} hosts An array with hosts to set.
+       * @param {!_namecheap.DNSSetOptions} [params] Optional parameters.
+       */
+      async setHosts(domain, hosts, params = {}) {
+        const [sld, ...rest] = domain.split('.')
+        const tld = rest.join('.')
+        const res = await setHosts(q, { 'SLD': sld, 'TLD': tld, ...params }, hosts)
         return res
       },
     }

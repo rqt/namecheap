@@ -34,5 +34,5 @@ export default getList
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../../').Host} _namecheap.Host
+ * @typedef {import('../../../../types/typedefs/dns').Host} _namecheap.Host
  */

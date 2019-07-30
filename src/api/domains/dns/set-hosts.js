@@ -4,8 +4,8 @@ const COMMAND = 'namecheap.domains.dns.setHosts'
 
 /**
  * @param {?} query
- * @param {Object} params
- * @param {Array<HostParams>} hosts
+ * @param {!Object} params
+ * @param {!Array<!_namecheap.HostParams>} [hosts]
  */
 export default async function setHosts(query, params, hosts) {
   const reqOpts = hosts.reduce((acc, host, i) => {
@@ -18,15 +18,16 @@ export default async function setHosts(query, params, hosts) {
   }, params)
   const res = await query(COMMAND, reqOpts, 'POST')
   const [{ props }] = extractTag('DomainDNSSetHostsResult', res)
-  const p = /** @type {{ Domain: string, IsSuccess: boolean }} */ (props)
+  /** @type {{ Domain: string, IsSuccess: boolean }} */
+  const p = props
   return p
 }
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../../').Host} _namecheap.Host
+ * @typedef {import('../../../../types/typedefs/dns').Host} _namecheap.Host
  */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../..').HostParams} HostParams
+ * @typedef {import('../../../../types/typedefs/dns').HostParams} _namecheap.HostParams
  */

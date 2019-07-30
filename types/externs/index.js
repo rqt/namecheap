@@ -34,6 +34,11 @@ _namecheap.NameCheap.prototype.address
  */
 _namecheap.NameCheap.prototype.users
 /**
+ * DNS operations.
+ * @type {_namecheap.DnsAPI}
+ */
+_namecheap.NameCheap.prototype.dns
+/**
  * The domains API.
  * @record
  */
@@ -89,3 +94,22 @@ _namecheap.UsersAPI
  * @return {!Promise<!_namecheap.Pricing>}
  */
 _namecheap.UsersAPI.prototype.getPricing = function(arg0) {}
+/**
+ * The DNS API.
+ * @record
+ */
+_namecheap.DnsAPI
+/**
+ * Retrieves DNS host record settings for the requested domain.
+ * @param {string} arg0
+ * @return {!Promise<{ hosts: !Array<!_namecheap.Host>, IsUsingOurDNS: boolean, Domain: string, EmailType: string }>}
+ */
+_namecheap.DnsAPI.prototype.getHosts = function(arg0) {}
+/**
+ * Sets the host records.
+ * @param {string} arg0
+ * @param {!Array<!_namecheap.HostParams>} arg1
+ * @param {!_namecheap.DNSSetOptions} [arg2]
+ * @return {!Promise<{ Domain: string, IsSuccess: boolean }>}
+ */
+_namecheap.DnsAPI.prototype.setHosts = function(arg0, arg1, arg2) {}

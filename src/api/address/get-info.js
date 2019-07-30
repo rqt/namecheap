@@ -36,7 +36,7 @@ const COMMAND = 'namecheap.users.address.getInfo'
  */
 async function getInfo(query, id) {
   const res = await query(COMMAND, {
-    AddressId: id,
+    'AddressId': id,
   })
   const [{
     content: GetAddressInfoResult,
@@ -79,5 +79,5 @@ export default getInfo
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../../').AddressDetail} _namecheap.AddressDetail
+ * @typedef {import('../../../types/typedefs/address').AddressDetail} _namecheap.AddressDetail
  */

@@ -9,9 +9,9 @@
     <prop type="_namecheap.UsersAPI" name="users">
       User operations.
     </prop>
-    <!-- prop type="_namecheap.DNS" name="dns">
+    <prop type="_namecheap.DnsAPI" name="dns">
       DNS operations.
-    </prop> -->
+    </prop>
   </type>
 
   <type record name="DomainsAPI" desc="The domains API.">
@@ -51,7 +51,7 @@
     </fn>
   </type>
 
-  <!-- type name="DNS" desc="The DNS API.">
+  <type record name="DnsAPI" desc="The DNS API.">
     <fn async args="string" name="getHosts" return="{
       hosts: !Array<!_namecheap.Host>,
       IsUsingOurDNS: boolean,
@@ -60,11 +60,11 @@
     }">
       Retrieves DNS host record settings for the requested domain.
     </fn>
-    <fn async args="string, !Array<!_namecheap.HostParams>, _namecheap.DNSSetOptions?" name="setHosts" return="{
+    <fn async args="string, !Array<!_namecheap.HostParams>, _namecheap.DNSSetOptions=" name="setHosts" return="{
       Domain: string,
       IsSuccess: boolean
     }">
       Sets the host records.
     </fn>
-  </type> -->
+  </type>
 </types>

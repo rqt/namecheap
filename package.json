@@ -2,7 +2,7 @@
   "name": "@rqt/namecheap",
   "version": "2.3.0",
   "description": "An Implementation Of The Namecheap.com API.",
-  "main": "build/index.js",
+  "main": "compile/index.js",
   "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
@@ -26,7 +26,7 @@
     "externs": "typal types/externs/index.js types/externs/users/* types/externs/*"
   },
   "files": [
-    "build",
+    "compile",
     "src",
     "types/typedefs",
     "types/externs"

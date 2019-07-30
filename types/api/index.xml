@@ -15,21 +15,33 @@
   </type>
 
   <type record name="DomainsAPI" desc="The domains API.">
-    <fn async args="!_namecheap.GetList" name="getList" return="{
+    <fn async name="getList" return="{
       domains: !Array<!_namecheap.Domain>,
       TotalItems: number,
       CurrentPage: number,
       PageSize: number
     }">
+      <arg type="!_namecheap.GetList" name="options">
+        The options to get the list of domains.
+      </arg>
       Returns a list of domains for the particular user.
     </fn>
-    <fn async args="(string|!_namecheap.GetInfo)" name="getInfo" return="!_namecheap.DomainInfo">
+    <fn async name="getInfo" return="!_namecheap.DomainInfo">
+      <arg type="string|!_namecheap.GetInfo" name="options">
+        The domain, or all get-info options.
+      </arg>
       Returns information about the requested domain.
     </fn>
-    <fn async args="(string|!_namecheap.Check)" return="!Array<!_namecheap.DomainCheck>" name="check">
+    <fn async return="!Array<!_namecheap.DomainCheck>" name="check">
+      <arg type="string|!_namecheap.Check" name="options">
+        The domain, or all check options.
+      </arg>
       Check if the domain name is taken.
     </fn>
-    <fn async args="!_namecheap.Create" return="!_namecheap.RegistrationResult" name="create">
+    <fn async return="!_namecheap.RegistrationResult" name="create">
+      <arg type="!_namecheap.Create" name="options">
+        How to create a domain.
+      </arg>
       Register a domain.
     </fn>
   </type>
@@ -38,15 +50,15 @@
     <fn async return="!Array<!_namecheap.Address>" name="getList">
       Gets a list of address IDs and address names associated with the user account.
     </fn>
-    <!-- proposed args syntax -->
-    <!-- <arg name="id">string|number</arg> -->
-    <fn async args="(string|number)" return="!_namecheap.AddressDetail" name="getInfo">
+    <fn async return="!_namecheap.AddressDetail" name="getInfo">
+      <arg type="string|number" name="id">The address id.</arg>
       Gets information for the requested address ID.
     </fn>
   </type>
 
   <type record name="UsersAPI" desc="The users API.">
-    <fn async args="!_namecheap.GetPricing" return="!_namecheap.Pricing" name="getPricing">
+    <fn async return="!_namecheap.Pricing" name="getPricing">
+      <arg type="!_namecheap.GetPricing" name="options">Options</arg>
       Returns pricing information for a requested product type.
     </fn>
   </type>

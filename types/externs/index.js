@@ -45,28 +45,28 @@ _namecheap.NameCheap.prototype.dns
 _namecheap.DomainsAPI
 /**
  * Returns a list of domains for the particular user.
- * @param {!_namecheap.GetList} arg0
+ * @param {!_namecheap.GetList} options The options to get the list of domains.
  * @return {!Promise<{ domains: !Array<!_namecheap.Domain>, TotalItems: number, CurrentPage: number, PageSize: number }>}
  */
-_namecheap.DomainsAPI.prototype.getList = function(arg0) {}
+_namecheap.DomainsAPI.prototype.getList = function(options) {}
 /**
  * Returns information about the requested domain.
- * @param {(string|!_namecheap.GetInfo)} arg0
+ * @param {(string|!_namecheap.GetInfo)} options The domain, or all get-info options.
  * @return {!Promise<!_namecheap.DomainInfo>}
  */
-_namecheap.DomainsAPI.prototype.getInfo = function(arg0) {}
+_namecheap.DomainsAPI.prototype.getInfo = function(options) {}
 /**
  * Check if the domain name is taken.
- * @param {(string|!_namecheap.Check)} arg0
+ * @param {(string|!_namecheap.Check)} options The domain, or all check options.
  * @return {!Promise<!Array<!_namecheap.DomainCheck>>}
  */
-_namecheap.DomainsAPI.prototype.check = function(arg0) {}
+_namecheap.DomainsAPI.prototype.check = function(options) {}
 /**
  * Register a domain.
- * @param {!_namecheap.Create} arg0
+ * @param {!_namecheap.Create} options How to create a domain.
  * @return {!Promise<!_namecheap.RegistrationResult>}
  */
-_namecheap.DomainsAPI.prototype.create = function(arg0) {}
+_namecheap.DomainsAPI.prototype.create = function(options) {}
 /**
  * The address API.
  * @record
@@ -79,10 +79,10 @@ _namecheap.AddressAPI
 _namecheap.AddressAPI.prototype.getList = function() {}
 /**
  * Gets information for the requested address ID.
- * @param {(string|number)} arg0
+ * @param {(string|number)} id The address id.
  * @return {!Promise<!_namecheap.AddressDetail>}
  */
-_namecheap.AddressAPI.prototype.getInfo = function(arg0) {}
+_namecheap.AddressAPI.prototype.getInfo = function(id) {}
 /**
  * The users API.
  * @record
@@ -90,10 +90,10 @@ _namecheap.AddressAPI.prototype.getInfo = function(arg0) {}
 _namecheap.UsersAPI
 /**
  * Returns pricing information for a requested product type.
- * @param {!_namecheap.GetPricing} arg0
+ * @param {!_namecheap.GetPricing} options Options
  * @return {!Promise<!_namecheap.Pricing>}
  */
-_namecheap.UsersAPI.prototype.getPricing = function(arg0) {}
+_namecheap.UsersAPI.prototype.getPricing = function(options) {}
 /**
  * The DNS API.
  * @record

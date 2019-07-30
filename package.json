@@ -11,7 +11,7 @@
     "mask": "yarn t test/mask",
     "test-compile": "ALAMODE_ENV=test-compile yarn test",
     "lint": "eslint .",
-    "compile": "depack-dev src/depack -o compile/namecheap.js -c -a -p -s --source_map_include_content",
+    "compile": "depack-dev src/depack -o compile/namecheap.js -c -a -p -s --source_map_include_content --language_out ECMASCRIPT_2018",
     "doc": "NODE_DEBUG=doc doc -o README.md -n _namecheap",
     "wiki": "NODE_DEBUG=doc doc wiki -W ../namecheap.wiki -n _namecheap",
     "b": "alamode src -o build -s",

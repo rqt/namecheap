@@ -58,30 +58,27 @@ const P = (a, b) => {
 };
 class Q extends O {
   constructor(a) {
-    var b = a || {}, c = Object.assign({}, b);
-    const d = void 0 === b.binary ? !1 : b.binary, e = void 0 === b.rs ? null : b.rs;
-    b = (delete c.binary, delete c.rs, c);
-    const {g = M(!0), proxyError:f} = a || {}, l = (k, p) => g(p);
-    super(b);
+    const {binary:b = !1, rs:c = null, ...d} = a || {}, {g:e = M(!0), proxyError:g} = a || {}, f = (l, k) => e(k);
+    super(d);
     this.f = [];
-    this.o = new Promise((k, p) => {
+    this.o = new Promise((l, k) => {
       this.on("finish", () => {
         let m;
-        d ? m = Buffer.concat(this.f) : m = this.f.join("");
-        k(m);
+        b ? m = Buffer.concat(this.f) : m = this.f.join("");
+        l(m);
         this.f = [];
       });
       this.once("error", m => {
         if (-1 == m.stack.indexOf("\n")) {
-          l`${m}`;
+          f`${m}`;
         } else {
-          const u = K(m.stack);
-          m.stack = u;
-          f && l`${m}`;
+          const q = K(m.stack);
+          m.stack = q;
+          g && f`${m}`;
         }
-        p(m);
+        k(m);
       });
-      e && P(this, e).pipe(this);
+      c && P(this, c).pipe(this);
     });
   }
   _write(a, b, c) {
@@ -92,32 +89,30 @@ class Q extends O {
     return this.o;
   }
 }
-const aa = async(a, b) => {
-  b = void 0 === b ? {} : b;
-  ({h:a} = new Q(Object.assign({}, {rs:a}, b, {g:M(!0)})));
+const aa = async(a, b = {}) => {
+  ({h:a} = new Q({rs:a, ...b, g:M(!0)}));
   return await a;
 };
 const {createGunzip:ba} = zlib;
 const ca = a => {
   ({"content-encoding":a} = a.headers);
   return "gzip" == a;
-}, da = (a, b, c) => {
-  c = void 0 === c ? {} : c;
+}, da = (a, b, c = {}) => {
   const {justHeaders:d, binary:e, g = M(!0)} = c;
-  let f, l, k, p, m = 0, u = 0;
+  let f, l, k, m, q = 0, u = 0;
   c = (new Promise((v, w) => {
     f = a(b, async n => {
       ({headers:l} = n);
-      const {statusMessage:q, statusCode:r} = n;
-      k = {statusMessage:q, statusCode:r};
+      const {statusMessage:p, statusCode:r} = n;
+      k = {statusMessage:p, statusCode:r};
       if (d) {
         n.destroy();
       } else {
         var t = ca(n);
-        n.on("data", z => m += z.byteLength);
+        n.on("data", z => q += z.byteLength);
         n = t ? n.pipe(ba()) : n;
-        p = await aa(n, {binary:e});
-        u = p.length;
+        m = await aa(n, {binary:e});
+        u = m.length;
       }
       v();
     }).on("error", n => {
@@ -126,7 +121,7 @@ const ca = a => {
     }).on("timeout", () => {
       f.abort();
     });
-  })).then(() => Object.assign({}, {body:p, headers:l}, k, {A:m, byteLength:u, i:null}));
+  })).then(() => ({body:m, headers:l, ...k, A:q, byteLength:u, i:null}));
   return {B:f, h:c};
 };
 const ea = (a = {}) => Object.keys(a).reduce((b, c) => {
@@ -154,11 +149,10 @@ try {
 } catch (a) {
   R = "@aqt/rqt";
 }
-const ha = y("aqt"), S = async(a, b) => {
-  b = void 0 === b ? {} : b;
-  const {data:c, type:d = "json", headers:e = {"User-Agent":`Mozilla/5.0 (Node.JS) ${R}`}, compress:g = !0, binary:f = !1, justHeaders:l = !1, method:k, timeout:p} = b;
+const ha = y("aqt"), S = async(a, b = {}) => {
+  const {data:c, type:d = "json", headers:e = {"User-Agent":`Mozilla/5.0 (Node.JS) ${R}`}, compress:g = !0, binary:f = !1, justHeaders:l = !1, method:k, timeout:m} = b;
   b = M(!0);
-  const {hostname:m, protocol:u, port:v, path:w} = N(a), n = "https:" === u ? h : x, q = {hostname:m, port:v, path:w, headers:Object.assign({}, e), timeout:p, method:k};
+  const {hostname:q, protocol:u, port:v, path:w} = N(a), n = "https:" === u ? h : x, p = {hostname:q, port:v, path:w, headers:{...e}, timeout:m, method:k};
   if (c) {
     var r = d;
     var t = c;
@@ -173,12 +167,12 @@ const ha = y("aqt"), S = async(a, b) => {
     t = {data:t, contentType:r};
     ({data:r} = t);
     ({contentType:t} = t);
-    q.method = k || "POST";
-    "Content-Type" in q.headers || (q.headers["Content-Type"] = t);
-    "Content-Length" in q.headers || (q.headers["Content-Length"] = Buffer.byteLength(r));
+    p.method = k || "POST";
+    "Content-Type" in p.headers || (p.headers["Content-Type"] = t);
+    "Content-Length" in p.headers || (p.headers["Content-Length"] = Buffer.byteLength(r));
   }
-  !g || "Accept-Encoding" in q.headers || (q.headers["Accept-Encoding"] = "gzip, deflate");
-  const {body:z, headers:ia, byteLength:H, statusCode:ja, statusMessage:ka, A:I, i:J} = await fa(n, q, {data:r, justHeaders:l, binary:f, g:b});
+  !g || "Accept-Encoding" in p.headers || (p.headers["Accept-Encoding"] = "gzip, deflate");
+  const {body:z, headers:ia, byteLength:H, statusCode:ja, statusMessage:ka, A:I, i:J} = await fa(n, p, {data:r, justHeaders:l, binary:f, g:b});
   ha("%s %s B%s", a, H, `${H != I ? ` (raw ${I} B)` : ""}`);
   return {body:J ? J : z, headers:ia, statusCode:ja, statusMessage:ka};
 };
@@ -218,21 +212,18 @@ const na = a => Object.keys(a).reduce((b, c) => {
   b[c] = d;
   return b;
 }, {}), oa = a => a.reduce((b, c) => b && "string" == typeof c, !0);
-async function pa(a, b, c, d) {
-  var {l:e, j:g, m:f, host:l} = a;
-  c = void 0 === c ? {} : c;
-  d = void 0 === d ? "GET" : d;
-  if (!b) {
+async function pa({l:a, j:b, m:c, host:d}, e, g = {}, f = "GET") {
+  if (!e) {
     throw Error("Command must be passed.");
   }
-  a = na(c);
-  c = {ApiUser:e, ApiKey:g, UserName:e, ClientIp:f, Command:b};
-  b = {"User-Agent":"Mozilla/5.0 (Node.JS; @rqt/namecheap v2.3.0) https://github.com/rqt/namecheap"};
-  if ("GET" == d) {
-    d = T(Object.assign({}, c, a)), d = await S(`${l}/xml.response?${d}`, {headers:b});
+  g = na(g);
+  b = {ApiUser:a, ApiKey:b, UserName:a, ClientIp:c, Command:e};
+  a = {"User-Agent":"Mozilla/5.0 (Node.JS; @rqt/namecheap v2.3.0) https://github.com/rqt/namecheap"};
+  if ("GET" == f) {
+    f = T({...b, ...g}), d = await S(`${d}/xml.response?${f}`, {headers:a});
   } else {
-    if ("POST" == d) {
-      d = T(c), d = await S(`${l}/xml.response?${d}`, {data:a, headers:b, type:"form"});
+    if ("POST" == f) {
+      f = T(b), d = await S(`${d}/xml.response?${f}`, {data:g, headers:a, type:"form"});
     } else {
       throw Error("Unknown method.");
     }
@@ -241,8 +232,8 @@ async function pa(a, b, c, d) {
   if (!d.startsWith('<?xml version="1.0" encoding="utf-8"?>')) {
     throw Error("non-xml response");
   }
-  if (a = qa(d)) {
-    throw a;
+  if (f = qa(d)) {
+    throw f;
   }
   [{content:d}] = W("CommandResponse", d);
   return d.trim();
@@ -256,13 +247,7 @@ const qa = a => {
       a = c;
       b = d;
     } else {
-      a = b.map(c => {
-        ({content:c} = c);
-        return c;
-      }).join("; "), b = b.map(c => {
-        ({b:c} = c);
-        return c;
-      });
+      a = b.map(({content:c}) => c).join("; "), b = b.map(({b:c}) => c);
     }
     a = Error(a);
     a.props = b;
@@ -280,12 +265,12 @@ async function sa(a, b = {}) {
   const {page:c, sort:d, desc:e, filter:g, type:f, pageSize:l} = b;
   b = {Page:c, PageSize:l, SortBy:d ? X(d, e) : X("create", "desc"), SearchTerm:g, ListType:f};
   b = await a("namecheap.domains.getList", b);
-  a = W("Domain", b).map(({b:m}) => m);
+  a = W("Domain", b).map(({b:q}) => q);
   var [{content:k}] = W("Paging", b);
   [{content:b}] = W("TotalItems", k);
-  const [{content:p}] = W("CurrentPage", k);
+  const [{content:m}] = W("CurrentPage", k);
   [{content:k}] = W("PageSize", k);
-  return {domains:a, TotalItems:parseInt(b, 10), CurrentPage:parseInt(p, 10), PageSize:parseInt(k, 10)};
+  return {domains:a, TotalItems:parseInt(b, 10), CurrentPage:parseInt(m, 10), PageSize:parseInt(k, 10)};
 }
 ;const ta = a => {
   let b, c, d;
@@ -298,7 +283,7 @@ async function sa(a, b = {}) {
     [{content:c}] = W("ExpiredDate", a);
   } catch (e) {
   }
-  return Object.assign({}, {ID:parseInt(b, 10)}, c ? {ExpiredDate:c} : {}, d ? {EmailDetails:d} : {});
+  return {ID:parseInt(b, 10), ...c ? {ExpiredDate:c} : {}, ...d ? {EmailDetails:d} : {}};
 }, ua = a => {
   const [{content:b}] = W("UseAutoRenew", a), [{content:c}] = W("SubscriptionId", a), [{content:d}] = W("CreatedDate", a), [{content:e}] = W("ExpirationDate", a);
   [{content:a}] = W("IsActive", a);
@@ -312,17 +297,13 @@ async function sa(a, b = {}) {
   const [{content:g, b:f}] = W("Whoisguard", b), l = ta(g);
   var [{content:k}] = W("PremiumDnsSubscription", b);
   k = ua(k);
-  const [{content:p, b:m}] = W("DnsDetails", b), u = W("Nameserver", p).map(q => {
-    ({content:q} = q);
-    return q;
-  }), [{content:v, b:w}] = W("Modificationrights", b);
+  const [{content:m, b:q}] = W("DnsDetails", b), u = W("Nameserver", m).map(({content:p}) => p), [{content:v, b:w}] = W("Modificationrights", b);
   let n = {};
-  v && (n = W("Rights", v).reduce((q, r) => {
-    ({b:r} = r);
+  v && (n = W("Rights", v).reduce((p, {b:r}) => {
     ({Type:r} = r);
-    return Object.assign({}, q, {[r]:!0});
+    return {...p, [r]:!0};
   }, {}));
-  return Object.assign({}, c, {DomainDetails:{CreatedDate:a, ExpiredDate:e, NumYears:parseInt(d, 10)}, Whoisguard:Object.assign({}, f, l), PremiumDnsSubscription:k, DnsDetails:Object.assign({}, m, {Nameserver:u}), G:Object.assign({}, w, n)});
+  return {...c, DomainDetails:{CreatedDate:a, ExpiredDate:e, NumYears:parseInt(d, 10)}, Whoisguard:{...f, ...l}, PremiumDnsSubscription:k, DnsDetails:{...q, Nameserver:u}, G:{...w, ...n}};
 };
 async function wa(a, b) {
   const {domain:c, host:d} = "string" == typeof b ? {domain:b} : b;
@@ -345,28 +326,24 @@ async function wa(a, b) {
   return W("DomainCheckResult", a).map(({b:e}) => e);
 }
 ;async function ya(a, b) {
-  const {domain:c, years:d = 1, promo:e, address:g, registrantAddress:f = g, techAddress:l = g, adminAddress:k = g, billingAddress:p = g, nameservers:m = [], whois:u = !0, premium:v = {}} = b;
+  const {domain:c, years:d = 1, promo:e, address:g, registrantAddress:f = g, techAddress:l = g, adminAddress:k = g, billingAddress:m = g, nameservers:q = [], whois:u = !0, premium:v = {}} = b;
   b = Y(f, "Registrant");
-  const w = Y(l, "Tech"), n = Y(k, "Admin"), q = Y(p, "AuxBilling");
-  a = await a("namecheap.domains.create", Object.assign({}, {DomainName:c, Years:d, PromotionCode:e}, b, w, n, q, {Nameservers:m.join(","), AddFreeWhoisguard:u ? "yes" : "no", WGEnabled:u ? "yes" : "no"}, v), "POST");
+  const w = Y(l, "Tech"), n = Y(k, "Admin"), p = Y(m, "AuxBilling");
+  a = await a("namecheap.domains.create", {DomainName:c, Years:d, PromotionCode:e, ...b, ...w, ...n, ...p, Nameservers:q.join(","), AddFreeWhoisguard:u ? "yes" : "no", WGEnabled:u ? "yes" : "no", ...v}, "POST");
   [{b:a}] = W("DomainCreateResult", a);
   return a;
 }
-const za = "JobTitle FirstName LastName Address1 Address2 City StateProvince StateProvinceChoice Country Phone PhoneExt Fax EmailAddress".split(" "), Y = (a, b) => za.reduce((c, d) => Object.assign({}, c, {[`${b}${d}`]:"StateProvince" != d || a[d] ? a[d] : "NA"}), {[`${b}OrganizationName`]:a.Organization, [`${b}PostalCode`]:a.Zip});
-async function Aa(a, b) {
-  var {D:c, F:d} = b;
-  a = await a("namecheap.domains.dns.getHosts", {SLD:c, TLD:d});
-  const [{content:e, b:g}] = W("DomainDNSGetHostsResult", a);
-  a = Z(e, "Host");
-  b = Z(e, "host");
-  const f = Z(e, "HOST");
-  a = [...a, ...b, ...f];
-  return Object.assign({}, g, {hosts:a});
+const za = "JobTitle FirstName LastName Address1 Address2 City StateProvince StateProvinceChoice Country Phone PhoneExt Fax EmailAddress".split(" "), Y = (a, b) => za.reduce((c, d) => ({...c, [`${b}${d}`]:"StateProvince" != d || a[d] ? a[d] : "NA"}), {[`${b}OrganizationName`]:a.Organization, [`${b}PostalCode`]:a.Zip});
+async function Aa(a, {D:b, F:c}) {
+  a = await a("namecheap.domains.dns.getHosts", {SLD:b, TLD:c});
+  const [{content:d, b:e}] = W("DomainDNSGetHostsResult", a);
+  a = Z(d, "Host");
+  b = Z(d, "host");
+  c = Z(d, "HOST");
+  a = [...a, ...b, ...c];
+  return {...e, hosts:a};
 }
-const Z = (a, b) => W(b, a).map(c => {
-  ({b:c} = c);
-  return c;
-});
+const Z = (a, b) => W(b, a).map(({b:c}) => c);
 async function Ba(a, b, c) {
   b = c.reduce((d, e, g) => {
     Object.entries(e).forEach(([f, l]) => {
@@ -393,7 +370,7 @@ const Ga = "AddressId UserName AddressName Default_YN FirstName LastName JobTitl
   try {
     let [{content:d}] = W(c, a);
     "Default_YN" == c ? d = "true" == d : "AddressId" == c && (d = parseInt(d, 10));
-    return Object.assign({}, b, {[c]:d});
+    return {...b, [c]:d};
   } catch (d) {
     return Da(`Could not extract tag ${c}`), b;
   }
@@ -401,9 +378,9 @@ const Ga = "AddressId UserName AddressName Default_YN FirstName LastName JobTitl
 const Ia = async(a, b) => {
   const {type:c, category:d, promoCode:e, action:g, product:f} = b;
   a = await a("namecheap.users.getPricing", {ProductType:c, ProductCategory:d, PromotionCode:e, ActionName:g, ProductName:f});
-  return W("ProductType", a).reduce((l, {content:k, b:{Name:p}}) => {
+  return W("ProductType", a).reduce((l, {content:k, b:{Name:m}}) => {
     k = Ha(k);
-    l[p] = k;
+    l[m] = k;
     return l;
   }, {});
 }, Ha = a => W("ProductCategory", a).reduce((b, {content:c, b:{Name:d}}) => {
@@ -427,8 +404,7 @@ class Ka {
     this.users = {async getPricing(f) {
       return await Ia(g, f);
     }};
-    this.domains = {async getList(f) {
-      f = void 0 === f ? {} : f;
+    this.domains = {async getList(f = {}) {
       return await sa(g, f);
     }, async getInfo(f) {
       return await wa(g, f);
@@ -445,10 +421,9 @@ class Ka {
     this.dns = {async getHosts(f) {
       const [l, ...k] = f.split(".");
       return await Aa(g, {D:l, F:k.join(".")});
-    }, async setHosts(f, l, k) {
-      k = void 0 === k ? {} : k;
-      const [p, ...m] = f.split(".");
-      return await Ba(g, Object.assign({}, {SLD:p, TLD:m.join(".")}, k), l);
+    }, async setHosts(f, l, k = {}) {
+      const [m, ...q] = f.split(".");
+      return await Ba(g, {SLD:m, TLD:q.join("."), ...k}, l);
     }};
   }
   async v(a, b, c) {

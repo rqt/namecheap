@@ -1,0 +1,15 @@
+[
+  {
+    "Domain": "testing.com",
+    "Available": true,
+    "ErrorNo": 0,
+    "Description": "",
+    "IsPremiumName": false,
+    "PremiumRegistrationPrice": 0,
+    "PremiumRenewalPrice": 0,
+    "PremiumRestorePrice": 0,
+    "PremiumTransferPrice": 0,
+    "IcannFee": 0,
+    "EapFee": "0.0"
+  }
+]

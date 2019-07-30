@@ -35,7 +35,7 @@ class Namecheap extends _Namecheap {
        * @return {!Promise<!_namecheap.AddressDetail>}
        */
       getInfo: (id) => {
-        return address.getList(id)
+        return address.getInfo(id)
       },
     }
     this.domains = {
@@ -127,4 +127,4 @@ class Namecheap extends _Namecheap {
 
 module.exports = Namecheap
 
-console.log('testing compile')
+// console.log('testing compile')

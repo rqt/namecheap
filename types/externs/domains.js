@@ -24,7 +24,7 @@ _namecheap.DomainCheck
  */
 _namecheap.GetInfo
 /**
- * @typedef {{ DomainName: string, OwnerName: string, ID: number, IsOwner: boolean, IsPremium: boolean, Status: *, DomainDetails: _namecheap.DomainDetails, LockDetails: _namecheap.LockDetails, Whoisguard: _namecheap.Whoisguard, PremiumDnsSubscription: _namecheap.PremiumDnsSubscription, DnsDetails: _namecheap.DnsDetails, ModificationRights: _namecheap.ModificationRights }}
+ * @typedef {{ DomainName: string, OwnerName: string, ID: number, IsOwner: boolean, IsPremium: boolean, Status: string, DomainDetails: _namecheap.DomainDetails, LockDetails: _namecheap.LockDetails, Whoisguard: _namecheap.Whoisguard, PremiumDnsSubscription: _namecheap.PremiumDnsSubscription, DnsDetails: _namecheap.DnsDetails, Modificationrights: _namecheap.ModificationRights }}
  */
 _namecheap.DomainInfo
 /**

@@ -1,0 +1,12 @@
+[
+  {
+    "AddressId": 0,
+    "AddressName": "Primary Address",
+    "IsDefault": false
+  },
+  {
+    "AddressId": 101235,
+    "AddressName": "Planet Express",
+    "IsDefault": true
+  }
+]

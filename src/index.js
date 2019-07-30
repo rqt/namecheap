@@ -1,4 +1,5 @@
-import query from './lib/query'
+import erotic from 'erotic'
+import query, { NamecheapError } from './lib/query'
 
 import getList from './api/domains/get-list'
 import getInfo from './api/domains/get-info'
@@ -133,7 +134,7 @@ export default class NameCheap {
    * @param {string} [method] Such as POST or GET.
    */
   async _query(endpoint, params, method) {
-    // const cb = erotic(true)
+    const cb = erotic(true)
     try {
       const res = await query({
         ApiKey: this._key,
@@ -143,7 +144,10 @@ export default class NameCheap {
       }, endpoint, params, method)
       return res
     } catch (err) {
-      // const e = cb(err)
+      if (err instanceof NamecheapError) {
+        const e = cb(err)
+        throw e
+      }
       throw err
     }
   }

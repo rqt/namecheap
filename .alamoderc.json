@@ -3,7 +3,7 @@
     "test-compile": {
       "import": {
         "replacement": {
-          "from": "^((../)+)src",
+          "from": "^((../)+)src$",
           "to": "$1compile"
         }
       }

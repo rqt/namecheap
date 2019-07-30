@@ -23,15 +23,16 @@
     <prop boolean name="IsPremium">
       Indicates whether the domain name is premium, e.g., `false`.
     </prop>
-    <prop name="Status" type="">
-      Indicates the status of the domain, e.g., `OK`. Possible values: `Ok`, `Locked`, `Expired`.
+    <prop string name="Status">
+      Indicates the status of the domain, e.g., `Ok`.
+      Possible values: `Ok`, `Locked`, `Expired`.
     </prop>
     <prop name="DomainDetails" type="_namecheap.DomainDetails" />
     <prop name="LockDetails" type="_namecheap.LockDetails" />
     <prop name="Whoisguard" type="_namecheap.Whoisguard" />
     <prop name="PremiumDnsSubscription" type="_namecheap.PremiumDnsSubscription" />
     <prop name="DnsDetails" type="_namecheap.DnsDetails" />
-    <prop name="ModificationRights" type="_namecheap.ModificationRights" />
+    <prop name="Modificationrights" type="_namecheap.ModificationRights" />
   </type>
   <type name="DomainDetails">
     <prop string name="CreatedDate">

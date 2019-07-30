@@ -6,7 +6,7 @@
   "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
-    "test": "yarn t test/spec test/mask -t 30000",
+    "test": "yarn t test/spec test/mask -t 60000",
     "spec": "yarn t test/spec",
     "mask": "yarn t test/mask",
     "test-compile": "ALAMODE_ENV=test-compile yarn test",
@@ -68,7 +68,8 @@
     "yarn-s": "1.1.0",
     "zoroaster": "^4.1.1-alpha"
   },
-  "dependencies": {
+  "srcDependencies": {
+    "erotic": "^2.1.1",
     "rexml": "^2.0.3",
     "rqt": "^3.1.4"
   }

@@ -7,7 +7,7 @@ const LOG = debuglog('@rqt/namecheap')
 
 const FIXTURE = resolve('test/fixture')
 
-const rc = bosom('.namecheap.json')
+export const rc = bosom('.namecheap.json')
 
 /**
  * A testing context for the package.

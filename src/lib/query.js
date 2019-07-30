@@ -75,10 +75,12 @@ export const getError = (res) => {
       c = errors.map(({ content }) => content).join('; ')
       p = errors.map(({ props }) => props)
     }
-    const er = new Error(c)
+    const er = new NamecheapError(c)
     /** @suppress {checkTypes} */
     er['props'] = p
 
     return er
   }
 }
+
+export class NamecheapError extends Error {}

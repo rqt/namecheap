@@ -10,12 +10,13 @@ class Namecheap extends _Namecheap {
    */
   constructor(opts) {
     super(opts)
+    const { address, domains, dns, users } = this
     this.users = {
       /**
        * @fnType {_namecheap.UsersAPI.getPricing}
        */
       getPricing: (options) => {
-        return super.users.getPricing(options)
+        return users.getPricing(options)
       },
     }
     this.address = {
@@ -23,13 +24,13 @@ class Namecheap extends _Namecheap {
        * @fnType {_namecheap.AddressAPI.getList}
        */
       getList: () => {
-        return super.address.getList()
+        return address.getList()
       },
       /**
        * @fnType {_namecheap.AddressAPI.getInfo}
        */
       getInfo: (id) => {
-        return super.address.getList(id)
+        return address.getInfo(id)
       },
     }
     this.domains = {
@@ -37,25 +38,25 @@ class Namecheap extends _Namecheap {
        * @fnType {_namecheap.DomainsAPI.getList}
        */
       getList: (options) => {
-        return super.domains.getList(options)
+        return domains.getList(options)
       },
       /**
        * @fnType {_namecheap.DomainsAPI.getInfo}
        */
       getInfo: (options) => {
-        return super.domains.getInfo(options)
+        return domains.getInfo(options)
       },
       /**
        * @fnType {_namecheap.DomainsAPI.check}
        */
       check: (options) => {
-        return super.domains.check(options)
+        return domains.check(options)
       },
       /**
        * @fnType {_namecheap.DomainsAPI.create}
        */
       create: (options) => {
-        return super.domains.create(options)
+        return domains.create(options)
       },
     }
     this.dns = {
@@ -63,13 +64,13 @@ class Namecheap extends _Namecheap {
        * @fnType {_namecheap.DnsAPI.getHosts}
        */
       getHosts: (domain) => {
-        return super.dns.getHosts(domain)
+        return dns.getHosts(domain)
       },
       /**
        * @fnType {_namecheap.DnsAPI.setHosts}
        */
       setHosts: (domain, hosts, options) => {
-        return super.dns.setHosts(domain, hosts, options)
+        return dns.setHosts(domain, hosts, options)
       },
     }
   }

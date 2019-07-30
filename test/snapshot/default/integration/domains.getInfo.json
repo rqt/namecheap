@@ -1,0 +1,46 @@
+{
+  "Status": "Ok",
+  "ID": 429211,
+  "DomainName": "node-test.app",
+  "OwnerName": "zavr",
+  "IsOwner": true,
+  "IsPremium": false,
+  "DomainDetails": {
+    "CreatedDate": "07/30/2019",
+    "ExpiredDate": "07/30/2021",
+    "NumYears": 0
+  },
+  "Whoisguard": {
+    "Enabled": "True",
+    "ID": 351736,
+    "ExpiredDate": "07/30/2020",
+    "EmailDetails": {
+      "WhoisGuardEmail": "512e9fdd4bde4d698aa1301873e7206a.protect@whoisguard.com",
+      "ForwardedTo": "zoidberg@futurama.bz",
+      "LastAutoEmailChangeDate": "07/30/2019",
+      "AutoEmailChangeFrequencyDays": 3
+    }
+  },
+  "PremiumDnsSubscription": {
+    "UseAutoRenew": false,
+    "SubscriptionId": -1,
+    "CreatedDate": "0000-12-31T21:00:00.000Z",
+    "ExpirationDate": "0000-12-31T21:00:00.000Z",
+    "IsActive": false
+  },
+  "DnsDetails": {
+    "ProviderType": "FREE",
+    "IsUsingOurDNS": true,
+    "HostCount": 2,
+    "EmailType": "FWD",
+    "DynamicDNSStatus": false,
+    "IsFailover": false,
+    "Nameserver": [
+      "dns1.registrar-servers.com",
+      "dns2.registrar-servers.com"
+    ]
+  },
+  "Modificationrights": {
+    "All": true
+  }
+}

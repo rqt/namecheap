@@ -1,0 +1,20 @@
+{
+  "AddressId": 101235,
+  "UserName": "zavr",
+  "AddressName": "Planet Express",
+  "Default_YN": true,
+  "FirstName": "John",
+  "LastName": "Zoidberg",
+  "JobTitle": "Doctor",
+  "Organization": "Planet Express",
+  "Address1": "Planet Express",
+  "Address2": "57th Street",
+  "City": "New New York",
+  "StateProvince": "NY",
+  "StateProvinceChoice": "S",
+  "Zip": "10019",
+  "Country": "US",
+  "Phone": "+1.5417543010",
+  "PhoneExt": "",
+  "EmailAddress": "zoidberg@futurama.bz"
+}

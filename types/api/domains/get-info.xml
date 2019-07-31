@@ -7,7 +7,7 @@
       The hosted domain name for which domain information needs to be requested.
     </prop>
   </type>
-  <type name="DomainInfo">
+  <type name="DomainInfo" desc="The information about the domain returned by the `domains.getinfo` method.">
     <prop string name="DomainName">
       Domain name for which the information was requested, e.g., `example.com`.
     </prop>
@@ -34,7 +34,7 @@
     <prop name="DnsDetails" type="_namecheap.DnsDetails" />
     <prop name="Modificationrights" type="_namecheap.ModificationRights" />
   </type>
-  <type name="DomainDetails">
+  <type name="DomainDetails" desc="Primary information about the domain.">
     <prop string name="CreatedDate">
       `06/06/2018`
     </prop>
@@ -46,7 +46,7 @@
     </prop>
   </type>
   <type type="Object" name="LockDetails" />
-  <type name="Whoisguard">
+  <type name="Whoisguard" desc="Whois information.">
     <prop boolean name="Enabled">`true`</prop>
     <prop string name="ID">`264991`</prop>
     <prop string name="ExpiredDate">`06/06/2019`</prop>
@@ -60,14 +60,14 @@
       `43b596ee817f451f98eab1d848a4051a.protect＠whoisguard.com`
     </prop>
   </type>
-  <type name="PremiumDnsSubscription">
+  <type name="PremiumDnsSubscription" desc="Information about the Premium DNS value-added service.">
     <prop type="Date" name="CreatedDate" />
     <prop type="Date" name="ExpirationDate" />
     <prop boolean name="IsActive">`false`</prop>
     <prop number name="SubscriptionId">-1</prop>
     <prop boolean name="UseAutoRenew">`false`</prop>
   </type>
-  <type name="DnsDetails">
+  <type name="DnsDetails" desc="DNS information, such as nameservers, _etc_.">
     <prop boolean name="DynamicDNSStatus">`false`</prop>
     <prop string name="EmailType">`FWD`</prop>
     <prop number name="HostCount">`2`</prop>

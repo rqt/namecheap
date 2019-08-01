@@ -1,3 +1,9 @@
+## 2 August 2019
+
+### [2.4.1](https://github.com/rqt/namecheap/compare/v2.4.0...v2.4.1)
+
+- [package] Correctly specify all externs.
+
 ## 1 August 2019
 
 ### [2.4.0](https://github.com/rqt/namecheap/compare/v2.3.0...v2.4.0)

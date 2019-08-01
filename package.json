@@ -63,7 +63,7 @@
     "@wrote/write": "^1.0.4",
     "alamode": "^2.3.6",
     "bosom": "^1.0.0",
-    "documentary": "^1.28.2",
+    "documentary": "^1.29.0",
     "eslint-config-artdeco": "1.0.1",
     "yarn-s": "1.1.0",
     "zoroaster": "^4.1.1-alpha"

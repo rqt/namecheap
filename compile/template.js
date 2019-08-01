@@ -108,4 +108,4 @@ class Namecheap extends _Namecheap {
 
 module.exports = Namecheap
 
-console.log('testing compile')
+// console.log('testing compile')

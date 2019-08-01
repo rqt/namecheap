@@ -34,28 +34,29 @@ export {}
  * @prop {string} [host] The hosted domain name for which domain information needs to be requested.
  */
 /**
- * @typedef {_namecheap.DomainInfo} DomainInfo
+ * @typedef {_namecheap.DomainInfo} DomainInfo The information about the domain returned by the `domains.getinfo` method.
  */
 /**
- * @typedef {Object} _namecheap.DomainInfo
+ * @typedef {Object} _namecheap.DomainInfo The information about the domain returned by the `domains.getinfo` method.
  * @prop {string} DomainName Domain name for which the information was requested, e.g., `example.com`.
  * @prop {string} OwnerName User account under which the domain is registered, e.g., `rqt`.
  * @prop {number} ID Unique integer value that represents the domain,e.g., `314928`.
  * @prop {boolean} IsOwner Indicates whether the API user is the owner of the domain, e.g., `true`.
  * @prop {boolean} IsPremium Indicates whether the domain name is premium, e.g., `false`.
- * @prop {'Ok'|'Locked'|'Expired'} Status Indicates the status of the domain, e.g., `OK`.
- * @prop {DomainDetails} DomainDetails
- * @prop {LockDetails} LockDetails
- * @prop {Whoisguard} Whoisguard
- * @prop {PremiumDnsSubscription} PremiumDnsSubscription
- * @prop {DnsDetails} DnsDetails
- * @prop {ModificationRights} ModificationRights
+ * @prop {string} Status Indicates the status of the domain, e.g., `Ok`.
+ * Possible values: `Ok`, `Locked`, `Expired`.
+ * @prop {_namecheap.DomainDetails} DomainDetails
+ * @prop {_namecheap.LockDetails} LockDetails
+ * @prop {_namecheap.Whoisguard} Whoisguard
+ * @prop {_namecheap.PremiumDnsSubscription} PremiumDnsSubscription
+ * @prop {_namecheap.DnsDetails} DnsDetails
+ * @prop {_namecheap.ModificationRights} Modificationrights
  */
 /**
- * @typedef {_namecheap.DomainDetails} DomainDetails
+ * @typedef {_namecheap.DomainDetails} DomainDetails Primary information about the domain.
  */
 /**
- * @typedef {Object} _namecheap.DomainDetails
+ * @typedef {Object} _namecheap.DomainDetails Primary information about the domain.
  * @prop {string} CreatedDate `06/06/2018`
  * @prop {string} ExpiredDate `06/06/2019`
  * @prop {number} NumYears 1
@@ -67,14 +68,14 @@ export {}
  * @typedef {Object} _namecheap.LockDetails
  */
 /**
- * @typedef {_namecheap.Whoisguard} Whoisguard
+ * @typedef {_namecheap.Whoisguard} Whoisguard Whois information.
  */
 /**
- * @typedef {Object} _namecheap.Whoisguard
+ * @typedef {Object} _namecheap.Whoisguard Whois information.
  * @prop {boolean} Enabled `true`
  * @prop {string} ID `264991`
  * @prop {string} ExpiredDate `06/06/2019`
- * @prop {EmailDetails} EmailDetails
+ * @prop {_namecheap.EmailDetails} EmailDetails
  */
 /**
  * @typedef {_namecheap.EmailDetails} EmailDetails
@@ -87,10 +88,10 @@ export {}
  * @prop {string} WhoisGuardEmail `43b596ee817f451f98eab1d848a4051a.protect＠whoisguard.com`
  */
 /**
- * @typedef {_namecheap.PremiumDnsSubscription} PremiumDnsSubscription
+ * @typedef {_namecheap.PremiumDnsSubscription} PremiumDnsSubscription Information about the Premium DNS value-added service.
  */
 /**
- * @typedef {Object} _namecheap.PremiumDnsSubscription
+ * @typedef {Object} _namecheap.PremiumDnsSubscription Information about the Premium DNS value-added service.
  * @prop {Date} CreatedDate
  * @prop {Date} ExpirationDate
  * @prop {boolean} IsActive `false`
@@ -98,10 +99,10 @@ export {}
  * @prop {boolean} UseAutoRenew `false`
  */
 /**
- * @typedef {_namecheap.DnsDetails} DnsDetails
+ * @typedef {_namecheap.DnsDetails} DnsDetails DNS information, such as nameservers, _etc_.
  */
 /**
- * @typedef {Object} _namecheap.DnsDetails
+ * @typedef {Object} _namecheap.DnsDetails DNS information, such as nameservers, _etc_.
  * @prop {boolean} DynamicDNSStatus `false`
  * @prop {string} EmailType `FWD`
  * @prop {number} HostCount `2`
@@ -125,11 +126,11 @@ export {}
  */
 /**
  * @typedef {Object} _namecheap.GetList Options to get a list of domains. https://www.namecheap.com/support/api/methods/domains/get-list.aspx
- * @prop {'ALL'|'EXPIRING'|'EXPIRED'} [type="ALL"] The type of domains. Default `ALL`.
+ * @prop {string} [type="ALL"] The type of domains. Accepted values: `ALL`, `EXPIRING`, `EXPIRED`. Default `ALL`.
  * @prop {string} [filter] The keyword to look for in the domain list.
  * @prop {number} [page=1] The page to return. Default `1`.
  * @prop {number} [pageSize=20] The number of domains to be listed on a page. Minimum value is 10, and maximum value is 100. Default `20`.
- * @prop {'name'|'expire'|'create'} [sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. Default `create`.
+ * @prop {string} [sort="create"] The field by which to sort domains. If not given, the domains are sorted in descending order by their creation date. One of: `name`, `expire`, create`. Default `create`.
  * @prop {boolean} [desc=false] Whether to sort in descending order. Default `false`.
  */
 /**
@@ -175,10 +176,10 @@ export {}
 
 /* documentary types/api/domains/create.xml noSuppress */
 /**
- * @typedef {_namecheap.Create} Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
+ * @typedef {_namecheap.Create} Create `＠record` Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
  */
 /**
- * @typedef {Object} _namecheap.Create Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
+ * @typedef {Object} _namecheap.Create `＠record` Options to register a domain. https://www.namecheap.com/support/api/methods/domains/create.aspx
  * @prop {string} domain The domain name to register.
  * @prop {number} [years=1] The number of years to register. Default `1`.
  * @prop {string} [promo] Promotional (coupon) code for the domain. Check https://www.namecheap.com/promos/coupons/ for this month's offers.
@@ -201,10 +202,10 @@ export {}
  * @prop {number} [EapFee] The purchase fee for the premium domain during Early Access Program (EAP).
  */
 /**
- * @typedef {_namecheap.RegistrationResult} RegistrationResult Registered domain information.
+ * @typedef {_namecheap.RegistrationResult} RegistrationResult `＠record` Registered domain information.
  */
 /**
- * @typedef {Object} _namecheap.RegistrationResult Registered domain information.
+ * @typedef {Object} _namecheap.RegistrationResult `＠record` Registered domain information.
  * @prop {string} ChargedAmount Total amount charged for registration.
  * @prop {string} Domain Domain name that you are trying to register.
  * @prop {number} DomainID Unique integer value that represents the domain.

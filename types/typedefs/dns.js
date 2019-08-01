@@ -34,7 +34,7 @@ export {}
  */
 /**
  * @typedef {Object} _namecheap.DNSSetOptions `＠record` Additional options to set DNS records.
- * @prop {string} EmailType Possible values are MXE, MX, FWD, OX.
- * @prop {number} Flag Is an unsigned integer between 0 and 255. The flag value is an 8-bit number, the most significant bit of which indicates the criticality of understanding of a record by a CA. It's recommended to use '0'.
- * @prop {string} Tag A non-zero sequence of US-ASCII letters and numbers in lower case. See namecheap API page for more info.
+ * @prop {string} [EmailType] Possible values are `MXE`, `MX`, `FWD`, `OX`.
+ * @prop {number} [Flag] Is an unsigned integer between 0 and 255. The flag value is an 8-bit number, the most significant bit of which indicates the criticality of understanding of a record by a CA. It's recommended to use '0'.
+ * @prop {string} [Tag] A non-zero sequence of US-ASCII letters and numbers in lower case. See namecheap API page for more info.
  */

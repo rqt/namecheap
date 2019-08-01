@@ -24,10 +24,12 @@ _namecheap.DomainCheck
  */
 _namecheap.GetInfo
 /**
+ * The information about the domain returned by the `domains.getinfo` method.
  * @typedef {{ DomainName: string, OwnerName: string, ID: number, IsOwner: boolean, IsPremium: boolean, Status: string, DomainDetails: _namecheap.DomainDetails, LockDetails: _namecheap.LockDetails, Whoisguard: _namecheap.Whoisguard, PremiumDnsSubscription: _namecheap.PremiumDnsSubscription, DnsDetails: _namecheap.DnsDetails, Modificationrights: _namecheap.ModificationRights }}
  */
 _namecheap.DomainInfo
 /**
+ * Primary information about the domain.
  * @typedef {{ CreatedDate: string, ExpiredDate: string, NumYears: number }}
  */
 _namecheap.DomainDetails
@@ -36,6 +38,7 @@ _namecheap.DomainDetails
  */
 _namecheap.LockDetails
 /**
+ * Whois information.
  * @typedef {{ Enabled: boolean, ID: string, ExpiredDate: string, EmailDetails: _namecheap.EmailDetails }}
  */
 _namecheap.Whoisguard
@@ -44,10 +47,12 @@ _namecheap.Whoisguard
  */
 _namecheap.EmailDetails
 /**
+ * Information about the Premium DNS value-added service.
  * @typedef {{ CreatedDate: Date, ExpirationDate: Date, IsActive: boolean, SubscriptionId: number, UseAutoRenew: boolean }}
  */
 _namecheap.PremiumDnsSubscription
 /**
+ * DNS information, such as nameservers, _etc_.
  * @typedef {{ DynamicDNSStatus: boolean, EmailType: string, HostCount: number, IsFailover: boolean, IsUsingOurDNS: boolean, Nameserver: !Array<string>, ProviderType: string }}
  */
 _namecheap.DnsDetails

@@ -1,3 +1,9 @@
+## 1 August 2019
+
+### [2.4.0](https://github.com/rqt/namecheap/compare/v2.3.0...v2.4.0)
+
+- [package] Compile with [Depack](https://compiler.page).
+
 ## 27 July 2019
 
 ### [2.3.0](https://github.com/rqt/namecheap/compare/v2.2.3...v2.3.0)

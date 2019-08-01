@@ -23,7 +23,9 @@ yarn add @rqt/namecheap
 - [Progress](#progress)
 - [Copyright](#copyright)
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/0.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/0.svg?sanitize=true">
+</a></p>
 
 ## API
 
@@ -33,7 +35,9 @@ The package is available by importing its default function:
 import NameCheap from '@rqt/namecheap'
 ```
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/1.svg?sanitize=true">
+</a></p>
 
 ## `constructor(`<br/>&nbsp;&nbsp;`options: Options,`<br/>`): void`
 
@@ -49,7 +53,6 @@ __<a name="type-options">`Options`</a>__: Options for the NameCheap client.
 | sandbox   | <em>boolean</em> | Whether to use the sandbox version of the API.                                | `false` |
 
 ```js
-/* yarn example/ */
 import NameCheap from '@rqt/namecheap'
 import bosom from 'bosom'
 
@@ -116,32 +119,32 @@ Addresses: [ { AddressId: 0,
     AddressName: 'Planet Express',
     IsDefault: true } ] 
 
-Registered: { Domain: 'rqt-example-2019-7-27-22-43-56.com',
+Registered: { Domain: 'rqt-example-2019-8-2-02-13-44.com',
   Registered: true,
   ChargedAmount: '9.0600',
-  DomainID: 428997,
-  OrderID: 1546628,
-  TransactionID: 2116275,
+  DomainID: 429348,
+  OrderID: 1549920,
+  TransactionID: 2120538,
   WhoisguardEnable: true,
   FreePositiveSSL: false,
   NonRealTimeDomain: false } 
 
 Info: { Status: 'Ok',
-  ID: 428997,
-  DomainName: 'rqt-example-2019-7-27-22-43-56.com',
+  ID: 429348,
+  DomainName: 'rqt-example-2019-8-2-02-13-44.com',
   OwnerName: 'zavr',
   IsOwner: true,
   IsPremium: false,
   DomainDetails: 
-   { CreatedDate: '07/27/2019',
-     ExpiredDate: '07/27/2020',
+   { CreatedDate: '08/01/2019',
+     ExpiredDate: '08/01/2020',
      NumYears: 0 },
   Whoisguard: 
    { Enabled: 'True',
-     ID: 351570,
-     ExpiredDate: '07/27/2020',
+     ID: 351830,
+     ExpiredDate: '08/01/2020',
      EmailDetails: 
-      { WhoisGuardEmail: 'f3997e3ed115441db967fb70f3d76215.protect@whoisguard.com',
+      { WhoisGuardEmail: '9bf5db38cf0a41cfa4b94223080e4a9f.protect@whoisguard.com',
         ForwardedTo: 'zoidberg@futurama.bz',
         LastAutoEmailChangeDate: '',
         AutoEmailChangeFrequencyDays: 3 } },
@@ -162,11 +165,11 @@ Info: { Status: 'Ok',
   Modificationrights: { All: true } } 
 
 List: { domains: 
-   [ { ID: 428997,
-       Name: 'rqt-example-2019-7-27-22-43-56.com',
+   [ { ID: 429348,
+       Name: 'rqt-example-2019-8-2-02-13-44.com',
        User: 'zavr',
-       Created: '07/27/2019',
-       Expires: '07/27/2020',
+       Created: '08/01/2019',
+       Expires: '08/01/2020',
        IsExpired: false,
        IsLocked: false,
        AutoRenew: false,
@@ -178,25 +181,29 @@ List: { domains:
   PageSize: 20 }
 ```
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/2.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/2.svg?sanitize=true">
+</a></p>
 
 ## `domains`
 
-Methods to check availability, register and retrieve account domains' info. <kbd>🎟 <a href="/wiki/Domains">Read Domains Wiki</a></kbd>
+Methods to check availability, register and retrieve account domains' info. <kbd>🎟<a href="../../wiki/Domains">Read Domains Wiki</a></kbd>
 
 ## `users`
 
-Methods related to the user. <kbd>👩‍💻 <a href="/wiki/Users">Read Users Wiki</a></kbd>
+Methods related to the user. <kbd>👩‍💻<a href="../../wiki/Users">Read Users Wiki</a></kbd>
 
 ## `address`
 
-Methods to manipulate addresses. In contrast to the NameCheap API, it does not fall under the group `users`. <kbd>🏡 <a href="/wiki/Address">Read Address Wiki</a></kbd>
+Methods to manipulate addresses. In contrast to the NameCheap API, it does not fall under the group `users`. <kbd>🏡<a href="../../wiki/Address">Read Address Wiki</a></kbd>
 
 ## `dns`
 
-Methods to work with DNS records, such as getting a list of current hosts, and setting a new list. <kbd>🗺 <a href="/wiki/DNS">Read DNS Wiki</a></kbd>
+Methods to work with DNS records, such as getting a list of current hosts, and setting a new list. <kbd>🗺<a href="../../wiki/DNS">Read DNS Wiki</a></kbd>
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/3.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/3.svg?sanitize=true">
+</a></p>
 
 ## Progress
 
@@ -219,4 +226,6 @@ Methods to work with DNS records, such as getting a list of current hosts, and s
 
 [1]: https://rqt.biz
 
-<p align="center"><a href="#table-of-contents"><img src="/.documentary/section-breaks/-1.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/-1.svg?sanitize=true">
+</a></p>

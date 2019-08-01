@@ -11,7 +11,7 @@
     "mask": "yarn t test/mask",
     "test-compile": "ALAMODE_ENV=test-compile yarn test",
     "lint": "eslint .",
-    "compile": "depack-dev src/depack -o compile/namecheap.js -c -a -p -s --source_map_include_content --language_out ECMASCRIPT_2018",
+    "compile": "depack-dev src/depack -o compile/namecheap.js -c -a -p -s --source_map_include_content -O 2018",
     "doc": "NODE_DEBUG=doc doc -o README.md -n _namecheap",
     "wiki": "ALAMODE_ENV=test-compile NODE_DEBUG=doc doc wiki -W ../namecheap.wiki -n _namecheap",
     "b": "alamode src -o build -s",
@@ -65,18 +65,21 @@
   },
   "homepage": "https://nameexpensive.com",
   "devDependencies": {
+    "@rqt/aqt": "^1.3.0",
     "@wrote/read": "^1.0.4",
     "@wrote/write": "^1.0.4",
     "alamode": "^2.3.6",
-    "bosom": "^1.0.0",
+    "bosom": "^2.0.0",
     "documentary": "^1.29.0",
+    "erotic": "^2.1.1",
     "eslint-config-artdeco": "1.0.1",
+    "rqt": "^4.0.0",
     "yarn-s": "1.1.0",
     "zoroaster": "^4.1.1-alpha"
   },
-  "srcDependencies": {
-    "erotic": "^2.1.1",
-    "rexml": "^2.0.3",
-    "rqt": "^3.1.4"
-  }
+  "srcDependencies": [
+    "erotic",
+    "rexml",
+    "rqt"
+  ]
 }

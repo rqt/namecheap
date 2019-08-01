@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-             
+
 const os = require('os');
 const querystring = require('querystring');
 const https = require('https');
@@ -7,7 +7,7 @@ const http = require('http');
 const util = require('util');
 const url = require('url');
 const zlib = require('zlib');
-const stream = require('stream');             
+const stream = require('stream');
 const h = (a, b = 0, c = !1) => {
   if (0 === b && !c) {
     return a;
@@ -218,7 +218,7 @@ async function qa({l:a, j:b, m:c, host:d}, e, g = {}, f = "GET") {
   }
   g = oa(g);
   b = {ApiUser:a, ApiKey:b, UserName:a, ClientIp:c, Command:e};
-  a = {"User-Agent":"Mozilla/5.0 (Node.JS; @rqt/namecheap v2.3.0) https://github.com/rqt/namecheap"};
+  a = {"User-Agent":"Mozilla/5.0 (Node.JS; @rqt/namecheap v2.4.0) https://github.com/rqt/namecheap"};
   if ("GET" == f) {
     f = S({...b, ...g}), d = await R(`${d}/xml.response?${f}`, {headers:a});
   } else {

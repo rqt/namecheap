@@ -1,5 +1,9 @@
 ## 2 August 2019
 
+### [2.4.2](https://github.com/rqt/namecheap/compare/v2.4.1...v2.4.2)
+
+- [types] Fix premium prices types to strings in `domains.check`.
+
 ### [2.4.1](https://github.com/rqt/namecheap/compare/v2.4.0...v2.4.1)
 
 - [package] Correctly specify all externs.

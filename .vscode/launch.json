@@ -41,7 +41,7 @@
       "args": [
         // "example/run/users/get-pricing.js"
         // "example"
-        "example/run/dns/set-hosts"
+        "example/run/domains/check"
       ],
       "skipFiles": [
         "<node_internals>/**/*.js"

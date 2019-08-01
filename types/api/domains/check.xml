@@ -17,16 +17,16 @@
     <prop boolean name="IsPremiumName">
       Indicates whether the domain name is premium.
     </prop>
-    <prop boolean name="PremiumRegistrationPrice">
-      The registration price for the premium domain.
+    <prop string name="PremiumRegistrationPrice">
+      The registration price for the premium domain as returned by the API, e.g., `76.7000`.
     </prop>
-    <prop boolean name="PremiumRenewalPrice">
+    <prop string name="PremiumRenewalPrice">
       The renewal price for the premium domain.
     </prop>
-    <prop boolean name="PremiumRestorePrice">
-      The restore price for the premium domain.
+    <prop string name="PremiumRestorePrice">
+      The restore price for the premium domain as returned by the API, e.g., `206.7000`.
     </prop>
-    <prop boolean name="PremiumTransferPrice">
+    <prop string name="PremiumTransferPrice">
       The transfer price for the premium domain.
     </prop>
     <prop number name="EapFee">

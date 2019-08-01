@@ -16,10 +16,10 @@ export {}
  * @prop {string} Domain The domain name for which you wish to check availability.
  * @prop {boolean} Available Indicates whether the domain name is available for registration.
  * @prop {boolean} IsPremiumName Indicates whether the domain name is premium.
- * @prop {boolean} PremiumRegistrationPrice The registration price for the premium domain.
- * @prop {boolean} PremiumRenewalPrice The renewal price for the premium domain.
- * @prop {boolean} PremiumRestorePrice The restore price for the premium domain.
- * @prop {boolean} PremiumTransferPrice The transfer price for the premium domain.
+ * @prop {string} PremiumRegistrationPrice The registration price for the premium domain as returned by the API, e.g., `76.7000`.
+ * @prop {string} PremiumRenewalPrice The renewal price for the premium domain.
+ * @prop {string} PremiumRestorePrice The restore price for the premium domain as returned by the API, e.g., `206.7000`.
+ * @prop {string} PremiumTransferPrice The transfer price for the premium domain.
  * @prop {number} EapFee Purchase fee for the premium domain during Early Access Program (EAP)*.
  * @prop {number} IcannFee Fee charged by ICANN.
  */

@@ -13,7 +13,7 @@ var _namecheap = {}
 _namecheap.Check
 /**
  * The result of the check.
- * @typedef {{ Domain: string, Available: boolean, IsPremiumName: boolean, PremiumRegistrationPrice: boolean, PremiumRenewalPrice: boolean, PremiumRestorePrice: boolean, PremiumTransferPrice: boolean, EapFee: number, IcannFee: number }}
+ * @typedef {{ Domain: string, Available: boolean, IsPremiumName: boolean, PremiumRegistrationPrice: string, PremiumRenewalPrice: string, PremiumRestorePrice: string, PremiumTransferPrice: string, EapFee: number, IcannFee: number }}
  */
 _namecheap.DomainCheck
 
